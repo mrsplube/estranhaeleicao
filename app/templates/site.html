@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{# A moldura de estranhaeleicao.org (30/10/2026): fontes, cores (static/estranha.css)
+   e a barra do topo. Usada pela entrada (estranha.html), pelo chute e pelos
+   cenários (chute.html); a conta detalhada (apuracao.html) só pega a barra e o
+   tema por cima do CSS dela (static/tema_site.css). #}
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Estranha eleição? · 2º turno de 2026{% endblock %}</title>
+  {% block meta %}{% endblock %}
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="{{ favicon_for_path('/') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/static/site_base.css?v={{ static_v }}">
+  <link rel="stylesheet" href="/static/estranha.css?v={{ static_v }}">
+  {% block css %}{% endblock %}
+</head>
+<body class="{% block corpo_classe %}{% endblock %}">
+  {% include "site_topo.html" %}
+  {% block content %}{% endblock %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

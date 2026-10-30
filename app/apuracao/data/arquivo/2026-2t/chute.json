@@ -1,0 +1,1125 @@
+{
+ "gerado_em": "2026-10-30T18:41:48",
+ "eleitorado": 158745502,
+ "alvo": {
+  "lula": 64256232,
+  "flavio": 59826041,
+  "nenhum": 34663229
+ },
+ "tse": {
+  "lula": 64256232,
+  "flavio": 59826041,
+  "pct_lula": 51.7851828842626
+ },
+ "grupos": [
+  {
+   "id": "lula1",
+   "nome": "Votou no Lula",
+   "v": 53879538,
+   "fam": "finalistas",
+   "dica": null,
+   "dica_txt": "A pesquisa não publicou quantos mantêm o voto. Na prática, quase todo mundo mantém.",
+   "opinioes": [
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.98,
+     "flavio": 0.01,
+     "nenhum": 0.01,
+     "bruto": {
+      "lula": 98,
+      "flavio": 1,
+      "nenhum": 1,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno",
+     "texto": "98% mantêm o voto · 2% mudam"
+    },
+    {
+     "inst": "Palpite clássico",
+     "fonte": null,
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0,
+     "bruto": {
+      "lula": 100,
+      "flavio": 0,
+      "nenhum": 0,
+      "indecisos": 0
+     },
+     "texto": "Todo mundo repete o voto"
+    }
+   ],
+   "foto": {
+    "src": "/static/fotos/lula.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_(ombros)_denoise.jpg",
+    "licenca": "CC BY 2.0"
+   },
+   "apoio": {
+    "txt": "finalista",
+    "cor": "lula"
+   }
+  },
+  {
+   "id": "flavio1",
+   "nome": "Votou no Flávio",
+   "v": 56104503,
+   "fam": "finalistas",
+   "dica": null,
+   "dica_txt": "A pesquisa não publicou quantos mantêm o voto. Na prática, quase todo mundo mantém.",
+   "opinioes": [
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.01,
+     "flavio": 0.99,
+     "nenhum": 0.0,
+     "bruto": {
+      "lula": 1,
+      "flavio": 99,
+      "nenhum": 0,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno",
+     "texto": "99% mantêm o voto · 1% muda"
+    },
+    {
+     "inst": "Palpite clássico",
+     "fonte": null,
+     "lula": 0.0,
+     "flavio": 1.0,
+     "nenhum": 0.0,
+     "bruto": {
+      "lula": 0,
+      "flavio": 100,
+      "nenhum": 0,
+      "indecisos": 0
+     },
+     "texto": "Todo mundo repete o voto"
+    }
+   ],
+   "foto": {
+    "src": "/static/fotos/flavio.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:2026_FLAVIO_BOLSONARO_CANDIDATO_PRESIDENTE_TSE_(280002551544).jpg",
+    "licenca": "CC BY 4.0, TSE"
+   },
+   "apoio": {
+    "txt": "finalista",
+    "cor": "flavio"
+   }
+  },
+  {
+   "id": "cury",
+   "nome": "Votou no Augusto Cury",
+   "v": 3448396,
+   "fam": "terceira",
+   "dica": {
+    "lula": 0.3617021276595745,
+    "flavio": 0.3191489361702128,
+    "nenhum": 0.3191489361702128,
+    "bruto": {
+     "lula": 34,
+     "flavio": 30,
+     "nenhum": 30,
+     "indecisos": 6
+    }
+   },
+   "fonte": {
+    "nome": "Quaest, 10 a 13/10/2026",
+    "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+   },
+   "nota": "Cury declarou apoio ao Flávio em 08/10.",
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 10 a 13/10/2026",
+      "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+     },
+     "lula": 0.3617021276595745,
+     "flavio": 0.3191489361702128,
+     "nenhum": 0.3191489361702128,
+     "bruto": {
+      "lula": 34,
+      "flavio": 30,
+      "nenhum": 30,
+      "indecisos": 6
+     }
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.5204795204795205,
+     "flavio": 0.4235764235764236,
+     "nenhum": 0.055944055944055944,
+     "bruto": {
+      "lula": 52.1,
+      "flavio": 42.4,
+      "nenhum": 5.6,
+      "indecisos": 0
+     }
+    },
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.35,
+     "flavio": 0.41,
+     "nenhum": 0.24,
+     "bruto": {
+      "lula": 35,
+      "flavio": 41,
+      "nenhum": 24,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno"
+    }
+   ],
+   "foto": {
+    "src": "/static/fotos/cury.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:2026_ESCRITOR_AUGUSTO_CURY_CANDIDATO_PRESIDENTE_TSE_(280002551547).jpg",
+    "licenca": "CC BY 4.0, TSE"
+   },
+   "apoio": {
+    "txt": "apoiou o Flávio",
+    "cor": "flavio"
+   }
+  },
+  {
+   "id": "renan",
+   "nome": "Votou no Renan Santos",
+   "v": 2675727,
+   "fam": "terceira",
+   "dica": {
+    "lula": 0.14432989690721648,
+    "flavio": 0.41237113402061853,
+    "nenhum": 0.44329896907216493,
+    "bruto": {
+     "lula": 14,
+     "flavio": 40,
+     "nenhum": 43,
+     "indecisos": 3
+    }
+   },
+   "fonte": {
+    "nome": "Quaest, 10 a 13/10/2026",
+    "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+   },
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 10 a 13/10/2026",
+      "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+     },
+     "lula": 0.14432989690721648,
+     "flavio": 0.41237113402061853,
+     "nenhum": 0.44329896907216493,
+     "bruto": {
+      "lula": 14,
+      "flavio": 40,
+      "nenhum": 43,
+      "indecisos": 3
+     }
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.319,
+     "flavio": 0.335,
+     "nenhum": 0.34600000000000003,
+     "bruto": {
+      "lula": 31.9,
+      "flavio": 33.5,
+      "nenhum": 34.6,
+      "indecisos": 0
+     }
+    },
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.2222222222222222,
+     "flavio": 0.43434343434343436,
+     "nenhum": 0.3434343434343434,
+     "bruto": {
+      "lula": 22,
+      "flavio": 43,
+      "nenhum": 34,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno"
+    }
+   ],
+   "foto": {
+    "src": "/static/fotos/renan.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:2026_RENAN_SANTOS_CANDIDATO_PRESIDENTE_TSE_(280002540694).jpg",
+    "licenca": "CC BY 4.0, TSE"
+   },
+   "apoio": {
+    "txt": "liberou os eleitores",
+    "cor": "neutro"
+   }
+  },
+  {
+   "id": "caiado",
+   "nome": "Votou no Ronaldo Caiado",
+   "v": 2605034,
+   "fam": "terceira",
+   "dica": {
+    "lula": 0.23469387755102042,
+    "flavio": 0.42857142857142855,
+    "nenhum": 0.336734693877551,
+    "bruto": {
+     "lula": 23,
+     "flavio": 42,
+     "nenhum": 33,
+     "indecisos": 2
+    }
+   },
+   "fonte": {
+    "nome": "Quaest, 10 a 13/10/2026",
+    "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+   },
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 10 a 13/10/2026",
+      "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+     },
+     "lula": 0.23469387755102042,
+     "flavio": 0.42857142857142855,
+     "nenhum": 0.336734693877551,
+     "bruto": {
+      "lula": 23,
+      "flavio": 42,
+      "nenhum": 33,
+      "indecisos": 2
+     }
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.245,
+     "flavio": 0.698,
+     "nenhum": 0.057,
+     "bruto": {
+      "lula": 24.5,
+      "flavio": 69.8,
+      "nenhum": 5.7,
+      "indecisos": 0
+     }
+    },
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.3,
+     "flavio": 0.43,
+     "nenhum": 0.27,
+     "bruto": {
+      "lula": 30,
+      "flavio": 43,
+      "nenhum": 27,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno"
+    }
+   ],
+   "foto": {
+    "src": "/static/fotos/caiado.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:2026_RONALDO_CAIADO_CANDIDATO_PRESIDENTE_TSE_(280002551932).jpg",
+    "licenca": "CC BY 4.0, TSE"
+   },
+   "apoio": {
+    "txt": "apoiou o Flávio",
+    "cor": "flavio"
+   }
+  },
+  {
+   "id": "zema",
+   "nome": "Votou no Zema",
+   "v": 326427,
+   "fam": "terceira",
+   "dica": {
+    "lula": 0.04,
+    "flavio": 0.59,
+    "nenhum": 0.37,
+    "bruto": {
+     "lula": 4,
+     "flavio": 59,
+     "nenhum": 37,
+     "indecisos": 0
+    }
+   },
+   "fonte": {
+    "nome": "Quaest, 3 a 6/09/2026",
+    "url": "https://revistaoeste.com/politica/maioria-dos-eleitores-de-cury-renan-caiado-e-zema-votaria-em-flavio-no-2o-turno/"
+   },
+   "nota": "Pesquisa de antes do 1º turno: a de outubro não separou o Zema.",
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 3 a 6/09/2026",
+      "url": "https://revistaoeste.com/politica/maioria-dos-eleitores-de-cury-renan-caiado-e-zema-votaria-em-flavio-no-2o-turno/"
+     },
+     "lula": 0.04,
+     "flavio": 0.59,
+     "nenhum": 0.37,
+     "bruto": {
+      "lula": 4,
+      "flavio": 59,
+      "nenhum": 37,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno"
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.307,
+     "flavio": 0.613,
+     "nenhum": 0.08,
+     "bruto": {
+      "lula": 30.7,
+      "flavio": 61.3,
+      "nenhum": 8.0,
+      "indecisos": 0
+     },
+     "obs": "Zema junto com outros"
+    },
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.25,
+     "flavio": 0.48,
+     "nenhum": 0.27,
+     "bruto": {
+      "lula": 25,
+      "flavio": 48,
+      "nenhum": 27,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno"
+    }
+   ],
+   "foto": {
+    "src": "/static/fotos/zema.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:2026_ZEMA_CANDIDATO_PRESIDENTE_TSE_(280002539826).jpg",
+    "licenca": "CC BY 4.0, TSE"
+   },
+   "apoio": {
+    "txt": "apoiou o Flávio",
+    "cor": "flavio"
+   }
+  },
+  {
+   "id": "outros",
+   "nome": "Votou em outro candidato",
+   "v": 260575,
+   "fam": "terceira",
+   "dica": {
+    "lula": 0.3548387096774194,
+    "flavio": 0.40860215053763443,
+    "nenhum": 0.23655913978494625,
+    "bruto": {
+     "lula": 33,
+     "flavio": 38,
+     "nenhum": 22,
+     "indecisos": 7
+    }
+   },
+   "fonte": {
+    "nome": "Quaest, 10 a 13/10/2026",
+    "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+   },
+   "membros": 6,
+   "lista": [
+    {
+     "nome": "Samara",
+     "partido": "UP",
+     "foto": "/static/fotos/samara.jpg",
+     "apoio": {
+      "txt": "apoiou o Lula",
+      "cor": "lula"
+     },
+     "v": 122890
+    },
+    {
+     "nome": "Hertz Dias",
+     "partido": "PSTU",
+     "foto": "/static/fotos/hertz.jpg",
+     "apoio": {
+      "txt": "apoiou o Lula",
+      "cor": "lula"
+     },
+     "v": 43095
+    },
+    {
+     "nome": "Clariana Barão",
+     "partido": "DC",
+     "foto": "/static/fotos/clariana.jpg",
+     "apoio": {
+      "txt": "apoiou o Flávio",
+      "cor": "flavio"
+     },
+     "v": 40021
+    },
+    {
+     "nome": "Edmilson Costa",
+     "partido": "PCB",
+     "foto": "/static/fotos/edmilson.jpg",
+     "apoio": {
+      "txt": "apoiou o Lula",
+      "cor": "lula"
+     },
+     "v": 22681
+    },
+    {
+     "nome": "Wilson Grassi",
+     "partido": "Democrata",
+     "foto": "/static/fotos/grassi.jpg",
+     "apoio": {
+      "txt": "ficou neutro",
+      "cor": "neutro"
+     },
+     "v": 16875
+    },
+    {
+     "nome": "Rui Costa Pimenta",
+     "partido": "PCO",
+     "foto": "/static/fotos/rui.jpg",
+     "apoio": {
+      "txt": "pediu voto nulo",
+      "cor": "neutro"
+     },
+     "v": 15013
+    }
+   ],
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 10 a 13/10/2026",
+      "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+     },
+     "lula": 0.3548387096774194,
+     "flavio": 0.40860215053763443,
+     "nenhum": 0.23655913978494625,
+     "bruto": {
+      "lula": 33,
+      "flavio": 38,
+      "nenhum": 22,
+      "indecisos": 7
+     }
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.307,
+     "flavio": 0.613,
+     "nenhum": 0.08,
+     "bruto": {
+      "lula": 30.7,
+      "flavio": 61.3,
+      "nenhum": 8.0,
+      "indecisos": 0
+     },
+     "obs": "inclui o Zema"
+    }
+   ],
+   "icone": "👥"
+  },
+  {
+   "id": "bn1",
+   "nome": "Votou branco ou nulo",
+   "v": 5975047,
+   "fam": "fora",
+   "dica": {
+    "lula": 0.4387755102040816,
+    "flavio": 0.3877551020408163,
+    "nenhum": 0.17346938775510204,
+    "bruto": {
+     "lula": 43,
+     "flavio": 38,
+     "nenhum": 17,
+     "indecisos": 2
+    }
+   },
+   "fonte": {
+    "nome": "Quaest, 10 a 13/10/2026",
+    "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+   },
+   "nota": "A pesquisa junta quem anulou e quem não votou no 1º turno.",
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 10 a 13/10/2026",
+      "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+     },
+     "lula": 0.4387755102040816,
+     "flavio": 0.3877551020408163,
+     "nenhum": 0.17346938775510204,
+     "bruto": {
+      "lula": 43,
+      "flavio": 38,
+      "nenhum": 17,
+      "indecisos": 2
+     },
+     "obs": "junto com quem não votou"
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.21100000000000002,
+     "flavio": 0.387,
+     "nenhum": 0.402,
+     "bruto": {
+      "lula": 21.1,
+      "flavio": 38.7,
+      "nenhum": 40.2,
+      "indecisos": 0
+     }
+    },
+    {
+     "inst": "Datafolha",
+     "fonte": {
+      "nome": "Datafolha, 8 a 17/09/2026",
+      "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+     },
+     "lula": 0.20202020202020202,
+     "flavio": 0.1717171717171717,
+     "nenhum": 0.6262626262626263,
+     "bruto": {
+      "lula": 20,
+      "flavio": 17,
+      "nenhum": 62,
+      "indecisos": 0
+     },
+     "obs": "antes do 1º turno"
+    }
+   ],
+   "icone": "🗳️"
+  },
+  {
+   "id": "abst1",
+   "nome": "Foi votar só no 2º turno",
+   "v": 2960239,
+   "fam": "fora",
+   "dica": {
+    "lula": 0.5308641975308642,
+    "flavio": 0.4691358024691358,
+    "nenhum": 0.0
+   },
+   "fonte": {
+    "nome": "Quaest, 10 a 13/10/2026",
+    "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+   },
+   "opinioes": [
+    {
+     "inst": "Quaest",
+     "fonte": {
+      "nome": "Quaest, 10 a 13/10/2026",
+      "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+     },
+     "lula": 0.4387755102040816,
+     "flavio": 0.3877551020408163,
+     "nenhum": 0.17346938775510204,
+     "bruto": {
+      "lula": 43,
+      "flavio": 38,
+      "nenhum": 17,
+      "indecisos": 2
+     },
+     "obs": "junto com brancos e nulos"
+    },
+    {
+     "inst": "AtlasIntel",
+     "fonte": {
+      "nome": "AtlasIntel, 13 a 18/10/2026",
+      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+     },
+     "lula": 0.5564435564435565,
+     "flavio": 0.4015984015984016,
+     "nenhum": 0.04195804195804195,
+     "bruto": {
+      "lula": 55.7,
+      "flavio": 40.2,
+      "nenhum": 4.2,
+      "indecisos": 0
+     }
+    }
+   ],
+   "icone": "🗳️"
+  },
+  {
+   "id": "fora2",
+   "nome": "Faltou nos dois turnos",
+   "v": 30509428,
+   "fam": "fixo",
+   "dica": {
+    "lula": 0.0,
+    "flavio": 0.0,
+    "nenhum": 1.0
+   },
+   "opinioes": [],
+   "icone": "🏠"
+  }
+ ],
+ "pesquisa": {
+  "fatia": {
+   "lula1": {
+    "lula": 1.0,
+    "flavio": 0.0,
+    "nenhum": 0.0
+   },
+   "flavio1": {
+    "lula": 0.0,
+    "flavio": 1.0,
+    "nenhum": 0.0
+   },
+   "cury": {
+    "lula": 0.3617021276595745,
+    "flavio": 0.3191489361702128,
+    "nenhum": 0.3191489361702128
+   },
+   "renan": {
+    "lula": 0.14432989690721648,
+    "flavio": 0.41237113402061853,
+    "nenhum": 0.44329896907216493
+   },
+   "caiado": {
+    "lula": 0.23469387755102042,
+    "flavio": 0.42857142857142855,
+    "nenhum": 0.336734693877551
+   },
+   "zema": {
+    "lula": 0.04,
+    "flavio": 0.59,
+    "nenhum": 0.37
+   },
+   "outros": {
+    "lula": 0.3548387096774194,
+    "flavio": 0.40860215053763443,
+    "nenhum": 0.23655913978494625
+   },
+   "bn1": {
+    "lula": 0.4387755102040816,
+    "flavio": 0.3877551020408163,
+    "nenhum": 0.17346938775510204
+   },
+   "abst1": {
+    "lula": 0.5308641975308642,
+    "flavio": 0.4691358024691358,
+    "nenhum": 0.0
+   },
+   "fora2": {
+    "lula": 0.0,
+    "flavio": 0.0,
+    "nenhum": 1.0
+   }
+  },
+  "resultado": {
+   "lula": 60423111.476813994,
+   "flavio": 63429563.128395796,
+   "nenhum": 34892239.39479021,
+   "pct_lula": 48.78627907666705
+  }
+ },
+ "cenarios": [
+  {
+   "id": "bn-lula",
+   "titulo": "Todo branco e nulo do 1º turno virou Lula",
+   "tudo": [
+    "bn1"
+   ],
+   "fatia": {
+    "fora2": {
+     "lula": 0.0,
+     "flavio": 0.0,
+     "nenhum": 1.0
+    },
+    "lula1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "flavio1": {
+     "lula": 0.0,
+     "flavio": 1.0,
+     "nenhum": 0.0
+    },
+    "bn1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "cury": {
+     "lula": 0.3585454788937276,
+     "flavio": 0.30314575985561887,
+     "nenhum": 0.33830876125065346
+    },
+    "renan": {
+     "lula": 0.3585454788937276,
+     "flavio": 0.30314575985561887,
+     "nenhum": 0.33830876125065346
+    },
+    "caiado": {
+     "lula": 0.3585454788937276,
+     "flavio": 0.30314575985561887,
+     "nenhum": 0.33830876125065346
+    },
+    "zema": {
+     "lula": 0.3585454788937276,
+     "flavio": 0.30314575985561887,
+     "nenhum": 0.33830876125065346
+    },
+    "outros": {
+     "lula": 0.3585454788937276,
+     "flavio": 0.30314575985561887,
+     "nenhum": 0.33830876125065346
+    },
+    "abst1": {
+     "lula": 0.3585454788937276,
+     "flavio": 0.30314575985561887,
+     "nenhum": 0.33830876125065346
+    }
+   },
+   "resumo": "Os 6,0 mi que votaram branco ou nulo no 1º turno foram todos de Lula. Ainda assim faltam 4,4 mi: a terceira via e quem só votou no 2º turno teriam de dar 36% ao Lula e 30% ao Flávio.",
+   "resultado": {
+    "lula": 64256232.0,
+    "flavio": 59826041.0,
+    "nenhum": 34662641.0,
+    "pct_lula": 51.7851828842626
+   }
+  },
+  {
+   "id": "novos-lula",
+   "titulo": "Todo mundo que só votou no 2º turno foi de Lula",
+   "tudo": [
+    "abst1"
+   ],
+   "fatia": {
+    "fora2": {
+     "lula": 0.0,
+     "flavio": 0.0,
+     "nenhum": 1.0
+    },
+    "lula1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "flavio1": {
+     "lula": 0.0,
+     "flavio": 1.0,
+     "nenhum": 0.0
+    },
+    "abst1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "cury": {
+     "lula": 0.4850143932401408,
+     "flavio": 0.24337766426009824,
+     "nenhum": 0.27160794249976106
+    },
+    "renan": {
+     "lula": 0.4850143932401408,
+     "flavio": 0.24337766426009824,
+     "nenhum": 0.27160794249976106
+    },
+    "caiado": {
+     "lula": 0.4850143932401408,
+     "flavio": 0.24337766426009824,
+     "nenhum": 0.27160794249976106
+    },
+    "zema": {
+     "lula": 0.4850143932401408,
+     "flavio": 0.24337766426009824,
+     "nenhum": 0.27160794249976106
+    },
+    "outros": {
+     "lula": 0.4850143932401408,
+     "flavio": 0.24337766426009824,
+     "nenhum": 0.27160794249976106
+    },
+    "bn1": {
+     "lula": 0.4850143932401408,
+     "flavio": 0.24337766426009824,
+     "nenhum": 0.27160794249976106
+    }
+   },
+   "resumo": "Os 3,0 mi a mais do 2º turno, todos no Lula. Não chega nem perto: faltam 7,4 mi, e a terceira via e o branco/nulo teriam de dar 49% ao Lula e 24% ao Flávio.",
+   "resultado": {
+    "lula": 64256232.0,
+    "flavio": 59826041.0,
+    "nenhum": 34662641.0,
+    "pct_lula": 51.7851828842626
+   }
+  },
+  {
+   "id": "terceira-lula",
+   "titulo": "A terceira via inteira virou Lula",
+   "tudo": [
+    "cury",
+    "renan",
+    "caiado",
+    "zema",
+    "outros"
+   ],
+   "fatia": {
+    "fora2": {
+     "lula": 0.0,
+     "flavio": 0.0,
+     "nenhum": 1.0
+    },
+    "lula1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "flavio1": {
+     "lula": 0.0,
+     "flavio": 1.0,
+     "nenhum": 0.0
+    },
+    "cury": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "renan": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "caiado": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "zema": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "outros": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "bn1": {
+     "lula": 0.11869066082495848,
+     "flavio": 0.416499035397412,
+     "nenhum": 0.4648103037776295
+    },
+    "abst1": {
+     "lula": 0.11869066082495848,
+     "flavio": 0.416499035397412,
+     "nenhum": 0.4648103037776295
+    }
+   },
+   "resumo": "Os 9,3 mi de Cury, Renan, Caiado, Zema e outros, todos no Lula, mesmo com o Flávio apoiado por quatro deles. Aí o resto quase não precisa ajudar o Lula: 12% do branco/nulo e de quem só votou no 2º turno, contra 42% para o Flávio.",
+   "resultado": {
+    "lula": 64256232.0,
+    "flavio": 59826041.0,
+    "nenhum": 34662641.0,
+    "pct_lula": 51.7851828842626
+   }
+  },
+  {
+   "id": "virada",
+   "titulo": "6 em cada 100 eleitores do Flávio viraram Lula",
+   "tudo": [
+    "flavio1"
+   ],
+   "fatia": {
+    "fora2": {
+     "lula": 0.0,
+     "flavio": 0.0,
+     "nenhum": 1.0
+    },
+    "lula1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "flavio1": {
+     "lula": 0.05931035517772967,
+     "flavio": 0.9406896448222704,
+     "nenhum": 0.0
+    },
+    "cury": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    },
+    "renan": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    },
+    "caiado": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    },
+    "zema": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    },
+    "outros": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    },
+    "bn1": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    },
+    "abst1": {
+     "lula": 0.3862223511617847,
+     "flavio": 0.3862223511617847,
+     "nenhum": 0.22755529767643057
+    }
+   },
+   "resumo": "3,3 mi trocaram de lado e todo o resto se dividiu meio a meio (39% para cada um). É a virada sem nenhuma ajuda de fora.",
+   "resultado": {
+    "lula": 64256232.0,
+    "flavio": 59826041.0,
+    "nenhum": 34662641.0,
+    "pct_lula": 51.7851828842626
+   }
+  },
+  {
+   "id": "todos-igual",
+   "titulo": "Todo eleitor de fora dos dois votou igual",
+   "tudo": [],
+   "fatia": {
+    "fora2": {
+     "lula": 0.0,
+     "flavio": 0.0,
+     "nenhum": 1.0
+    },
+    "lula1": {
+     "lula": 1.0,
+     "flavio": 0.0,
+     "nenhum": 0.0
+    },
+    "flavio1": {
+     "lula": 0.0,
+     "flavio": 1.0,
+     "nenhum": 0.0
+    },
+    "cury": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    },
+    "renan": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    },
+    "caiado": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    },
+    "zema": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    },
+    "outros": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    },
+    "bn1": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    },
+    "abst1": {
+     "lula": 0.568540956620147,
+     "flavio": 0.20390374570342237,
+     "nenhum": 0.2275552976764306
+    }
+   },
+   "resumo": "Cada grupo que não votou em Lula nem Flávio no 1º turno deu 57% ao Lula e 20% ao Flávio. É o tamanho da virada: quase 3 votos para o Lula a cada 1 do Flávio.",
+   "resultado": {
+    "lula": 64256232.0,
+    "flavio": 59826041.0,
+    "nenhum": 34662641.0,
+    "pct_lula": 51.7851828842626
+   }
+  }
+ ],
+ "fontes": [
+  {
+   "nome": "Quaest, 10 a 13/10/2026",
+   "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"
+  },
+  {
+   "nome": "Quaest, 3 a 6/09/2026",
+   "url": "https://revistaoeste.com/politica/maioria-dos-eleitores-de-cury-renan-caiado-e-zema-votaria-em-flavio-no-2o-turno/"
+  },
+  {
+   "nome": "AtlasIntel, 13 a 18/10/2026",
+   "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
+  },
+  {
+   "nome": "Datafolha, 8 a 17/09/2026",
+   "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"
+  },
+  {
+   "nome": "Apoios no 2º turno",
+   "url": "https://acritica.net/eleicoes-2026/caiado-zema-e-cury-apoiam-flavio-no-2o-turno-renan-santos-libera-eleitores/"
+  },
+  {
+   "nome": "Terra, 13/10/2026",
+   "url": "https://www.terra.com.br/noticias/brasil/politica/eleicoes-2026-pco-orienta-voto-nulo-no-2-turno-da-eleicao-presidencial,6ee240a310a2fcc3dc76f9e5b34db831libdjuze.html"
+  }
+ ]
+}

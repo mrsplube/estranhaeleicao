@@ -1,0 +1,82 @@
+/* estranhaeleicao.org — a identidade do site: cores, fundo, fonte e a barra do topo.
+   Carregado por todas as páginas, inclusive a conta detalhada (/apuracao/detalhe). */
+
+:root {
+  color-scheme: dark;
+  --fundo: #0e1326;
+  --fundo-2: #131a31;
+  --cartao: #18203d;
+  --cartao-2: #202a4b;
+  --linha: #2d385e;
+  --texto: #e4e6f0;
+  --texto-2: #a9b1cf;
+  --texto-3: #7680a5;
+  --lula: #e3364a;
+  --flavio: #3b82f6;
+  --terceira: #a78bfa;
+  --destaque: #e6be55;
+  --ok: #2fb67a;
+  --parcial: #f0a63c;
+  --falso: #c77dff;
+  --sombra: 0 14px 40px rgba(0, 0, 0, .55);
+  --raio: 18px;
+  --titulo: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+/* O site é escuro sempre (30/10/2026): sem versão clara. */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 520px at 88% -12%, color-mix(in srgb, var(--flavio) 22%, transparent), transparent 70%),
+    radial-gradient(800px 520px at -12% 6%, color-mix(in srgb, var(--lula) 17%, transparent), transparent 70%),
+    radial-gradient(1200px 800px at 50% 120%, color-mix(in srgb, var(--terceira) 7%, transparent), transparent 70%),
+    var(--fundo);
+  background-attachment: fixed;
+  color: var(--texto);
+  font: 16px/1.55 "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--flavio); }
+b, strong { font-weight: 650; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ── HUD ───────────────────────────────────────────────────────────── */
+.hud {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px max(16px, calc((100% - 880px) / 2));
+  background: color-mix(in srgb, var(--fundo) 78%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--linha);
+}
+/* A marca: "estranhaeleição" em branco e amarelo (as cores do site) e, ao lado, "Entendendo 2026". */
+.hud-marca { display: flex; align-items: center; gap: 10px; margin-right: auto; white-space: nowrap; color: var(--texto); text-decoration: none; font: 700 22px/1 var(--titulo); letter-spacing: -.02em; }
+.hud-marca b { color: var(--destaque); font-weight: 700; }
+.hud-marca small { padding-left: 10px; border-left: 1px solid var(--linha); font: 400 13px/1.2 "Inter", system-ui, sans-serif; letter-spacing: .01em; color: var(--texto-3); }
+.hud-link { padding: 6px 10px; border-radius: 10px; color: var(--texto-2); font-size: 14px; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.hud-link .so-curto { display: none; }
+.hud-link:hover { color: var(--texto); background: var(--cartao); }
+.hud-link.on { color: var(--texto); background: var(--cartao-2); box-shadow: inset 0 -2px 0 var(--destaque); }
+
+@media (max-width: 480px) {
+  .hud { gap: 2px; padding-left: 12px; padding-right: 10px; }
+  .hud-marca { gap: 6px; font-size: 16px; }
+  .hud-marca small { padding-left: 6px; font-size: 10px; white-space: normal; width: 5.2em; line-height: 1.15; }
+  .hud-link { padding: 6px 8px; font-size: 13px; }
+  .hud-link .so-largo { display: none; }
+  .hud-link .so-curto { display: inline; }
+}
+
+/* Granulado bem leve por cima de tudo, e as bordas da tela mais escuras. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 99; pointer-events: none;
+  background: radial-gradient(130% 100% at 50% 40%, transparent 65%, rgba(0, 0, 0, .2) 100%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  opacity: .05; mix-blend-mode: overlay;
+}
+@media (max-width: 374px) { .hud-marca small { display: none; } }

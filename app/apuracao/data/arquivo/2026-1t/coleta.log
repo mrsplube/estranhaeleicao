@@ -1,0 +1,2367 @@
+[12:23:01] falhas: pres_br: ConnectError; gov_sc: ConnectError; sen_sc: ConnectError; est_sc: ConnectError; fed_ac: ConnectError
+[2026-10-04T12:23:17] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[2026-10-04T12:24:01] ⏭ apuracao: pulado — a rodada anterior ainda está rodando.
+[2026-10-04T13:05:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[2026-10-04T13:49:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[15:23:34] mudaram 1 (fed_am); ALESC 0.0% · falhas 0
+[15:23:49] mudaram 1 (fed_am); ALESC 0.0% · falhas 0
+[15:24:04] mudaram 1 (fed_am); ALESC 0.0% · falhas 0
+[15:34:48] mudaram 1 (fed_mg); ALESC 0.0% · falhas 0
+[2026-10-04T16:31:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[16:38:08] falhas: sen_sc: ConnectTimeout
+[17:21:49] mudaram 1 (fed_ap); ALESC 0.0% · falhas 0
+[17:22:04] mudaram 2 (pres_br, fed_ac); ALESC 0.0% · falhas 0
+[17:22:19] mudaram 4 (fed_am, fed_pa, fed_pi, fed_rr); ALESC 0.0% · falhas 0
+[17:22:34] mudaram 1 (fed_ro); ALESC 0.0% · falhas 0
+[17:22:49] mudaram 2 (fed_ap, fed_to); ALESC 0.0% · falhas 0
+[17:23:05] mudaram 4 (pres_br, gov_sc, fed_ba, fed_pe); ALESC 0.0% · falhas 0
+[17:23:20] mudaram 9 (sen_sc, est_sc, fed_al, fed_ce, fed_go, fed_ma…); ALESC 0.91% · falhas 0
+[17:23:35] mudaram 10 (fed_am, fed_df, fed_es, fed_pa, fed_pb, fed_rn…); ALESC 0.91% · falhas 0
+[17:23:50] mudaram 2 (fed_ms, fed_rj); ALESC 0.91% · falhas 0
+[17:24:05] mudaram 5 (pres_br, gov_sc, sen_sc, fed_ap, fed_mt); ALESC 0.91% · falhas 0
+[17:24:20] mudaram 8 (gov_sc, est_sc, fed_ac, fed_go, fed_mg, fed_mt…); ALESC 0.95% · falhas 0
+[17:24:35] mudaram 5 (gov_sc, est_sc, fed_ce, fed_es, fed_mt); ALESC 0.91% · falhas 0
+[17:24:50] mudaram 6 (est_sc, fed_df, fed_ma, fed_rj, fed_rn, fed_sc); ALESC 0.95% · falhas 0
+[17:25:04] mudaram 6 (est_sc, fed_am, fed_go, fed_ms, fed_pa, fed_pe); ALESC 0.98% · falhas 0
+[17:25:19] mudaram 7 (pres_br, gov_sc, fed_go, fed_mt, fed_pb, fed_pe…); ALESC 0.98% · falhas 0
+[17:25:34] mudaram 10 (sen_sc, fed_ce, fed_df, fed_es, fed_go, fed_ms…); ALESC 0.98% · falhas 0
+[17:25:49] mudaram 6 (fed_df, fed_ms, fed_pa, fed_pb, fed_pe, fed_rj); ALESC 0.98% · falhas 0
+[17:26:05] mudaram 7 (pres_br, fed_df, fed_ma, fed_ms, fed_pa, fed_rj…); ALESC 0.98% · falhas 0
+[17:26:20] mudaram 8 (pres_br, gov_sc, est_sc, fed_al, fed_go, fed_mt…); ALESC 1.09% · falhas 0
+[17:26:35] mudaram 7 (sen_sc, fed_ap, fed_ce, fed_df, fed_pa, fed_pr…); ALESC 1.09% · falhas 0
+[17:26:49] mudaram 5 (pres_br, fed_ap, fed_rj, fed_ro, fed_rr); ALESC 1.09% · falhas 0
+[17:27:05] mudaram 6 (pres_br, fed_ac, fed_ap, fed_pa, fed_rs, fed_to); ALESC 1.09% · falhas 0
+[17:27:20] mudaram 8 (pres_br, gov_sc, fed_am, fed_ce, fed_go, fed_ms…); ALESC 1.09% · falhas 0
+[17:27:35] mudaram 4 (sen_sc, fed_al, fed_es, fed_mg); ALESC 1.09% · falhas 0
+[17:27:50] mudaram 7 (sen_sc, fed_df, fed_mt, fed_pi, fed_pr, fed_rn…); ALESC 1.09% · falhas 0
+[17:28:05] mudaram 3 (sen_sc, est_sc, fed_ma); ALESC 1.17% · falhas 0
+[17:28:19] mudaram 1 (pres_br); ALESC 1.17% · falhas 0
+[17:28:34] mudaram 5 (sen_sc, fed_ap, fed_ce, fed_es, fed_pa); ALESC 1.17% · falhas 0
+[17:28:49] mudaram 5 (fed_ac, fed_ap, fed_ce, fed_es, fed_go); ALESC 1.17% · falhas 0
+[17:29:04] mudaram 10 (pres_br, est_sc, fed_ap, fed_ce, fed_df, fed_es…); ALESC 1.23% · falhas 0
+[17:29:19] mudaram 8 (pres_br, gov_sc, est_sc, fed_ma, fed_mt, fed_pe…); ALESC 1.17% · falhas 0
+[17:29:34] mudaram 5 (pres_br, est_sc, fed_pa, fed_pe, fed_rs); ALESC 1.23% · falhas 0
+[17:29:49] mudaram 6 (pres_br, fed_am, fed_pe, fed_pi, fed_sp, fed_to); ALESC 1.23% · falhas 0
+[17:30:05] mudaram 3 (pres_br, fed_al, fed_ce); ALESC 1.23% · falhas 0
+[17:30:20] mudaram 5 (pres_br, fed_al, fed_es, fed_ma, fed_pa); ALESC 1.23% · falhas 0
+[17:30:35] mudaram 6 (gov_sc, fed_al, fed_df, fed_pa, fed_pb, fed_rn); ALESC 1.23% · falhas 0
+[17:30:50] mudaram 6 (pres_br, est_sc, fed_go, fed_ma, fed_mt, fed_rj); ALESC 1.37% · falhas 0
+[17:31:05] mudaram 6 (sen_sc, est_sc, fed_ma, fed_ms, fed_pa, fed_sc); ALESC 1.23% · falhas 0
+[17:31:20] mudaram 2 (pres_br, est_sc); ALESC 1.37% · falhas 0
+[17:31:35] mudaram 4 (fed_ap, fed_df, fed_pi, fed_rr); ALESC 1.37% · falhas 0
+[17:31:50] mudaram 6 (pres_br, fed_ms, fed_mt, fed_pe, fed_pr, fed_ro); ALESC 1.37% · falhas 0
+[17:32:20] mudaram 2 (fed_ce, fed_pa); ALESC 1.37% · falhas 0
+[17:32:35] mudaram 3 (pres_br, fed_ac, fed_ma); ALESC 1.37% · falhas 0
+[17:32:50] mudaram 3 (fed_ac, fed_pb, fed_sc); ALESC 1.37% · falhas 0
+[17:33:05] mudaram 3 (fed_ac, fed_am, fed_sc); ALESC 1.37% · falhas 0
+[17:33:30] mudaram 8 (gov_sc, est_sc, fed_df, fed_es, fed_go, fed_pa…); ALESC 2.81% · falhas 0
+[17:33:35] mudaram 4 (sen_sc, fed_ba, fed_pa, fed_rs); ALESC 2.81% · falhas 0
+[17:33:50] mudaram 5 (pres_br, fed_ms, fed_pa, fed_rj, fed_rs); ALESC 2.81% · falhas 0
+[17:34:04] mudaram 3 (fed_rj, fed_rs, fed_sp); ALESC 2.81% · falhas 0
+[17:34:19] mudaram 8 (fed_ce, fed_ma, fed_mt, fed_pe, fed_rj, fed_rn…); ALESC 2.81% · falhas 0
+[17:34:34] mudaram 5 (fed_ap, fed_mg, fed_pa, fed_pi, fed_sp); ALESC 2.81% · falhas 0
+[17:34:50] mudaram 3 (fed_ac, fed_am, fed_ro); ALESC 2.81% · falhas 0
+[17:35:04] mudaram 4 (pres_br, gov_sc, fed_am, fed_pb); ALESC 2.81% · falhas 0
+[17:35:19] mudaram 9 (pres_br, gov_sc, sen_sc, fed_am, fed_go, fed_pb…); ALESC 2.81% · falhas 0
+[17:35:35] mudaram 8 (pres_br, est_sc, fed_al, fed_df, fed_es, fed_ma…); ALESC 2.99% · falhas 0
+[17:35:50] mudaram 3 (gov_sc, fed_ms, fed_mt); ALESC 2.99% · falhas 0
+[17:36:04] mudaram 4 (fed_ap, fed_pa, fed_pe, fed_pi); ALESC 2.99% · falhas 0
+[17:36:19] mudaram 3 (fed_ap, fed_rn, fed_ro); ALESC 2.99% · falhas 0
+[17:36:34] mudaram 6 (fed_ac, fed_ap, fed_ba, fed_df, fed_rn, fed_rr); ALESC 2.99% · falhas 0
+[17:36:49] mudaram 6 (fed_am, fed_es, fed_ms, fed_pb, fed_pe, fed_rn); ALESC 2.99% · falhas 0
+[17:37:05] mudaram 9 (sen_sc, est_sc, fed_ce, fed_go, fed_ma, fed_mt…); ALESC 3.67% · falhas 0
+[17:37:20] mudaram 4 (pres_br, fed_rj, fed_sc, fed_to); ALESC 3.67% · falhas 0
+[17:37:35] mudaram 7 (pres_br, gov_sc, fed_es, fed_pb, fed_pr, fed_sc…); ALESC 3.67% · falhas 0
+[17:37:50] mudaram 7 (pres_br, fed_al, fed_ce, fed_ma, fed_pa, fed_pi…); ALESC 3.67% · falhas 0
+[17:38:06] mudaram 8 (fed_ac, fed_ba, fed_df, fed_go, fed_pi, fed_rj…); ALESC 3.67% · falhas 0
+[17:38:20] mudaram 6 (fed_am, fed_ap, fed_ms, fed_pe, fed_rn, fed_ro); ALESC 3.67% · falhas 0
+[17:38:35] mudaram 6 (pres_br, fed_es, fed_pa, fed_pb, fed_pi, fed_sc); ALESC 3.67% · falhas 0
+[17:38:50] mudaram 8 (gov_sc, sen_sc, est_sc, fed_ce, fed_df, fed_ma…); ALESC 3.92% · falhas 0
+[17:39:04] mudaram 4 (fed_df, fed_mg, fed_mt, fed_sp); ALESC 3.92% · falhas 0
+[17:39:19] mudaram 6 (fed_df, fed_go, fed_ma, fed_pa, fed_pe, fed_sp); ALESC 3.92% · falhas 0
+[17:39:34] mudaram 5 (pres_br, fed_go, fed_ma, fed_pe, fed_pi); ALESC 3.92% · falhas 0
+[17:39:49] mudaram 8 (est_sc, fed_ac, fed_ap, fed_es, fed_ma, fed_ms…); ALESC 4.24% · falhas 0
+[17:40:05] mudaram 10 (pres_br, gov_sc, fed_go, fed_pe, fed_pr, fed_ro…); ALESC 4.24% · falhas 0
+[17:40:20] mudaram 7 (pres_br, sen_sc, fed_al, fed_am, fed_pa, fed_to…); ALESC 4.24% · falhas 0
+[17:40:35] mudaram 5 (pres_br, fed_al, fed_am, fed_pa, ab_br); ALESC 4.24% · falhas 0
+[17:40:50] mudaram 7 (fed_al, fed_am, fed_ba, fed_ce, fed_pa, fed_pb…); ALESC 4.24% · falhas 0
+[17:41:05] mudaram 5 (fed_df, fed_go, fed_pb, fed_rj, fed_se); ALESC 4.24% · falhas 0
+[17:41:20] mudaram 7 (fed_es, fed_ma, fed_mt, fed_pa, fed_pb, fed_pi…); ALESC 4.24% · falhas 0
+[17:41:35] mudaram 4 (fed_ap, fed_ms, fed_mt, fed_rr); ALESC 4.24% · falhas 0
+[17:41:50] mudaram 7 (pres_br, gov_sc, sen_sc, fed_mt, fed_ro, fed_rs…); ALESC 4.24% · falhas 0
+[17:42:05] mudaram 7 (pres_br, est_sc, fed_ac, fed_es, fed_pr, fed_rs…); ALESC 4.93% · falhas 0
+[17:42:21] mudaram 9 (pres_br, fed_ce, fed_df, fed_es, fed_ms, fed_pb…); ALESC 4.93% · falhas 0
+[17:42:35] mudaram 4 (fed_am, fed_es, fed_ma, fed_pi); ALESC 4.93% · falhas 0
+[17:42:50] mudaram 6 (fed_al, fed_go, fed_ma, fed_pa, fed_sp, fed_to); ALESC 4.93% · falhas 0
+[17:43:04] mudaram 4 (fed_ma, fed_pi, fed_rj, ab_br); ALESC 4.93% · falhas 0
+[17:43:19] mudaram 7 (pres_br, fed_pa, fed_pb, fed_pe, fed_pi, fed_rn…); ALESC 4.93% · falhas 0
+[17:43:34] mudaram 4 (fed_ap, fed_df, fed_pa, fed_pb); ALESC 4.93% · falhas 0
+[17:43:49] mudaram 10 (fed_ac, fed_ap, fed_ba, fed_ce, fed_df, fed_es…); ALESC 4.93% · falhas 0
+[17:44:06] mudaram 6 (fed_am, fed_ap, fed_ba, fed_df, fed_se, ab_sc); ALESC 4.93% · falhas 0
+[17:44:20] mudaram 13 (sen_sc, est_sc, fed_al, fed_ba, fed_ce, fed_es…); ALESC 5.49% · falhas 0
+[17:44:35] mudaram 10 (pres_br, fed_al, fed_df, fed_es, fed_mg, fed_ms…); ALESC 5.49% · falhas 0
+[17:44:50] mudaram 7 (gov_sc, fed_al, fed_es, fed_ms, fed_pe, fed_rj…); ALESC 5.49% · falhas 0
+[17:45:06] mudaram 4 (fed_am, fed_rj, fed_rn, fed_to); ALESC 5.49% · falhas 0
+[17:45:21] mudaram 15 (gov_sc, fed_ap, fed_ba, fed_ce, fed_es, fed_go…); ALESC 5.49% · falhas 0
+[17:45:36] mudaram 7 (gov_sc, fed_ce, fed_df, fed_go, fed_sc, ab_sc…); ALESC 5.49% · falhas 0
+[17:45:51] mudaram 7 (sen_sc, est_sc, fed_al, fed_ce, fed_es, fed_go…); ALESC 6.11% · falhas 0
+[17:46:06] mudaram 5 (fed_es, fed_pb, fed_pr, fed_rj, fed_ro); ALESC 6.11% · falhas 0
+[17:46:21] mudaram 12 (gov_sc, fed_ac, fed_ap, fed_ce, fed_go, fed_ma…); ALESC 6.11% · falhas 0
+[17:46:36] mudaram 9 (pres_br, fed_am, fed_ba, fed_df, fed_es, fed_go…); ALESC 6.11% · falhas 0
+[17:46:51] mudaram 9 (sen_sc, fed_ac, fed_al, fed_ap, fed_go, fed_ma…); ALESC 6.11% · falhas 0
+[17:47:05] mudaram 6 (gov_sc, sen_sc, est_sc, fed_pi, fed_rn, fed_rr); ALESC 6.4% · falhas 0
+[17:47:20] mudaram 10 (sen_sc, fed_am, fed_ce, fed_go, fed_mt, fed_pb…); ALESC 6.4% · falhas 0
+[17:47:35] mudaram 9 (pres_br, fed_ce, fed_df, fed_es, fed_mg, fed_pa…); ALESC 6.4% · falhas 0
+[17:47:50] mudaram 14 (gov_sc, sen_sc, est_sc, fed_ce, fed_ms, fed_pa…); ALESC 6.49% · falhas 0
+[17:48:05] mudaram 7 (fed_ma, fed_pa, fed_pb, fed_pr, fed_rr, fed_rs…); ALESC 6.49% · falhas 0
+[17:48:20] mudaram 8 (fed_am, fed_ba, fed_ma, fed_mt, fed_pb, fed_pi…); ALESC 6.49% · falhas 0
+[17:48:35] mudaram 8 (sen_sc, fed_ce, fed_es, fed_go, fed_ma, fed_ms…); ALESC 6.49% · falhas 0
+[17:48:50] mudaram 8 (gov_sc, sen_sc, fed_ac, fed_ce, fed_ms, fed_rr…); ALESC 6.49% · falhas 0
+[17:49:06] mudaram 8 (sen_sc, est_sc, fed_al, fed_ce, fed_df, fed_ms…); ALESC 6.78% · falhas 0
+[17:49:30] mudaram 7 (pres_br, fed_ac, fed_ap, fed_ma, fed_pr, fed_rj…); ALESC 6.78% · falhas 0
+[17:49:35] mudaram 5 (fed_ma, fed_pb, fed_pi, fed_rn, ab_br); ALESC 6.78% · falhas 0
+[17:49:50] mudaram 4 (fed_ma, fed_pb, fed_rs, ab_br); ALESC 6.78% · falhas 0
+[17:50:05] mudaram 7 (fed_am, fed_ce, fed_df, fed_es, fed_ms, fed_pa…); ALESC 6.78% · falhas 0
+[17:50:20] mudaram 10 (fed_ac, fed_es, fed_ma, fed_pb, fed_pe, fed_pi…); ALESC 6.78% · falhas 0
+[17:50:35] mudaram 6 (fed_ap, fed_es, fed_mt, fed_rj, fed_rr, ab_br); ALESC 6.78% · falhas 0
+[17:50:50] mudaram 15 (gov_sc, sen_sc, est_sc, fed_al, fed_ce, fed_es…); ALESC 7.26% · falhas 0
+[17:51:05] mudaram 11 (pres_br, est_sc, fed_al, fed_am, fed_ba, fed_df…); ALESC 6.78% · falhas 0
+[17:51:19] mudaram 6 (est_sc, fed_al, fed_mt, fed_pr, fed_rn, fed_se); ALESC 7.26% · falhas 0
+[17:51:35] mudaram 3 (pres_br, fed_rs, fed_to); ALESC 7.26% · falhas 0
+[17:51:49] mudaram 4 (pres_br, fed_ce, fed_df, fed_pa); ALESC 7.26% · falhas 0
+[17:52:05] mudaram 2 (fed_df, fed_mt); ALESC 7.26% · falhas 0
+[17:52:20] mudaram 5 (sen_sc, fed_df, fed_es, fed_go, ab_br); ALESC 7.26% · falhas 0
+[17:52:35] mudaram 8 (gov_sc, fed_ac, fed_ma, fed_ms, fed_pe, fed_pr…); ALESC 7.26% · falhas 0
+[17:52:50] mudaram 15 (sen_sc, est_sc, fed_ap, fed_df, fed_pa, fed_pb…); ALESC 7.75% · falhas 0
+[17:53:05] mudaram 11 (sen_sc, fed_al, fed_am, fed_ba, fed_ce, fed_ms…); ALESC 7.75% · falhas 0
+[17:53:20] mudaram 5 (fed_am, fed_ma, fed_pa, fed_pe, fed_rn); ALESC 7.75% · falhas 0
+[17:53:35] mudaram 6 (fed_am, fed_es, fed_mt, fed_pe, fed_pi, fed_to); ALESC 7.75% · falhas 0
+[17:53:50] mudaram 6 (est_sc, fed_mg, fed_mt, fed_pi, fed_rs, fed_sc); ALESC 8.29% · falhas 0
+[17:54:04] mudaram 14 (pres_br, gov_sc, est_sc, fed_ac, fed_ap, fed_ba…); ALESC 7.75% · falhas 0
+[17:54:19] mudaram 9 (pres_br, sen_sc, est_sc, fed_ac, fed_al, fed_ms…); ALESC 8.29% · falhas 0
+[17:54:34] mudaram 8 (pres_br, fed_ac, fed_al, fed_am, fed_es, fed_ma…); ALESC 8.29% · falhas 0
+[17:54:49] mudaram 13 (pres_br, fed_al, fed_am, fed_es, fed_go, fed_pa…); ALESC 8.29% · falhas 0
+[17:55:04] mudaram 7 (pres_br, fed_am, fed_ce, fed_es, fed_rj, fed_to…); ALESC 8.29% · falhas 0
+[17:55:19] mudaram 4 (fed_df, fed_ms, fed_rj, ab_br); ALESC 8.29% · falhas 0
+[17:55:34] mudaram 7 (sen_sc, fed_ma, fed_mt, fed_pa, fed_pb, fed_pe…); ALESC 8.29% · falhas 0
+[17:55:49] mudaram 10 (pres_br, gov_sc, est_sc, fed_ap, fed_es, fed_go…); ALESC 8.77% · falhas 0
+[17:56:04] mudaram 10 (pres_br, est_sc, fed_al, fed_ba, fed_ce, fed_df…); ALESC 8.29% · falhas 0
+[17:56:19] mudaram 9 (pres_br, gov_sc, est_sc, fed_ac, fed_ce, fed_pe…); ALESC 8.77% · falhas 0
+[17:56:34] mudaram 6 (gov_sc, fed_am, fed_ce, fed_pr, fed_ro, fed_rs); ALESC 8.77% · falhas 0
+[17:56:49] mudaram 6 (fed_pa, fed_pb, fed_pr, fed_se, fed_to, ab_br); ALESC 8.77% · falhas 0
+[17:57:05] mudaram 4 (fed_mt, fed_pa, fed_rn, ab_br); ALESC 8.77% · falhas 0
+[17:57:20] mudaram 2 (fed_pa, fed_pb); ALESC 8.77% · falhas 0
+[17:57:35] mudaram 12 (sen_sc, fed_ac, fed_ap, fed_ce, fed_df, fed_es…); ALESC 8.77% · falhas 0
+[17:57:50] mudaram 12 (pres_br, gov_sc, sen_sc, fed_es, fed_go, fed_pa…); ALESC 8.77% · falhas 0
+[17:58:05] mudaram 9 (sen_sc, est_sc, fed_al, fed_ms, fed_mt, fed_rn…); ALESC 9.23% · falhas 0
+[17:58:20] mudaram 7 (fed_am, fed_ce, fed_ma, fed_mg, fed_pb, fed_pi…); ALESC 9.23% · falhas 0
+[17:58:35] mudaram 8 (fed_ba, fed_ce, fed_pe, fed_pi, fed_pr, fed_rj…); ALESC 9.23% · falhas 0
+[17:58:50] mudaram 6 (fed_ap, fed_ce, fed_go, fed_ms, fed_pi, fed_rj); ALESC 9.23% · falhas 0
+[17:59:05] mudaram 7 (gov_sc, sen_sc, fed_ac, fed_ce, fed_rs, fed_sc…); ALESC 9.23% · falhas 0
+[17:59:20] mudaram 6 (est_sc, fed_ce, fed_go, fed_se, ab_sc, ab_br); ALESC 9.86% · falhas 0
+[17:59:35] mudaram 7 (fed_al, fed_am, fed_ce, fed_go, fed_pb, ab_sc…); ALESC 9.86% · falhas 0
+[17:59:50] mudaram 14 (fed_df, fed_es, fed_go, fed_ma, fed_ms, fed_mt…); ALESC 9.86% · falhas 0
+[18:00:06] mudaram 4 (fed_pb, fed_rj, fed_rs, fed_to); ALESC 9.86% · falhas 0
+[18:00:21] mudaram 7 (fed_df, fed_go, fed_pe, fed_pi, fed_rr, fed_rs…); ALESC 9.86% · falhas 0
+[18:00:36] mudaram 9 (gov_sc, est_sc, fed_ba, fed_ce, fed_df, fed_ma…); ALESC 9.94% · falhas 0
+[18:00:51] mudaram 11 (sen_sc, est_sc, fed_ac, fed_df, fed_pe, fed_pi…); ALESC 9.86% · falhas 0
+[18:01:05] mudaram 8 (est_sc, fed_am, fed_ap, fed_pa, fed_rj, fed_ro…); ALESC 9.94% · falhas 0
+[18:01:20] mudaram 3 (fed_am, fed_df, fed_rj); ALESC 9.94% · falhas 0
+[18:01:35] mudaram 7 (sen_sc, fed_am, fed_es, fed_mg, fed_pe, fed_pi…); ALESC 9.94% · falhas 0
+[18:01:50] mudaram 8 (gov_sc, sen_sc, est_sc, fed_ce, fed_go, fed_ma…); ALESC 10.22% · falhas 0
+[18:02:05] mudaram 4 (pres_br, sen_sc, fed_mt, fed_pb); ALESC 10.22% · falhas 0
+[18:02:20] mudaram 1 (fed_sp); ALESC 10.22% · falhas 0
+[18:02:35] mudaram 3 (fed_ap, fed_pr, fed_se); ALESC 10.22% · falhas 0
+[18:02:50] mudaram 4 (fed_al, fed_ba, fed_rs, fed_se); ALESC 10.22% · falhas 0
+[18:03:05] mudaram 2 (fed_ac, fed_se); ALESC 10.22% · falhas 0
+[18:03:35] mudaram 2 (fed_rn, fed_to); ALESC 10.22% · falhas 0
+[18:09:51] mudaram 1 (ab_br); ALESC 10.22% · falhas 0
+[18:10:05] mudaram 4 (fed_ce, fed_ma, fed_pe, ab_br); ALESC 10.22% · falhas 0
+[18:10:20] mudaram 3 (fed_pb, fed_rr, ab_br); ALESC 10.22% · falhas 0
+[18:10:35] mudaram 6 (fed_ac, fed_df, fed_pa, fed_pi, fed_ro, ab_br); ALESC 10.22% · falhas 0
+[18:10:50] mudaram 4 (fed_am, fed_ap, fed_ce, fed_go); ALESC 10.22% · falhas 0
+[18:11:06] mudaram 7 (pres_br, fed_pa, fed_pb, fed_pe, fed_pr, fed_sc…); ALESC 10.22% · falhas 0
+[18:11:20] mudaram 6 (gov_sc, sen_sc, fed_es, fed_ms, ab_sc, ab_br); ALESC 10.22% · falhas 0
+[18:11:35] mudaram 6 (est_sc, fed_al, fed_ap, fed_ma, fed_mt, fed_se); ALESC 11.37% · falhas 0
+[18:11:50] mudaram 4 (fed_df, fed_pi, fed_rn, fed_rr); ALESC 11.37% · falhas 0
+[18:12:05] mudaram 3 (fed_df, fed_rj, ab_br); ALESC 11.37% · falhas 0
+[18:12:20] mudaram 4 (fed_df, fed_es, fed_go, fed_pb); ALESC 11.37% · falhas 0
+[18:12:35] mudaram 12 (gov_sc, sen_sc, fed_al, fed_ce, fed_go, fed_ma…); ALESC 11.37% · falhas 0
+[18:12:50] mudaram 11 (gov_sc, sen_sc, est_sc, fed_ac, fed_ba, fed_go…); ALESC 12.93% · falhas 0
+[18:13:05] mudaram 5 (gov_sc, sen_sc, fed_ac, fed_al, fed_sc); ALESC 12.93% · falhas 0
+[18:13:20] mudaram 4 (fed_ac, fed_al, fed_mg, ab_br); ALESC 12.93% · falhas 0
+[18:13:35] mudaram 3 (fed_es, fed_rn, fed_ro); ALESC 12.93% · falhas 0
+[18:13:50] mudaram 2 (fed_mt, ab_br); ALESC 12.93% · falhas 0
+[18:14:04] mudaram 3 (sen_sc, fed_am, ab_br); ALESC 12.93% · falhas 0
+[18:14:19] mudaram 6 (gov_sc, est_sc, fed_go, fed_pe, fed_sc, ab_br); ALESC 13.92% · falhas 0
+[18:14:34] mudaram 6 (pres_br, est_sc, fed_pi, fed_pr, ab_sc, ab_br); ALESC 12.93% · falhas 0
+[18:14:49] mudaram 5 (est_sc, fed_df, fed_se, fed_to, ab_br); ALESC 13.92% · falhas 0
+[18:15:04] mudaram 3 (fed_pa, fed_rj, fed_rr); ALESC 13.92% · falhas 0
+[18:15:19] mudaram 4 (fed_al, fed_ce, fed_pb, ab_br); ALESC 13.92% · falhas 0
+[18:15:34] mudaram 4 (fed_ap, fed_ma, fed_ms, fed_mt); ALESC 13.92% · falhas 0
+[18:15:49] mudaram 3 (sen_sc, est_sc, fed_rn); ALESC 14.89% · falhas 0
+[18:16:05] mudaram 3 (sen_sc, fed_es, ab_br); ALESC 14.89% · falhas 0
+[18:16:20] mudaram 9 (gov_sc, sen_sc, fed_ac, fed_go, fed_pa, fed_pe…); ALESC 14.89% · falhas 0
+[18:16:35] mudaram 4 (fed_ro, fed_sp, ab_sc, ab_br); ALESC 14.89% · falhas 0
+[18:16:50] mudaram 5 (fed_ba, fed_ce, fed_df, fed_ro, fed_sp); ALESC 14.89% · falhas 0
+[18:17:05] mudaram 7 (pres_br, fed_am, fed_ms, fed_rj, fed_rs, fed_sp…); ALESC 14.89% · falhas 0
+[18:17:20] mudaram 3 (fed_ma, fed_pb, fed_se); ALESC 14.89% · falhas 0
+[18:17:35] mudaram 4 (fed_ma, fed_pe, fed_pi, ab_br); ALESC 14.89% · falhas 0
+[18:17:50] mudaram 4 (fed_ma, fed_pi, fed_pr, ab_br); ALESC 14.89% · falhas 0
+[18:18:05] mudaram 5 (fed_al, fed_pi, fed_pr, fed_rn, fed_to); ALESC 14.89% · falhas 0
+[18:18:20] mudaram 6 (sen_sc, est_sc, fed_ce, fed_pa, fed_pr, fed_sc); ALESC 16.71% · falhas 0
+[18:18:35] mudaram 11 (gov_sc, sen_sc, fed_ap, fed_df, fed_es, fed_go…); ALESC 16.71% · falhas 0
+[18:18:50] mudaram 6 (sen_sc, fed_ac, fed_ms, fed_pe, fed_sc, ab_br); ALESC 16.71% · falhas 0
+[18:19:05] mudaram 3 (fed_ms, fed_pe, ab_br); ALESC 16.71% · falhas 0
+[18:19:20] mudaram 5 (fed_al, fed_pi, fed_rj, fed_se, ab_br); ALESC 16.71% · falhas 0
+[18:19:35] mudaram 8 (fed_al, fed_ma, fed_ms, fed_mt, fed_pa, fed_pb…); ALESC 16.71% · falhas 0
+[18:19:50] mudaram 8 (fed_al, fed_am, fed_ba, fed_df, fed_mg, fed_ms…); ALESC 16.71% · falhas 0
+[18:20:05] mudaram 4 (fed_ce, fed_ms, fed_rn, ab_br); ALESC 16.71% · falhas 0
+[18:20:20] mudaram 5 (pres_br, fed_df, fed_go, fed_ms, fed_pe); ALESC 16.71% · falhas 0
+[18:20:35] mudaram 2 (fed_ma, ab_br); ALESC 16.71% · falhas 0
+[18:20:50] mudaram 3 (sen_sc, ab_sc, ab_br); ALESC 16.71% · falhas 0
+[18:21:04] mudaram 8 (gov_sc, sen_sc, fed_ba, fed_ms, fed_pa, fed_pi…); ALESC 16.71% · falhas 0
+[18:21:19] mudaram 8 (sen_sc, est_sc, fed_ce, fed_ms, fed_pb, fed_pr…); ALESC 18.05% · falhas 0
+[18:21:34] mudaram 8 (fed_al, fed_es, fed_ms, fed_mt, fed_pr, fed_rn…); ALESC 18.05% · falhas 0
+[18:21:49] mudaram 4 (fed_ap, fed_pe, fed_rn, ab_br); ALESC 18.05% · falhas 0
+[18:22:05] mudaram 7 (fed_ap, fed_ma, fed_rn, fed_rr, fed_rs, fed_sp…); ALESC 18.05% · falhas 0
+[18:22:20] mudaram 7 (est_sc, fed_ap, fed_go, fed_pi, fed_rj, fed_sc…); ALESC 19.6% · falhas 0
+[18:22:35] mudaram 7 (gov_sc, sen_sc, est_sc, fed_ac, fed_am, fed_df…); ALESC 18.05% · falhas 0
+[18:22:50] mudaram 2 (fed_pb, ab_sc); ALESC 18.05% · falhas 0
+[18:23:04] mudaram 3 (est_sc, fed_ce, fed_to); ALESC 19.6% · falhas 0
+[18:23:19] mudaram 3 (fed_es, fed_pe, ab_br); ALESC 19.6% · falhas 0
+[18:23:35] mudaram 4 (fed_ma, fed_ms, fed_mt, fed_se); ALESC 19.6% · falhas 0
+[18:23:49] mudaram 4 (fed_go, fed_pa, fed_pi, fed_pr); ALESC 19.6% · falhas 0
+[18:24:05] mudaram 3 (fed_ap, fed_rj, fed_rr); ALESC 19.6% · falhas 0
+[18:24:20] mudaram 8 (pres_br, gov_sc, est_sc, fed_ba, fed_pe, fed_rj…); ALESC 21.53% · falhas 0
+[18:24:35] mudaram 11 (gov_sc, sen_sc, fed_ac, fed_al, fed_ce, fed_df…); ALESC 21.53% · falhas 0
+[18:24:50] mudaram 7 (gov_sc, fed_df, fed_mg, fed_ms, fed_pb, fed_rn…); ALESC 21.53% · falhas 0
+[18:25:05] mudaram 7 (fed_df, fed_es, fed_mg, fed_ms, fed_mt, fed_pi…); ALESC 21.53% · falhas 0
+[18:25:20] mudaram 3 (fed_ma, fed_ms, ab_br); ALESC 21.53% · falhas 0
+[18:25:35] mudaram 2 (fed_am, ab_br); ALESC 21.53% · falhas 0
+[18:25:50] mudaram 4 (fed_go, fed_pa, fed_rs, ab_br); ALESC 21.53% · falhas 0
+[18:26:05] mudaram 1 (fed_ce); ALESC 21.53% · falhas 0
+[18:26:20] mudaram 9 (sen_sc, est_sc, fed_ap, fed_df, fed_pe, fed_rr…); ALESC 24.86% · falhas 0
+[18:26:39] mudaram 12 (gov_sc, sen_sc, fed_ac, fed_al, fed_ma, fed_ms…); ALESC 24.86% · falhas 0
+[18:26:50] mudaram 9 (sen_sc, fed_am, fed_ba, fed_es, fed_mt, fed_ro…); ALESC 24.86% · falhas 0
+[18:27:05] mudaram 6 (fed_ce, fed_df, fed_go, fed_pi, fed_to, ab_br); ALESC 24.86% · falhas 0
+[18:27:20] mudaram 3 (est_sc, fed_ms, ab_br); ALESC 26.17% · falhas 0
+[18:27:35] mudaram 6 (gov_sc, est_sc, fed_pe, fed_rj, fed_sc, ab_sc); ALESC 24.86% · falhas 0
+[18:27:50] mudaram 6 (sen_sc, est_sc, fed_ap, fed_mt, fed_se, ab_br); ALESC 26.17% · falhas 0
+[18:28:04] mudaram 9 (pres_br, fed_ce, fed_go, fed_ma, fed_pb, fed_rr…); ALESC 26.17% · falhas 0
+[18:28:19] mudaram 12 (gov_sc, fed_ac, fed_al, fed_am, fed_ap, fed_ma…); ALESC 26.17% · falhas 0
+[18:28:35] mudaram 13 (gov_sc, sen_sc, fed_ap, fed_es, fed_ma, fed_pa…); ALESC 26.17% · falhas 0
+[18:28:49] mudaram 8 (gov_sc, est_sc, fed_df, fed_ms, fed_pr, fed_rj…); ALESC 27.43% · falhas 0
+[18:29:05] mudaram 8 (fed_ba, fed_ce, fed_ma, fed_mt, fed_pb, fed_pe…); ALESC 27.43% · falhas 0
+[18:29:30] mudaram 3 (fed_al, fed_to, ab_br); ALESC 27.43% · falhas 0
+[18:29:35] mudaram 7 (fed_df, fed_es, fed_rn, fed_ro, fed_rr, fed_se…); ALESC 27.43% · falhas 0
+[18:29:50] mudaram 3 (fed_ac, fed_pa, ab_br); ALESC 27.43% · falhas 0
+[18:30:05] mudaram 6 (fed_ac, fed_ap, fed_go, fed_pb, fed_rj, fed_sp); ALESC 27.43% · falhas 0
+[18:30:20] mudaram 8 (fed_ac, fed_ms, fed_mt, fed_pe, fed_rs, fed_sc…); ALESC 27.43% · falhas 0
+[18:30:35] mudaram 6 (gov_sc, sen_sc, est_sc, fed_am, fed_ce, fed_pi); ALESC 29.83% · falhas 0
+[18:30:50] mudaram 6 (fed_al, fed_df, fed_ma, fed_se, fed_to, ab_br); ALESC 29.83% · falhas 0
+[18:31:04] mudaram 3 (fed_al, fed_pr, fed_rn); ALESC 29.83% · falhas 0
+[18:31:19] mudaram 8 (fed_al, fed_go, fed_mg, fed_ms, fed_mt, fed_pi…); ALESC 29.83% · falhas 0
+[18:31:34] mudaram 7 (fed_ac, fed_ap, fed_ce, fed_ma, fed_mt, fed_pa…); ALESC 29.83% · falhas 0
+[18:31:49] mudaram 13 (fed_am, fed_ap, fed_ba, fed_df, fed_es, fed_mt…); ALESC 29.83% · falhas 0
+[18:32:14] mudaram 8 (gov_sc, est_sc, fed_ap, fed_ms, fed_mt, fed_sc…); ALESC 31.97% · falhas 0
+[18:32:20] mudaram 6 (gov_sc, sen_sc, fed_sc, fed_se, ab_sc, ab_br); ALESC 31.97% · falhas 0
+[18:32:34] mudaram 8 (gov_sc, fed_al, fed_go, fed_ma, fed_pa, fed_pb…); ALESC 31.97% · falhas 0
+[18:32:50] mudaram 2 (fed_rn, ab_br); ALESC 31.97% · falhas 0
+[18:33:19] mudaram 10 (gov_sc, fed_ac, fed_am, fed_ce, fed_es, fed_pe…); ALESC 31.97% · falhas 0
+[18:33:23] mudaram 5 (fed_es, fed_go, fed_ms, fed_mt, fed_rs); ALESC 31.97% · falhas 0
+[18:33:38] mudaram 15 (pres_br, sen_sc, est_sc, fed_ac, fed_al, fed_ap…); ALESC 33.33% · falhas 0
+[18:33:53] mudaram 14 (sen_sc, est_sc, fed_ba, fed_ce, fed_ms, fed_mt…); ALESC 31.97% · falhas 0
+[18:34:06] mudaram 8 (sen_sc, est_sc, fed_pa, fed_rj, fed_rn, fed_se…); ALESC 33.33% · falhas 0
+[18:34:21] mudaram 4 (fed_am, fed_pr, fed_se, fed_to); ALESC 33.33% · falhas 0
+[18:34:35] mudaram 1 (fed_pr); ALESC 33.33% · falhas 0
+[18:34:51] mudaram 1 (fed_pr); ALESC 33.33% · falhas 0
+[18:35:06] mudaram 52 (gov_ac, gov_al, gov_am, gov_ap, gov_ba, gov_ce…); ALESC 33.33% · falhas 0
+[18:35:20] mudaram 13 (gov_sc, fed_ba, fed_ce, fed_df, fed_go, fed_pr…); ALESC 33.33% · falhas 0
+[18:35:36] mudaram 32 (gov_sc, fed_ac, fed_ce, fed_es, fed_ma, fed_ms…); ALESC 33.33% · falhas 0
+[18:35:50] mudaram 29 (sen_sc, est_sc, fed_ap, fed_ce, fed_mt, fed_pb…); ALESC 35.87% · falhas 0
+[18:36:05] mudaram 17 (gov_sc, fed_am, fed_mg, fed_mt, fed_rj, ab_br…); ALESC 35.87% · falhas 0
+[18:36:20] mudaram 9 (fed_al, fed_ro, fed_sp, gov_rn, sen_al, sen_am…); ALESC 35.87% · falhas 0
+[18:36:35] mudaram 8 (fed_df, fed_rj, fed_rn, ab_br, gov_sp, sen_am…); ALESC 35.87% · falhas 0
+[18:36:50] mudaram 8 (fed_df, fed_go, fed_pb, fed_rj, ab_br, gov_ce…); ALESC 35.87% · falhas 0
+[18:37:06] mudaram 13 (fed_ce, fed_df, fed_ms, fed_pa, fed_pb, gov_go…); ALESC 35.87% · falhas 0
+[18:37:21] mudaram 16 (fed_mt, fed_pb, fed_pe, fed_pi, gov_ac, gov_mt…); ALESC 35.87% · falhas 0
+[18:37:36] mudaram 18 (gov_sc, fed_ac, fed_pe, fed_rr, ab_br, gov_ac…); ALESC 35.87% · falhas 0
+[18:37:51] mudaram 14 (est_sc, fed_am, fed_pe, gov_ac, gov_am, gov_ce…); ALESC 37.14% · falhas 0
+[18:38:15] mudaram 21 (sen_sc, fed_al, fed_am, fed_ap, fed_es, fed_pb…); ALESC 37.14% · falhas 0
+[18:38:20] mudaram 15 (fed_al, fed_am, fed_ce, fed_df, fed_go, fed_ma…); ALESC 37.14% · falhas 0
+[18:38:35] mudaram 13 (fed_al, fed_pr, ab_br, gov_ba, gov_mt, sen_ba…); ALESC 37.14% · falhas 0
+[18:38:51] mudaram 26 (fed_ac, fed_ba, fed_ms, fed_pi, fed_rr, fed_se…); ALESC 37.14% · falhas 0
+[18:39:06] mudaram 29 (pres_br, fed_am, fed_ap, fed_es, fed_ma, fed_mt…); ALESC 37.14% · falhas 0
+[18:39:20] mudaram 16 (sen_sc, fed_am, fed_pa, fed_pe, fed_ro, fed_rs…); ALESC 37.14% · falhas 0
+[18:39:36] mudaram 23 (est_sc, fed_am, fed_ce, fed_df, fed_ms, fed_pi…); ALESC 39.65% · falhas 0
+[18:39:50] mudaram 22 (gov_sc, fed_al, fed_df, fed_ma, fed_ms, fed_pa…); ALESC 39.65% · falhas 0
+[18:40:05] mudaram 26 (fed_al, fed_df, fed_es, fed_go, fed_ma, fed_ms…); ALESC 39.65% · falhas 0
+[18:40:20] mudaram 21 (fed_al, fed_am, fed_df, fed_ma, fed_mg, fed_pa…); ALESC 39.65% · falhas 0
+[18:40:35] mudaram 30 (fed_am, fed_ap, fed_ba, fed_ce, fed_go, fed_ms…); ALESC 39.65% · falhas 0
+[18:40:50] mudaram 18 (fed_am, fed_mt, fed_ro, fed_sc, gov_df, gov_go…); ALESC 39.65% · falhas 0
+[18:41:07] mudaram 16 (gov_sc, sen_sc, est_sc, fed_ma, fed_pa, fed_se…); ALESC 41.72% · falhas 0
+[18:41:21] mudaram 16 (fed_df, fed_pe, fed_rn, fed_sc, fed_se, gov_ce…); ALESC 41.72% · falhas 0
+[18:41:37] mudaram 27 (fed_al, fed_ce, fed_df, fed_es, fed_go, fed_ms…); ALESC 41.72% · falhas 0
+[18:41:51] mudaram 18 (fed_ac, fed_am, fed_ap, fed_df, fed_rr, ab_br…); ALESC 41.72% · falhas 0
+[18:42:05] mudaram 20 (fed_ma, fed_pa, fed_pe, fed_rj, fed_ro, fed_to…); ALESC 41.72% · falhas 0
+[18:42:30] mudaram 16 (sen_sc, est_sc, fed_mt, fed_pi, fed_pr, fed_sc…); ALESC 43.17% · falhas 0
+[18:42:35] mudaram 21 (fed_al, fed_ce, fed_df, fed_mt, fed_pi, ab_sc…); ALESC 43.17% · falhas 0
+[18:42:50] mudaram 26 (gov_sc, fed_ap, fed_go, fed_ms, fed_mt, fed_pb…); ALESC 43.17% · falhas 0
+[18:43:05] mudaram 33 (fed_ac, fed_ap, fed_ba, fed_es, fed_mt, fed_pa…); ALESC 43.17% · falhas 0
+[18:43:20] mudaram 20 (est_sc, fed_ap, fed_df, fed_pb, fed_pe, fed_rj…); ALESC 44.47% · falhas 0
+[18:43:35] mudaram 20 (fed_am, fed_df, fed_ma, fed_pe, fed_pi, fed_rs…); ALESC 44.47% · falhas 0
+[18:43:50] mudaram 23 (gov_sc, sen_sc, fed_df, fed_es, fed_mg, fed_rs…); ALESC 44.47% · falhas 0
+[18:44:06] mudaram 21 (fed_al, fed_am, fed_ce, fed_mg, fed_ms, fed_mt…); ALESC 44.47% · falhas 0
+[18:44:21] mudaram 15 (fed_ap, fed_es, fed_mg, fed_rj, gov_al, gov_ce…); ALESC 44.47% · falhas 0
+[18:44:35] mudaram 21 (fed_ce, fed_es, fed_go, fed_pa, fed_to, ab_br…); ALESC 44.47% · falhas 0
+[18:44:52] mudaram 19 (pres_br, fed_ba, fed_ce, fed_df, fed_mt, fed_pb…); ALESC 44.47% · falhas 0
+[18:45:06] mudaram 24 (gov_sc, fed_ba, fed_es, fed_ms, fed_pe, fed_pi…); ALESC 44.47% · falhas 0
+[18:45:30] mudaram 17 (sen_sc, est_sc, fed_ap, fed_ba, fed_ce, fed_go…); ALESC 46.69% · falhas 0
+[18:45:36] mudaram 19 (fed_ap, fed_ce, fed_ma, gov_ac, gov_ap, gov_ce…); ALESC 46.69% · falhas 0
+[18:45:51] mudaram 25 (fed_ac, fed_ce, fed_df, fed_ma, fed_ms, fed_mt…); ALESC 46.69% · falhas 0
+[18:46:07] mudaram 19 (fed_al, fed_am, fed_ap, fed_ce, fed_mt, fed_pa…); ALESC 46.69% · falhas 0
+[18:46:21] mudaram 19 (sen_sc, fed_ap, fed_ce, fed_go, fed_ma, fed_mt…); ALESC 46.69% · falhas 0
+[18:46:36] mudaram 19 (gov_sc, est_sc, fed_am, fed_ce, fed_es, fed_ma…); ALESC 48.68% · falhas 0
+[18:46:51] mudaram 25 (fed_al, fed_ce, fed_ma, fed_pb, fed_pr, fed_rj…); ALESC 48.68% · falhas 0
+[18:47:06] mudaram 24 (fed_ms, fed_pa, fed_rn, fed_rs, fed_to, ab_br…); ALESC 48.68% · falhas 0
+[18:47:21] mudaram 31 (gov_sc, fed_ac, fed_ba, fed_ce, fed_df, fed_ma…); ALESC 48.68% · falhas 0
+[18:47:36] mudaram 17 (fed_ac, fed_ap, fed_df, fed_mt, fed_rj, fed_rs…); ALESC 48.68% · falhas 0
+[18:47:51] mudaram 28 (sen_sc, est_sc, fed_ac, fed_ap, fed_es, fed_go…); ALESC 50.82% · falhas 0
+[18:48:06] mudaram 24 (fed_ap, fed_mt, fed_pa, fed_pb, fed_pe, fed_rj…); ALESC 50.82% · falhas 0
+[18:48:21] mudaram 22 (gov_sc, est_sc, fed_al, fed_am, fed_ap, fed_ma…); ALESC 52.19% · falhas 0
+[18:48:36] mudaram 26 (sen_sc, fed_ac, fed_ce, fed_ma, fed_mt, fed_pr…); ALESC 52.19% · falhas 0
+[18:48:51] mudaram 24 (gov_sc, est_sc, fed_am, fed_ba, fed_go, fed_ma…); ALESC 50.82% · falhas 0
+[18:49:16] mudaram 29 (gov_sc, est_sc, fed_am, fed_df, fed_es, fed_mt…); ALESC 52.19% · falhas 0
+[18:49:22] mudaram 18 (fed_am, fed_ce, fed_pa, fed_pe, gov_ba, gov_ce…); ALESC 52.19% · falhas 0
+[18:49:37] mudaram 17 (gov_sc, sen_sc, fed_ce, fed_ms, fed_rs, fed_sc…); ALESC 52.19% · falhas 0
+[2026-10-04T18:49:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[18:50:06] mudaram 29 (gov_sc, est_sc, fed_al, fed_ap, fed_ce, fed_df…); ALESC 52.64% · falhas 0
+[18:50:20] mudaram 28 (fed_ma, fed_ms, fed_pa, fed_pb, fed_pe, fed_pi…); ALESC 52.64% · falhas 0
+[18:50:36] mudaram 19 (fed_ac, fed_am, fed_es, fed_pb, fed_pr, fed_rj…); ALESC 52.64% · falhas 0
+[18:50:51] mudaram 18 (pres_br, fed_am, fed_ce, fed_pr, fed_rj, ab_br…); ALESC 52.64% · falhas 0
+[18:51:08] mudaram 14 (gov_sc, fed_ba, fed_pa, fed_sc, ab_sc, ab_br…); ALESC 52.64% · falhas 0
+[18:51:23] mudaram 16 (sen_sc, est_sc, fed_al, fed_ba, fed_df, fed_pe…); ALESC 55.11% · falhas 0
+[18:51:38] mudaram 26 (fed_ba, fed_go, fed_mg, fed_pe, fed_pi, fed_se…); ALESC 55.11% · falhas 0
+[18:51:53] mudaram 17 (fed_es, fed_go, fed_pb, fed_pe, fed_rj, fed_rn…); ALESC 55.11% · falhas 0
+[18:52:08] mudaram 12 (fed_ac, fed_go, fed_rr, ab_ac, ab_ap, ab_es…); ALESC 55.11% · falhas 0
+[18:52:23] mudaram 6 (fed_ap, fed_pr, ab_rr, gov_ac, gov_ap, sen_ac); ALESC 55.11% · falhas 0
+[18:52:38] mudaram 3 (ab_pr, gov_ac, sen_rr); ALESC 55.11% · falhas 0
+[18:53:37] mudaram 3 (ab_sp, gov_sp, sen_sp); ALESC 55.11% · falhas 0
+[18:53:52] mudaram 1 (fed_sp); ALESC 55.11% · falhas 0
+[18:54:53] mudaram 2 (ab_ap, sen_ap); ALESC 55.11% · falhas 0
+[18:55:08] mudaram 8 (fed_ap, ab_ap, ab_es, ab_rr, gov_ap, gov_es…); ALESC 55.11% · falhas 0
+[18:55:23] mudaram 16 (fed_ce, fed_df, fed_es, fed_rr, ab_ap, ab_df…); ALESC 55.11% · falhas 0
+[18:55:38] mudaram 23 (fed_pa, fed_pb, fed_ro, ab_ce, ab_go, ab_ms…); ALESC 55.11% · falhas 0
+[18:55:54] mudaram 20 (sen_sc, fed_ms, fed_pb, fed_sc, ab_am, ab_ma…); ALESC 55.11% · falhas 0
+[18:56:09] mudaram 24 (gov_sc, fed_am, fed_go, fed_ma, fed_mt, fed_pb…); ALESC 55.11% · falhas 0
+[18:56:24] mudaram 14 (est_sc, fed_es, fed_pa, fed_pr, fed_sc, ab_sc…); ALESC 56.62% · falhas 0
+[18:56:40] mudaram 17 (fed_ce, fed_df, fed_es, fed_pb, ab_sc, ab_br…); ALESC 56.62% · falhas 0
+[18:56:54] mudaram 27 (fed_es, fed_ms, fed_pb, ab_ap, ab_ba, ab_ma…); ALESC 56.62% · falhas 0
+[18:57:08] mudaram 37 (gov_sc, sen_sc, est_sc, fed_al, fed_ap, fed_ba…); ALESC 57.86% · falhas 0
+[18:57:23] mudaram 31 (fed_am, fed_es, fed_go, fed_mt, fed_rn, fed_sp…); ALESC 57.86% · falhas 0
+[18:57:38] mudaram 30 (fed_ac, fed_am, fed_ce, fed_ma, fed_mt, fed_pa…); ALESC 57.86% · falhas 0
+[18:57:53] mudaram 20 (fed_am, fed_ce, fed_mt, fed_to, ab_es, ab_pb…); ALESC 57.86% · falhas 0
+[18:58:11] mudaram 17 (fed_ce, fed_mt, fed_rs, fed_se, ab_br, ab_es…); ALESC 57.86% · falhas 0
+[18:58:24] mudaram 29 (gov_sc, sen_sc, fed_ap, fed_go, fed_ma, fed_pb…); ALESC 57.86% · falhas 0
+[18:58:38] mudaram 31 (fed_ap, fed_go, fed_ma, fed_pe, fed_rn, fed_sc…); ALESC 57.86% · falhas 0
+[18:58:53] mudaram 35 (gov_sc, est_sc, fed_ac, fed_am, fed_ap, fed_ba…); ALESC 59.3% · falhas 0
+[18:59:10] mudaram 27 (gov_sc, fed_al, fed_am, fed_df, fed_mt, fed_ro…); ALESC 59.3% · falhas 0
+[18:59:24] mudaram 22 (fed_am, fed_df, fed_ma, fed_pa, fed_pb, ab_df…); ALESC 59.3% · falhas 0
+[18:59:43] mudaram 35 (fed_ce, fed_es, fed_go, fed_mg, fed_pa, fed_pi…); ALESC 59.3% · falhas 0
+[18:59:58] mudaram 30 (gov_sc, fed_al, fed_ap, fed_mt, fed_pa, fed_pb…); ALESC 59.3% · falhas 0
+[2026-10-04T18:59:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[19:00:20] mudaram 36 (gov_sc, est_sc, fed_ac, fed_ap, fed_df, fed_ms…); ALESC 61.78% · falhas 0
+[19:00:24] mudaram 30 (gov_sc, sen_sc, fed_ap, fed_ba, fed_es, fed_go…); ALESC 61.78% · falhas 0
+[19:00:40] mudaram 32 (fed_am, fed_ba, fed_df, fed_pa, fed_pe, fed_pr…); ALESC 61.78% · falhas 0
+[19:00:55] mudaram 30 (fed_ac, fed_ap, fed_ba, fed_ce, fed_df, fed_ma…); ALESC 61.78% · falhas 0
+[19:01:09] mudaram 32 (est_sc, fed_ap, fed_go, fed_ma, fed_mt, fed_pi…); ALESC 62.74% · falhas 0
+[19:01:24] mudaram 44 (gov_sc, sen_sc, fed_al, fed_ap, fed_ce, fed_df…); ALESC 62.74% · falhas 0
+[19:01:38] mudaram 26 (fed_ma, fed_pe, fed_ro, fed_sc, ab_br, ab_al…); ALESC 62.74% · falhas 0
+[19:01:54] mudaram 26 (gov_sc, sen_sc, est_sc, fed_df, fed_go, fed_mg…); ALESC 64.83% · falhas 0
+[19:02:08] mudaram 16 (fed_mt, fed_pi, fed_pr, ab_br, ab_mg, ab_pi…); ALESC 64.83% · falhas 0
+[19:02:24] mudaram 21 (gov_sc, est_sc, fed_pb, ab_br, ab_ap, ab_ce…); ALESC 62.74% · falhas 0
+[19:02:38] mudaram 31 (gov_sc, est_sc, fed_ac, fed_ap, fed_df, fed_pa…); ALESC 64.83% · falhas 0
+[2026-10-04T19:02:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[19:03:08] mudaram 32 (est_sc, fed_df, fed_es, fed_go, fed_ms, fed_mt…); ALESC 66.73% · falhas 0
+[19:03:24] mudaram 13 (fed_am, fed_go, fed_ms, fed_mt, ab_al, ab_am…); ALESC 66.73% · falhas 0
+[19:03:38] mudaram 15 (fed_mt, fed_pa, fed_to, ab_go, ab_mt, ab_pa…); ALESC 66.73% · falhas 0
+[2026-10-04T19:03:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[19:04:10] mudaram 18 (fed_ce, fed_df, fed_go, fed_ma, fed_ms, fed_pi…); ALESC 66.73% · falhas 0
+[19:04:24] mudaram 20 (fed_ce, fed_df, fed_es, fed_mt, fed_pb, fed_pe…); ALESC 66.73% · falhas 0
+[19:04:39] mudaram 16 (gov_sc, sen_sc, est_sc, fed_al, fed_rj, fed_sc…); ALESC 68.73% · falhas 0
+[19:04:54] mudaram 17 (fed_ac, fed_am, fed_ro, fed_rr, ab_ac, ab_pa…); ALESC 68.73% · falhas 0
+[19:05:09] mudaram 15 (fed_ac, fed_ap, fed_ba, fed_go, fed_pe, ab_sc…); ALESC 68.73% · falhas 0
+[19:05:23] mudaram 29 (fed_ac, fed_am, fed_ce, fed_ma, fed_pa, fed_pe…); ALESC 68.73% · falhas 0
+[19:05:38] mudaram 28 (fed_am, fed_ce, fed_es, fed_ma, fed_mt, fed_pe…); ALESC 68.73% · falhas 0
+[19:05:54] mudaram 23 (fed_ce, fed_df, fed_ma, fed_ms, fed_mt, fed_pb…); ALESC 68.73% · falhas 0
+[19:06:07] mudaram 8 (fed_go, fed_mt, fed_pr, ab_mt, ab_rj, gov_ms…); ALESC 68.73% · falhas 0
+[19:06:23] mudaram 27 (est_sc, fed_ac, fed_ap, fed_df, fed_ms, fed_pa…); ALESC 70.81% · falhas 0
+[19:06:38] mudaram 25 (gov_sc, fed_ms, fed_pe, fed_pr, fed_rr, ab_ac…); ALESC 70.81% · falhas 0
+[19:06:53] mudaram 22 (sen_sc, fed_al, fed_ce, fed_es, fed_mg, fed_ms…); ALESC 70.81% · falhas 0
+[19:07:09] mudaram 27 (fed_al, fed_ma, fed_pb, fed_pi, fed_se, ab_sc…); ALESC 70.81% · falhas 0
+[19:07:24] mudaram 22 (fed_al, fed_am, fed_ba, fed_es, fed_pa, fed_pb…); ALESC 70.81% · falhas 0
+[19:07:38] mudaram 23 (fed_ms, fed_pe, fed_pi, fed_rj, fed_rs, ab_br…); ALESC 70.81% · falhas 0
+[19:07:54] mudaram 30 (gov_sc, est_sc, fed_ce, fed_go, fed_ma, ab_sc…); ALESC 72.82% · falhas 0
+[19:08:08] mudaram 23 (sen_sc, fed_pi, fed_sc, fed_se, ab_br, ab_ce…); ALESC 72.82% · falhas 0
+[19:08:23] mudaram 25 (est_sc, fed_df, fed_mt, fed_pi, fed_rn, fed_sc…); ALESC 70.81% · falhas 0
+[19:08:38] mudaram 19 (est_sc, fed_al, fed_sc, fed_se, ab_br, gov_ce…); ALESC 72.82% · falhas 0
+[19:08:53] mudaram 19 (fed_go, fed_pa, fed_pi, ab_go, ab_pa, ab_pb…); ALESC 72.82% · falhas 0
+[19:09:08] mudaram 26 (sen_sc, est_sc, fed_ap, fed_ce, fed_df, fed_pi…); ALESC 73.66% · falhas 0
+[19:09:23] mudaram 28 (gov_sc, sen_sc, est_sc, fed_es, fed_ma, fed_ms…); ALESC 72.82% · falhas 0
+[19:09:38] mudaram 13 (sen_sc, est_sc, fed_ac, fed_am, fed_mt, ab_am…); ALESC 73.66% · falhas 0
+[19:09:52] mudaram 14 (fed_ce, fed_df, fed_se, ab_br, ab_se, gov_ac…); ALESC 73.66% · falhas 0
+[19:10:09] mudaram 21 (fed_al, fed_df, fed_pb, fed_pr, fed_rs, ab_ce…); ALESC 73.66% · falhas 0
+[19:10:14] municípios est: 139 mudaram, 0 falharam
+[19:10:17] municípios fed: 56 mudaram, 0 falharam
+[19:10:24] mudaram 23 (fed_ce, fed_df, fed_go, fed_mt, fed_pr, fed_rs…); ALESC 73.66% · falhas 0
+[19:10:39] mudaram 33 (gov_sc, fed_ap, fed_ba, fed_ce, fed_ma, fed_mt…); ALESC 73.66% · falhas 0
+[19:10:54] mudaram 18 (sen_sc, fed_es, fed_ms, fed_mt, fed_rr, ab_ac…); ALESC 73.66% · falhas 0
+[19:11:08] mudaram 17 (sen_sc, est_sc, fed_mt, fed_pi, fed_rj, fed_rn…); ALESC 76.57% · falhas 0
+[19:11:24] mudaram 10 (sen_sc, fed_ac, fed_mt, fed_pb, fed_rr, fed_sc…); ALESC 76.57% · falhas 0
+[19:11:40] mudaram 8 (fed_ce, fed_df, fed_sp, ab_br, ab_ce, gov_am…); ALESC 76.57% · falhas 0
+[19:11:54] mudaram 22 (fed_am, fed_df, fed_ma, fed_pb, ab_am, ab_pb…); ALESC 76.57% · falhas 0
+[19:12:09] mudaram 13 (fed_df, fed_ma, fed_pb, fed_pi, fed_se, ab_br…); ALESC 76.57% · falhas 0
+[19:12:14] municípios est: 39 mudaram, 0 falharam
+[19:12:16] municípios fed: 29 mudaram, 0 falharam
+[19:12:24] mudaram 23 (fed_go, fed_ms, fed_mt, fed_pa, fed_pe, fed_to…); ALESC 76.57% · falhas 0
+[19:12:39] mudaram 15 (fed_al, fed_ma, ab_br, ab_al, ab_go, ab_se…); ALESC 76.57% · falhas 0
+[19:12:55] mudaram 21 (sen_sc, est_sc, fed_ap, fed_ce, fed_es, fed_pi…); ALESC 78.24% · falhas 0
+[19:13:19] mudaram 34 (gov_sc, sen_sc, fed_ac, fed_ap, fed_ba, fed_pb…); ALESC 78.24% · falhas 0
+[19:13:25] mudaram 30 (sen_sc, fed_ap, fed_ma, fed_pe, fed_ro, fed_rs…); ALESC 78.24% · falhas 0
+[19:13:41] mudaram 39 (fed_al, fed_df, fed_mg, fed_ms, fed_pa, fed_rr…); ALESC 78.24% · falhas 0
+[19:13:56] mudaram 24 (fed_am, fed_go, fed_ms, fed_mt, fed_pi, fed_se…); ALESC 78.24% · falhas 0
+[19:14:07] municípios est: 41 mudaram, 0 falharam
+[19:14:11] mudaram 16 (fed_ce, fed_ms, fed_pb, fed_to, ab_mt, ab_pb…); ALESC 78.24% · falhas 0
+[19:14:17] municípios fed: 44 mudaram, 0 falharam
+[19:14:26] mudaram 7 (fed_rr, ab_br, ab_ce, gov_ce, sen_pi, sen_ro…); ALESC 78.24% · falhas 0
+[19:14:40] mudaram 15 (sen_sc, est_sc, fed_ac, fed_am, fed_se, ab_ap…); ALESC 81.63% · falhas 0
+[19:14:54] mudaram 34 (pres_br, gov_sc, sen_sc, est_sc, fed_al, fed_ap…); ALESC 78.24% · falhas 0
+[19:15:08] mudaram 33 (pres_br, sen_sc, est_sc, fed_ce, fed_go, fed_pa…); ALESC 81.63% · falhas 0
+[19:15:23] mudaram 31 (pres_br, fed_go, fed_ma, fed_mt, fed_pa, fed_rs…); ALESC 81.63% · falhas 0
+[19:15:38] mudaram 22 (fed_go, fed_ms, fed_mt, fed_pa, fed_to, ab_ba…); ALESC 81.63% · falhas 0
+[19:15:53] mudaram 22 (fed_ba, fed_mt, fed_pr, fed_rn, fed_to, ab_br…); ALESC 81.63% · falhas 0
+[19:16:06] municípios est: 20 mudaram, 0 falharam
+[19:16:09] mudaram 12 (fed_es, fed_pa, fed_rj, ab_ba, ab_go, ab_pa…); ALESC 81.63% · falhas 0
+[19:16:16] municípios fed: 39 mudaram, 0 falharam
+[19:16:24] mudaram 24 (gov_sc, est_sc, fed_ac, fed_ms, fed_pa, fed_pb…); ALESC 82.86% · falhas 0
+[19:16:41] mudaram 30 (sen_sc, fed_al, fed_ap, fed_ce, fed_pe, fed_pi…); ALESC 82.86% · falhas 0
+[19:16:55] mudaram 51 (fed_ap, fed_es, fed_ma, fed_ms, fed_mt, fed_pa…); ALESC 82.86% · falhas 0
+[19:17:09] mudaram 28 (fed_am, fed_ap, fed_ba, fed_es, fed_go, fed_ms…); ALESC 82.86% · falhas 0
+[19:17:34] mudaram 34 (gov_sc, fed_am, fed_ce, fed_es, fed_pi, fed_pr…); ALESC 82.86% · falhas 0
+[19:17:39] mudaram 23 (sen_sc, est_sc, fed_ap, fed_ce, fed_es, fed_pb…); ALESC 83.45% · falhas 0
+[19:17:59] mudaram 22 (est_sc, fed_ce, fed_ma, fed_mt, fed_pa, fed_pe…); ALESC 82.86% · falhas 0
+[19:18:09] mudaram 20 (est_sc, fed_ma, ab_sc, ab_br, ab_al, ab_am…); ALESC 83.45% · falhas 0
+[19:18:14] municípios est: 59 mudaram, 0 falharam
+[19:18:24] mudaram 10 (fed_al, fed_go, fed_se, gov_al, gov_am, gov_ma…); ALESC 83.45% · falhas 0
+[19:18:24] municípios fed: 44 mudaram, 0 falharam
+[19:18:39] mudaram 4 (fed_ma, gov_se, sen_al, sen_go); ALESC 83.45% · falhas 0
+[19:18:53] mudaram 1 (ab_br); ALESC 83.45% · falhas 0
+[19:20:06] municípios est: 0 mudaram, 0 falharam
+[19:20:09] municípios fed: 0 mudaram, 0 falharam
+[19:22:14] municípios est: 0 mudaram, 0 falharam
+[19:22:19] municípios fed: 0 mudaram, 0 falharam
+[19:24:13] municípios est: 0 mudaram, 0 falharam
+[19:24:24] municípios fed: 0 mudaram, 0 falharam
+[19:26:06] municípios est: 0 mudaram, 0 falharam
+[19:26:11] municípios fed: 0 mudaram, 0 falharam
+[19:28:13] municípios est: 0 mudaram, 0 falharam
+[19:28:18] municípios fed: 0 mudaram, 0 falharam
+[19:29:09] mudaram 1 (gov_ac); ALESC 83.45% · falhas 0
+[19:29:25] mudaram 10 (gov_sc, fed_ac, gov_df, gov_ma, gov_pi, sen_ac…); ALESC 83.45% · falhas 0
+[19:29:38] mudaram 29 (fed_ce, fed_pa, fed_pi, fed_pr, fed_rr, ab_sc…); ALESC 83.45% · falhas 0
+[19:29:54] mudaram 26 (est_sc, fed_ap, fed_df, fed_ma, fed_ms, fed_mt…); ALESC 93.14% · falhas 0
+[19:30:09] mudaram 21 (sen_sc, fed_ba, fed_es, fed_go, fed_mt, fed_ro…); ALESC 93.14% · falhas 0
+[19:30:14] municípios est: 33 mudaram, 0 falharam
+[19:30:24] mudaram 21 (fed_ba, fed_mg, fed_mt, fed_rj, fed_sp, ab_br…); ALESC 93.14% · falhas 0
+[19:30:24] municípios fed: 44 mudaram, 0 falharam
+[19:30:38] mudaram 12 (fed_al, fed_am, fed_ba, fed_rj, fed_sp, ab_al…); ALESC 93.14% · falhas 0
+[19:30:53] mudaram 4 (fed_rj, fed_sp, ab_sp, sen_mg); ALESC 93.14% · falhas 0
+[19:31:08] mudaram 1 (ab_br); ALESC 93.14% · falhas 0
+[19:31:23] mudaram 1 (ab_br); ALESC 93.14% · falhas 0
+[19:31:54] mudaram 5 (fed_pb, ab_pb, gov_to, sen_ms, sen_pb); ALESC 93.14% · falhas 0
+[19:32:07] municípios est: 61 mudaram, 0 falharam
+[19:32:17] municípios fed: 54 mudaram, 0 falharam
+[19:32:19] mudaram 6 (ab_pb, gov_ms, gov_pb, sen_ms, sen_pb, sen_to); ALESC 93.14% · falhas 0
+[19:32:25] mudaram 10 (fed_ms, fed_to, ab_br, ab_ms, ab_mt, ab_pb…); ALESC 93.14% · falhas 0
+[19:32:40] mudaram 12 (fed_rn, fed_rr, ab_ac, ab_to, gov_ac, gov_go…); ALESC 93.14% · falhas 0
+[19:32:55] mudaram 14 (fed_ac, fed_go, fed_mt, fed_ro, ab_ac, ab_pr…); ALESC 93.14% · falhas 0
+[19:33:09] mudaram 11 (gov_sc, fed_pi, fed_pr, fed_sc, ab_sc, ab_br…); ALESC 93.14% · falhas 0
+[19:33:24] mudaram 18 (sen_sc, est_sc, fed_am, fed_ap, fed_pb, ab_sc…); ALESC 93.84% · falhas 0
+[19:33:38] mudaram 18 (est_sc, fed_ms, fed_pb, fed_rs, ab_sc, ab_pb…); ALESC 93.14% · falhas 0
+[2026-10-04T19:33:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[19:34:12] mudaram 16 (est_sc, fed_mt, fed_pa, fed_pb, fed_to, ab_ms…); ALESC 93.84% · falhas 0
+[19:34:14] municípios est: 42 mudaram, 0 falharam
+[19:34:20] municípios fed: 35 mudaram, 0 falharam
+[19:34:24] mudaram 10 (fed_ce, fed_pe, ab_ce, ab_pe, gov_ce, gov_ma…); ALESC 93.84% · falhas 0
+[19:34:39] mudaram 12 (fed_al, fed_es, fed_ma, fed_rn, ab_al, ab_ma…); ALESC 93.84% · falhas 0
+[19:34:54] mudaram 10 (fed_al, fed_rj, fed_se, ab_rn, gov_pe, gov_rj…); ALESC 93.84% · falhas 0
+[19:35:08] mudaram 10 (fed_al, ab_es, ab_rj, gov_al, gov_es, gov_pe…); ALESC 93.84% · falhas 0
+[19:35:24] mudaram 2 (ab_rj, gov_se); ALESC 93.84% · falhas 0
+[19:35:38] mudaram 1 (ab_rj); ALESC 93.84% · falhas 0
+[19:36:13] municípios est: 2 mudaram, 0 falharam
+[19:36:19] municípios fed: 2 mudaram, 0 falharam
+[19:37:39] mudaram 1 (ab_ba); ALESC 93.84% · falhas 0
+[19:37:54] mudaram 1 (sen_ba); ALESC 93.84% · falhas 0
+[19:38:08] mudaram 2 (fed_ba, gov_ba); ALESC 93.84% · falhas 0
+[19:38:11] municípios est: 0 mudaram, 0 falharam
+[19:38:18] municípios fed: 0 mudaram, 0 falharam
+[19:38:53] mudaram 4 (fed_mg, fed_sp, ab_sp, sen_mg); ALESC 93.84% · falhas 0
+[19:39:08] mudaram 6 (fed_mg, fed_sp, ab_mg, gov_mg, gov_sp, sen_sp); ALESC 93.84% · falhas 0
+[19:39:38] mudaram 2 (fed_mg, fed_sp); ALESC 93.84% · falhas 0
+[19:40:06] municípios est: 0 mudaram, 0 falharam
+[19:40:11] municípios fed: 0 mudaram, 0 falharam
+[19:42:14] municípios est: 0 mudaram, 0 falharam
+[19:42:19] municípios fed: 0 mudaram, 0 falharam
+[19:44:06] municípios est: 0 mudaram, 0 falharam
+[19:44:16] municípios fed: 0 mudaram, 0 falharam
+[19:46:06] municípios est: 0 mudaram, 0 falharam
+[19:46:08] municípios fed: 0 mudaram, 0 falharam
+[19:46:25] mudaram 4 (ab_go, ab_ma, ab_ms, ab_pb); ALESC 93.84% · falhas 0
+[19:46:40] mudaram 5 (ab_br, ab_ma, ab_ms, ab_pb, ab_pi); ALESC 93.84% · falhas 0
+[19:46:53] mudaram 9 (ab_ba, ab_ce, ab_ma, ab_mg, ab_ms, ab_mt…); ALESC 93.84% · falhas 0
+[19:47:08] mudaram 5 (ab_al, ab_am, ab_ap, ab_ba, ab_mg); ALESC 93.84% · falhas 0
+[19:47:27] mudaram 5 (ab_ba, ab_mg, ab_pa, ab_rn, ab_rs); ALESC 93.84% · falhas 0
+[19:47:39] mudaram 3 (ab_sc, ab_es, ab_rj); ALESC 93.84% · falhas 0
+[19:47:53] mudaram 1 (ab_sc); ALESC 93.84% · falhas 0
+[19:48:08] mudaram 2 (ab_sc, ab_pr); ALESC 93.84% · falhas 0
+[19:48:09] municípios est: 0 mudaram, 0 falharam
+[19:48:19] municípios fed: 0 mudaram, 0 falharam
+[19:48:38] mudaram 1 (ab_sp); ALESC 93.84% · falhas 0
+[19:50:08] municípios est: 0 mudaram, 0 falharam
+[19:50:11] municípios fed: 0 mudaram, 0 falharam
+[19:52:06] municípios est: 0 mudaram, 0 falharam
+[19:52:10] municípios fed: 0 mudaram, 0 falharam
+[19:54:08] municípios est: 0 mudaram, 0 falharam
+[19:54:11] municípios fed: 0 mudaram, 0 falharam
+[19:56:14] municípios est: 0 mudaram, 0 falharam
+[19:56:16] municípios fed: 0 mudaram, 0 falharam
+[19:58:14] municípios est: 0 mudaram, 0 falharam
+[19:58:24] municípios fed: 0 mudaram, 0 falharam
+[20:00:10] municípios est: 0 mudaram, 0 falharam
+[20:00:12] municípios fed: 0 mudaram, 0 falharam
+[20:02:14] municípios est: 0 mudaram, 0 falharam
+[20:02:24] municípios fed: 0 mudaram, 0 falharam
+[20:02:53] mudaram 3 (gov_pr, gov_rs, sen_pr); ALESC 93.84% · falhas 0
+[20:03:08] mudaram 5 (fed_pb, gov_ce, gov_ma, sen_pi, sen_rs); ALESC 93.84% · falhas 0
+[20:03:23] mudaram 9 (fed_ce, fed_ma, fed_pe, gov_pe, sen_ce, sen_ma…); ALESC 93.84% · falhas 0
+[20:03:38] mudaram 8 (fed_ap, fed_ba, fed_ce, fed_pi, gov_ce, gov_pi…); ALESC 93.84% · falhas 0
+[20:03:53] mudaram 7 (fed_ce, gov_ba, gov_ce, gov_pb, sen_ba, sen_pe…); ALESC 93.84% · falhas 0
+[20:04:07] municípios est: 0 mudaram, 0 falharam
+[20:04:09] mudaram 10 (fed_am, fed_ap, fed_es, fed_go, gov_ap, gov_ms…); ALESC 93.84% · falhas 0
+[20:04:17] municípios fed: 0 mudaram, 0 falharam
+[20:04:24] mudaram 12 (sen_sc, fed_ap, fed_rj, gov_es, gov_go, gov_mt…); ALESC 93.84% · falhas 0
+[20:04:38] mudaram 12 (fed_al, fed_ms, fed_mt, fed_pa, fed_sc, fed_se…); ALESC 93.84% · falhas 0
+[20:04:53] mudaram 18 (gov_sc, fed_rs, ab_br, ab_al, ab_rn, gov_al…); ALESC 93.84% · falhas 0
+[20:05:08] mudaram 4 (est_sc, fed_pr, ab_br, ab_rn); ALESC 93.86% · falhas 0
+[20:05:23] mudaram 5 (pres_br, fed_rn, ab_br, ab_rn, gov_rn); ALESC 93.86% · falhas 0
+[20:05:38] mudaram 6 (ab_br, gov_ce, gov_pb, gov_rn, sen_ce, sen_pe); ALESC 93.86% · falhas 0
+[20:05:53] mudaram 13 (fed_ce, fed_go, fed_pa, fed_pi, ab_br, ab_pa…); ALESC 93.86% · falhas 0
+[20:06:06] municípios est: 3 mudaram, 0 falharam
+[20:06:08] municípios fed: 3 mudaram, 0 falharam
+[20:06:09] mudaram 19 (fed_ma, fed_pb, fed_pe, fed_rr, fed_sc, ab_ce…); ALESC 93.86% · falhas 0
+[20:06:23] mudaram 18 (gov_sc, sen_sc, fed_go, fed_ma, fed_pi, ab_sc…); ALESC 93.86% · falhas 0
+[20:06:38] mudaram 14 (est_sc, fed_al, fed_go, fed_ma, fed_pi, fed_rs…); ALESC 94.81% · falhas 0
+[20:06:53] mudaram 14 (fed_am, fed_to, ab_ce, ab_rj, ab_rs, ab_se…); ALESC 94.81% · falhas 0
+[20:07:08] mudaram 14 (fed_ce, fed_rj, fed_rn, fed_se, fed_sp, ab_am…); ALESC 94.81% · falhas 0
+[20:07:23] mudaram 7 (fed_ba, ab_rn, ab_sp, gov_am, gov_ba, gov_to…); ALESC 94.81% · falhas 0
+[20:07:38] mudaram 1 (gov_ba); ALESC 94.81% · falhas 0
+[20:08:08] mudaram 4 (fed_es, fed_pa, sen_ma, sen_pi); ALESC 94.81% · falhas 0
+[20:08:09] municípios est: 2 mudaram, 0 falharam
+[20:08:14] municípios fed: 2 mudaram, 0 falharam
+[20:08:24] mudaram 19 (fed_ma, fed_pb, fed_pi, ab_ma, ab_ms, ab_pa…); ALESC 94.81% · falhas 0
+[20:08:38] mudaram 18 (fed_ma, fed_pb, fed_pi, fed_rj, ab_ma, ab_pi…); ALESC 94.81% · falhas 0
+[20:08:54] mudaram 35 (sen_sc, est_sc, fed_ap, fed_ba, fed_ce, fed_ma…); ALESC 95.53% · falhas 0
+[20:09:08] mudaram 21 (fed_am, fed_go, fed_rn, fed_rr, fed_sc, ab_sc…); ALESC 95.53% · falhas 0
+[20:09:23] mudaram 25 (gov_sc, fed_pb, fed_rn, fed_se, ab_sc, ab_ma…); ALESC 95.53% · falhas 0
+[20:09:38] mudaram 18 (fed_ma, fed_pe, fed_pi, fed_rn, ab_al, ab_rr…); ALESC 95.53% · falhas 0
+[20:09:53] mudaram 16 (fed_ac, ab_ac, ab_es, ab_pi, ab_pr, ab_rj…); ALESC 95.53% · falhas 0
+[20:10:07] municípios est: 10 mudaram, 0 falharam
+[20:10:09] mudaram 4 (fed_al, fed_rs, gov_rs, sen_al); ALESC 95.53% · falhas 0
+[20:10:10] municípios fed: 12 mudaram, 0 falharam
+[20:10:24] mudaram 2 (fed_pr, sen_pr); ALESC 95.53% · falhas 0
+[20:10:39] mudaram 1 (sen_pr); ALESC 95.53% · falhas 0
+[20:10:54] mudaram 1 (gov_sp); ALESC 95.53% · falhas 0
+[20:11:08] mudaram 8 (fed_df, fed_pa, gov_df, gov_pe, sen_ma, sen_pb…); ALESC 95.53% · falhas 0
+[20:11:23] mudaram 19 (pres_br, fed_df, fed_es, fed_ma, fed_ms, fed_pe…); ALESC 95.53% · falhas 0
+[20:11:38] mudaram 18 (pres_br, sen_sc, fed_pe, fed_rj, ab_df, ab_ma…); ALESC 95.53% · falhas 0
+[20:11:53] mudaram 35 (pres_br, fed_df, fed_mt, fed_pe, fed_pr, fed_rj…); ALESC 95.53% · falhas 0
+[20:12:08] mudaram 38 (pres_br, gov_sc, est_sc, fed_ac, fed_am, fed_ap…); ALESC 96.0% · falhas 0
+[20:12:10] municípios est: 2 mudaram, 0 falharam
+[20:12:16] municípios fed: 3 mudaram, 0 falharam
+[20:12:23] mudaram 30 (pres_br, fed_pe, fed_pi, fed_ro, fed_sc, ab_sc…); ALESC 96.0% · falhas 0
+[20:12:38] mudaram 24 (pres_br, fed_ce, fed_ma, fed_pa, fed_pb, fed_rs…); ALESC 96.0% · falhas 0
+[20:12:53] mudaram 30 (gov_sc, sen_sc, fed_al, fed_go, fed_mt, fed_rn…); ALESC 96.0% · falhas 0
+[20:13:08] mudaram 15 (fed_ac, fed_go, fed_pb, fed_rj, ab_br, ab_ac…); ALESC 96.0% · falhas 0
+[20:13:23] mudaram 22 (pres_br, est_sc, fed_es, fed_go, fed_ma, fed_pe…); ALESC 96.1% · falhas 0
+[20:13:38] mudaram 30 (fed_al, fed_am, fed_ba, fed_ce, fed_ma, fed_pi…); ALESC 96.1% · falhas 0
+[20:13:53] mudaram 25 (pres_br, fed_al, fed_ce, fed_df, fed_ma, fed_pa…); ALESC 96.1% · falhas 0
+[20:14:08] mudaram 21 (pres_br, sen_sc, fed_al, fed_ce, fed_mt, fed_rn…); ALESC 96.1% · falhas 0
+[20:14:13] municípios est: 11 mudaram, 0 falharam
+[20:14:18] municípios fed: 8 mudaram, 0 falharam
+[20:14:23] mudaram 13 (gov_sc, fed_go, fed_ma, fed_pa, fed_pb, ab_sc…); ALESC 96.1% · falhas 0
+[20:14:38] mudaram 16 (pres_br, fed_mg, fed_pb, fed_pe, ab_br, ab_mg…); ALESC 96.1% · falhas 0
+[20:14:53] mudaram 29 (fed_ce, fed_go, fed_ma, fed_pb, fed_pi, fed_pr…); ALESC 96.1% · falhas 0
+[20:15:08] mudaram 21 (pres_br, fed_am, fed_ma, fed_rj, ab_br, ab_al…); ALESC 96.1% · falhas 0
+[20:15:23] mudaram 8 (est_sc, fed_am, fed_pa, ab_go, ab_pa, gov_ce…); ALESC 97.21% · falhas 0
+[20:15:49] mudaram 23 (fed_al, fed_am, fed_ma, fed_pb, fed_pe, fed_pi…); ALESC 97.21% · falhas 0
+[20:15:54] mudaram 20 (sen_sc, fed_ma, fed_ms, fed_pb, fed_pe, fed_rn…); ALESC 97.21% · falhas 0
+[20:16:08] municípios est: 12 mudaram, 0 falharam
+[20:16:08] mudaram 29 (gov_sc, fed_ce, fed_ma, fed_mt, fed_pb, fed_sc…); ALESC 97.21% · falhas 0
+[20:16:14] municípios fed: 12 mudaram, 0 falharam
+[20:16:27] mudaram 30 (pres_br, fed_ac, fed_pe, fed_rj, fed_se, ab_ba…); ALESC 97.21% · falhas 0
+[20:16:38] mudaram 27 (fed_ba, fed_pa, fed_pr, fed_ro, ab_ac, ab_ap…); ALESC 97.21% · falhas 0
+[20:16:53] mudaram 39 (pres_br, fed_al, fed_ap, fed_es, fed_go, fed_ms…); ALESC 97.21% · falhas 0
+[20:17:08] mudaram 37 (pres_br, gov_sc, sen_sc, est_sc, fed_am, fed_mt…); ALESC 97.31% · falhas 0
+[20:17:23] mudaram 18 (pres_br, sen_sc, fed_ma, fed_rj, fed_sc, ab_ac…); ALESC 97.31% · falhas 0
+[20:17:38] mudaram 17 (sen_sc, fed_go, fed_pa, fed_rj, ab_mt, ab_rj…); ALESC 97.31% · falhas 0
+[20:17:53] mudaram 32 (pres_br, gov_sc, sen_sc, fed_ac, fed_al, fed_am…); ALESC 97.31% · falhas 0
+[20:18:14] municípios est: 8 mudaram, 0 falharam
+[20:18:18] mudaram 23 (pres_br, est_sc, fed_mg, fed_mt, fed_pe, fed_pi…); ALESC 97.52% · falhas 0
+[20:18:23] mudaram 19 (pres_br, fed_ce, fed_rj, fed_rs, ab_br, ab_pe…); ALESC 97.52% · falhas 0
+[20:18:24] municípios fed: 7 mudaram, 0 falharam
+[20:18:38] mudaram 18 (fed_go, fed_ma, fed_pa, fed_rn, fed_rs, ab_ba…); ALESC 97.52% · falhas 0
+[20:18:53] mudaram 16 (sen_sc, fed_ba, ab_sc, ab_br, ab_al, ab_am…); ALESC 97.52% · falhas 0
+[20:19:08] mudaram 26 (pres_br, fed_al, fed_am, fed_mt, fed_pi, fed_rj…); ALESC 97.52% · falhas 0
+[20:19:23] mudaram 27 (pres_br, gov_sc, est_sc, fed_ce, fed_pa, fed_rj…); ALESC 97.6% · falhas 0
+[20:19:38] mudaram 15 (fed_go, fed_rj, fed_ro, ab_br, ab_am, ab_go…); ALESC 97.6% · falhas 0
+[20:19:53] mudaram 24 (fed_am, fed_ba, fed_pb, fed_ro, fed_rs, ab_br…); ALESC 97.6% · falhas 0
+[20:20:08] municípios est: 9 mudaram, 0 falharam
+[20:20:10] mudaram 20 (pres_br, sen_sc, est_sc, fed_ma, fed_mt, fed_pa…); ALESC 97.74% · falhas 0
+[20:20:13] municípios fed: 10 mudaram, 0 falharam
+[20:20:24] mudaram 12 (gov_sc, fed_go, fed_pe, fed_rj, ab_br, gov_go…); ALESC 97.74% · falhas 0
+[20:20:39] mudaram 16 (fed_al, fed_ce, fed_pi, ab_br, ab_ac, ab_ce…); ALESC 97.74% · falhas 0
+[20:20:54] mudaram 26 (pres_br, fed_ac, fed_am, fed_ma, fed_pa, fed_se…); ALESC 97.74% · falhas 0
+[20:21:08] mudaram 20 (fed_am, fed_pe, fed_pi, fed_rj, ab_br, ab_pa…); ALESC 97.74% · falhas 0
+[20:21:23] mudaram 28 (pres_br, gov_sc, sen_sc, est_sc, fed_ac, fed_am…); ALESC 97.79% · falhas 0
+[20:21:38] mudaram 22 (pres_br, fed_ac, fed_go, fed_pi, fed_rj, fed_rn…); ALESC 97.79% · falhas 0
+[20:21:53] mudaram 26 (est_sc, fed_ac, fed_ap, fed_ba, fed_go, fed_ma…); ALESC 97.74% · falhas 0
+[20:22:06] municípios est: 5 mudaram, 0 falharam
+[20:22:08] municípios fed: 5 mudaram, 0 falharam
+[20:22:09] mudaram 31 (pres_br, est_sc, fed_al, fed_am, fed_ap, fed_pa…); ALESC 97.79% · falhas 0
+[20:22:24] mudaram 18 (fed_al, fed_go, fed_pa, fed_pb, ab_br, ab_al…); ALESC 97.79% · falhas 0
+[20:22:38] mudaram 23 (pres_br, gov_sc, sen_sc, est_sc, fed_al, fed_ce…); ALESC 97.88% · falhas 0
+[20:22:53] mudaram 16 (sen_sc, fed_ma, fed_pa, fed_pb, fed_pe, fed_rj…); ALESC 97.88% · falhas 0
+[20:23:08] mudaram 18 (pres_br, fed_pe, fed_pi, fed_rj, fed_sc, ab_br…); ALESC 97.88% · falhas 0
+[20:23:23] mudaram 9 (sen_sc, fed_rj, ab_am, ab_ma, ab_rj, gov_am…); ALESC 97.88% · falhas 0
+[20:23:38] mudaram 7 (pres_br, fed_am, fed_se, ab_br, ab_pi, sen_ba…); ALESC 97.88% · falhas 0
+[20:23:53] mudaram 13 (pres_br, fed_al, fed_ba, fed_ce, ab_br, ab_pa…); ALESC 97.88% · falhas 0
+[20:24:06] municípios est: 8 mudaram, 0 falharam
+[20:24:08] municípios fed: 8 mudaram, 0 falharam
+[20:24:09] mudaram 14 (pres_br, fed_ap, fed_ma, fed_pa, ab_ba, ab_ce…); ALESC 97.88% · falhas 0
+[20:24:24] mudaram 32 (pres_br, est_sc, fed_ac, fed_ap, fed_go, fed_pe…); ALESC 98.01% · falhas 0
+[20:24:39] mudaram 28 (gov_sc, sen_sc, est_sc, fed_ap, fed_df, fed_ma…); ALESC 97.88% · falhas 0
+[20:24:54] mudaram 16 (est_sc, fed_ma, fed_mg, fed_mt, fed_pe, ab_sc…); ALESC 98.01% · falhas 0
+[20:25:08] mudaram 19 (fed_am, fed_mg, fed_mt, fed_pa, fed_pi, fed_rr…); ALESC 98.01% · falhas 0
+[20:25:23] mudaram 21 (pres_br, sen_sc, fed_ce, fed_mg, fed_mt, ab_sc…); ALESC 98.01% · falhas 0
+[20:25:38] mudaram 15 (fed_es, fed_pe, ab_sc, ab_ce, ab_es, ab_se…); ALESC 98.01% · falhas 0
+[20:25:53] mudaram 15 (gov_sc, fed_al, fed_ma, fed_pe, fed_rn, fed_sc…); ALESC 98.01% · falhas 0
+[20:26:09] mudaram 21 (pres_br, fed_mt, fed_pe, fed_pi, fed_sc, fed_se…); ALESC 98.01% · falhas 0
+[20:26:09] municípios est: 6 mudaram, 0 falharam
+[20:26:11] municípios fed: 7 mudaram, 0 falharam
+[20:26:24] mudaram 27 (gov_sc, fed_ce, fed_pa, fed_rr, fed_sc, ab_br…); ALESC 98.01% · falhas 0
+[20:26:38] mudaram 21 (pres_br, gov_sc, sen_sc, est_sc, fed_ap, fed_go…); ALESC 98.05% · falhas 0
+[20:26:54] mudaram 23 (gov_sc, fed_ac, fed_am, fed_ba, fed_mt, fed_pe…); ALESC 98.05% · falhas 0
+[20:27:08] mudaram 15 (pres_br, fed_rj, ab_br, ab_al, ab_ma, ab_mt…); ALESC 98.05% · falhas 0
+[20:27:23] mudaram 21 (pres_br, gov_sc, fed_al, fed_ma, fed_pa, fed_rj…); ALESC 98.05% · falhas 0
+[20:27:38] mudaram 23 (sen_sc, fed_al, fed_ap, fed_ce, fed_ma, fed_pi…); ALESC 98.05% · falhas 0
+[20:27:53] mudaram 22 (pres_br, est_sc, fed_al, fed_am, fed_ba, fed_rj…); ALESC 98.16% · falhas 0
+[20:28:09] mudaram 14 (pres_br, fed_pe, fed_rj, fed_sp, ab_br, ab_mt…); ALESC 98.16% · falhas 0
+[20:28:14] municípios est: 4 mudaram, 0 falharam
+[20:28:21] municípios fed: 2 mudaram, 0 falharam
+[20:28:24] mudaram 23 (pres_br, fed_al, fed_ce, fed_es, fed_go, fed_mt…); ALESC 98.16% · falhas 0
+[20:28:39] mudaram 23 (gov_sc, est_sc, fed_es, fed_mg, fed_rj, fed_rs…); ALESC 98.18% · falhas 0
+[20:28:54] mudaram 23 (pres_br, sen_sc, fed_es, fed_pi, ab_br, ab_ce…); ALESC 98.18% · falhas 0
+[20:29:08] mudaram 11 (fed_pe, fed_pi, ab_br, ab_pb, ab_pe, ab_pi…); ALESC 98.18% · falhas 0
+[20:29:23] mudaram 24 (pres_br, gov_sc, sen_sc, est_sc, fed_ap, fed_ce…); ALESC 98.2% · falhas 0
+[20:29:38] mudaram 21 (fed_am, fed_pa, fed_rj, fed_rn, fed_sc, ab_sc…); ALESC 98.2% · falhas 0
+[20:29:53] mudaram 29 (pres_br, fed_ba, fed_pa, fed_pe, fed_pr, fed_rj…); ALESC 98.2% · falhas 0
+[20:30:06] municípios est: 5 mudaram, 0 falharam
+[20:30:09] mudaram 22 (fed_al, fed_go, fed_ma, fed_pb, fed_pi, fed_pr…); ALESC 98.2% · falhas 0
+[20:30:16] municípios fed: 8 mudaram, 0 falharam
+[20:30:23] mudaram 20 (fed_ce, fed_mt, fed_pa, fed_pr, fed_rn, ab_br…); ALESC 98.2% · falhas 0
+[20:30:38] mudaram 15 (ab_br, ab_ce, ab_go, ab_pi, ab_rj, gov_ce…); ALESC 98.2% · falhas 0
+[20:30:53] mudaram 14 (pres_br, fed_ma, fed_pb, fed_pi, fed_rj, ab_pe…); ALESC 98.2% · falhas 0
+[20:31:08] mudaram 19 (fed_ce, fed_pa, fed_pb, ab_br, ab_ma, ab_pa…); ALESC 98.2% · falhas 0
+[20:31:23] mudaram 13 (fed_pb, fed_pe, fed_rn, fed_sc, ab_br, ab_pb…); ALESC 98.2% · falhas 0
+[20:31:38] mudaram 13 (pres_br, sen_sc, est_sc, fed_go, fed_mg, ab_am…); ALESC 98.25% · falhas 0
+[20:31:54] mudaram 26 (gov_sc, fed_am, fed_ba, fed_pa, fed_pb, fed_pe…); ALESC 98.25% · falhas 0
+[20:32:09] mudaram 13 (pres_br, fed_ba, fed_ma, ab_al, ab_ba, ab_mg…); ALESC 98.25% · falhas 0
+[20:32:14] municípios est: 3 mudaram, 0 falharam
+[20:32:24] mudaram 18 (fed_al, fed_ce, fed_go, fed_pi, ab_pa, ab_pb…); ALESC 98.25% · falhas 0
+[20:32:24] municípios fed: 3 mudaram, 0 falharam
+[20:32:39] mudaram 19 (est_sc, fed_ba, fed_ce, fed_es, fed_mt, fed_pi…); ALESC 98.26% · falhas 0
+[20:32:56] mudaram 20 (gov_sc, sen_sc, est_sc, fed_ce, fed_rj, fed_rs…); ALESC 98.25% · falhas 0
+[20:33:10] mudaram 22 (pres_br, sen_sc, est_sc, fed_rj, fed_rn, fed_rs…); ALESC 98.26% · falhas 0
+[20:33:24] mudaram 20 (sen_sc, fed_am, fed_pe, fed_pr, fed_rj, fed_rs…); ALESC 98.26% · falhas 0
+[20:33:40] mudaram 17 (fed_ma, fed_mt, fed_pa, fed_pi, fed_to, ab_am…); ALESC 98.26% · falhas 0
+[20:33:55] mudaram 10 (fed_ce, ab_br, ab_ma, ab_mt, ab_pe, ab_sp…); ALESC 98.26% · falhas 0
+[20:34:12] mudaram 17 (pres_br, fed_go, fed_pa, fed_rj, fed_sp, ab_br…); ALESC 98.26% · falhas 0
+[20:34:15] municípios est: 0 mudaram, 0 falharam
+[20:34:21] municípios fed: 0 mudaram, 0 falharam
+[20:34:35] mudaram 19 (fed_al, fed_pa, fed_pb, fed_rj, fed_se, ab_br…); ALESC 98.26% · falhas 0
+[20:34:41] mudaram 27 (pres_br, sen_sc, fed_al, fed_ce, fed_ma, fed_pa…); ALESC 98.26% · falhas 0
+[2026-10-04T20:34:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[20:35:09] mudaram 26 (pres_br, gov_sc, est_sc, fed_ac, fed_al, fed_ap…); ALESC 98.38% · falhas 0
+[20:35:24] mudaram 21 (fed_ac, fed_am, fed_ap, fed_pi, fed_rj, ab_sc…); ALESC 98.38% · falhas 0
+[20:35:39] mudaram 20 (fed_ac, fed_am, fed_ap, fed_ba, fed_ma, fed_to…); ALESC 98.38% · falhas 0
+[20:35:54] mudaram 23 (pres_br, fed_am, fed_pa, fed_pe, fed_rs, ab_ba…); ALESC 98.38% · falhas 0
+[20:36:07] municípios est: 5 mudaram, 0 falharam
+[20:36:10] mudaram 17 (fed_ce, fed_go, fed_pi, fed_rj, fed_se, ab_br…); ALESC 98.38% · falhas 0
+[20:36:11] municípios fed: 6 mudaram, 0 falharam
+[20:36:24] mudaram 14 (sen_sc, est_sc, fed_ap, fed_mg, fed_pa, fed_sc…); ALESC 98.42% · falhas 0
+[20:36:39] mudaram 27 (gov_sc, sen_sc, fed_al, fed_am, fed_ce, ab_br…); ALESC 98.42% · falhas 0
+[20:36:54] mudaram 26 (pres_br, gov_sc, sen_sc, fed_ma, fed_pe, fed_pr…); ALESC 98.42% · falhas 0
+[20:37:09] mudaram 13 (gov_sc, fed_ma, fed_pi, ab_sp, gov_am, gov_ce…); ALESC 98.42% · falhas 0
+[20:37:24] mudaram 13 (pres_br, fed_ma, ab_ma, ab_mt, ab_sp, gov_pa…); ALESC 98.42% · falhas 0
+[20:37:39] mudaram 15 (fed_mt, fed_pa, fed_se, ab_br, ab_mt, ab_pa…); ALESC 98.42% · falhas 0
+[20:37:54] mudaram 22 (sen_sc, fed_ba, fed_ce, fed_ma, fed_pb, fed_pe…); ALESC 98.42% · falhas 0
+[20:38:06] municípios est: 10 mudaram, 0 falharam
+[20:38:09] municípios fed: 9 mudaram, 0 falharam
+[20:38:11] mudaram 25 (pres_br, gov_sc, est_sc, fed_ma, fed_mt, fed_pi…); ALESC 98.49% · falhas 0
+[20:38:24] mudaram 23 (fed_go, fed_ma, fed_pa, fed_rn, fed_sc, ab_br…); ALESC 98.49% · falhas 0
+[20:38:39] mudaram 15 (fed_am, fed_pb, fed_to, ab_rj, ab_to, gov_am…); ALESC 98.49% · falhas 0
+[20:38:55] mudaram 23 (pres_br, sen_sc, fed_ce, fed_sc, ab_br, ab_go…); ALESC 98.49% · falhas 0
+[20:39:09] mudaram 21 (sen_sc, est_sc, fed_ce, fed_ma, fed_mg, fed_pa…); ALESC 98.56% · falhas 0
+[20:39:25] mudaram 21 (pres_br, gov_sc, sen_sc, fed_al, fed_ba, fed_ce…); ALESC 98.56% · falhas 0
+[20:39:39] mudaram 24 (pres_br, fed_am, fed_ap, fed_ce, fed_rn, ab_sc…); ALESC 98.56% · falhas 0
+[20:39:54] mudaram 25 (fed_ac, fed_ce, fed_go, fed_ma, fed_pa, fed_pe…); ALESC 98.56% · falhas 0
+[20:40:11] mudaram 23 (pres_br, fed_ce, fed_mt, fed_to, ab_am, ab_go…); ALESC 98.56% · falhas 0
+[20:40:16] municípios est: 2 mudaram, 0 falharam
+[20:40:18] municípios fed: 3 mudaram, 0 falharam
+[20:40:26] mudaram 20 (gov_sc, est_sc, fed_al, fed_rj, fed_se, ab_sc…); ALESC 98.63% · falhas 0
+[20:40:41] mudaram 14 (sen_sc, fed_pa, fed_se, ab_br, ab_am, ab_mt…); ALESC 98.63% · falhas 0
+[20:40:56] mudaram 31 (fed_am, fed_ma, fed_rs, fed_sc, fed_se, ab_br…); ALESC 98.63% · falhas 0
+[20:41:09] mudaram 21 (pres_br, fed_ba, fed_ce, fed_pb, fed_rn, fed_rs…); ALESC 98.63% · falhas 0
+[20:41:24] mudaram 29 (fed_ac, fed_ap, fed_ms, fed_pa, fed_pe, fed_pi…); ALESC 98.63% · falhas 0
+[20:41:38] mudaram 21 (pres_br, gov_sc, sen_sc, fed_ro, fed_sp, ab_pa…); ALESC 98.63% · falhas 0
+[20:41:53] mudaram 21 (est_sc, fed_am, fed_ce, fed_go, ab_am, ab_ap…); ALESC 98.68% · falhas 0
+[20:42:08] mudaram 27 (pres_br, fed_ap, fed_go, fed_pe, fed_rj, fed_sp…); ALESC 98.68% · falhas 0
+[20:42:13] municípios est: 8 mudaram, 0 falharam
+[20:42:15] municípios fed: 7 mudaram, 0 falharam
+[20:42:24] mudaram 29 (fed_ac, fed_al, fed_ba, fed_go, fed_ma, fed_mg…); ALESC 98.68% · falhas 0
+[20:42:38] mudaram 33 (pres_br, gov_sc, sen_sc, est_sc, fed_am, fed_es…); ALESC 98.71% · falhas 0
+[20:42:54] mudaram 34 (pres_br, fed_am, fed_ce, fed_es, fed_ma, fed_mg…); ALESC 98.71% · falhas 0
+[20:43:09] mudaram 20 (fed_am, fed_es, fed_go, fed_ma, fed_pa, fed_pb…); ALESC 98.71% · falhas 0
+[20:43:24] mudaram 20 (gov_sc, fed_pb, fed_to, ab_sc, ab_br, ab_ce…); ALESC 98.71% · falhas 0
+[20:43:39] mudaram 16 (pres_br, sen_sc, fed_am, fed_ap, fed_sc, ab_br…); ALESC 98.71% · falhas 0
+[20:43:54] mudaram 31 (est_sc, fed_ac, fed_al, fed_go, fed_ma, fed_pi…); ALESC 98.82% · falhas 0
+[20:44:10] municípios est: 4 mudaram, 0 falharam
+[20:44:11] mudaram 27 (pres_br, fed_ba, fed_ce, fed_pe, fed_rn, fed_rs…); ALESC 98.82% · falhas 0
+[20:44:13] municípios fed: 3 mudaram, 0 falharam
+[20:44:26] mudaram 14 (fed_rs, fed_sc, ab_br, ab_ma, ab_pa, ab_rs…); ALESC 98.82% · falhas 0
+[20:44:41] mudaram 16 (pres_br, gov_sc, sen_sc, fed_ce, fed_pe, fed_pi…); ALESC 98.82% · falhas 0
+[20:44:55] mudaram 21 (sen_sc, est_sc, fed_al, fed_ce, fed_ma, fed_pa…); ALESC 98.82% · falhas 0
+[20:45:09] mudaram 22 (pres_br, sen_sc, fed_al, fed_ce, fed_pe, fed_pi…); ALESC 98.82% · falhas 0
+[20:45:24] mudaram 26 (gov_sc, sen_sc, est_sc, fed_al, fed_am, fed_ap…); ALESC 98.85% · falhas 0
+[20:45:39] mudaram 18 (pres_br, gov_sc, sen_sc, fed_pa, fed_pr, fed_rn…); ALESC 98.85% · falhas 0
+[20:45:54] mudaram 31 (gov_sc, sen_sc, fed_ba, fed_ce, fed_es, fed_go…); ALESC 98.85% · falhas 0
+[20:46:14] municípios est: 5 mudaram, 0 falharam
+[20:46:16] municípios fed: 6 mudaram, 0 falharam
+[20:46:19] mudaram 19 (fed_al, fed_ap, fed_ce, fed_ma, fed_pi, fed_sp…); ALESC 98.85% · falhas 0
+[20:46:25] mudaram 23 (pres_br, est_sc, fed_am, fed_ce, fed_sp, ab_br…); ALESC 98.91% · falhas 0
+[20:46:39] mudaram 18 (gov_sc, sen_sc, fed_ce, fed_ma, fed_mt, fed_pe…); ALESC 98.91% · falhas 0
+[20:46:54] mudaram 20 (pres_br, fed_pi, fed_rn, ab_am, ab_ma, ab_pi…); ALESC 98.91% · falhas 0
+[20:47:09] mudaram 22 (pres_br, fed_ba, fed_go, fed_pa, fed_pr, ab_br…); ALESC 98.91% · falhas 0
+[20:47:24] mudaram 10 (sen_sc, fed_se, ab_ba, ab_ma, ab_pi, ab_pr…); ALESC 98.91% · falhas 0
+[20:47:39] mudaram 10 (pres_br, gov_sc, fed_ap, ab_al, ab_mg, gov_ap…); ALESC 98.91% · falhas 0
+[20:47:54] mudaram 34 (est_sc, fed_al, fed_pe, fed_rj, fed_rn, fed_sc…); ALESC 98.97% · falhas 0
+[20:48:10] mudaram 21 (fed_am, fed_ce, fed_ma, fed_mg, fed_pa, fed_rn…); ALESC 98.97% · falhas 0
+[20:48:13] municípios est: 8 mudaram, 0 falharam
+[20:48:19] municípios fed: 8 mudaram, 0 falharam
+[20:48:24] mudaram 24 (pres_br, fed_mt, fed_pe, fed_rn, fed_rs, ab_br…); ALESC 98.97% · falhas 0
+[20:48:38] mudaram 20 (fed_go, fed_pb, fed_pe, fed_pi, fed_pr, fed_rs…); ALESC 98.97% · falhas 0
+[20:48:54] mudaram 28 (pres_br, gov_sc, sen_sc, fed_am, fed_ap, fed_ba…); ALESC 98.97% · falhas 0
+[20:49:11] mudaram 18 (fed_pa, fed_rr, fed_rs, ab_sc, ab_al, ab_ap…); ALESC 98.97% · falhas 0
+[20:49:24] mudaram 17 (pres_br, fed_am, fed_ce, fed_ma, fed_pe, ab_br…); ALESC 98.97% · falhas 0
+[20:49:40] mudaram 14 (fed_al, fed_am, ab_am, ab_ma, ab_pe, ab_rn…); ALESC 98.97% · falhas 0
+[20:49:55] mudaram 14 (gov_sc, fed_ms, fed_rn, ab_ms, ab_pa, ab_pb…); ALESC 98.97% · falhas 0
+[20:50:08] municípios est: 2 mudaram, 0 falharam
+[20:50:11] mudaram 22 (pres_br, est_sc, fed_pa, fed_pb, fed_pi, fed_pr…); ALESC 99.12% · falhas 0
+[20:50:24] municípios fed: 2 mudaram, 1 falharam
+[20:50:26] mudaram 12 (pres_br, fed_go, fed_sc, ab_ms, ab_mt, gov_mt…); ALESC 99.12% · falhas 0
+[20:50:40] mudaram 24 (pres_br, sen_sc, fed_am, fed_go, fed_ma, fed_mt…); ALESC 99.12% · falhas 0
+[20:50:55] mudaram 17 (pres_br, fed_ba, fed_ce, fed_go, fed_ma, ab_pe…); ALESC 99.12% · falhas 0
+[20:51:08] mudaram 16 (pres_br, fed_pe, ab_al, ab_am, ab_ce, ab_ma…); ALESC 99.12% · falhas 0
+[20:51:24] mudaram 21 (pres_br, fed_al, fed_ba, fed_ma, fed_mg, fed_pi…); ALESC 99.12% · falhas 0
+[20:51:39] mudaram 16 (fed_ap, fed_ba, fed_mg, fed_pi, fed_rj, fed_rn…); ALESC 99.12% · falhas 0
+[20:51:54] mudaram 24 (gov_sc, fed_ap, fed_ce, fed_ma, fed_mg, fed_pa…); ALESC 99.12% · falhas 0
+[20:52:09] mudaram 21 (pres_br, est_sc, fed_ap, fed_ce, fed_rn, fed_rs…); ALESC 99.25% · falhas 0
+[20:52:14] municípios est: 5 mudaram, 0 falharam
+[20:52:16] municípios fed: 5 mudaram, 0 falharam
+[20:52:24] mudaram 5 (fed_ce, ab_br, ab_ma, ab_ro, sen_pa); ALESC 99.25% · falhas 0
+[20:52:39] mudaram 13 (sen_sc, fed_ba, fed_mt, fed_pa, ab_ba, ab_go…); ALESC 99.25% · falhas 0
+[20:52:54] mudaram 14 (fed_ce, fed_go, fed_ms, fed_pb, ab_ms, ab_pa…); ALESC 99.25% · falhas 0
+[20:53:09] mudaram 23 (sen_sc, est_sc, fed_ac, fed_al, fed_pa, fed_pi…); ALESC 99.34% · falhas 0
+[20:53:25] mudaram 26 (gov_sc, sen_sc, fed_ap, fed_ma, fed_pe, ab_ac…); ALESC 99.34% · falhas 0
+[20:53:39] mudaram 16 (pres_br, sen_sc, fed_ac, fed_am, fed_mt, fed_rj…); ALESC 99.34% · falhas 0
+[20:53:54] mudaram 27 (pres_br, est_sc, fed_ac, fed_ce, fed_ma, fed_pe…); ALESC 99.47% · falhas 0
+[20:54:06] municípios est: 1 mudaram, 0 falharam
+[20:54:09] municípios fed: 3 mudaram, 0 falharam
+[20:54:10] mudaram 22 (pres_br, fed_am, fed_ap, fed_ce, fed_sc, fed_se…); ALESC 99.47% · falhas 0
+[20:54:26] mudaram 33 (gov_sc, sen_sc, fed_am, fed_ap, fed_ce, fed_go…); ALESC 99.47% · falhas 0
+[20:54:39] mudaram 21 (fed_al, fed_am, fed_ap, fed_mt, fed_pe, fed_rj…); ALESC 99.47% · falhas 0
+[20:54:54] mudaram 20 (pres_br, fed_am, fed_ma, fed_mt, fed_pa, fed_pr…); ALESC 99.47% · falhas 0
+[20:55:19] mudaram 12 (fed_am, fed_pi, fed_rj, fed_rs, ab_am, ab_ma…); ALESC 99.47% · falhas 0
+[20:55:25] mudaram 20 (fed_ap, fed_ba, fed_ce, fed_pb, fed_pi, ab_ba…); ALESC 99.47% · falhas 0
+[20:55:39] mudaram 28 (pres_br, fed_am, fed_ap, fed_go, fed_pi, fed_se…); ALESC 99.47% · falhas 0
+[20:55:54] mudaram 19 (sen_sc, fed_ap, fed_mg, fed_mt, fed_pe, fed_rn…); ALESC 99.47% · falhas 0
+[20:56:08] municípios est: 5 mudaram, 0 falharam
+[20:56:10] mudaram 14 (pres_br, fed_al, fed_rj, ab_sc, ab_am, ab_mg…); ALESC 99.47% · falhas 0
+[20:56:14] municípios fed: 2 mudaram, 0 falharam
+[20:56:25] mudaram 13 (gov_sc, est_sc, fed_ma, fed_pa, fed_pr, fed_rn…); ALESC 99.68% · falhas 0
+[20:56:39] mudaram 24 (pres_br, fed_es, fed_go, fed_pa, fed_rn, ab_br…); ALESC 99.68% · falhas 0
+[20:56:54] mudaram 18 (pres_br, fed_ac, fed_ap, fed_pb, fed_pi, fed_rs…); ALESC 99.68% · falhas 0
+[20:57:08] mudaram 22 (fed_ce, fed_mt, fed_se, ab_br, ab_ap, ab_pe…); ALESC 99.68% · falhas 0
+[20:57:23] mudaram 16 (pres_br, fed_pe, fed_rn, fed_rr, fed_to, ab_ac…); ALESC 99.68% · falhas 0
+[20:57:38] mudaram 15 (pres_br, fed_al, fed_am, fed_go, fed_to, ab_br…); ALESC 99.68% · falhas 0
+[20:57:53] mudaram 23 (pres_br, gov_sc, fed_ba, fed_ma, fed_mt, fed_rj…); ALESC 99.68% · falhas 0
+[20:58:06] municípios est: 10 mudaram, 0 falharam
+[20:58:09] mudaram 24 (pres_br, gov_sc, sen_sc, fed_ba, fed_mt, fed_pa…); ALESC 99.68% · falhas 0
+[20:58:12] municípios fed: 12 mudaram, 0 falharam
+[20:58:24] mudaram 33 (pres_br, est_sc, fed_ba, fed_ce, fed_mt, fed_pe…); ALESC 99.78% · falhas 0
+[20:58:39] mudaram 31 (gov_sc, fed_al, fed_ap, fed_rj, fed_rr, fed_sp…); ALESC 99.78% · falhas 0
+[20:58:53] mudaram 31 (pres_br, fed_am, fed_ma, fed_pb, fed_pi, fed_rn…); ALESC 99.78% · falhas 0
+[20:59:08] mudaram 28 (fed_es, fed_go, fed_ma, fed_mg, fed_pa, fed_pi…); ALESC 99.78% · falhas 0
+[20:59:23] mudaram 30 (sen_sc, est_sc, fed_ap, fed_ce, fed_ma, fed_mt…); ALESC 99.79% · falhas 0
+[20:59:38] mudaram 14 (pres_br, sen_sc, est_sc, fed_am, fed_ce, fed_pe…); ALESC 99.78% · falhas 0
+[20:59:53] mudaram 29 (gov_sc, sen_sc, est_sc, fed_am, fed_ce, fed_go…); ALESC 99.79% · falhas 0
+[21:00:07] municípios est: 3 mudaram, 0 falharam
+[21:00:10] municípios fed: 2 mudaram, 0 falharam
+[21:00:19] mudaram 26 (pres_br, fed_am, fed_ce, fed_go, fed_ms, fed_pb…); ALESC 99.79% · falhas 0
+[21:00:24] mudaram 17 (fed_al, fed_ce, fed_go, fed_pe, fed_se, ab_go…); ALESC 99.79% · falhas 0
+[21:00:40] mudaram 16 (fed_ap, fed_ce, fed_go, fed_mt, fed_rj, ab_br…); ALESC 99.79% · falhas 0
+[21:00:54] mudaram 24 (pres_br, fed_ap, fed_ba, fed_go, fed_ma, fed_pa…); ALESC 99.79% · falhas 0
+[21:01:08] mudaram 20 (fed_al, fed_ap, fed_go, fed_ma, fed_pe, fed_rr…); ALESC 99.79% · falhas 0
+[21:01:23] mudaram 18 (pres_br, sen_sc, fed_al, fed_ma, ab_am, ab_ba…); ALESC 99.79% · falhas 0
+[21:01:38] mudaram 13 (gov_sc, fed_al, fed_am, fed_ce, fed_pa, fed_pe…); ALESC 99.79% · falhas 0
+[21:01:53] mudaram 20 (est_sc, fed_go, fed_pi, fed_rn, fed_sc, fed_se…); ALESC 99.81% · falhas 0
+[21:02:09] mudaram 22 (pres_br, fed_am, fed_rn, ab_sc, ab_br, ab_go…); ALESC 99.81% · falhas 0
+[21:02:14] municípios est: 0 mudaram, 0 falharam
+[21:02:16] municípios fed: 0 mudaram, 0 falharam
+[21:02:23] mudaram 11 (sen_sc, fed_ce, fed_mg, fed_mt, fed_rn, ab_ce…); ALESC 99.81% · falhas 0
+[21:02:38] mudaram 19 (pres_br, gov_sc, fed_ma, fed_rs, fed_to, ab_br…); ALESC 99.81% · falhas 0
+[21:02:53] mudaram 10 (est_sc, fed_pb, fed_rj, fed_sc, ab_sc, ab_br…); ALESC 99.81% · falhas 0
+[21:03:08] mudaram 8 (fed_ce, fed_pa, ab_pa, ab_rs, gov_ce, gov_pb…); ALESC 99.81% · falhas 0
+[21:03:23] mudaram 19 (pres_br, fed_ma, fed_pe, fed_pi, fed_se, ab_ce…); ALESC 99.81% · falhas 0
+[21:03:38] mudaram 11 (pres_br, fed_ce, fed_sp, ab_br, ab_se, gov_ce…); ALESC 99.81% · falhas 0
+[21:03:53] mudaram 22 (pres_br, fed_ba, fed_ce, fed_mt, fed_rj, fed_sp…); ALESC 99.81% · falhas 0
+[21:04:14] municípios est: 1 mudaram, 0 falharam
+[21:04:19] mudaram 10 (pres_br, fed_pa, fed_sp, ab_al, ab_sp, gov_mt…); ALESC 99.81% · falhas 0
+[21:04:24] mudaram 5 (pres_br, fed_al, ab_sp, sen_al, sen_pa); ALESC 99.81% · falhas 0
+[21:04:24] municípios fed: 1 mudaram, 0 falharam
+[21:04:48] mudaram 7 (pres_br, fed_ms, ab_br, ab_rn, gov_al, gov_ce…); ALESC 99.81% · falhas 0
+[21:04:54] mudaram 17 (pres_br, fed_go, fed_ma, fed_pe, fed_pi, ab_br…); ALESC 99.81% · falhas 0
+[21:05:08] mudaram 20 (pres_br, fed_ce, fed_ma, fed_pe, fed_pi, fed_rn…); ALESC 99.81% · falhas 0
+[21:05:23] mudaram 15 (fed_ap, fed_ma, fed_pe, fed_pi, fed_rj, ab_br…); ALESC 99.81% · falhas 0
+[21:05:38] mudaram 6 (pres_br, fed_pa, ab_br, ab_pa, sen_am, sen_pa); ALESC 99.81% · falhas 0
+[21:05:53] mudaram 6 (fed_mg, ab_am, ab_ap, gov_ce, gov_pa, gov_pi); ALESC 99.81% · falhas 0
+[21:06:08] municípios est: 0 mudaram, 0 falharam
+[21:06:08] mudaram 11 (fed_ce, fed_pe, ab_br, ab_ce, ab_mg, ab_pa…); ALESC 99.81% · falhas 0
+[21:06:18] municípios fed: 0 mudaram, 0 falharam
+[21:06:23] mudaram 14 (pres_br, fed_am, fed_go, fed_pa, fed_pi, fed_se…); ALESC 99.81% · falhas 0
+[21:06:38] mudaram 14 (pres_br, fed_al, fed_ma, ab_br, ab_ma, gov_ma…); ALESC 99.81% · falhas 0
+[21:06:53] mudaram 8 (fed_rj, fed_rn, fed_rr, ab_br, ab_pa, ab_rj…); ALESC 99.81% · falhas 0
+[21:07:08] mudaram 7 (fed_ma, ab_rn, ab_rr, gov_rr, sen_ba, sen_rn…); ALESC 99.81% · falhas 0
+[21:07:24] mudaram 9 (pres_br, fed_pe, fed_pi, ab_ce, ab_pa, gov_rr…); ALESC 99.81% · falhas 0
+[21:07:39] mudaram 27 (pres_br, fed_am, fed_ba, fed_ce, fed_pi, ab_br…); ALESC 99.81% · falhas 0
+[21:07:54] mudaram 16 (fed_go, fed_ms, fed_pa, fed_pb, fed_pi, fed_rs…); ALESC 99.81% · falhas 0
+[21:08:05] municípios est: 0 mudaram, 0 falharam
+[21:08:07] municípios fed: 0 mudaram, 0 falharam
+[21:08:09] mudaram 12 (pres_br, fed_ce, fed_pa, fed_rs, fed_se, fed_sp…); ALESC 99.81% · falhas 0
+[21:08:23] mudaram 7 (fed_rs, ab_br, ab_rs, ab_se, gov_ma, gov_sp…); ALESC 99.81% · falhas 0
+[21:08:38] mudaram 15 (fed_ma, fed_mg, ab_al, ab_ce, ab_ma, ab_pa…); ALESC 99.81% · falhas 0
+[21:08:53] mudaram 14 (pres_br, fed_al, fed_mg, fed_pe, fed_rr, ab_br…); ALESC 99.81% · falhas 0
+[21:09:08] mudaram 16 (fed_mg, fed_pi, ab_al, ab_ce, ab_pb, ab_pe…); ALESC 99.81% · falhas 0
+[21:09:23] mudaram 15 (fed_ac, fed_ce, fed_ma, fed_pb, ab_ac, ab_pb…); ALESC 99.81% · falhas 0
+[21:09:38] mudaram 14 (fed_am, fed_ba, fed_ma, fed_pa, ab_br, ab_am…); ALESC 99.81% · falhas 0
+[21:09:53] mudaram 13 (pres_br, fed_ma, fed_pb, ab_br, ab_ce, ab_pe…); ALESC 99.81% · falhas 0
+[21:10:09] mudaram 17 (pres_br, fed_al, fed_ce, fed_pe, fed_pi, ab_br…); ALESC 99.81% · falhas 0
+[21:10:14] municípios est: 0 mudaram, 0 falharam
+[21:10:19] municípios fed: 0 mudaram, 0 falharam
+[21:10:24] mudaram 8 (fed_am, fed_ma, fed_rj, ab_pb, gov_am, gov_pi…); ALESC 99.81% · falhas 0
+[21:10:39] mudaram 13 (fed_pi, ab_br, ab_ce, ab_ma, ab_pi, ab_rj…); ALESC 99.81% · falhas 0
+[21:10:54] mudaram 11 (sen_sc, fed_am, fed_ba, fed_pe, gov_pa, gov_pe…); ALESC 99.81% · falhas 0
+[21:11:08] mudaram 16 (pres_br, gov_sc, sen_sc, fed_am, ab_am, ab_pa…); ALESC 99.81% · falhas 0
+[21:11:23] mudaram 22 (sen_sc, fed_ce, fed_mt, fed_pa, fed_rj, fed_rr…); ALESC 99.81% · falhas 0
+[21:11:38] mudaram 15 (fed_am, fed_pa, fed_pi, ab_mg, ab_mt, ab_pa…); ALESC 99.81% · falhas 0
+[21:11:53] mudaram 8 (fed_al, ab_al, ab_am, ab_pa, ab_rj, gov_al…); ALESC 99.81% · falhas 0
+[21:12:06] municípios est: 0 mudaram, 0 falharam
+[21:12:08] municípios fed: 0 mudaram, 0 falharam
+[21:12:09] mudaram 7 (pres_br, fed_mg, fed_rj, ab_br, ab_rj, sen_am…); ALESC 99.81% · falhas 0
+[21:12:24] mudaram 9 (pres_br, fed_rj, ab_rj, gov_ma, sen_am, sen_ba…); ALESC 99.81% · falhas 0
+[21:12:39] mudaram 17 (pres_br, fed_ba, fed_ma, fed_pa, fed_rj, ab_ba…); ALESC 99.81% · falhas 0
+[21:12:54] mudaram 10 (fed_pa, fed_pr, ab_pa, ab_pe, gov_ma, gov_pb…); ALESC 99.81% · falhas 0
+[21:13:08] mudaram 9 (pres_br, est_sc, fed_pa, fed_sc, fed_sp, ab_pr…); ALESC 99.92% · falhas 0
+[21:13:23] mudaram 19 (fed_pe, fed_pr, fed_sc, ab_br, ab_ce, ab_go…); ALESC 99.92% · falhas 0
+[21:13:38] mudaram 16 (fed_al, fed_ce, fed_go, fed_ma, fed_mg, fed_pr…); ALESC 99.92% · falhas 0
+[21:13:53] mudaram 21 (pres_br, fed_al, fed_am, fed_ba, fed_pa, fed_rs…); ALESC 99.92% · falhas 0
+[21:14:09] mudaram 15 (pres_br, fed_al, fed_go, fed_pb, fed_rj, ab_br…); ALESC 99.92% · falhas 0
+[21:14:09] municípios est: 1 mudaram, 0 falharam
+[21:14:14] municípios fed: 1 mudaram, 0 falharam
+[21:14:24] mudaram 13 (fed_ma, fed_pi, ab_am, ab_ba, ab_go, ab_pi…); ALESC 99.92% · falhas 0
+[21:14:39] mudaram 15 (fed_ce, fed_pe, ab_br, ab_am, ab_ce, ab_ma…); ALESC 99.92% · falhas 0
+[21:14:53] mudaram 14 (pres_br, fed_am, fed_pa, fed_pb, fed_rj, ab_br…); ALESC 99.92% · falhas 0
+[21:15:08] mudaram 13 (pres_br, fed_pe, fed_sp, ab_br, ab_pe, ab_rj…); ALESC 99.92% · falhas 0
+[21:15:23] mudaram 17 (fed_ce, fed_go, fed_ma, fed_pe, fed_pi, fed_rj…); ALESC 99.92% · falhas 0
+[21:15:38] mudaram 20 (pres_br, fed_ba, fed_pa, fed_rj, ab_br, ab_ce…); ALESC 99.92% · falhas 0
+[21:15:53] mudaram 10 (pres_br, fed_al, ab_br, ab_ba, ab_ce, ab_pb…); ALESC 99.92% · falhas 0
+[21:16:05] municípios est: 0 mudaram, 0 falharam
+[21:16:08] municípios fed: 0 mudaram, 0 falharam
+[21:16:18] mudaram 12 (pres_br, fed_al, fed_pb, fed_pe, ab_br, ab_pb…); ALESC 99.92% · falhas 0
+[21:16:24] mudaram 16 (pres_br, fed_al, fed_go, fed_ma, fed_mg, ab_al…); ALESC 99.92% · falhas 0
+[21:16:38] mudaram 17 (fed_am, fed_ma, fed_pa, fed_pi, fed_rs, ab_br…); ALESC 99.92% · falhas 0
+[21:16:53] mudaram 16 (fed_am, fed_ce, fed_ma, fed_pa, ab_br, ab_ba…); ALESC 99.92% · falhas 0
+[21:17:08] mudaram 17 (pres_br, fed_am, fed_ba, fed_pa, fed_pe, ab_am…); ALESC 99.92% · falhas 0
+[21:17:23] mudaram 20 (fed_ma, fed_pa, fed_pi, fed_rj, ab_ba, ab_ce…); ALESC 99.92% · falhas 0
+[21:17:38] mudaram 18 (fed_al, fed_ce, fed_pa, fed_rn, ab_br, ab_al…); ALESC 99.92% · falhas 0
+[21:17:53] mudaram 9 (fed_pa, fed_pe, ab_br, ab_pa, ab_pi, ab_rn…); ALESC 99.92% · falhas 0
+[21:18:08] mudaram 9 (pres_br, ab_br, ab_pi, gov_ma, gov_pa, gov_pe…); ALESC 99.92% · falhas 0
+[21:18:14] municípios est: 0 mudaram, 0 falharam
+[21:18:24] mudaram 10 (pres_br, fed_ba, fed_ce, fed_ma, ab_br, ab_ce…); ALESC 99.92% · falhas 0
+[21:18:24] municípios fed: 0 mudaram, 0 falharam
+[21:18:38] mudaram 13 (fed_al, fed_am, fed_ba, fed_ma, fed_pa, ab_br…); ALESC 99.92% · falhas 0
+[21:18:54] mudaram 24 (gov_sc, sen_sc, est_sc, fed_al, fed_am, fed_ma…); ALESC 99.93% · falhas 0
+[21:19:08] mudaram 19 (fed_al, fed_am, fed_ba, fed_pe, fed_rj, fed_sc…); ALESC 99.93% · falhas 0
+[21:19:23] mudaram 15 (pres_br, fed_ce, fed_ma, ab_br, ab_am, ab_ma…); ALESC 99.93% · falhas 0
+[21:19:38] mudaram 12 (pres_br, fed_sp, ab_br, ab_ce, ab_ma, ab_pa…); ALESC 99.93% · falhas 0
+[21:19:53] mudaram 11 (fed_pa, ab_al, ab_ma, ab_pa, gov_am, gov_ba…); ALESC 99.93% · falhas 0
+[21:20:09] mudaram 13 (pres_br, fed_al, fed_am, fed_ba, ab_sp, gov_al…); ALESC 99.93% · falhas 0
+[21:20:14] municípios est: 1 mudaram, 0 falharam
+[21:20:16] municípios fed: 1 mudaram, 0 falharam
+[21:20:24] mudaram 17 (pres_br, fed_ce, fed_ma, fed_pa, ab_am, ab_ba…); ALESC 99.93% · falhas 0
+[21:20:39] mudaram 15 (pres_br, fed_go, fed_pi, ab_ce, ab_go, gov_am…); ALESC 99.93% · falhas 0
+[21:20:54] mudaram 15 (pres_br, fed_am, fed_ce, ab_br, ab_am, ab_pe…); ALESC 99.93% · falhas 0
+[21:21:08] mudaram 11 (fed_al, fed_ce, fed_pe, ab_rj, gov_am, gov_ce…); ALESC 99.93% · falhas 0
+[21:21:23] mudaram 13 (fed_pi, ab_br, ab_al, ab_ba, gov_al, gov_ce…); ALESC 99.93% · falhas 0
+[21:21:38] mudaram 18 (pres_br, fed_ba, fed_ce, fed_pa, ab_br, ab_ba…); ALESC 99.93% · falhas 0
+[21:21:54] mudaram 12 (fed_pe, fed_to, ab_br, ab_ba, ab_mg, ab_pa…); ALESC 99.93% · falhas 0
+[21:22:05] municípios est: 0 mudaram, 0 falharam
+[21:22:07] municípios fed: 0 mudaram, 0 falharam
+[21:22:08] mudaram 11 (pres_br, fed_mg, fed_sp, ab_br, ab_ma, ab_mg…); ALESC 99.93% · falhas 0
+[21:22:23] mudaram 14 (fed_ce, fed_ma, fed_pi, fed_rj, ab_br, ab_ce…); ALESC 99.93% · falhas 0
+[21:22:38] mudaram 9 (ab_br, ab_ma, gov_ce, gov_ma, gov_pa, gov_pi…); ALESC 99.93% · falhas 0
+[21:22:53] mudaram 6 (pres_br, fed_pi, ab_ba, ab_ce, gov_ce, gov_ma); ALESC 99.93% · falhas 0
+[21:23:09] mudaram 11 (fed_pe, fed_pi, ab_br, ab_ba, ab_ce, ab_pa…); ALESC 99.93% · falhas 0
+[21:23:24] mudaram 12 (fed_ba, fed_ce, fed_ma, fed_pa, ab_br, ab_ba…); ALESC 99.93% · falhas 0
+[21:23:38] mudaram 5 (pres_br, ab_br, ab_ce, ab_ma, ab_pi); ALESC 99.93% · falhas 0
+[21:23:53] mudaram 8 (fed_pa, fed_pi, ab_br, ab_pe, gov_pe, sen_al…); ALESC 99.93% · falhas 0
+[21:24:05] municípios est: 0 mudaram, 0 falharam
+[21:24:07] municípios fed: 0 mudaram, 0 falharam
+[21:24:09] mudaram 12 (fed_al, fed_mt, fed_pa, fed_rj, ab_br, ab_al…); ALESC 99.93% · falhas 0
+[21:24:24] mudaram 11 (pres_br, fed_ba, fed_pa, fed_pe, fed_rj, ab_br…); ALESC 99.93% · falhas 0
+[21:24:38] mudaram 12 (pres_br, fed_ce, fed_rj, ab_br, ab_ba, ab_ce…); ALESC 99.93% · falhas 0
+[21:24:53] mudaram 16 (pres_br, fed_am, fed_pe, ab_ba, ab_pa, ab_sp…); ALESC 99.93% · falhas 0
+[21:25:08] mudaram 18 (pres_br, fed_al, fed_am, fed_pa, fed_pe, ab_br…); ALESC 99.93% · falhas 0
+[21:25:23] mudaram 19 (fed_am, fed_ce, fed_ma, fed_pa, fed_pe, fed_rj…); ALESC 99.93% · falhas 0
+[21:25:38] mudaram 15 (pres_br, fed_ce, ab_br, ab_al, ab_ce, ab_pa…); ALESC 99.93% · falhas 0
+[21:25:53] mudaram 9 (fed_ce, fed_pb, fed_pe, ab_ma, gov_ce, gov_pb…); ALESC 99.93% · falhas 0
+[21:26:08] mudaram 10 (pres_br, fed_pe, fed_pi, ab_br, ab_am, ab_pb…); ALESC 99.93% · falhas 0
+[21:26:14] municípios est: 0 mudaram, 0 falharam
+[21:26:16] municípios fed: 0 mudaram, 0 falharam
+[21:26:23] mudaram 8 (fed_ba, fed_ma, fed_pa, fed_pe, ab_ce, gov_pe…); ALESC 99.93% · falhas 0
+[21:26:38] mudaram 14 (pres_br, fed_am, fed_ce, fed_ma, ab_ba, ab_ma…); ALESC 99.93% · falhas 0
+[21:26:53] mudaram 13 (pres_br, fed_rn, ab_br, ab_pa, ab_rn, gov_am…); ALESC 99.93% · falhas 0
+[21:27:17] mudaram 13 (pres_br, fed_rn, ab_br, ab_ma, ab_pa, ab_pe…); ALESC 99.93% · falhas 0
+[21:27:23] mudaram 21 (fed_am, fed_ce, fed_go, fed_pe, fed_pi, fed_rn…); ALESC 99.93% · falhas 0
+[21:27:38] mudaram 13 (pres_br, fed_ce, fed_go, fed_mg, fed_pa, ab_ce…); ALESC 99.93% · falhas 0
+[21:27:53] mudaram 13 (est_sc, fed_ce, fed_go, fed_ma, fed_mg, ab_br…); ALESC 99.97% · falhas 0
+[21:28:06] municípios est: 0 mudaram, 0 falharam
+[21:28:08] municípios fed: 0 mudaram, 0 falharam
+[21:28:09] mudaram 12 (pres_br, fed_ba, fed_mg, fed_pa, ab_sc, ab_ba…); ALESC 99.97% · falhas 0
+[21:28:23] mudaram 12 (fed_al, fed_pi, fed_rj, ab_al, ab_pa, ab_rj…); ALESC 99.97% · falhas 0
+[21:28:38] mudaram 3 (pres_br, fed_pb, ab_pb); ALESC 99.97% · falhas 0
+[21:28:53] mudaram 12 (pres_br, fed_pb, fed_pi, ab_br, ab_pa, ab_pb…); ALESC 99.97% · falhas 0
+[21:29:08] mudaram 9 (pres_br, fed_pa, fed_pb, ab_pb, ab_pi, gov_ma…); ALESC 99.97% · falhas 0
+[21:29:23] mudaram 3 (ab_pi, gov_ma, gov_pi); ALESC 99.97% · falhas 0
+[21:29:38] mudaram 8 (pres_br, fed_ce, fed_ma, fed_pa, ab_ba, gov_ba…); ALESC 99.97% · falhas 0
+[21:29:53] mudaram 9 (fed_ba, fed_pa, ab_ma, ab_pa, gov_ma, gov_pa…); ALESC 99.97% · falhas 0
+[21:30:09] mudaram 12 (pres_br, gov_sc, sen_sc, est_sc, fed_ce, fed_pa…); ALESC 99.98% · falhas 0
+[21:30:09] municípios est: 0 mudaram, 0 falharam
+[21:30:16] municípios fed: 0 mudaram, 0 falharam
+[21:30:24] mudaram 12 (gov_sc, sen_sc, fed_ce, fed_go, fed_ma, fed_sp…); ALESC 99.98% · falhas 0
+[21:30:39] mudaram 11 (pres_br, gov_sc, sen_sc, fed_pa, ab_ma, ab_sp…); ALESC 99.98% · falhas 0
+[21:30:54] mudaram 16 (fed_al, fed_pa, fed_pi, ab_br, ab_al, ab_go…); ALESC 99.98% · falhas 0
+[21:31:08] mudaram 13 (pres_br, fed_pa, fed_pi, fed_rj, ab_br, ab_mg…); ALESC 99.98% · falhas 0
+[21:31:23] mudaram 14 (fed_mg, fed_pe, fed_pi, ab_br, ab_am, gov_ba…); ALESC 99.98% · falhas 0
+[21:31:38] mudaram 6 (fed_am, fed_ba, ab_br, ab_ba, gov_mg, sen_ba); ALESC 99.98% · falhas 0
+[21:31:53] mudaram 14 (pres_br, fed_ce, fed_ma, fed_pa, ab_go, ab_pa…); ALESC 99.98% · falhas 0
+[21:32:09] municípios est: 2 mudaram, 0 falharam
+[21:32:09] mudaram 13 (pres_br, fed_go, fed_pi, fed_rj, ab_br, ab_ce…); ALESC 99.98% · falhas 0
+[21:32:11] municípios fed: 2 mudaram, 0 falharam
+[21:32:24] mudaram 6 (pres_br, ab_pe, ab_pi, gov_pi, sen_ce, sen_go); ALESC 99.98% · falhas 0
+[21:32:39] mudaram 9 (pres_br, fed_al, fed_pa, fed_sp, ab_br, sen_al…); ALESC 99.98% · falhas 0
+[21:32:54] mudaram 23 (pres_br, fed_al, fed_ba, fed_ce, fed_ma, fed_pi…); ALESC 99.98% · falhas 0
+[21:33:08] mudaram 17 (pres_br, fed_al, fed_ba, fed_ma, fed_pe, fed_pi…); ALESC 99.98% · falhas 0
+[21:33:23] mudaram 10 (pres_br, fed_ba, fed_ma, fed_pa, fed_pi, fed_rj…); ALESC 99.98% · falhas 0
+[21:33:38] mudaram 10 (pres_br, fed_pa, ab_br, ab_am, gov_ce, gov_mg…); ALESC 99.98% · falhas 0
+[21:33:53] mudaram 14 (pres_br, fed_am, fed_ce, fed_ma, ab_br, ab_ce…); ALESC 99.98% · falhas 0
+[21:34:05] municípios est: 0 mudaram, 0 falharam
+[21:34:07] municípios fed: 0 mudaram, 0 falharam
+[21:34:08] mudaram 7 (fed_pi, ab_br, ab_ce, ab_pi, gov_mt, sen_ce…); ALESC 99.98% · falhas 0
+[21:34:23] mudaram 12 (fed_ba, fed_mt, fed_rn, ab_br, ab_ce, ab_mt…); ALESC 99.98% · falhas 0
+[21:34:38] mudaram 7 (pres_br, fed_ba, fed_rn, gov_rn, sen_ba, sen_mt…); ALESC 99.98% · falhas 0
+[21:34:53] mudaram 11 (fed_ba, fed_ce, fed_rn, ab_ba, gov_ce, gov_pa…); ALESC 99.98% · falhas 0
+[21:35:08] mudaram 7 (pres_br, fed_ce, fed_pe, fed_pi, ab_pe, ab_pi…); ALESC 99.98% · falhas 0
+[21:35:23] mudaram 8 (pres_br, fed_ce, fed_pi, fed_rj, ab_br, ab_ce…); ALESC 99.98% · falhas 0
+[21:35:38] mudaram 7 (pres_br, fed_am, fed_pi, ab_br, ab_am, gov_ma…); ALESC 99.98% · falhas 0
+[21:35:53] mudaram 16 (fed_am, fed_ma, ab_br, ab_al, ab_am, ab_pe…); ALESC 99.98% · falhas 0
+[21:36:08] mudaram 13 (fed_al, fed_am, fed_ba, fed_pa, fed_pe, ab_am…); ALESC 99.98% · falhas 0
+[21:36:13] municípios est: 0 mudaram, 0 falharam
+[21:36:15] municípios fed: 0 mudaram, 0 falharam
+[21:36:23] mudaram 15 (pres_br, fed_ba, fed_ce, fed_mg, fed_pa, fed_pi…); ALESC 99.98% · falhas 0
+[21:36:38] mudaram 9 (pres_br, fed_ba, fed_pa, ab_br, ab_pa, ab_sp…); ALESC 99.98% · falhas 0
+[21:36:53] mudaram 13 (pres_br, fed_ma, fed_pi, ab_br, ab_ce, ab_ma…); ALESC 99.98% · falhas 0
+[21:37:09] mudaram 9 (pres_br, fed_al, fed_ce, fed_pi, ab_br, ab_ce…); ALESC 99.98% · falhas 0
+[21:37:24] mudaram 10 (fed_ba, fed_pi, fed_rn, ab_ba, ab_ce, ab_pi…); ALESC 99.98% · falhas 0
+[21:37:39] mudaram 13 (fed_pe, ab_al, ab_am, ab_ma, ab_pe, ab_rn…); ALESC 99.98% · falhas 0
+[21:37:54] mudaram 15 (pres_br, fed_ce, fed_pa, ab_br, ab_ce, ab_pa…); ALESC 99.98% · falhas 0
+[21:38:08] mudaram 13 (fed_am, fed_ma, ab_br, ab_al, ab_pe, gov_al…); ALESC 99.98% · falhas 0
+[21:38:13] municípios est: 0 mudaram, 0 falharam
+[21:38:23] mudaram 8 (pres_br, fed_al, ab_pe, gov_al, gov_ce, gov_pa…); ALESC 99.98% · falhas 0
+[21:38:23] municípios fed: 0 mudaram, 0 falharam
+[21:38:38] mudaram 11 (fed_ma, fed_mg, fed_pa, fed_pb, ab_br, ab_mg…); ALESC 99.98% · falhas 0
+[21:38:53] mudaram 17 (fed_ce, fed_pe, fed_sp, ab_ce, ab_mg, ab_pa…); ALESC 99.98% · falhas 0
+[21:39:08] mudaram 12 (pres_br, fed_ba, fed_ma, fed_pa, ab_ba, ab_ce…); ALESC 99.98% · falhas 0
+[21:39:23] mudaram 13 (fed_am, fed_ma, fed_pa, ab_al, ab_am, ab_ce…); ALESC 99.98% · falhas 0
+[21:39:38] mudaram 7 (fed_al, ab_br, ab_pa, gov_am, gov_pa, sen_am…); ALESC 99.98% · falhas 0
+[21:39:53] mudaram 13 (pres_br, fed_ma, fed_pa, fed_pe, ab_br, ab_rj…); ALESC 99.98% · falhas 0
+[21:40:08] municípios est: 0 mudaram, 0 falharam
+[21:40:09] mudaram 7 (pres_br, ab_br, ab_al, ab_pe, gov_al, gov_rj…); ALESC 99.98% · falhas 0
+[21:40:18] municípios fed: 0 mudaram, 0 falharam
+[21:40:24] mudaram 6 (pres_br, ab_ba, ab_ma, ab_pa, gov_al, sen_al); ALESC 99.98% · falhas 0
+[21:40:39] mudaram 6 (fed_al, fed_ba, ab_pa, gov_pa, sen_ce, sen_pe); ALESC 99.98% · falhas 0
+[21:40:54] mudaram 11 (pres_br, fed_ma, fed_rj, ab_br, ab_ce, ab_pa…); ALESC 99.98% · falhas 0
+[21:41:08] mudaram 13 (pres_br, fed_pe, ab_ma, ab_pa, ab_pe, gov_ba…); ALESC 99.98% · falhas 0
+[21:41:23] mudaram 6 (fed_al, fed_ce, ab_br, ab_al, gov_pe, sen_mg); ALESC 99.98% · falhas 0
+[21:41:38] mudaram 12 (pres_br, fed_al, fed_ce, fed_pa, ab_br, ab_mg…); ALESC 99.98% · falhas 0
+[21:41:53] mudaram 13 (fed_al, fed_ce, fed_mg, fed_pa, ab_br, ab_ba…); ALESC 99.98% · falhas 0
+[21:42:09] mudaram 8 (pres_br, fed_ce, fed_pa, ab_pa, gov_ma, sen_ba…); ALESC 99.98% · falhas 0
+[21:42:14] municípios est: 0 mudaram, 0 falharam
+[21:42:16] municípios fed: 0 mudaram, 0 falharam
+[21:42:24] mudaram 7 (fed_ba, fed_ma, fed_rj, gov_ce, gov_ma, gov_pa…); ALESC 99.98% · falhas 0
+[21:42:39] mudaram 8 (pres_br, fed_ce, fed_ma, ab_ma, ab_pa, sen_ba…); ALESC 99.98% · falhas 0
+[21:42:54] mudaram 15 (pres_br, fed_ce, fed_ma, fed_pe, ab_al, ab_ce…); ALESC 99.98% · falhas 0
+[21:43:08] mudaram 11 (fed_al, fed_ce, fed_pe, fed_pi, ab_al, ab_ma…); ALESC 99.98% · falhas 0
+[21:43:23] mudaram 11 (pres_br, fed_al, fed_ma, fed_pa, fed_pe, ab_br…); ALESC 99.98% · falhas 0
+[21:43:38] mudaram 10 (pres_br, fed_al, fed_ba, fed_pa, ab_ba, ab_pa…); ALESC 99.98% · falhas 0
+[21:43:53] mudaram 9 (pres_br, fed_al, fed_pa, fed_pi, ab_ma, ab_mg…); ALESC 99.98% · falhas 0
+[21:44:13] mudaram 14 (pres_br, fed_ma, fed_mg, fed_pa, ab_br, ab_al…); ALESC 99.98% · falhas 0
+[21:44:13] municípios est: 0 mudaram, 0 falharam
+[21:44:15] municípios fed: 0 mudaram, 0 falharam
+[21:44:23] mudaram 8 (pres_br, fed_ce, ab_br, ab_ma, ab_pa, ab_pi…); ALESC 99.98% · falhas 0
+[21:44:38] mudaram 3 (fed_ma, fed_pa, sen_pa); ALESC 99.98% · falhas 0
+[21:44:53] mudaram 9 (pres_br, fed_ma, fed_pa, fed_pe, ab_br, ab_am…); ALESC 99.98% · falhas 0
+[21:45:09] mudaram 17 (pres_br, fed_am, fed_ba, fed_ce, fed_ma, fed_pa…); ALESC 99.98% · falhas 0
+[21:45:24] mudaram 4 (ab_ce, ab_pa, ab_pe, gov_ma); ALESC 99.98% · falhas 0
+[21:45:38] mudaram 3 (fed_al, ab_pa, sen_pa); ALESC 99.98% · falhas 0
+[21:45:53] mudaram 9 (pres_br, ab_br, ab_pa, gov_al, gov_ce, gov_pa…); ALESC 99.98% · falhas 0
+[21:46:08] municípios est: 0 mudaram, 0 falharam
+[21:46:10] municípios fed: 0 mudaram, 0 falharam
+[21:46:18] mudaram 7 (fed_ce, ab_br, ab_al, ab_ce, ab_rn, gov_rn…); ALESC 99.98% · falhas 0
+[21:46:23] mudaram 11 (pres_br, fed_pr, fed_rn, ab_br, ab_sp, gov_ba…); ALESC 99.98% · falhas 0
+[21:46:38] mudaram 12 (fed_ba, fed_pa, fed_sp, ab_br, ab_mg, ab_pa…); ALESC 99.98% · falhas 0
+[21:46:53] mudaram 8 (fed_mg, ab_ba, gov_pa, gov_pi, gov_pr, sen_ce…); ALESC 99.98% · falhas 0
+[21:47:08] mudaram 9 (pres_br, fed_ce, fed_ma, ab_ma, gov_ce, gov_mg…); ALESC 99.98% · falhas 0
+[21:47:24] mudaram 11 (fed_al, fed_pa, fed_pi, ab_br, ab_al, ab_ce…); ALESC 99.98% · falhas 0
+[21:47:39] mudaram 7 (pres_br, fed_al, fed_am, fed_ma, ab_am, gov_al…); ALESC 99.98% · falhas 0
+[21:47:53] mudaram 9 (fed_al, ab_br, ab_pa, gov_am, gov_ce, gov_ma…); ALESC 99.98% · falhas 0
+[21:48:08] mudaram 4 (pres_br, fed_ce, ab_ce, ab_ma); ALESC 99.98% · falhas 0
+[21:48:13] municípios est: 0 mudaram, 0 falharam
+[21:48:15] municípios fed: 0 mudaram, 0 falharam
+[21:48:23] mudaram 13 (fed_ba, fed_pa, fed_pi, fed_pr, ab_ba, ab_pa…); ALESC 99.98% · falhas 0
+[21:48:38] mudaram 7 (fed_ba, ab_br, ab_pa, gov_ba, gov_pi, gov_pr…); ALESC 99.98% · falhas 0
+[21:48:53] mudaram 8 (fed_ba, fed_ce, fed_ma, ab_ma, ab_pa, gov_ce…); ALESC 99.98% · falhas 0
+[21:49:09] mudaram 6 (ab_br, ab_ce, ab_ma, gov_ce, gov_ma, sen_ce); ALESC 99.98% · falhas 0
+[21:49:24] mudaram 9 (pres_br, fed_pa, fed_pi, ab_ma, ab_pa, gov_ce…); ALESC 99.98% · falhas 0
+[21:49:39] mudaram 6 (pres_br, fed_pi, ab_br, gov_pi, sen_am, sen_mg); ALESC 99.98% · falhas 0
+[21:49:54] mudaram 7 (fed_am, fed_pi, ab_br, ab_mg, gov_am, sen_am…); ALESC 99.98% · falhas 0
+[21:50:06] municípios est: 0 mudaram, 0 falharam
+[21:50:08] municípios fed: 0 mudaram, 0 falharam
+[21:50:09] mudaram 12 (pres_br, fed_mg, fed_pe, ab_am, ab_ba, ab_ma…); ALESC 99.98% · falhas 0
+[21:50:24] mudaram 13 (pres_br, fed_ce, fed_pa, ab_ce, ab_ma, ab_pe…); ALESC 99.98% · falhas 0
+[21:50:39] mudaram 11 (pres_br, fed_ba, fed_ma, ab_ce, ab_pa, ab_rj…); ALESC 99.98% · falhas 0
+[21:50:54] mudaram 11 (pres_br, fed_rj, ab_br, ab_ce, ab_ma, ab_rj…); ALESC 99.98% · falhas 0
+[21:51:08] mudaram 3 (pres_br, ab_br, ab_rj); ALESC 99.98% · falhas 0
+[21:51:23] mudaram 13 (pres_br, fed_pe, fed_pi, ab_br, ab_am, ab_pi…); ALESC 99.98% · falhas 0
+[21:51:38] mudaram 16 (pres_br, fed_am, fed_go, fed_pe, fed_rn, ab_br…); ALESC 99.98% · falhas 0
+[21:51:53] mudaram 8 (fed_pe, ab_br, ab_ba, ab_rn, gov_ba, sen_ba…); ALESC 99.98% · falhas 0
+[21:52:05] municípios est: 0 mudaram, 0 falharam
+[21:52:07] municípios fed: 0 mudaram, 0 falharam
+[21:52:17] mudaram 7 (pres_br, fed_ma, ab_br, ab_sp, gov_ba, gov_pa…); ALESC 99.98% · falhas 0
+[21:52:23] mudaram 13 (fed_ba, ab_br, ab_ma, gov_ba, gov_ce, gov_ma…); ALESC 99.98% · falhas 0
+[21:52:38] mudaram 8 (fed_ce, fed_rn, fed_sp, ab_br, ab_ce, gov_mg…); ALESC 99.98% · falhas 0
+[21:52:53] mudaram 8 (pres_br, fed_mg, fed_rn, ab_mg, gov_ce, gov_pa…); ALESC 99.98% · falhas 0
+[21:53:08] mudaram 7 (ab_pa, ab_rn, gov_am, gov_ce, sen_am, sen_go…); ALESC 99.98% · falhas 0
+[21:53:23] mudaram 11 (pres_br, fed_am, fed_go, fed_rn, ab_br, ab_am…); ALESC 99.98% · falhas 0
+[21:53:38] mudaram 8 (fed_ba, fed_pa, gov_ba, gov_go, gov_rn, sen_am…); ALESC 99.98% · falhas 0
+[21:53:53] mudaram 3 (pres_br, gov_go, sen_go); ALESC 99.98% · falhas 0
+[21:54:09] mudaram 4 (pres_br, fed_ce, gov_ce, gov_ma); ALESC 99.98% · falhas 0
+[21:54:14] municípios est: 0 mudaram, 0 falharam
+[21:54:24] mudaram 5 (fed_ma, ab_br, gov_pa, sen_ma, sen_pa); ALESC 99.98% · falhas 0
+[21:54:24] municípios fed: 0 mudaram, 0 falharam
+[21:54:39] mudaram 6 (pres_br, fed_pa, ab_ce, ab_ma, ab_pa, sen_ce); ALESC 99.98% · falhas 0
+[21:54:54] mudaram 6 (fed_ba, fed_sc, ab_br, ab_al, gov_mg, sen_pa); ALESC 99.98% · falhas 0
+[21:55:08] mudaram 12 (gov_sc, fed_ba, fed_mg, fed_sc, ab_sc, ab_ba…); ALESC 99.98% · falhas 0
+[21:55:23] mudaram 9 (sen_sc, fed_sc, ab_br, gov_ba, gov_pa, gov_pi…); ALESC 99.98% · falhas 0
+[21:55:38] mudaram 8 (pres_br, est_sc, fed_al, fed_ba, fed_pi, ab_pa…); ALESC 100.0% · falhas 0
+[21:55:53] mudaram 2 (fed_pa, sen_se); ALESC 100.0% · falhas 0
+[21:56:06] municípios est: 1 mudaram, 0 falharam
+[21:56:08] municípios fed: 1 mudaram, 0 falharam
+[21:56:09] mudaram 7 (pres_br, fed_se, ab_br, gov_al, gov_am, gov_se…); ALESC 100.0% · falhas 0
+[21:56:24] mudaram 14 (fed_al, fed_am, fed_ce, ab_al, ab_am, ab_ce…); ALESC 100.0% · falhas 0
+[21:56:39] mudaram 11 (pres_br, fed_ba, fed_pa, ab_ba, ab_pa, gov_al…); ALESC 100.0% · falhas 0
+[21:56:54] mudaram 6 (pres_br, sen_sc, fed_pa, ab_pa, gov_ce, gov_pa); ALESC 100.0% · falhas 0
+[21:57:08] mudaram 9 (pres_br, gov_sc, ab_sc, ab_br, gov_pa, sen_ce…); ALESC 100.0% · falhas 0
+[21:57:23] mudaram 13 (pres_br, est_sc, fed_pb, fed_sc, fed_se, ab_sc…); ALESC 100.0% · falhas 0
+[21:57:38] mudaram 9 (fed_ma, ab_sc, ab_ma, ab_mg, gov_se, sen_ce…); ALESC 100.0% · falhas 0
+[21:57:53] mudaram 12 (pres_br, fed_ba, fed_ce, fed_mg, ab_br, ab_ce…); ALESC 100.0% · falhas 0
+[21:58:08] mudaram 9 (fed_ba, fed_pa, fed_rn, ab_pa, ab_rn, gov_ba…); ALESC 100.0% · falhas 0
+[21:58:13] municípios est: 0 mudaram, 0 falharam
+[21:58:15] municípios fed: 0 mudaram, 0 falharam
+[21:58:23] mudaram 9 (pres_br, fed_am, fed_ba, ab_br, ab_ba, gov_am…); ALESC 100.0% · falhas 0
+[21:58:38] mudaram 8 (pres_br, ab_br, ab_am, ab_ce, gov_ce, gov_pa…); ALESC 100.0% · falhas 0
+[21:58:53] mudaram 5 (pres_br, fed_ce, fed_pa, ab_br, ab_pa); ALESC 100.0% · falhas 0
+[21:59:08] mudaram 8 (pres_br, est_sc, fed_pe, fed_sc, ab_br, gov_ma…); ALESC 100.0% · falhas 0
+[21:59:23] mudaram 8 (fed_ma, ab_sc, ab_ce, gov_ce, gov_pe, gov_rn…); ALESC 100.0% · falhas 0
+[21:59:38] mudaram 14 (fed_ba, fed_ce, fed_pb, fed_rn, ab_br, ab_ce…); ALESC 100.0% · falhas 0
+[21:59:53] mudaram 6 (ab_ba, ab_ce, ab_pe, gov_pb, gov_pe, sen_pe); ALESC 100.0% · falhas 0
+[22:00:07] municípios est: 89 mudaram, 0 falharam
+[22:00:10] municípios fed: 88 mudaram, 0 falharam
+[22:00:10] mudaram 3 (pres_br, fed_am, fed_ma); ALESC 100.0% · falhas 0
+[22:00:24] mudaram 6 (fed_am, ab_am, gov_ce, gov_ma, sen_am, sen_ce); ALESC 100.0% · falhas 0
+[22:00:39] mudaram 12 (fed_am, fed_ce, fed_pa, ab_am, ab_ce, ab_pe…); ALESC 100.0% · falhas 0
+[22:00:54] mudaram 14 (pres_br, fed_ba, fed_mg, fed_pa, fed_rn, ab_br…); ALESC 100.0% · falhas 0
+[22:01:08] mudaram 13 (pres_br, fed_pa, fed_rn, ab_br, ab_pa, ab_rn…); ALESC 100.0% · falhas 0
+[22:01:23] mudaram 14 (fed_pe, fed_rn, ab_ba, ab_ce, ab_pa, ab_pe…); ALESC 100.0% · falhas 0
+[22:01:38] mudaram 12 (fed_am, fed_ce, fed_ma, ab_am, ab_ma, ab_pa…); ALESC 100.0% · falhas 0
+[22:01:53] mudaram 8 (pres_br, fed_am, ab_br, ab_pa, gov_am, gov_pa…); ALESC 100.0% · falhas 0
+[22:02:08] mudaram 8 (pres_br, fed_am, fed_pa, ab_ce, ab_pa, gov_pi…); ALESC 100.0% · falhas 0
+[22:02:13] municípios est: 121 mudaram, 0 falharam
+[22:02:16] municípios fed: 139 mudaram, 0 falharam
+[22:02:23] mudaram 10 (pres_br, fed_pb, fed_pi, ab_br, ab_ba, ab_ce…); ALESC 100.0% · falhas 0
+[22:02:38] mudaram 13 (pres_br, fed_ba, fed_pb, ab_ce, ab_pe, ab_pi…); ALESC 100.0% · falhas 0
+[22:02:53] mudaram 9 (fed_pb, fed_pi, ab_br, ab_pb, gov_pb, sen_ba…); ALESC 100.0% · falhas 0
+[22:03:08] mudaram 9 (pres_br, fed_ce, fed_pa, fed_pi, ab_br, gov_mg…); ALESC 100.0% · falhas 0
+[22:03:24] mudaram 12 (pres_br, fed_pe, fed_pi, ab_mg, ab_pa, ab_pb…); ALESC 100.0% · falhas 0
+[22:03:38] mudaram 6 (pres_br, fed_ce, fed_pe, gov_pe, sen_pa, sen_pb); ALESC 100.0% · falhas 0
+[22:03:53] mudaram 7 (pres_br, fed_ce, fed_pb, fed_pe, ab_br, ab_pe…); ALESC 100.0% · falhas 0
+[22:04:09] mudaram 4 (fed_ba, gov_ba, sen_ba, sen_pb); ALESC 100.0% · falhas 0
+[22:04:13] municípios est: 85 mudaram, 0 falharam
+[22:04:16] municípios fed: 68 mudaram, 0 falharam
+[22:04:23] mudaram 9 (pres_br, fed_ce, fed_ma, ab_ba, ab_ce, gov_ce…); ALESC 100.0% · falhas 0
+[22:04:38] mudaram 10 (fed_rn, ab_br, ab_am, ab_ce, ab_ma, ab_rn…); ALESC 100.0% · falhas 0
+[22:04:53] mudaram 7 (ab_ce, ab_pa, gov_ma, gov_pa, sen_ce, sen_pa…); ALESC 100.0% · falhas 0
+[22:05:08] mudaram 5 (pres_br, fed_ce, fed_pa, fed_pe, ab_pa); ALESC 100.0% · falhas 0
+[22:05:23] mudaram 16 (fed_am, fed_ce, fed_ma, fed_pa, fed_pe, ab_br…); ALESC 100.0% · falhas 0
+[22:05:38] mudaram 15 (pres_br, fed_ba, fed_ce, fed_pe, ab_al, ab_ma…); ALESC 100.0% · falhas 0
+[22:05:53] mudaram 10 (fed_al, ab_ce, ab_mg, ab_pe, gov_al, gov_ba…); ALESC 100.0% · falhas 0
+[22:06:08] mudaram 5 (pres_br, fed_mg, ab_br, ab_ce, gov_al); ALESC 100.0% · falhas 0
+[22:06:13] municípios est: 0 mudaram, 0 falharam
+[22:06:23] mudaram 6 (fed_pe, ab_br, gov_pe, gov_rj, sen_pe, sen_rj); ALESC 100.0% · falhas 0
+[22:06:23] municípios fed: 0 mudaram, 0 falharam
+[22:06:38] mudaram 9 (pres_br, ab_br, ab_ba, ab_ce, ab_pe, gov_ba…); ALESC 100.0% · falhas 0
+[22:06:53] mudaram 8 (pres_br, fed_rj, gov_ba, gov_ce, gov_rj, gov_rn…); ALESC 100.0% · falhas 0
+[22:07:09] mudaram 7 (fed_ba, fed_ce, fed_rn, ab_br, ab_rj, ab_rn…); ALESC 100.0% · falhas 0
+[22:07:24] mudaram 1 (sen_rn); ALESC 100.0% · falhas 0
+[22:07:39] mudaram 2 (pres_br, ab_br); ALESC 100.0% · falhas 0
+[22:07:54] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[22:08:05] municípios est: 0 mudaram, 0 falharam
+[22:08:07] municípios fed: 0 mudaram, 0 falharam
+[22:08:09] mudaram 5 (pres_br, fed_ba, ab_br, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:08:24] mudaram 7 (pres_br, fed_ce, ab_br, ab_ba, ab_mg, gov_mg…); ALESC 100.0% · falhas 0
+[22:08:39] mudaram 4 (fed_mg, ab_ce, gov_ce, sen_mg); ALESC 100.0% · falhas 0
+[22:08:54] mudaram 2 (ab_br, ab_se); ALESC 100.0% · falhas 0
+[22:09:08] mudaram 2 (ab_br, sen_se); ALESC 100.0% · falhas 0
+[22:09:23] mudaram 13 (pres_br, fed_ba, fed_pe, fed_se, ab_br, ab_ma…); ALESC 100.0% · falhas 0
+[22:09:38] mudaram 9 (pres_br, fed_ba, fed_ma, ab_pe, gov_ba, gov_pe…); ALESC 100.0% · falhas 0
+[22:09:53] mudaram 10 (pres_br, fed_ba, fed_rn, ab_br, ab_ba, ab_pe…); ALESC 100.0% · falhas 0
+[22:10:06] municípios est: 0 mudaram, 0 falharam
+[22:10:08] municípios fed: 0 mudaram, 0 falharam
+[22:10:09] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[22:10:24] mudaram 6 (pres_br, fed_am, ab_br, ab_ma, ab_rn, gov_ma); ALESC 100.0% · falhas 0
+[22:10:39] mudaram 5 (pres_br, fed_ma, gov_mg, sen_ma, sen_pa); ALESC 100.0% · falhas 0
+[22:10:54] mudaram 8 (pres_br, fed_ba, ab_ba, ab_mg, gov_ba, gov_mg…); ALESC 100.0% · falhas 0
+[22:11:08] mudaram 5 (pres_br, fed_mg, ab_am, gov_mg, gov_pe); ALESC 100.0% · falhas 0
+[22:11:23] mudaram 6 (fed_ce, fed_pe, gov_am, gov_ba, sen_am, sen_pe); ALESC 100.0% · falhas 0
+[22:11:38] mudaram 7 (pres_br, ab_br, ab_ce, ab_pe, gov_ba, gov_ce…); ALESC 100.0% · falhas 0
+[22:11:53] mudaram 3 (pres_br, ab_br, gov_pa); ALESC 100.0% · falhas 0
+[22:12:09] mudaram 5 (pres_br, fed_pa, ab_br, ab_pa, gov_ma); ALESC 100.0% · falhas 0
+[22:12:14] municípios est: 0 mudaram, 0 falharam
+[22:12:16] municípios fed: 0 mudaram, 0 falharam
+[22:12:24] mudaram 4 (ab_am, gov_ce, gov_ma, sen_ce); ALESC 100.0% · falhas 0
+[22:12:39] mudaram 6 (pres_br, fed_ma, ab_ma, gov_ma, sen_am, sen_ma); ALESC 100.0% · falhas 0
+[22:12:54] mudaram 4 (fed_am, fed_ce, ab_br, gov_am); ALESC 100.0% · falhas 0
+[22:13:08] mudaram 2 (pres_br, ab_ce); ALESC 100.0% · falhas 0
+[22:13:23] mudaram 3 (pres_br, ab_ce, gov_ce); ALESC 100.0% · falhas 0
+[22:13:38] mudaram 5 (fed_ce, fed_mg, ab_br, gov_mg, sen_ce); ALESC 100.0% · falhas 0
+[22:13:53] mudaram 4 (pres_br, fed_mg, ab_ce, ab_mg); ALESC 100.0% · falhas 0
+[22:14:05] municípios est: 0 mudaram, 0 falharam
+[22:14:08] mudaram 6 (fed_ba, fed_mg, ab_mg, gov_ba, gov_ce, sen_mg); ALESC 100.0% · falhas 0
+[22:14:08] municípios fed: 0 mudaram, 0 falharam
+[22:14:23] mudaram 14 (fed_ce, fed_ma, fed_pb, ab_br, ab_ba, ab_ma…); ALESC 100.0% · falhas 0
+[22:14:38] mudaram 9 (pres_br, fed_ce, ab_ce, ab_ma, ab_pb, gov_ce…); ALESC 100.0% · falhas 0
+[22:14:53] mudaram 6 (fed_ce, ab_br, ab_ma, gov_ma, sen_ce, sen_ma); ALESC 100.0% · falhas 0
+[22:15:08] mudaram 2 (pres_br, sen_ce); ALESC 100.0% · falhas 0
+[22:15:23] mudaram 4 (fed_ce, ab_br, gov_ba, gov_ce); ALESC 100.0% · falhas 0
+[22:15:38] mudaram 4 (pres_br, ab_br, ab_ba, ab_sp); ALESC 100.0% · falhas 0
+[22:15:53] mudaram 6 (pres_br, fed_ba, fed_ce, ab_ce, gov_sp, sen_ce); ALESC 100.0% · falhas 0
+[22:16:05] municípios est: 0 mudaram, 0 falharam
+[22:16:07] municípios fed: 0 mudaram, 0 falharam
+[22:16:08] mudaram 7 (fed_ce, ab_br, gov_sp, sen_al, sen_ba, sen_ce…); ALESC 100.0% · falhas 0
+[22:16:23] mudaram 6 (pres_br, fed_al, ab_br, ab_al, gov_al, gov_sp); ALESC 100.0% · falhas 0
+[22:16:38] mudaram 6 (pres_br, fed_mg, ab_br, gov_am, gov_pa, sen_pa); ALESC 100.0% · falhas 0
+[22:16:53] mudaram 12 (pres_br, fed_am, fed_ce, fed_pa, ab_br, ab_ce…); ALESC 100.0% · falhas 0
+[22:17:08] mudaram 8 (pres_br, fed_al, ab_br, ab_am, gov_pa, sen_am…); ALESC 100.0% · falhas 0
+[22:17:23] mudaram 7 (pres_br, fed_al, ab_br, ab_al, ab_pa, gov_al…); ALESC 100.0% · falhas 0
+[22:17:38] mudaram 8 (pres_br, fed_al, fed_ba, ab_br, ab_ba, gov_ba…); ALESC 100.0% · falhas 0
+[22:17:53] mudaram 6 (ab_br, ab_ma, ab_pa, gov_ce, gov_ma, sen_pa); ALESC 100.0% · falhas 0
+[22:18:08] municípios est: 0 mudaram, 0 falharam
+[22:18:08] mudaram 8 (fed_ce, fed_ma, ab_br, ab_ce, gov_sp, sen_ce…); ALESC 100.0% · falhas 0
+[22:18:18] municípios fed: 0 mudaram, 0 falharam
+[22:18:23] mudaram 2 (fed_pa, gov_sp); ALESC 100.0% · falhas 0
+[22:18:38] mudaram 7 (pres_br, fed_ma, fed_pi, fed_sp, ab_sp, gov_sp…); ALESC 100.0% · falhas 0
+[22:18:53] mudaram 9 (fed_ma, fed_pi, ab_br, ab_ce, gov_ba, gov_ma…); ALESC 100.0% · falhas 0
+[22:19:09] mudaram 14 (fed_ce, fed_ma, fed_pi, ab_br, ab_ba, ab_ma…); ALESC 100.0% · falhas 0
+[22:19:24] mudaram 10 (pres_br, fed_am, fed_ba, fed_pa, gov_ba, gov_mg…); ALESC 100.0% · falhas 0
+[22:19:39] mudaram 8 (fed_am, fed_ma, ab_mg, ab_pa, gov_ma, gov_mg…); ALESC 100.0% · falhas 0
+[22:19:53] mudaram 9 (pres_br, fed_am, fed_pi, ab_ma, ab_pi, gov_am…); ALESC 100.0% · falhas 0
+[22:20:05] municípios est: 0 mudaram, 0 falharam
+[22:20:07] municípios fed: 0 mudaram, 0 falharam
+[22:20:09] mudaram 6 (ab_br, ab_am, ab_ma, gov_ma, sen_am, sen_ma); ALESC 100.0% · falhas 0
+[22:20:23] mudaram 5 (pres_br, ab_ma, gov_ba, sen_ma, sen_pi); ALESC 100.0% · falhas 0
+[22:20:38] mudaram 5 (pres_br, ab_br, ab_ba, gov_ba, gov_pa); ALESC 100.0% · falhas 0
+[22:20:53] mudaram 3 (fed_pa, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:21:08] mudaram 5 (pres_br, fed_ba, ab_pa, gov_pa, sen_pa); ALESC 100.0% · falhas 0
+[22:21:23] mudaram 6 (pres_br, fed_rj, ab_br, ab_pe, gov_pa, sen_rj); ALESC 100.0% · falhas 0
+[22:21:38] mudaram 7 (fed_rj, ab_br, ab_am, gov_pa, sen_ce, sen_pa…); ALESC 100.0% · falhas 0
+[22:21:53] mudaram 14 (fed_ce, fed_ma, fed_mg, fed_pa, fed_rj, ab_br…); ALESC 100.0% · falhas 0
+[22:22:08] municípios est: 0 mudaram, 0 falharam
+[22:22:09] mudaram 14 (pres_br, fed_ba, fed_ce, fed_pi, ab_br, ab_pa…); ALESC 100.0% · falhas 0
+[22:22:11] municípios fed: 0 mudaram, 0 falharam
+[22:22:23] mudaram 13 (pres_br, fed_am, fed_ba, fed_ce, ab_br, ab_ba…); ALESC 100.0% · falhas 0
+[22:22:38] mudaram 5 (fed_ba, ab_br, gov_pa, gov_pe, sen_pa); ALESC 100.0% · falhas 0
+[22:22:53] mudaram 4 (pres_br, ab_br, ab_pa, gov_pe); ALESC 100.0% · falhas 0
+[22:23:08] mudaram 2 (ab_br, gov_pe); ALESC 100.0% · falhas 0
+[22:23:23] mudaram 3 (pres_br, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[22:23:38] mudaram 9 (pres_br, fed_ba, fed_ce, fed_pa, fed_pe, ab_pa…); ALESC 100.0% · falhas 0
+[22:23:53] mudaram 11 (pres_br, fed_ce, fed_ma, fed_pi, ab_br, ab_ce…); ALESC 100.0% · falhas 0
+[22:24:06] municípios est: 0 mudaram, 0 falharam
+[22:24:09] mudaram 8 (pres_br, ab_ma, ab_mg, ab_pi, gov_ce, gov_ma…); ALESC 100.0% · falhas 0
+[22:24:11] municípios fed: 0 mudaram, 0 falharam
+[22:24:24] mudaram 5 (pres_br, fed_ce, sen_ma, sen_mg, sen_pi); ALESC 100.0% · falhas 0
+[22:24:39] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[22:24:54] mudaram 6 (fed_am, fed_ba, fed_pa, ab_br, ab_pi, sen_pa); ALESC 100.0% · falhas 0
+[22:25:08] mudaram 8 (fed_pi, ab_br, ab_am, ab_pa, gov_pi, sen_pa…); ALESC 100.0% · falhas 0
+[22:25:24] mudaram 10 (fed_rj, ab_am, ab_rj, ab_sp, gov_am, gov_pa…); ALESC 100.0% · falhas 0
+[22:25:38] mudaram 5 (pres_br, ab_br, ab_am, gov_ce, gov_pi); ALESC 100.0% · falhas 0
+[22:25:53] mudaram 5 (fed_ce, fed_pi, gov_ce, sen_ce, sen_sp); ALESC 100.0% · falhas 0
+[22:26:08] mudaram 3 (pres_br, ab_ce, gov_ce); ALESC 100.0% · falhas 0
+[22:26:13] municípios est: 0 mudaram, 0 falharam
+[22:26:18] municípios fed: 0 mudaram, 0 falharam
+[22:26:23] mudaram 4 (pres_br, ab_br, ab_pi, sen_pi); ALESC 100.0% · falhas 0
+[22:26:38] mudaram 5 (pres_br, fed_ba, ab_ba, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:26:53] mudaram 5 (fed_go, fed_mg, ab_go, ab_pa, sen_pa); ALESC 100.0% · falhas 0
+[22:27:09] mudaram 5 (pres_br, fed_pa, fed_sp, ab_br, sen_go); ALESC 100.0% · falhas 0
+[22:27:24] mudaram 7 (pres_br, fed_am, fed_sp, ab_am, gov_am, gov_go…); ALESC 100.0% · falhas 0
+[22:27:39] mudaram 5 (pres_br, fed_sp, ab_br, gov_ce, sen_am); ALESC 100.0% · falhas 0
+[22:27:54] mudaram 3 (fed_ba, fed_ce, sen_ce); ALESC 100.0% · falhas 0
+[22:28:08] mudaram 6 (pres_br, ab_br, ab_ba, ab_ce, gov_ba, sen_ce); ALESC 100.0% · falhas 0
+[22:28:20] municípios est: 0 mudaram, 1 falharam
+[22:28:23] mudaram 2 (sen_ba, sen_ce); ALESC 100.0% · falhas 0
+[22:28:25] municípios fed: 0 mudaram, 0 falharam
+[22:28:38] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[22:28:53] mudaram 5 (pres_br, fed_ce, ab_br, ab_ce, gov_ce); ALESC 100.0% · falhas 0
+[22:29:08] mudaram 1 (ab_ce); ALESC 100.0% · falhas 0
+[22:29:24] mudaram 5 (pres_br, fed_ba, ab_ba, ab_ce, sen_ce); ALESC 100.0% · falhas 0
+[22:29:39] mudaram 2 (gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:29:53] mudaram 5 (ab_br, ab_ce, gov_ce, sen_am, sen_ce); ALESC 100.0% · falhas 0
+[22:30:05] municípios est: 0 mudaram, 0 falharam
+[22:30:07] municípios fed: 0 mudaram, 0 falharam
+[22:30:09] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[22:30:23] mudaram 3 (pres_br, fed_ce, ab_br); ALESC 100.0% · falhas 0
+[22:30:38] mudaram 8 (pres_br, fed_am, fed_ce, fed_ma, ab_br, ab_am…); ALESC 100.0% · falhas 0
+[22:30:53] mudaram 7 (fed_ba, fed_ce, ab_ce, gov_ma, gov_pi, sen_ce…); ALESC 100.0% · falhas 0
+[22:31:08] mudaram 9 (pres_br, fed_ce, ab_br, ab_ba, ab_ce, ab_ma…); ALESC 100.0% · falhas 0
+[22:31:23] mudaram 2 (ab_ce, gov_ba); ALESC 100.0% · falhas 0
+[22:31:38] mudaram 1 (sen_ce); ALESC 100.0% · falhas 0
+[22:31:53] mudaram 9 (pres_br, fed_ce, fed_pi, ab_br, ab_ce, ab_pi…); ALESC 100.0% · falhas 0
+[22:32:05] municípios est: 0 mudaram, 0 falharam
+[22:32:07] municípios fed: 0 mudaram, 0 falharam
+[22:32:09] mudaram 3 (gov_pa, sen_ce, sen_pi); ALESC 100.0% · falhas 0
+[22:32:24] mudaram 3 (pres_br, fed_pa, sen_pi); ALESC 100.0% · falhas 0
+[22:32:39] mudaram 2 (fed_ba, sen_pa); ALESC 100.0% · falhas 0
+[22:32:54] mudaram 1 (ab_pa); ALESC 100.0% · falhas 0
+[22:33:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[22:33:38] mudaram 2 (pres_br, ab_br); ALESC 100.0% · falhas 0
+[22:33:53] mudaram 6 (fed_ma, gov_ba, gov_ma, sen_am, sen_ba, sen_ma); ALESC 100.0% · falhas 0
+[22:34:14] municípios est: 0 mudaram, 0 falharam
+[22:34:18] mudaram 7 (pres_br, fed_am, fed_ba, ab_ma, gov_ce, sen_am…); ALESC 100.0% · falhas 0
+[22:34:19] municípios fed: 0 mudaram, 0 falharam
+[22:34:24] mudaram 10 (pres_br, fed_ce, ab_br, ab_am, ab_ba, ab_ce…); ALESC 100.0% · falhas 0
+[22:34:39] mudaram 2 (pres_br, gov_ce); ALESC 100.0% · falhas 0
+[22:34:54] mudaram 4 (fed_ce, ab_br, gov_ce, sen_ce); ALESC 100.0% · falhas 0
+[22:35:08] mudaram 6 (pres_br, fed_am, ab_am, gov_am, gov_ce, sen_ce); ALESC 100.0% · falhas 0
+[22:35:23] mudaram 7 (fed_am, ab_br, ab_ba, ab_ce, gov_am, sen_am…); ALESC 100.0% · falhas 0
+[22:35:38] mudaram 5 (pres_br, fed_am, gov_am, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:35:53] mudaram 7 (pres_br, fed_ba, fed_pr, ab_br, ab_pr, gov_pr…); ALESC 100.0% · falhas 0
+[22:36:14] municípios est: 0 mudaram, 0 falharam
+[22:36:16] municípios fed: 0 mudaram, 0 falharam
+[22:36:24] mudaram 4 (pres_br, ab_br, ab_al, gov_pr); ALESC 100.0% · falhas 0
+[22:36:39] mudaram 4 (pres_br, ab_br, gov_al, gov_pr); ALESC 100.0% · falhas 0
+[22:36:54] mudaram 5 (pres_br, ab_mg, gov_go, sen_al, sen_go); ALESC 100.0% · falhas 0
+[22:37:09] mudaram 11 (pres_br, fed_ba, fed_go, ab_ba, ab_go, gov_ba…); ALESC 100.0% · falhas 0
+[22:37:24] mudaram 4 (pres_br, fed_al, sen_al, sen_go); ALESC 100.0% · falhas 0
+[22:37:38] mudaram 2 (pres_br, gov_ma); ALESC 100.0% · falhas 0
+[22:37:53] mudaram 4 (pres_br, ab_br, ab_ma, sen_ma); ALESC 100.0% · falhas 0
+[22:38:08] municípios est: 0 mudaram, 0 falharam
+[22:38:08] mudaram 2 (pres_br, fed_ma); ALESC 100.0% · falhas 0
+[22:38:10] municípios fed: 0 mudaram, 0 falharam
+[22:38:23] mudaram 4 (fed_pe, ab_pe, gov_pe, sen_pe); ALESC 100.0% · falhas 0
+[22:38:38] mudaram 1 (ab_pe); ALESC 100.0% · falhas 0
+[22:38:53] mudaram 6 (pres_br, fed_ce, ab_br, ab_pe, sen_ce, sen_mg); ALESC 100.0% · falhas 0
+[22:39:09] mudaram 3 (ab_ce, gov_ce, sen_mg); ALESC 100.0% · falhas 0
+[22:39:24] mudaram 3 (fed_mg, ab_mg, gov_mg); ALESC 100.0% · falhas 0
+[22:39:38] mudaram 4 (fed_go, ab_br, gov_pi, sen_mg); ALESC 100.0% · falhas 0
+[22:39:54] mudaram 11 (fed_am, fed_ba, fed_go, fed_pi, ab_ba, ab_go…); ALESC 100.0% · falhas 0
+[22:40:05] municípios est: 0 mudaram, 0 falharam
+[22:40:09] mudaram 5 (pres_br, fed_am, fed_ba, fed_pi, ab_br); ALESC 100.0% · falhas 0
+[22:40:16] municípios fed: 0 mudaram, 0 falharam
+[22:40:24] mudaram 5 (fed_go, ab_br, ab_am, gov_pe, sen_ba); ALESC 100.0% · falhas 0
+[22:40:38] mudaram 9 (pres_br, fed_am, fed_ba, fed_pi, ab_br, gov_am…); ALESC 100.0% · falhas 0
+[22:40:54] mudaram 7 (pres_br, fed_go, ab_br, ab_pa, ab_pe, gov_pa…); ALESC 100.0% · falhas 0
+[22:41:08] mudaram 2 (pres_br, ab_go); ALESC 100.0% · falhas 0
+[22:41:23] mudaram 5 (pres_br, ab_br, ab_pe, gov_ba, sen_pa); ALESC 100.0% · falhas 0
+[22:41:38] mudaram 8 (ab_br, ab_ba, ab_pe, gov_mg, gov_pe, sen_ce…); ALESC 100.0% · falhas 0
+[22:41:53] mudaram 10 (fed_ba, fed_pe, fed_pr, ab_br, ab_mg, ab_pe…); ALESC 100.0% · falhas 0
+[22:42:09] mudaram 7 (pres_br, fed_am, fed_mg, ab_am, gov_mg, sen_ce…); ALESC 100.0% · falhas 0
+[22:42:14] municípios est: 0 mudaram, 0 falharam
+[22:42:23] mudaram 6 (pres_br, fed_al, fed_am, ab_br, ab_pr, gov_ce); ALESC 100.0% · falhas 0
+[22:42:24] municípios fed: 0 mudaram, 0 falharam
+[22:42:39] mudaram 6 (fed_am, fed_pa, ab_ba, ab_ce, gov_am, sen_am); ALESC 100.0% · falhas 0
+[22:42:53] mudaram 6 (ab_br, ab_al, gov_ce, sen_al, sen_ba, sen_ce); ALESC 100.0% · falhas 0
+[22:43:08] mudaram 5 (fed_ce, ab_br, gov_al, gov_ce, sen_ba); ALESC 100.0% · falhas 0
+[22:43:23] mudaram 4 (pres_br, ab_br, gov_ce, sen_ba); ALESC 100.0% · falhas 0
+[22:43:38] mudaram 3 (fed_ba, gov_ba, sen_ma); ALESC 100.0% · falhas 0
+[22:43:53] mudaram 8 (pres_br, fed_ce, ab_br, ab_ce, ab_ma, gov_ce…); ALESC 100.0% · falhas 0
+[22:44:06] municípios est: 0 mudaram, 0 falharam
+[22:44:09] mudaram 6 (fed_ma, ab_br, gov_ma, gov_mg, sen_ma, sen_mg); ALESC 100.0% · falhas 0
+[22:44:16] municípios fed: 0 mudaram, 0 falharam
+[22:44:24] mudaram 5 (pres_br, ab_ba, sen_ba, sen_ce, sen_mg); ALESC 100.0% · falhas 0
+[22:44:39] mudaram 4 (pres_br, ab_br, ab_mg, sen_ba); ALESC 100.0% · falhas 0
+[22:44:54] mudaram 5 (fed_ba, fed_mg, ab_br, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:45:08] mudaram 4 (pres_br, ab_br, ab_pr, gov_pr); ALESC 100.0% · falhas 0
+[22:45:23] mudaram 2 (fed_pr, sen_pr); ALESC 100.0% · falhas 0
+[22:45:38] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[22:45:53] mudaram 3 (fed_ba, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[22:46:05] municípios est: 0 mudaram, 0 falharam
+[22:46:07] municípios fed: 0 mudaram, 0 falharam
+[22:46:08] mudaram 2 (fed_al, sen_al); ALESC 100.0% · falhas 0
+[22:46:23] mudaram 5 (pres_br, fed_al, ab_al, gov_al, sen_ba); ALESC 100.0% · falhas 0
+[22:46:38] mudaram 3 (fed_al, ab_br, ab_mg); ALESC 100.0% · falhas 0
+[22:46:53] mudaram 5 (fed_ce, ab_br, ab_mg, gov_mg, sen_mg); ALESC 100.0% · falhas 0
+[22:47:08] mudaram 6 (pres_br, fed_ce, ab_ce, ab_mg, gov_ce, sen_ce); ALESC 100.0% · falhas 0
+[22:47:23] mudaram 4 (pres_br, fed_ce, ab_br, sen_ba); ALESC 100.0% · falhas 0
+[22:47:38] mudaram 3 (fed_ba, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[22:47:53] mudaram 3 (pres_br, fed_pr, ab_br); ALESC 100.0% · falhas 0
+[22:48:09] mudaram 4 (pres_br, fed_pa, ab_br, gov_pa); ALESC 100.0% · falhas 0
+[22:48:14] municípios est: 0 mudaram, 0 falharam
+[22:48:16] municípios fed: 0 mudaram, 0 falharam
+[22:48:24] mudaram 2 (fed_pa, ab_pa); ALESC 100.0% · falhas 0
+[22:48:39] mudaram 3 (pres_br, fed_pa, sen_pa); ALESC 100.0% · falhas 0
+[22:48:54] mudaram 3 (ab_br, gov_ce, gov_ma); ALESC 100.0% · falhas 0
+[22:49:08] mudaram 6 (fed_ba, fed_ce, fed_ma, fed_mg, gov_ma, sen_ma); ALESC 100.0% · falhas 0
+[22:49:23] mudaram 7 (pres_br, ab_ce, ab_ma, ab_mg, gov_ma, sen_ce…); ALESC 100.0% · falhas 0
+[22:49:38] mudaram 7 (pres_br, ab_pa, gov_ma, gov_mg, gov_sp, sen_ma…); ALESC 100.0% · falhas 0
+[22:49:53] mudaram 9 (pres_br, ab_br, ab_ma, ab_pa, gov_al, sen_ma…); ALESC 100.0% · falhas 0
+[22:50:06] municípios est: 0 mudaram, 0 falharam
+[22:50:08] municípios fed: 0 mudaram, 0 falharam
+[22:50:10] mudaram 8 (pres_br, fed_ma, ab_al, ab_pa, gov_al, sen_al…); ALESC 100.0% · falhas 0
+[22:50:24] mudaram 5 (pres_br, ab_br, gov_al, gov_pa, sen_pa); ALESC 100.0% · falhas 0
+[22:50:39] mudaram 3 (pres_br, fed_al, ab_br); ALESC 100.0% · falhas 0
+[22:50:54] mudaram 4 (fed_al, fed_ma, fed_pa, ab_ce); ALESC 100.0% · falhas 0
+[22:51:08] mudaram 6 (fed_al, fed_ce, fed_ma, ab_al, gov_al, gov_ce); ALESC 100.0% · falhas 0
+[22:51:23] mudaram 8 (pres_br, fed_al, fed_ma, ab_br, ab_al, ab_ce…); ALESC 100.0% · falhas 0
+[22:51:38] mudaram 2 (ab_al, ab_ce); ALESC 100.0% · falhas 0
+[22:51:53] mudaram 2 (ab_mg, sen_mg); ALESC 100.0% · falhas 0
+[22:52:08] mudaram 3 (ab_mg, gov_mg, sen_ba); ALESC 100.0% · falhas 0
+[22:52:13] municípios est: 0 mudaram, 0 falharam
+[22:52:15] municípios fed: 0 mudaram, 0 falharam
+[22:52:23] mudaram 6 (pres_br, fed_ba, ab_br, ab_ba, ab_mg, gov_ba); ALESC 100.0% · falhas 0
+[22:52:38] mudaram 6 (pres_br, fed_rn, ab_br, ab_rn, gov_rn, sen_rn); ALESC 100.0% · falhas 0
+[22:52:53] mudaram 2 (pres_br, ab_br); ALESC 100.0% · falhas 0
+[22:53:08] mudaram 4 (pres_br, fed_sp, ab_br, ab_sp); ALESC 100.0% · falhas 1
+[22:53:08] falhas: fed_ma: ConnectError
+[22:53:23] mudaram 5 (pres_br, fed_ba, fed_sp, ab_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:53:38] mudaram 3 (fed_sp, ab_br, ab_ba); ALESC 100.0% · falhas 0
+[22:53:54] mudaram 5 (fed_ma, ab_ba, ab_ma, gov_ba, gov_ma); ALESC 100.0% · falhas 0
+[22:54:08] mudaram 4 (fed_ma, ab_ma, sen_ma, sen_mg); ALESC 100.0% · falhas 0
+[22:54:13] municípios est: 0 mudaram, 0 falharam
+[22:54:15] municípios fed: 0 mudaram, 0 falharam
+[22:54:23] mudaram 6 (pres_br, fed_ma, ab_br, ab_ma, gov_mg, sen_mg); ALESC 100.0% · falhas 0
+[22:54:38] mudaram 2 (ab_br, sen_mg); ALESC 100.0% · falhas 0
+[22:54:53] mudaram 1 (fed_ba); ALESC 100.0% · falhas 0
+[22:55:08] mudaram 3 (ab_al, sen_al, sen_ba); ALESC 100.0% · falhas 0
+[22:55:23] mudaram 6 (pres_br, ab_br, ab_al, ab_ba, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:55:38] mudaram 5 (fed_al, ab_br, ab_al, gov_al, sen_ba); ALESC 100.0% · falhas 0
+[22:55:53] mudaram 2 (pres_br, gov_al); ALESC 100.0% · falhas 0
+[22:56:05] municípios est: 0 mudaram, 0 falharam
+[22:56:08] mudaram 3 (fed_al, ab_br, sen_al); ALESC 100.0% · falhas 0
+[22:56:21] municípios fed: 0 mudaram, 1 falharam
+[22:56:23] mudaram 8 (pres_br, fed_am, fed_ce, ab_ba, ab_ce, sen_am…); ALESC 100.0% · falhas 0
+[22:56:38] mudaram 10 (fed_ba, fed_ce, ab_al, ab_ce, gov_am, gov_ba…); ALESC 100.0% · falhas 0
+[22:56:53] mudaram 8 (fed_ce, fed_pe, ab_br, ab_am, ab_ce, ab_mg…); ALESC 100.0% · falhas 0
+[22:57:08] mudaram 2 (fed_mg, ab_pe); ALESC 100.0% · falhas 0
+[22:57:23] mudaram 4 (pres_br, ab_am, ab_pe, sen_am); ALESC 100.0% · falhas 0
+[22:57:38] mudaram 3 (fed_am, ab_am, gov_am); ALESC 100.0% · falhas 0
+[22:57:53] mudaram 3 (fed_ba, ab_am, gov_ba); ALESC 100.0% · falhas 0
+[22:58:08] mudaram 4 (ab_br, ab_ba, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[22:58:13] municípios est: 0 mudaram, 0 falharam
+[22:58:23] mudaram 3 (pres_br, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[22:58:24] municípios fed: 0 mudaram, 0 falharam
+[22:58:38] mudaram 2 (ab_br, ab_ba); ALESC 100.0% · falhas 0
+[22:59:23] mudaram 1 (gov_sp); ALESC 100.0% · falhas 0
+[22:59:38] mudaram 5 (pres_br, fed_am, ab_am, gov_ba, sen_sp); ALESC 100.0% · falhas 0
+[22:59:53] mudaram 5 (fed_am, ab_ba, gov_ba, gov_mg, sen_am); ALESC 100.0% · falhas 0
+[23:00:06] municípios est: 0 mudaram, 0 falharam
+[23:00:08] municípios fed: 0 mudaram, 0 falharam
+[23:00:19] mudaram 4 (fed_am, gov_am, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:00:24] mudaram 2 (ab_br, sen_mg); ALESC 100.0% · falhas 0
+[23:00:39] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:01:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:01:38] mudaram 2 (pres_br, ab_br); ALESC 100.0% · falhas 0
+[23:01:53] mudaram 3 (ab_am, ab_ba, sen_am); ALESC 100.0% · falhas 0
+[23:02:09] mudaram 7 (pres_br, fed_am, fed_ba, ab_br, ab_am, gov_am…); ALESC 100.0% · falhas 0
+[23:02:09] municípios est: 0 mudaram, 0 falharam
+[23:02:11] municípios fed: 0 mudaram, 0 falharam
+[23:02:24] mudaram 7 (pres_br, fed_am, ab_br, ab_am, gov_ba, sen_am…); ALESC 100.0% · falhas 0
+[23:02:39] mudaram 2 (fed_am, ab_br); ALESC 100.0% · falhas 0
+[23:02:54] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:03:08] mudaram 4 (pres_br, ab_rn, gov_rn, sen_rn); ALESC 100.0% · falhas 0
+[23:03:23] mudaram 5 (pres_br, fed_rn, ab_br, gov_pa, sen_pa); ALESC 100.0% · falhas 0
+[23:03:38] mudaram 7 (pres_br, fed_ba, ab_br, ab_ba, ab_ma, gov_ma…); ALESC 100.0% · falhas 0
+[23:03:53] mudaram 6 (pres_br, fed_ma, fed_mg, ab_ma, ab_mg, sen_ma); ALESC 100.0% · falhas 0
+[23:04:06] municípios est: 0 mudaram, 0 falharam
+[23:04:08] municípios fed: 0 mudaram, 0 falharam
+[23:04:10] mudaram 4 (fed_pa, ab_br, ab_ma, sen_ma); ALESC 100.0% · falhas 0
+[23:04:24] mudaram 3 (pres_br, fed_sp, ab_pa); ALESC 100.0% · falhas 0
+[23:04:39] mudaram 1 (ab_sp); ALESC 100.0% · falhas 0
+[23:04:54] mudaram 1 (ab_ba); ALESC 100.0% · falhas 0
+[23:05:08] mudaram 4 (pres_br, fed_ba, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:05:23] mudaram 4 (fed_ba, ab_br, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[23:05:38] mudaram 4 (fed_ba, ab_br, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[23:06:05] municípios est: 0 mudaram, 0 falharam
+[23:06:08] mudaram 1 (sen_pi); ALESC 100.0% · falhas 0
+[23:06:11] municípios fed: 0 mudaram, 0 falharam
+[23:06:23] mudaram 3 (pres_br, ab_br, ab_pi); ALESC 100.0% · falhas 0
+[23:06:38] mudaram 1 (sen_ma); ALESC 100.0% · falhas 0
+[23:06:53] mudaram 3 (fed_ma, fed_pi, ab_ma); ALESC 100.0% · falhas 0
+[23:07:08] mudaram 1 (fed_pi); ALESC 100.0% · falhas 0
+[23:07:23] mudaram 3 (fed_pi, gov_ma, gov_pi); ALESC 100.0% · falhas 0
+[23:08:09] municípios est: 0 mudaram, 0 falharam
+[23:08:11] municípios fed: 0 mudaram, 0 falharam
+[23:09:08] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:09:38] mudaram 2 (gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:09:53] mudaram 1 (ab_ba); ALESC 100.0% · falhas 0
+[23:10:05] municípios est: 0 mudaram, 0 falharam
+[23:10:07] municípios fed: 0 mudaram, 0 falharam
+[23:10:09] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:10:39] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:10:53] mudaram 5 (ab_ce, ab_ma, gov_ba, sen_ce, sen_ma); ALESC 100.0% · falhas 0
+[23:11:08] mudaram 7 (pres_br, gov_ba, gov_ce, gov_ma, sen_ba, sen_ce…); ALESC 100.0% · falhas 0
+[23:11:23] mudaram 6 (fed_ba, fed_ce, fed_ma, gov_ba, sen_ce, sen_ma); ALESC 100.0% · falhas 0
+[23:11:38] mudaram 2 (pres_br, sen_ma); ALESC 100.0% · falhas 0
+[23:11:53] mudaram 4 (fed_ma, ab_br, gov_ma, sen_ma); ALESC 100.0% · falhas 0
+[23:12:08] mudaram 7 (fed_ce, ab_ce, ab_ma, gov_ce, gov_ma, sen_ce…); ALESC 100.0% · falhas 0
+[23:12:13] municípios est: 0 mudaram, 0 falharam
+[23:12:23] mudaram 2 (fed_ba, gov_ma); ALESC 100.0% · falhas 0
+[23:12:24] municípios fed: 0 mudaram, 0 falharam
+[23:12:38] mudaram 2 (ab_br, ab_ba); ALESC 100.0% · falhas 0
+[23:12:53] mudaram 3 (ab_br, ab_ma, sen_ma); ALESC 100.0% · falhas 0
+[23:13:08] mudaram 5 (pres_br, fed_ce, fed_ma, ab_br, ab_ce); ALESC 100.0% · falhas 0
+[23:13:23] mudaram 1 (gov_ma); ALESC 100.0% · falhas 0
+[23:13:38] mudaram 3 (pres_br, ab_br, gov_ba); ALESC 100.0% · falhas 0
+[23:13:53] mudaram 6 (pres_br, fed_ba, fed_pb, gov_ba, gov_pb, sen_pb); ALESC 100.0% · falhas 0
+[23:14:04] municípios est: 0 mudaram, 0 falharam
+[23:14:06] municípios fed: 0 mudaram, 0 falharam
+[23:14:08] mudaram 6 (pres_br, ab_ba, ab_pb, gov_ba, sen_ba, sen_pb); ALESC 100.0% · falhas 0
+[23:14:23] mudaram 3 (sen_am, sen_ba, sen_pb); ALESC 100.0% · falhas 0
+[23:14:38] mudaram 4 (fed_ma, ab_am, gov_am, sen_ba); ALESC 100.0% · falhas 0
+[23:14:53] mudaram 2 (pres_br, sen_ma); ALESC 100.0% · falhas 0
+[23:15:08] mudaram 3 (pres_br, ab_br, gov_ma); ALESC 100.0% · falhas 0
+[23:15:23] mudaram 5 (pres_br, fed_am, ab_br, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:15:38] mudaram 2 (ab_br, sen_ba); ALESC 100.0% · falhas 0
+[23:15:53] mudaram 1 (sen_ba); ALESC 100.0% · falhas 0
+[23:16:05] municípios est: 0 mudaram, 0 falharam
+[23:16:07] municípios fed: 0 mudaram, 0 falharam
+[23:16:09] mudaram 1 (ab_ma); ALESC 100.0% · falhas 0
+[23:16:23] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:16:38] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:17:08] mudaram 3 (ab_ba, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:17:23] mudaram 1 (fed_ba); ALESC 100.0% · falhas 0
+[23:18:14] municípios est: 0 mudaram, 0 falharam
+[23:18:16] municípios fed: 0 mudaram, 0 falharam
+[23:19:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:19:23] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:19:53] mudaram 1 (gov_ba); ALESC 100.0% · falhas 0
+[23:20:05] municípios est: 0 mudaram, 0 falharam
+[23:20:07] municípios fed: 0 mudaram, 0 falharam
+[23:20:09] mudaram 1 (ab_ba); ALESC 100.0% · falhas 0
+[23:20:23] mudaram 2 (fed_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:21:22] mudaram 2 (ab_br, sen_ba); ALESC 100.0% · falhas 0
+[23:21:38] mudaram 3 (pres_br, ab_ba, gov_ba); ALESC 100.0% · falhas 0
+[23:22:06] municípios est: 0 mudaram, 0 falharam
+[23:22:21] municípios fed: 0 mudaram, 1 falharam
+[23:22:54] mudaram 2 (fed_ba, ab_br); ALESC 100.0% · falhas 0
+[23:23:08] mudaram 2 (pres_br, fed_ba); ALESC 100.0% · falhas 0
+[23:23:23] mudaram 3 (pres_br, fed_ba, ab_br); ALESC 100.0% · falhas 0
+[23:23:38] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:23:53] mudaram 5 (fed_ma, fed_pb, ab_pb, gov_ma, sen_ma); ALESC 100.0% · falhas 0
+[23:24:06] municípios est: 0 mudaram, 0 falharam
+[23:24:09] mudaram 4 (ab_br, ab_ma, gov_pb, sen_pb); ALESC 100.0% · falhas 0
+[23:24:11] municípios fed: 0 mudaram, 0 falharam
+[23:24:39] mudaram 3 (pres_br, ab_br, gov_ba); ALESC 100.0% · falhas 0
+[23:24:54] mudaram 3 (fed_ba, ab_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:25:08] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:25:53] mudaram 1 (ab_ba); ALESC 100.0% · falhas 0
+[23:26:09] mudaram 1 (fed_ba); ALESC 100.0% · falhas 0
+[23:26:14] municípios est: 0 mudaram, 0 falharam
+[23:26:16] municípios fed: 0 mudaram, 0 falharam
+[23:26:54] mudaram 2 (pres_br, ab_br); ALESC 100.0% · falhas 0
+[23:28:05] municípios est: 0 mudaram, 0 falharam
+[23:28:07] municípios fed: 0 mudaram, 0 falharam
+[23:28:09] mudaram 1 (ab_mg); ALESC 100.0% · falhas 0
+[23:28:38] mudaram 2 (gov_mg, sen_mg); ALESC 100.0% · falhas 0
+[23:30:09] municípios est: 0 mudaram, 0 falharam
+[23:30:11] municípios fed: 0 mudaram, 0 falharam
+[23:30:39] mudaram 1 (fed_mg); ALESC 100.0% · falhas 0
+[23:31:23] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:31:38] mudaram 3 (fed_pa, ab_pa, gov_pa); ALESC 100.0% · falhas 0
+[23:31:53] mudaram 2 (ab_br, sen_pa); ALESC 100.0% · falhas 0
+[23:32:13] municípios est: 0 mudaram, 0 falharam
+[23:32:15] municípios fed: 0 mudaram, 0 falharam
+[23:34:08] municípios est: 0 mudaram, 0 falharam
+[23:34:10] municípios fed: 0 mudaram, 0 falharam
+[23:36:14] municípios est: 0 mudaram, 0 falharam
+[23:36:16] municípios fed: 0 mudaram, 0 falharam
+[23:36:54] mudaram 1 (sen_pi); ALESC 100.0% · falhas 0
+[23:37:08] mudaram 4 (pres_br, fed_pi, ab_pi, sen_pi); ALESC 100.0% · falhas 0
+[23:37:23] mudaram 3 (pres_br, gov_pi, sen_pi); ALESC 100.0% · falhas 0
+[23:37:38] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:37:53] mudaram 1 (gov_pi); ALESC 100.0% · falhas 0
+[23:38:09] mudaram 7 (fed_ba, fed_pi, ab_ba, ab_pi, gov_ba, sen_ba…); ALESC 100.0% · falhas 0
+[23:38:14] municípios est: 0 mudaram, 0 falharam
+[23:38:16] municípios fed: 0 mudaram, 0 falharam
+[23:38:24] mudaram 3 (pres_br, ab_br, sen_ba); ALESC 100.0% · falhas 0
+[23:38:39] mudaram 2 (pres_br, sen_ba); ALESC 100.0% · falhas 0
+[23:38:53] mudaram 4 (pres_br, fed_pi, ab_br, sen_am); ALESC 100.0% · falhas 0
+[23:39:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:39:23] mudaram 3 (fed_am, ab_am, ab_pi); ALESC 100.0% · falhas 0
+[23:39:38] mudaram 1 (gov_am); ALESC 100.0% · falhas 0
+[23:39:53] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:40:06] municípios est: 0 mudaram, 0 falharam
+[23:40:09] mudaram 2 (pres_br, gov_am); ALESC 100.0% · falhas 0
+[23:40:17] municípios fed: 0 mudaram, 0 falharam
+[23:40:23] mudaram 3 (fed_am, ab_am, sen_am); ALESC 100.0% · falhas 0
+[23:40:38] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:42:05] municípios est: 0 mudaram, 0 falharam
+[23:42:07] municípios fed: 0 mudaram, 0 falharam
+[23:42:23] mudaram 3 (pres_br, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:42:39] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:42:53] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[23:43:23] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:44:08] mudaram 1 (ab_ba); ALESC 100.0% · falhas 0
+[23:44:13] municípios est: 0 mudaram, 0 falharam
+[23:44:15] municípios fed: 0 mudaram, 0 falharam
+[23:44:23] mudaram 1 (fed_ba); ALESC 100.0% · falhas 0
+[23:44:38] mudaram 2 (gov_mg, sen_mg); ALESC 100.0% · falhas 0
+[23:44:53] mudaram 1 (sen_mg); ALESC 100.0% · falhas 0
+[23:45:13] mudaram 1 (sen_mg); ALESC 100.0% · falhas 0
+[23:46:05] municípios est: 0 mudaram, 0 falharam
+[23:46:07] municípios fed: 0 mudaram, 0 falharam
+[23:46:39] mudaram 3 (pres_br, fed_mg, ab_mg); ALESC 100.0% · falhas 0
+[23:46:54] mudaram 2 (ab_br, sen_ba); ALESC 100.0% · falhas 0
+[23:47:08] mudaram 2 (fed_ba, ab_ba); ALESC 100.0% · falhas 0
+[23:47:23] mudaram 1 (gov_ba); ALESC 100.0% · falhas 0
+[23:48:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:48:13] municípios est: 0 mudaram, 0 falharam
+[23:48:23] municípios fed: 0 mudaram, 0 falharam
+[23:48:33] mudaram 3 (ab_br, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:50:06] municípios est: 0 mudaram, 0 falharam
+[23:50:11] municípios fed: 0 mudaram, 0 falharam
+[23:50:24] mudaram 2 (fed_ba, ab_ba); ALESC 100.0% · falhas 0
+[23:50:54] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:51:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[23:51:23] mudaram 2 (ab_br, sen_ba); ALESC 100.0% · falhas 0
+[23:51:38] mudaram 5 (pres_br, fed_ba, ab_ba, gov_ba, sen_ba); ALESC 100.0% · falhas 0
+[23:51:53] mudaram 1 (sen_ba); ALESC 100.0% · falhas 0
+[23:52:14] municípios est: 0 mudaram, 0 falharam
+[23:52:16] municípios fed: 0 mudaram, 0 falharam
+[23:53:07] mudaram 1 (ab_ba); ALESC 100.0% · falhas 0
+[23:54:14] municípios est: 0 mudaram, 0 falharam
+[23:54:19] municípios fed: 0 mudaram, 0 falharam
+[23:56:05] municípios est: 0 mudaram, 0 falharam
+[23:56:07] municípios fed: 0 mudaram, 0 falharam
+[23:56:23] mudaram 1 (sen_pa); ALESC 100.0% · falhas 0
+[23:56:38] mudaram 4 (pres_br, fed_pa, ab_br, ab_pa); ALESC 100.0% · falhas 0
+[23:56:53] mudaram 3 (pres_br, fed_pa, gov_pa); ALESC 100.0% · falhas 0
+[23:57:08] mudaram 4 (pres_br, fed_pa, ab_pa, sen_pa); ALESC 100.0% · falhas 0
+[23:57:23] mudaram 3 (fed_pa, ab_br, ab_pa); ALESC 100.0% · falhas 0
+[23:57:38] mudaram 1 (fed_pa); ALESC 100.0% · falhas 0
+[23:58:05] municípios est: 0 mudaram, 0 falharam
+[23:58:07] municípios fed: 0 mudaram, 0 falharam
+[00:00:06] municípios est: 0 mudaram, 0 falharam
+[00:00:16] municípios fed: 0 mudaram, 0 falharam
+[00:02:13] municípios est: 0 mudaram, 0 falharam
+[00:02:15] municípios fed: 0 mudaram, 0 falharam
+[00:02:34] falhas: fed_ba: ConnectError
+[00:04:14] municípios est: 0 mudaram, 0 falharam
+[00:04:16] municípios fed: 0 mudaram, 0 falharam
+[00:06:08] municípios est: 0 mudaram, 0 falharam
+[00:06:10] municípios fed: 0 mudaram, 0 falharam
+[00:08:08] municípios est: 0 mudaram, 0 falharam
+[00:08:10] municípios fed: 0 mudaram, 0 falharam
+[00:10:06] municípios est: 0 mudaram, 0 falharam
+[00:10:07] municípios fed: 0 mudaram, 0 falharam
+[00:12:14] municípios est: 0 mudaram, 0 falharam
+[00:12:16] municípios fed: 0 mudaram, 0 falharam
+[00:12:24] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[00:12:54] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[00:13:08] mudaram 2 (pres_br, ab_br); ALESC 100.0% · falhas 0
+[00:13:53] mudaram 2 (fed_am, gov_am); ALESC 100.0% · falhas 0
+[00:14:08] mudaram 2 (gov_am, sen_am); ALESC 100.0% · falhas 0
+[00:14:14] municípios est: 0 mudaram, 0 falharam
+[00:14:19] municípios fed: 0 mudaram, 0 falharam
+[00:14:23] mudaram 2 (ab_am, gov_am); ALESC 100.0% · falhas 0
+[00:16:14] municípios est: 0 mudaram, 0 falharam
+[00:16:16] municípios fed: 0 mudaram, 0 falharam
+[00:18:05] municípios est: 0 mudaram, 0 falharam
+[00:18:15] municípios fed: 0 mudaram, 0 falharam
+[00:20:14] municípios est: 0 mudaram, 0 falharam
+[00:20:15] municípios fed: 0 mudaram, 0 falharam
+[00:22:14] municípios est: 0 mudaram, 0 falharam
+[00:22:19] municípios fed: 0 mudaram, 0 falharam
+[2026-10-05T00:22:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[00:24:13] municípios est: 0 mudaram, 0 falharam
+[00:24:18] municípios fed: 0 mudaram, 0 falharam
+[00:26:13] municípios est: 0 mudaram, 0 falharam
+[00:26:19] municípios fed: 0 mudaram, 0 falharam
+[00:28:13] municípios est: 0 mudaram, 0 falharam
+[00:28:24] municípios fed: 0 mudaram, 0 falharam
+[00:30:06] municípios est: 0 mudaram, 0 falharam
+[00:30:11] municípios fed: 0 mudaram, 0 falharam
+[00:31:23] mudaram 3 (ab_am, gov_am, sen_am); ALESC 100.0% · falhas 0
+[00:31:39] mudaram 4 (pres_br, fed_am, ab_br, gov_am); ALESC 100.0% · falhas 0
+[00:31:53] mudaram 1 (gov_am); ALESC 100.0% · falhas 0
+[00:32:09] municípios est: 0 mudaram, 0 falharam
+[00:32:19] municípios fed: 0 mudaram, 0 falharam
+[00:34:14] municípios est: 0 mudaram, 0 falharam
+[00:34:19] municípios fed: 0 mudaram, 0 falharam
+[00:36:08] municípios est: 0 mudaram, 0 falharam
+[00:36:18] municípios fed: 0 mudaram, 0 falharam
+[00:38:13] municípios est: 0 mudaram, 0 falharam
+[00:38:30] municípios fed: 0 mudaram, 0 falharam
+[00:40:09] municípios est: 0 mudaram, 0 falharam
+[00:40:14] municípios fed: 0 mudaram, 0 falharam
+[00:41:09] mudaram 1 (gov_ba); ALESC 100.0% · falhas 0
+[00:41:32] mudaram 1 (gov_ba); ALESC 100.0% · falhas 0
+[00:41:38] mudaram 3 (ab_br, ab_ba, sen_ba); ALESC 100.0% · falhas 0
+[00:41:53] mudaram 2 (ab_br, gov_ba); ALESC 100.0% · falhas 0
+[00:42:08] municípios est: 0 mudaram, 0 falharam
+[00:42:13] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[00:42:19] municípios fed: 0 mudaram, 0 falharam
+[00:42:38] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[00:43:08] mudaram 1 (fed_ba); ALESC 100.0% · falhas 0
+[00:44:14] municípios est: 0 mudaram, 0 falharam
+[00:44:16] municípios fed: 0 mudaram, 0 falharam
+[00:46:08] municípios est: 0 mudaram, 0 falharam
+[00:46:10] municípios fed: 0 mudaram, 0 falharam
+[00:47:38] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[00:47:53] mudaram 3 (ab_am, gov_am, sen_am); ALESC 100.0% · falhas 0
+[00:48:08] mudaram 1 (fed_am); ALESC 100.0% · falhas 0
+[00:48:14] municípios est: 0 mudaram, 0 falharam
+[00:48:19] municípios fed: 0 mudaram, 0 falharam
+[00:48:23] mudaram 2 (pres_br, gov_mg); ALESC 100.0% · falhas 0
+[00:48:38] mudaram 1 (gov_mg); ALESC 100.0% · falhas 0
+[00:48:53] mudaram 1 (gov_mg); ALESC 100.0% · falhas 0
+[00:49:23] mudaram 1 (sen_mg); ALESC 100.0% · falhas 0
+[00:50:05] municípios est: 0 mudaram, 0 falharam
+[00:50:15] municípios fed: 0 mudaram, 0 falharam
+[00:50:38] mudaram 1 (fed_mg); ALESC 100.0% · falhas 0
+[00:50:53] mudaram 1 (ab_mg); ALESC 100.0% · falhas 0
+[00:51:38] mudaram 2 (ab_br, gov_ba); ALESC 100.0% · falhas 0
+[00:51:53] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[00:52:08] mudaram 2 (ab_br, sen_ba); ALESC 100.0% · falhas 0
+[00:52:08] municípios est: 0 mudaram, 0 falharam
+[00:52:19] municípios fed: 0 mudaram, 0 falharam
+[00:52:53] mudaram 2 (gov_mg, sen_mg); ALESC 100.0% · falhas 0
+[00:53:08] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[00:53:53] mudaram 2 (fed_ba, ab_ba); ALESC 100.0% · falhas 0
+[00:54:13] municípios est: 0 mudaram, 0 falharam
+[00:54:23] municípios fed: 0 mudaram, 0 falharam
+[00:56:09] municípios est: 0 mudaram, 0 falharam
+[00:56:15] municípios fed: 0 mudaram, 0 falharam
+[00:56:43] mudaram 2 (fed_mg, ab_mg); ALESC 100.0% · falhas 0
+[00:56:54] mudaram 1 (fed_mg); ALESC 100.0% · falhas 0
+[00:57:08] mudaram 1 (fed_mg); ALESC 100.0% · falhas 0
+[00:58:13] municípios est: 0 mudaram, 0 falharam
+[00:58:23] municípios fed: 0 mudaram, 0 falharam
+[01:00:09] municípios est: 0 mudaram, 0 falharam
+[01:00:19] municípios fed: 0 mudaram, 0 falharam
+[01:02:05] municípios est: 0 mudaram, 0 falharam
+[01:02:10] municípios fed: 0 mudaram, 0 falharam
+[01:04:14] municípios est: 0 mudaram, 0 falharam
+[01:04:19] municípios fed: 0 mudaram, 0 falharam
+[01:06:14] municípios est: 0 mudaram, 0 falharam
+[01:06:19] municípios fed: 0 mudaram, 0 falharam
+[01:08:13] municípios est: 0 mudaram, 0 falharam
+[01:08:23] municípios fed: 0 mudaram, 0 falharam
+[01:10:14] municípios est: 0 mudaram, 0 falharam
+[01:10:24] municípios fed: 0 mudaram, 0 falharam
+[01:12:14] municípios est: 0 mudaram, 0 falharam
+[01:12:24] municípios fed: 0 mudaram, 0 falharam
+[01:14:13] municípios est: 0 mudaram, 0 falharam
+[01:14:18] municípios fed: 0 mudaram, 0 falharam
+[01:16:08] municípios est: 0 mudaram, 0 falharam
+[01:16:18] municípios fed: 0 mudaram, 0 falharam
+[01:18:05] municípios est: 0 mudaram, 0 falharam
+[01:18:07] municípios fed: 0 mudaram, 0 falharam
+[01:20:14] municípios est: 0 mudaram, 0 falharam
+[01:20:16] municípios fed: 0 mudaram, 0 falharam
+[01:22:22] municípios est: 0 mudaram, 0 falharam
+[01:22:28] municípios fed: 0 mudaram, 0 falharam
+[01:24:14] municípios est: 0 mudaram, 0 falharam
+[01:24:24] municípios fed: 0 mudaram, 0 falharam
+[01:26:14] municípios est: 0 mudaram, 0 falharam
+[01:26:16] municípios fed: 0 mudaram, 0 falharam
+[01:28:05] municípios est: 0 mudaram, 0 falharam
+[01:28:10] municípios fed: 0 mudaram, 0 falharam
+[01:30:08] municípios est: 0 mudaram, 0 falharam
+[01:30:19] municípios fed: 0 mudaram, 0 falharam
+[01:32:14] municípios est: 0 mudaram, 0 falharam
+[01:32:19] municípios fed: 0 mudaram, 0 falharam
+[01:34:14] municípios est: 0 mudaram, 0 falharam
+[01:34:24] municípios fed: 0 mudaram, 0 falharam
+[01:36:14] municípios est: 0 mudaram, 0 falharam
+[01:36:16] municípios fed: 0 mudaram, 0 falharam
+[01:38:08] municípios est: 0 mudaram, 0 falharam
+[01:38:18] municípios fed: 0 mudaram, 0 falharam
+[01:40:10] municípios est: 0 mudaram, 0 falharam
+[01:40:16] municípios fed: 0 mudaram, 0 falharam
+[01:42:19] municípios est: 0 mudaram, 0 falharam
+[01:42:29] municípios fed: 0 mudaram, 0 falharam
+[01:44:14] municípios est: 0 mudaram, 0 falharam
+[01:44:16] municípios fed: 0 mudaram, 0 falharam
+[01:46:13] municípios est: 0 mudaram, 0 falharam
+[01:46:23] municípios fed: 0 mudaram, 0 falharam
+[01:48:08] municípios est: 0 mudaram, 0 falharam
+[01:48:10] municípios fed: 0 mudaram, 0 falharam
+[01:50:14] municípios est: 0 mudaram, 0 falharam
+[01:50:16] municípios fed: 0 mudaram, 0 falharam
+[01:52:13] municípios est: 0 mudaram, 0 falharam
+[01:52:18] municípios fed: 0 mudaram, 0 falharam
+[01:54:08] municípios est: 0 mudaram, 0 falharam
+[01:54:18] municípios fed: 0 mudaram, 0 falharam
+[01:56:08] municípios est: 0 mudaram, 0 falharam
+[01:56:13] municípios fed: 0 mudaram, 0 falharam
+[01:57:23] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[01:57:38] mudaram 2 (fed_ma, gov_ma); ALESC 100.0% · falhas 0
+[01:57:53] mudaram 2 (ab_br, sen_ma); ALESC 100.0% · falhas 0
+[01:58:05] municípios est: 0 mudaram, 0 falharam
+[01:58:08] mudaram 1 (pres_br); ALESC 100.0% · falhas 0
+[01:58:15] municípios fed: 0 mudaram, 0 falharam
+[01:58:33] mudaram 1 (fed_ma); ALESC 100.0% · falhas 0
+[01:58:38] mudaram 2 (gov_ma, sen_ma); ALESC 100.0% · falhas 0
+[01:59:08] mudaram 1 (ab_ma); ALESC 100.0% · falhas 0
+[02:00:14] municípios est: 0 mudaram, 0 falharam
+[02:00:24] municípios fed: 0 mudaram, 0 falharam
+[02:01:38] mudaram 1 (sen_ma); ALESC 100.0% · falhas 0
+[02:01:53] mudaram 1 (gov_ma); ALESC 100.0% · falhas 0
+[02:02:08] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[02:02:08] municípios est: 0 mudaram, 0 falharam
+[02:02:13] municípios fed: 0 mudaram, 0 falharam
+[02:02:23] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[02:02:38] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[02:02:53] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[02:03:23] mudaram 2 (fed_ma, ab_ma); ALESC 100.0% · falhas 0
+[02:04:05] municípios est: 0 mudaram, 0 falharam
+[02:04:15] municípios fed: 0 mudaram, 0 falharam
+[02:06:09] municípios est: 0 mudaram, 0 falharam
+[02:06:10] municípios fed: 0 mudaram, 0 falharam
+[02:08:13] municípios est: 0 mudaram, 0 falharam
+[02:08:18] municípios fed: 0 mudaram, 0 falharam
+[2026-10-05T02:08:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[02:10:13] municípios est: 0 mudaram, 0 falharam
+[02:10:15] municípios fed: 0 mudaram, 0 falharam
+[02:12:13] municípios est: 0 mudaram, 0 falharam
+[02:12:23] municípios fed: 0 mudaram, 0 falharam
+[02:14:08] municípios est: 0 mudaram, 0 falharam
+[02:14:18] municípios fed: 0 mudaram, 0 falharam
+[02:16:13] municípios est: 0 mudaram, 0 falharam
+[02:16:18] municípios fed: 0 mudaram, 0 falharam
+[02:18:13] municípios est: 0 mudaram, 0 falharam
+[02:18:18] municípios fed: 0 mudaram, 0 falharam
+[02:20:07] municípios est: 0 mudaram, 0 falharam
+[02:20:17] municípios fed: 0 mudaram, 0 falharam
+[02:22:13] municípios est: 0 mudaram, 0 falharam
+[02:22:19] municípios fed: 0 mudaram, 0 falharam
+[02:24:14] municípios est: 0 mudaram, 0 falharam
+[02:24:19] municípios fed: 0 mudaram, 0 falharam
+[02:26:14] municípios est: 0 mudaram, 0 falharam
+[02:26:24] municípios fed: 0 mudaram, 0 falharam
+[02:28:09] municípios est: 0 mudaram, 0 falharam
+[02:28:11] municípios fed: 0 mudaram, 0 falharam
+[02:30:06] municípios est: 0 mudaram, 0 falharam
+[02:30:11] municípios fed: 0 mudaram, 0 falharam
+[02:32:09] municípios est: 0 mudaram, 0 falharam
+[02:32:10] municípios fed: 0 mudaram, 0 falharam
+[02:34:14] municípios est: 0 mudaram, 0 falharam
+[02:34:19] municípios fed: 0 mudaram, 0 falharam
+[02:36:05] municípios est: 0 mudaram, 0 falharam
+[02:36:07] municípios fed: 0 mudaram, 0 falharam
+[02:38:13] municípios est: 0 mudaram, 0 falharam
+[02:38:19] municípios fed: 0 mudaram, 0 falharam
+[02:40:05] municípios est: 0 mudaram, 0 falharam
+[02:40:16] municípios fed: 0 mudaram, 0 falharam
+[02:42:13] municípios est: 0 mudaram, 0 falharam
+[02:42:19] municípios fed: 0 mudaram, 0 falharam
+[02:44:05] municípios est: 0 mudaram, 0 falharam
+[02:44:11] municípios fed: 0 mudaram, 0 falharam
+[02:46:13] municípios est: 0 mudaram, 0 falharam
+[02:46:15] municípios fed: 0 mudaram, 0 falharam
+[02:48:14] municípios est: 0 mudaram, 0 falharam
+[02:48:15] municípios fed: 0 mudaram, 0 falharam
+[02:50:05] municípios est: 0 mudaram, 0 falharam
+[02:50:07] municípios fed: 0 mudaram, 0 falharam
+[02:52:05] municípios est: 0 mudaram, 0 falharam
+[02:52:06] municípios fed: 0 mudaram, 0 falharam
+[2026-10-05T02:52:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[02:54:05] municípios est: 0 mudaram, 0 falharam
+[02:54:06] municípios fed: 0 mudaram, 0 falharam
+[02:56:14] municípios est: 0 mudaram, 0 falharam
+[02:56:16] municípios fed: 0 mudaram, 0 falharam
+[02:58:13] municípios est: 0 mudaram, 0 falharam
+[02:58:23] municípios fed: 0 mudaram, 0 falharam
+[03:00:06] municípios est: 0 mudaram, 0 falharam
+[03:00:16] municípios fed: 0 mudaram, 0 falharam
+[03:00:39] mudaram 2 (fed_am, gov_am); ALESC 100.0% · falhas 0
+[03:00:54] mudaram 2 (fed_am, sen_am); ALESC 100.0% · falhas 0
+[03:01:08] mudaram 4 (pres_br, fed_am, ab_br, ab_am); ALESC 100.0% · falhas 0
+[03:02:05] municípios est: 0 mudaram, 0 falharam
+[03:02:11] municípios fed: 0 mudaram, 0 falharam
+[03:04:05] municípios est: 0 mudaram, 0 falharam
+[03:04:10] municípios fed: 0 mudaram, 0 falharam
+[03:06:14] municípios est: 0 mudaram, 0 falharam
+[03:06:24] municípios fed: 0 mudaram, 0 falharam
+[03:08:14] municípios est: 0 mudaram, 0 falharam
+[03:08:24] municípios fed: 0 mudaram, 0 falharam
+[03:10:05] municípios est: 0 mudaram, 0 falharam
+[03:10:07] municípios fed: 0 mudaram, 0 falharam
+[03:12:05] municípios est: 0 mudaram, 0 falharam
+[03:12:10] municípios fed: 0 mudaram, 0 falharam
+[03:14:05] municípios est: 0 mudaram, 0 falharam
+[03:14:07] municípios fed: 0 mudaram, 0 falharam
+[03:16:05] municípios est: 0 mudaram, 0 falharam
+[03:16:10] municípios fed: 0 mudaram, 0 falharam
+[03:18:13] municípios est: 0 mudaram, 0 falharam
+[03:18:23] municípios fed: 0 mudaram, 0 falharam
+[03:20:06] municípios est: 0 mudaram, 0 falharam
+[03:20:07] municípios fed: 0 mudaram, 0 falharam
+[03:22:07] municípios est: 0 mudaram, 0 falharam
+[03:22:09] municípios fed: 0 mudaram, 0 falharam
+[03:24:05] municípios est: 0 mudaram, 0 falharam
+[03:24:08] municípios fed: 0 mudaram, 0 falharam
+[03:26:06] municípios est: 0 mudaram, 0 falharam
+[03:26:09] municípios fed: 0 mudaram, 0 falharam
+[03:28:06] municípios est: 0 mudaram, 0 falharam
+[03:28:07] municípios fed: 0 mudaram, 0 falharam
+[03:30:06] municípios est: 0 mudaram, 0 falharam
+[03:30:07] municípios fed: 0 mudaram, 0 falharam
+[03:32:07] municípios est: 0 mudaram, 0 falharam
+[03:32:17] municípios fed: 0 mudaram, 0 falharam
+[03:34:05] municípios est: 0 mudaram, 0 falharam
+[03:34:07] municípios fed: 0 mudaram, 0 falharam
+[03:36:13] municípios est: 0 mudaram, 0 falharam
+[03:36:15] municípios fed: 0 mudaram, 0 falharam
+[03:38:09] municípios est: 0 mudaram, 0 falharam
+[03:38:10] municípios fed: 0 mudaram, 0 falharam
+[03:40:06] municípios est: 0 mudaram, 0 falharam
+[03:40:11] municípios fed: 0 mudaram, 0 falharam
+[03:42:05] municípios est: 0 mudaram, 0 falharam
+[03:42:15] municípios fed: 0 mudaram, 0 falharam
+[03:44:05] municípios est: 0 mudaram, 0 falharam
+[03:44:10] municípios fed: 0 mudaram, 0 falharam
+[03:46:07] municípios est: 0 mudaram, 0 falharam
+[03:46:09] municípios fed: 0 mudaram, 0 falharam
+[03:48:07] municípios est: 0 mudaram, 0 falharam
+[03:48:09] municípios fed: 0 mudaram, 0 falharam
+[03:50:08] municípios est: 0 mudaram, 0 falharam
+[03:50:10] municípios fed: 0 mudaram, 0 falharam
+[03:52:06] municípios est: 0 mudaram, 0 falharam
+[03:52:08] municípios fed: 0 mudaram, 0 falharam
+[03:54:07] municípios est: 0 mudaram, 0 falharam
+[03:54:09] municípios fed: 0 mudaram, 0 falharam
+[03:56:08] municípios est: 0 mudaram, 0 falharam
+[03:56:09] municípios fed: 0 mudaram, 0 falharam
+[03:58:07] municípios est: 0 mudaram, 0 falharam
+[03:58:09] municípios fed: 0 mudaram, 0 falharam
+[04:00:09] municípios est: 0 mudaram, 0 falharam
+[04:00:11] municípios fed: 0 mudaram, 0 falharam
+[04:02:14] municípios est: 0 mudaram, 0 falharam
+[04:02:15] municípios fed: 0 mudaram, 0 falharam
+[04:04:06] municípios est: 0 mudaram, 0 falharam
+[04:04:17] municípios fed: 0 mudaram, 0 falharam
+[04:06:05] municípios est: 0 mudaram, 0 falharam
+[04:06:07] municípios fed: 0 mudaram, 0 falharam
+[04:08:13] municípios est: 0 mudaram, 0 falharam
+[04:08:15] municípios fed: 0 mudaram, 0 falharam
+[04:10:14] municípios est: 0 mudaram, 0 falharam
+[04:10:19] municípios fed: 0 mudaram, 0 falharam
+[04:12:13] municípios est: 0 mudaram, 0 falharam
+[04:12:24] municípios fed: 0 mudaram, 0 falharam
+[04:14:06] municípios est: 0 mudaram, 0 falharam
+[04:14:07] municípios fed: 0 mudaram, 0 falharam
+[04:16:15] municípios est: 0 mudaram, 0 falharam
+[04:16:18] municípios fed: 0 mudaram, 0 falharam
+[2026-10-05T04:17:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[04:18:07] municípios est: 0 mudaram, 0 falharam
+[04:18:10] municípios fed: 0 mudaram, 0 falharam
+[04:20:06] municípios est: 0 mudaram, 0 falharam
+[04:20:09] municípios fed: 0 mudaram, 0 falharam
+[04:22:09] municípios est: 0 mudaram, 0 falharam
+[04:22:11] municípios fed: 0 mudaram, 0 falharam
+[04:24:08] municípios est: 0 mudaram, 0 falharam
+[04:24:13] municípios fed: 0 mudaram, 0 falharam
+[04:26:13] municípios est: 0 mudaram, 0 falharam
+[04:26:15] municípios fed: 0 mudaram, 0 falharam
+[04:28:05] municípios est: 0 mudaram, 0 falharam
+[04:28:06] municípios fed: 0 mudaram, 0 falharam
+[04:30:14] municípios est: 0 mudaram, 0 falharam
+[04:30:16] municípios fed: 0 mudaram, 0 falharam
+[04:32:14] municípios est: 0 mudaram, 0 falharam
+[04:32:15] municípios fed: 0 mudaram, 0 falharam
+[04:34:05] municípios est: 0 mudaram, 0 falharam
+[04:34:10] municípios fed: 0 mudaram, 0 falharam
+[04:36:05] municípios est: 0 mudaram, 0 falharam
+[04:36:10] municípios fed: 0 mudaram, 0 falharam
+[04:38:13] municípios est: 0 mudaram, 0 falharam
+[04:38:15] municípios fed: 0 mudaram, 0 falharam
+[04:40:05] municípios est: 0 mudaram, 0 falharam
+[04:40:07] municípios fed: 0 mudaram, 0 falharam
+[04:42:05] municípios est: 0 mudaram, 0 falharam
+[04:42:07] municípios fed: 0 mudaram, 0 falharam
+[04:44:14] municípios est: 0 mudaram, 0 falharam
+[04:44:15] municípios fed: 0 mudaram, 0 falharam
+[04:46:09] municípios est: 0 mudaram, 0 falharam
+[04:46:19] municípios fed: 0 mudaram, 0 falharam
+[04:48:09] municípios est: 0 mudaram, 0 falharam
+[04:48:10] municípios fed: 0 mudaram, 0 falharam
+[04:50:05] municípios est: 0 mudaram, 0 falharam
+[04:50:10] municípios fed: 0 mudaram, 0 falharam
+[04:52:13] municípios est: 0 mudaram, 0 falharam
+[04:52:15] municípios fed: 0 mudaram, 0 falharam
+[04:54:08] municípios est: 0 mudaram, 0 falharam
+[04:54:10] municípios fed: 0 mudaram, 0 falharam
+[04:56:13] municípios est: 0 mudaram, 0 falharam
+[04:56:23] municípios fed: 0 mudaram, 0 falharam
+[04:58:13] municípios est: 0 mudaram, 0 falharam
+[04:58:15] municípios fed: 0 mudaram, 0 falharam
+[05:00:09] municípios est: 0 mudaram, 0 falharam
+[05:00:14] municípios fed: 0 mudaram, 0 falharam
+[05:02:09] municípios est: 0 mudaram, 0 falharam
+[05:02:14] municípios fed: 0 mudaram, 0 falharam
+[05:04:14] municípios est: 0 mudaram, 0 falharam
+[05:04:16] municípios fed: 0 mudaram, 0 falharam
+[05:06:05] municípios est: 0 mudaram, 0 falharam
+[05:06:15] municípios fed: 0 mudaram, 0 falharam
+[05:08:13] municípios est: 0 mudaram, 0 falharam
+[05:08:15] municípios fed: 0 mudaram, 0 falharam
+[05:10:06] municípios est: 0 mudaram, 0 falharam
+[05:10:08] municípios fed: 0 mudaram, 0 falharam
+[05:12:08] municípios est: 0 mudaram, 0 falharam
+[05:12:12] municípios fed: 0 mudaram, 0 falharam
+[05:14:13] municípios est: 0 mudaram, 0 falharam
+[05:14:15] municípios fed: 0 mudaram, 0 falharam
+[05:16:05] municípios est: 0 mudaram, 0 falharam
+[05:16:07] municípios fed: 0 mudaram, 0 falharam
+[05:18:14] municípios est: 0 mudaram, 0 falharam
+[05:18:15] municípios fed: 0 mudaram, 0 falharam
+[05:20:06] municípios est: 0 mudaram, 0 falharam
+[05:20:07] municípios fed: 0 mudaram, 0 falharam
+[05:22:13] municípios est: 0 mudaram, 0 falharam
+[05:22:15] municípios fed: 0 mudaram, 0 falharam
+[05:24:13] municípios est: 0 mudaram, 0 falharam
+[05:24:15] municípios fed: 0 mudaram, 0 falharam
+[05:26:13] municípios est: 0 mudaram, 0 falharam
+[05:26:24] municípios fed: 0 mudaram, 0 falharam
+[05:28:13] municípios est: 0 mudaram, 0 falharam
+[05:28:24] municípios fed: 0 mudaram, 0 falharam
+[05:30:06] municípios est: 0 mudaram, 0 falharam
+[05:30:11] municípios fed: 0 mudaram, 0 falharam
+[05:32:05] municípios est: 0 mudaram, 0 falharam
+[05:32:15] municípios fed: 0 mudaram, 0 falharam
+[05:34:14] municípios est: 0 mudaram, 0 falharam
+[05:34:24] municípios fed: 0 mudaram, 0 falharam
+[05:36:14] municípios est: 0 mudaram, 0 falharam
+[05:36:15] municípios fed: 0 mudaram, 0 falharam
+[05:38:13] municípios est: 0 mudaram, 0 falharam
+[05:38:15] municípios fed: 0 mudaram, 0 falharam
+[05:40:05] municípios est: 0 mudaram, 0 falharam
+[05:40:07] municípios fed: 0 mudaram, 0 falharam
+[05:42:05] municípios est: 0 mudaram, 0 falharam
+[05:42:11] municípios fed: 0 mudaram, 0 falharam
+[05:44:05] municípios est: 0 mudaram, 0 falharam
+[05:44:10] municípios fed: 0 mudaram, 0 falharam
+[05:46:13] municípios est: 0 mudaram, 0 falharam
+[05:46:18] municípios fed: 0 mudaram, 0 falharam
+[05:48:13] municípios est: 0 mudaram, 0 falharam
+[05:48:23] municípios fed: 0 mudaram, 0 falharam
+[05:50:06] municípios est: 0 mudaram, 0 falharam
+[05:50:08] municípios fed: 0 mudaram, 0 falharam
+[05:52:08] municípios est: 0 mudaram, 0 falharam
+[05:52:10] municípios fed: 0 mudaram, 0 falharam
+[05:54:08] municípios est: 0 mudaram, 0 falharam
+[05:54:10] municípios fed: 0 mudaram, 0 falharam
+[05:56:13] municípios est: 0 mudaram, 0 falharam
+[05:56:15] municípios fed: 0 mudaram, 0 falharam
+[05:58:08] municípios est: 0 mudaram, 0 falharam
+[05:58:10] municípios fed: 0 mudaram, 0 falharam
+[06:00:05] municípios est: 0 mudaram, 0 falharam
+[06:00:15] municípios fed: 0 mudaram, 0 falharam
+[06:01:08] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[06:01:38] mudaram 1 (sen_am); ALESC 100.0% · falhas 0
+[06:01:53] mudaram 3 (fed_am, ab_br, gov_am); ALESC 100.0% · falhas 0
+[06:02:08] mudaram 1 (ab_am); ALESC 100.0% · falhas 0
+[06:02:09] municípios est: 0 mudaram, 0 falharam
+[06:02:11] municípios fed: 0 mudaram, 0 falharam
+[06:04:14] municípios est: 0 mudaram, 0 falharam
+[06:04:24] municípios fed: 0 mudaram, 0 falharam
+[06:06:13] municípios est: 0 mudaram, 0 falharam
+[06:06:15] municípios fed: 0 mudaram, 0 falharam
+[06:08:13] municípios est: 0 mudaram, 0 falharam
+[06:08:18] municípios fed: 0 mudaram, 0 falharam
+[06:10:05] municípios est: 0 mudaram, 0 falharam
+[06:10:09] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[06:10:11] municípios fed: 0 mudaram, 0 falharam
+[06:10:23] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[06:10:38] mudaram 1 (ab_br); ALESC 100.0% · falhas 0
+[06:11:08] mudaram 1 (ab_am); ALESC 100.0% · falhas 0
+[06:12:14] municípios est: 0 mudaram, 0 falharam
+[06:12:24] municípios fed: 0 mudaram, 0 falharam
+[06:14:09] municípios est: 0 mudaram, 0 falharam
+[06:14:10] municípios fed: 0 mudaram, 0 falharam
+[06:16:09] municípios est: 0 mudaram, 0 falharam
+[06:16:14] municípios fed: 0 mudaram, 0 falharam
+[06:18:09] municípios est: 0 mudaram, 0 falharam
+[06:18:14] municípios fed: 0 mudaram, 0 falharam
+[06:20:05] municípios est: 0 mudaram, 0 falharam
+[06:20:07] municípios fed: 0 mudaram, 0 falharam
+[06:22:20] municípios est: 0 mudaram, 1 falharam
+[06:22:22] municípios fed: 0 mudaram, 0 falharam
+[06:24:05] municípios est: 0 mudaram, 0 falharam
+[06:24:07] municípios fed: 0 mudaram, 0 falharam
+[06:26:19] municípios est: 0 mudaram, 2 falharam
+[06:26:30] municípios fed: 0 mudaram, 0 falharam
+[06:28:14] municípios est: 0 mudaram, 0 falharam
+[06:28:24] municípios fed: 0 mudaram, 0 falharam
+[06:30:20] municípios est: 0 mudaram, 0 falharam
+[06:30:30] municípios fed: 0 mudaram, 0 falharam
+[06:32:07] municípios est: 0 mudaram, 0 falharam
+[06:32:10] municípios fed: 0 mudaram, 0 falharam
+[06:34:10] municípios est: 0 mudaram, 0 falharam
+[06:34:12] municípios fed: 0 mudaram, 0 falharam
+[06:36:11] municípios est: 0 mudaram, 0 falharam
+[06:36:22] municípios fed: 0 mudaram, 0 falharam
+[06:38:07] municípios est: 0 mudaram, 0 falharam
+[06:38:10] municípios fed: 0 mudaram, 0 falharam
+[06:40:09] municípios est: 0 mudaram, 0 falharam
+[06:40:12] municípios fed: 0 mudaram, 0 falharam
+[06:42:08] municípios est: 0 mudaram, 0 falharam
+[06:42:11] municípios fed: 0 mudaram, 0 falharam
+[06:44:11] municípios est: 0 mudaram, 0 falharam
+[06:44:16] municípios fed: 0 mudaram, 0 falharam
+[06:46:11] municípios est: 0 mudaram, 0 falharam
+[06:46:14] municípios fed: 0 mudaram, 0 falharam
+[06:48:16] municípios est: 0 mudaram, 0 falharam
+[06:48:26] municípios fed: 0 mudaram, 0 falharam
+[06:50:08] municípios est: 0 mudaram, 0 falharam
+[06:50:10] municípios fed: 0 mudaram, 0 falharam
+[06:52:15] municípios est: 0 mudaram, 0 falharam
+[06:52:25] municípios fed: 0 mudaram, 0 falharam
+[06:54:16] municípios est: 0 mudaram, 0 falharam
+[06:54:26] municípios fed: 0 mudaram, 0 falharam
+[06:56:15] municípios est: 0 mudaram, 0 falharam
+[06:56:19] municípios fed: 0 mudaram, 0 falharam
+[06:58:09] municípios est: 0 mudaram, 0 falharam
+[06:58:19] municípios fed: 0 mudaram, 0 falharam
+[07:00:06] municípios est: 0 mudaram, 0 falharam
+[07:00:11] municípios fed: 0 mudaram, 0 falharam
+[07:02:05] municípios est: 0 mudaram, 0 falharam
+[07:02:15] municípios fed: 0 mudaram, 0 falharam
+[07:04:13] municípios est: 0 mudaram, 0 falharam
+[07:04:15] municípios fed: 0 mudaram, 0 falharam
+[07:06:09] municípios est: 0 mudaram, 0 falharam
+[07:06:19] municípios fed: 0 mudaram, 0 falharam
+[07:08:08] municípios est: 0 mudaram, 0 falharam
+[07:08:18] municípios fed: 0 mudaram, 0 falharam
+[07:10:13] municípios est: 0 mudaram, 0 falharam
+[07:10:24] municípios fed: 0 mudaram, 0 falharam
+[07:12:08] municípios est: 0 mudaram, 0 falharam
+[07:12:19] municípios fed: 0 mudaram, 0 falharam
+[07:14:13] municípios est: 0 mudaram, 0 falharam
+[07:14:19] municípios fed: 0 mudaram, 0 falharam
+[07:16:14] municípios est: 0 mudaram, 0 falharam
+[07:16:24] municípios fed: 0 mudaram, 0 falharam
+[07:18:14] municípios est: 0 mudaram, 0 falharam
+[07:18:15] municípios fed: 0 mudaram, 0 falharam
+[07:20:13] municípios est: 0 mudaram, 0 falharam
+[07:20:18] municípios fed: 0 mudaram, 0 falharam
+[2026-10-05T07:21:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[07:22:11] municípios est: 0 mudaram, 0 falharam
+[07:22:21] municípios fed: 0 mudaram, 0 falharam
+[07:24:14] municípios est: 0 mudaram, 0 falharam
+[07:24:15] municípios fed: 0 mudaram, 0 falharam
+[07:26:14] municípios est: 0 mudaram, 0 falharam
+[07:26:19] municípios fed: 0 mudaram, 0 falharam
+[07:28:09] municípios est: 0 mudaram, 0 falharam
+[07:28:19] municípios fed: 0 mudaram, 0 falharam
+[07:30:10] municípios est: 0 mudaram, 0 falharam
+[07:30:15] municípios fed: 0 mudaram, 0 falharam
+[07:32:05] municípios est: 0 mudaram, 0 falharam
+[07:32:07] municípios fed: 0 mudaram, 0 falharam
+[07:34:14] municípios est: 0 mudaram, 0 falharam
+[07:34:24] municípios fed: 0 mudaram, 0 falharam
+[07:36:13] municípios est: 0 mudaram, 0 falharam
+[07:36:23] municípios fed: 0 mudaram, 0 falharam
+[07:38:13] municípios est: 0 mudaram, 0 falharam
+[07:38:24] municípios fed: 0 mudaram, 0 falharam
+[07:40:06] municípios est: 0 mudaram, 0 falharam
+[07:40:11] municípios fed: 0 mudaram, 0 falharam
+[2026-10-05T07:40:59] ⏱ apuracao: ABORTADO no limite de 58s. Travou em algum lugar.
+[07:42:09] municípios est: 0 mudaram, 0 falharam
+[07:42:19] municípios fed: 0 mudaram, 0 falharam
+[07:44:06] municípios est: 0 mudaram, 0 falharam
+[07:44:11] municípios fed: 0 mudaram, 0 falharam
+[07:46:13] municípios est: 0 mudaram, 0 falharam
+[07:46:23] municípios fed: 0 mudaram, 0 falharam
+[07:48:13] municípios est: 0 mudaram, 0 falharam
+[07:48:15] municípios fed: 0 mudaram, 0 falharam
+[07:50:13] municípios est: 0 mudaram, 0 falharam
+[07:50:24] municípios fed: 0 mudaram, 0 falharam
+[07:52:14] municípios est: 0 mudaram, 0 falharam
+[07:52:15] municípios fed: 0 mudaram, 0 falharam
+[07:54:09] municípios est: 0 mudaram, 0 falharam
+[07:54:19] municípios fed: 0 mudaram, 0 falharam
+[07:56:14] municípios est: 0 mudaram, 0 falharam
+[07:56:19] municípios fed: 0 mudaram, 0 falharam
+[07:58:09] municípios est: 0 mudaram, 0 falharam
+[07:58:14] municípios fed: 0 mudaram, 0 falharam
+[08:00:09] municípios est: 0 mudaram, 0 falharam
+[08:00:11] municípios fed: 0 mudaram, 0 falharam
+[08:02:05] municípios est: 0 mudaram, 0 falharam
+[08:02:16] municípios fed: 0 mudaram, 0 falharam
+[08:04:06] municípios est: 0 mudaram, 0 falharam
+[08:04:16] municípios fed: 0 mudaram, 0 falharam
+[08:06:05] municípios est: 0 mudaram, 0 falharam
+[08:06:11] municípios fed: 0 mudaram, 0 falharam
+[08:08:13] municípios est: 0 mudaram, 0 falharam
+[08:08:18] municípios fed: 0 mudaram, 0 falharam
+[08:10:08] municípios est: 0 mudaram, 0 falharam
+[08:10:19] municípios fed: 0 mudaram, 0 falharam
+[08:12:13] municípios est: 0 mudaram, 0 falharam
+[08:12:18] municípios fed: 0 mudaram, 0 falharam
+[08:14:05] municípios est: 0 mudaram, 0 falharam
+[08:14:10] municípios fed: 0 mudaram, 0 falharam
+[08:16:13] municípios est: 0 mudaram, 0 falharam
+[08:16:19] municípios fed: 0 mudaram, 0 falharam
+[08:18:13] municípios est: 0 mudaram, 0 falharam
+[08:18:19] municípios fed: 0 mudaram, 0 falharam
+[08:20:06] municípios est: 0 mudaram, 0 falharam
+[08:20:08] municípios fed: 0 mudaram, 0 falharam
+[08:22:13] municípios est: 0 mudaram, 0 falharam
+[08:22:24] municípios fed: 0 mudaram, 0 falharam
+[08:24:14] municípios est: 0 mudaram, 0 falharam
+[08:24:19] municípios fed: 0 mudaram, 0 falharam
+[08:26:09] municípios est: 0 mudaram, 0 falharam
+[08:26:14] municípios fed: 0 mudaram, 0 falharam
+[08:28:14] municípios est: 0 mudaram, 0 falharam
+[08:28:24] municípios fed: 0 mudaram, 0 falharam
+[08:30:06] municípios est: 0 mudaram, 0 falharam
+[08:30:11] municípios fed: 0 mudaram, 0 falharam
+[08:32:13] municípios est: 0 mudaram, 0 falharam
+[08:32:18] municípios fed: 0 mudaram, 0 falharam
+[08:34:08] municípios est: 0 mudaram, 0 falharam
+[08:34:18] municípios fed: 0 mudaram, 0 falharam
+[08:36:08] municípios est: 0 mudaram, 0 falharam
+[08:36:18] municípios fed: 0 mudaram, 0 falharam
+[08:38:09] municípios est: 0 mudaram, 0 falharam
+[08:38:14] municípios fed: 0 mudaram, 0 falharam
+[08:40:06] municípios est: 0 mudaram, 0 falharam
+[08:40:11] municípios fed: 0 mudaram, 0 falharam
+[08:42:05] municípios est: 0 mudaram, 0 falharam
+[08:42:15] municípios fed: 0 mudaram, 0 falharam
+[08:44:13] municípios est: 0 mudaram, 0 falharam
+[08:44:19] municípios fed: 0 mudaram, 0 falharam
+[08:46:13] municípios est: 0 mudaram, 0 falharam
+[08:46:18] municípios fed: 0 mudaram, 0 falharam
+[08:48:13] municípios est: 0 mudaram, 0 falharam
+[08:48:19] municípios fed: 0 mudaram, 0 falharam
+[08:50:14] municípios est: 0 mudaram, 0 falharam
+[08:50:16] municípios fed: 0 mudaram, 0 falharam
+[08:52:05] municípios est: 0 mudaram, 0 falharam
+[08:52:07] municípios fed: 0 mudaram, 0 falharam
+[08:54:08] municípios est: 0 mudaram, 0 falharam
+[08:54:18] municípios fed: 0 mudaram, 0 falharam
+[08:56:05] municípios est: 0 mudaram, 0 falharam
+[08:56:10] municípios fed: 0 mudaram, 0 falharam
+[08:58:05] municípios est: 0 mudaram, 0 falharam
+[08:58:15] municípios fed: 0 mudaram, 0 falharam
+[09:00:06] municípios est: 0 mudaram, 0 falharam
+[09:00:16] municípios fed: 0 mudaram, 0 falharam
+[09:02:13] municípios est: 0 mudaram, 0 falharam
+[09:02:23] municípios fed: 0 mudaram, 0 falharam
+[09:04:05] municípios est: 0 mudaram, 0 falharam
+[09:04:07] municípios fed: 0 mudaram, 0 falharam
+[09:06:19] municípios est: 0 mudaram, 1 falharam
+[09:06:29] municípios fed: 0 mudaram, 0 falharam
+[09:08:14] municípios est: 0 mudaram, 0 falharam
+[09:08:16] municípios fed: 0 mudaram, 0 falharam
+[09:10:14] municípios est: 0 mudaram, 0 falharam
+[09:10:24] municípios fed: 0 mudaram, 0 falharam
+[09:12:05] municípios est: 0 mudaram, 0 falharam
+[09:12:10] municípios fed: 0 mudaram, 0 falharam
+[09:14:13] municípios est: 0 mudaram, 0 falharam
+[09:14:18] municípios fed: 0 mudaram, 0 falharam
+[09:16:13] municípios est: 0 mudaram, 0 falharam
+[09:16:15] municípios fed: 0 mudaram, 0 falharam
+[09:18:05] municípios est: 0 mudaram, 0 falharam
+[09:18:07] municípios fed: 0 mudaram, 0 falharam
+[09:20:06] municípios est: 0 mudaram, 0 falharam
+[09:20:07] municípios fed: 0 mudaram, 0 falharam
+[09:22:05] municípios est: 0 mudaram, 0 falharam
+[09:22:15] municípios fed: 0 mudaram, 0 falharam
+[09:24:14] municípios est: 0 mudaram, 0 falharam
+[09:24:16] municípios fed: 0 mudaram, 0 falharam
+[09:26:08] municípios est: 0 mudaram, 0 falharam
+[09:26:13] municípios fed: 0 mudaram, 0 falharam
+[09:28:13] municípios est: 0 mudaram, 0 falharam
+[09:28:23] municípios fed: 0 mudaram, 0 falharam
+[09:30:05] municípios est: 0 mudaram, 0 falharam
+[09:30:07] municípios fed: 0 mudaram, 0 falharam
+[09:32:13] municípios est: 0 mudaram, 0 falharam
+[09:32:15] municípios fed: 0 mudaram, 0 falharam
+[09:34:13] municípios est: 0 mudaram, 0 falharam
+[09:34:24] municípios fed: 0 mudaram, 0 falharam
+[09:36:14] municípios est: 0 mudaram, 0 falharam
+[09:36:16] municípios fed: 0 mudaram, 0 falharam
+[09:38:14] municípios est: 0 mudaram, 0 falharam
+[09:38:16] municípios fed: 0 mudaram, 0 falharam
+[09:40:05] municípios est: 0 mudaram, 0 falharam
+[09:40:10] municípios fed: 0 mudaram, 0 falharam
+[09:42:13] municípios est: 0 mudaram, 0 falharam
+[09:42:18] municípios fed: 0 mudaram, 0 falharam
+[09:44:14] municípios est: 0 mudaram, 0 falharam
+[09:44:15] municípios fed: 0 mudaram, 0 falharam
+[09:46:08] municípios est: 0 mudaram, 0 falharam
+[09:46:10] municípios fed: 0 mudaram, 0 falharam
+[09:48:05] municípios est: 0 mudaram, 0 falharam
+[09:48:07] municípios fed: 0 mudaram, 0 falharam
+[09:50:14] municípios est: 0 mudaram, 0 falharam
+[09:50:24] municípios fed: 0 mudaram, 0 falharam
+[09:52:13] municípios est: 0 mudaram, 0 falharam
+[09:52:15] municípios fed: 0 mudaram, 0 falharam
+[09:54:05] municípios est: 0 mudaram, 0 falharam
+[09:54:10] municípios fed: 0 mudaram, 0 falharam
+[09:56:13] municípios est: 0 mudaram, 0 falharam
+[09:56:18] municípios fed: 0 mudaram, 0 falharam
+[09:58:13] municípios est: 0 mudaram, 0 falharam
+[09:58:15] municípios fed: 0 mudaram, 0 falharam
+[10:00:06] municípios est: 0 mudaram, 0 falharam
+[10:00:08] municípios fed: 0 mudaram, 0 falharam
+[10:02:13] municípios est: 0 mudaram, 0 falharam
+[10:02:15] municípios fed: 0 mudaram, 0 falharam
+[10:04:05] municípios est: 0 mudaram, 0 falharam
+[10:04:07] municípios fed: 0 mudaram, 0 falharam
+[10:06:05] municípios est: 0 mudaram, 0 falharam
+[10:06:07] municípios fed: 0 mudaram, 0 falharam
+[10:08:06] municípios est: 0 mudaram, 0 falharam
+[10:08:16] municípios fed: 0 mudaram, 0 falharam
+[10:10:05] municípios est: 0 mudaram, 0 falharam
+[10:10:10] municípios fed: 0 mudaram, 0 falharam
+[10:12:08] municípios est: 0 mudaram, 0 falharam
+[10:12:10] municípios fed: 0 mudaram, 0 falharam
+[10:14:13] municípios est: 0 mudaram, 0 falharam
+[10:14:18] municípios fed: 0 mudaram, 0 falharam
+[10:16:13] municípios est: 0 mudaram, 0 falharam
+[10:16:18] municípios fed: 0 mudaram, 0 falharam
+[10:18:04] falhas: ab_ac: ConnectError
+[10:18:13] municípios est: 0 mudaram, 0 falharam
+[10:18:15] municípios fed: 0 mudaram, 0 falharam
+[10:20:09] municípios est: 0 mudaram, 0 falharam
+[10:20:11] municípios fed: 0 mudaram, 0 falharam
+[10:22:14] municípios est: 0 mudaram, 0 falharam
+[10:22:24] municípios fed: 0 mudaram, 0 falharam
+[10:24:13] municípios est: 0 mudaram, 0 falharam
+[10:24:15] municípios fed: 0 mudaram, 0 falharam
+[10:26:13] municípios est: 0 mudaram, 0 falharam
+[10:26:15] municípios fed: 0 mudaram, 0 falharam
+[10:28:05] municípios est: 0 mudaram, 0 falharam
+[10:28:07] municípios fed: 0 mudaram, 0 falharam
+[10:30:05] municípios est: 0 mudaram, 0 falharam
+[10:30:11] municípios fed: 0 mudaram, 0 falharam
+[10:32:13] municípios est: 0 mudaram, 0 falharam
+[10:32:23] municípios fed: 0 mudaram, 0 falharam
+[10:34:13] municípios est: 0 mudaram, 0 falharam
+[10:34:15] municípios fed: 0 mudaram, 0 falharam
+[10:36:05] municípios est: 0 mudaram, 0 falharam
+[10:36:21] municípios fed: 0 mudaram, 1 falharam
+[10:38:05] municípios est: 0 mudaram, 0 falharam
+[10:38:10] municípios fed: 0 mudaram, 0 falharam
+[10:40:05] municípios est: 0 mudaram, 0 falharam
+[10:40:07] municípios fed: 0 mudaram, 0 falharam
+[10:42:14] municípios est: 0 mudaram, 0 falharam
+[10:42:24] municípios fed: 0 mudaram, 0 falharam
+[10:44:14] municípios est: 0 mudaram, 0 falharam
+[10:44:19] municípios fed: 0 mudaram, 0 falharam
+[10:46:13] municípios est: 0 mudaram, 0 falharam
+[10:46:15] municípios fed: 0 mudaram, 0 falharam
+[10:48:13] municípios est: 0 mudaram, 0 falharam
+[10:48:15] municípios fed: 0 mudaram, 0 falharam
+[10:50:05] municípios est: 0 mudaram, 0 falharam
+[10:50:11] municípios fed: 0 mudaram, 0 falharam
+[10:52:05] municípios est: 0 mudaram, 0 falharam
+[10:52:07] municípios fed: 0 mudaram, 0 falharam
+[10:54:05] municípios est: 0 mudaram, 0 falharam
+[10:54:07] municípios fed: 0 mudaram, 0 falharam
+[10:56:05] municípios est: 0 mudaram, 0 falharam
+[10:56:16] municípios fed: 0 mudaram, 0 falharam
+[10:58:05] municípios est: 0 mudaram, 0 falharam
+[10:58:07] municípios fed: 0 mudaram, 0 falharam
+[11:00:12] municípios est: 0 mudaram, 2 falharam
+[11:00:14] municípios fed: 0 mudaram, 0 falharam
+[11:02:09] municípios est: 0 mudaram, 0 falharam
+[11:02:10] municípios fed: 0 mudaram, 0 falharam
+[11:04:14] municípios est: 0 mudaram, 0 falharam
+[11:04:16] municípios fed: 0 mudaram, 0 falharam
+[11:06:05] municípios est: 0 mudaram, 0 falharam
+[11:06:10] municípios fed: 0 mudaram, 0 falharam
+[11:08:13] municípios est: 0 mudaram, 0 falharam
+[11:08:15] municípios fed: 0 mudaram, 0 falharam
+[11:10:07] municípios est: 0 mudaram, 0 falharam
+[11:10:18] municípios fed: 0 mudaram, 0 falharam
+[11:12:05] municípios est: 0 mudaram, 0 falharam
+[11:12:16] municípios fed: 0 mudaram, 0 falharam
+[11:14:14] municípios est: 0 mudaram, 0 falharam
+[11:14:16] municípios fed: 0 mudaram, 0 falharam
+[11:16:05] municípios est: 0 mudaram, 0 falharam
+[11:16:15] municípios fed: 0 mudaram, 0 falharam
+[11:18:08] municípios est: 0 mudaram, 0 falharam
+[11:18:10] municípios fed: 0 mudaram, 0 falharam
+[11:20:13] municípios est: 0 mudaram, 0 falharam
+[11:20:15] municípios fed: 0 mudaram, 0 falharam
+[11:22:09] municípios est: 0 mudaram, 0 falharam
+[11:22:11] municípios fed: 0 mudaram, 0 falharam
+[11:24:06] municípios est: 0 mudaram, 0 falharam
+[11:24:10] municípios fed: 0 mudaram, 0 falharam
+[11:26:05] municípios est: 0 mudaram, 0 falharam
+[11:26:07] municípios fed: 0 mudaram, 0 falharam

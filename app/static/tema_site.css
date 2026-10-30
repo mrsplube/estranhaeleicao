@@ -1,0 +1,87 @@
+/* A conta detalhada (/apuracao/detalhe) com a cara do resto do site.
+
+   A página veio do V2 com o próprio tema (claro, cinza-azulado). Aqui as
+   variáveis dela (--ap-*, e as do style.css) passam a apontar para as do site
+   (static/site_base.css), e o fundo, a fonte e os cartões seguem o site. O que
+   está escrito com cor fixa nos CSS antigos é corrigido no fim, peça a peça. */
+
+body:has(.ap) {
+  background:
+    radial-gradient(900px 500px at 85% -10%, color-mix(in srgb, var(--flavio) 22%, transparent), transparent 70%),
+    radial-gradient(800px 500px at -10% 10%, color-mix(in srgb, var(--lula) 18%, transparent), transparent 70%),
+    var(--fundo);
+  background-attachment: fixed;
+  font-family: "Inter", system-ui, sans-serif;
+  --bg: var(--fundo); --surface: var(--cartao); --border: var(--linha);
+  --text: var(--texto); --text-muted: var(--texto-2); --accent: var(--flavio);
+}
+.ap {
+  --ap-tinta: transparent;
+  --ap-tinta-2: var(--cartao-2);
+  --ap-tinta-texto: var(--texto);
+  --ap-tinta-suave: var(--texto-2);
+  --ap-fundo: transparent;
+  --ap-cartao: var(--cartao);
+  --ap-linha: var(--linha);
+  --ap-texto: var(--texto);
+  --ap-texto-2: var(--texto-2);
+  --ap-texto-3: var(--texto-3);
+  --ap-foco: var(--destaque);
+  --ap-ok: var(--ok); --ap-ok-bg: color-mix(in srgb, var(--ok) 16%, transparent);
+  --ap-nao: var(--falso); --ap-nao-bg: color-mix(in srgb, var(--falso) 16%, transparent);
+  --ap-quase: var(--parcial); --ap-quase-bg: color-mix(in srgb, var(--parcial) 16%, transparent);
+  --ap-raio: var(--raio);
+  background: transparent;
+  color: var(--texto);
+  font-family: "Inter", system-ui, sans-serif;
+}
+.ap h1, .ap h2, .ap h3, .ap h4 { font-family: var(--titulo); letter-spacing: -.01em; }
+.ap .ap-topo { position: static; background: transparent; border: 0; box-shadow: none; }
+.ap .ap-hib-placar { top: 64px; }
+.ap .ap-topo h1 { font-size: clamp(26px, 5vw, 38px); color: var(--texto); }
+.ap .ap-pulso { display: none; }
+.ap a { color: var(--flavio); }
+.ap table, .ap th, .ap td { border-color: var(--linha); }
+.ap input, .ap select, .ap button { font-family: inherit; }
+
+/* Textos que os CSS antigos escreveram com cor fixa (escura, para fundo claro). */
+.ap-cd-selo.ok,
+.ap-comp-item em.sobe,
+.ap-conta-cen-selo,
+.ap-conta-cen.melhor .ap-conta-cen-r2,
+.ap-conta-limite-num,
+.ap-conta-limite-txt b,
+.ap-conta-selo.ok,
+.ap-ctl-selo.ok,
+.ap-ctl-status.ok,
+.ap-esp-linha,
+.ap-esp.entra,
+.ap-hib-status.ok,
+.ap-plc-selo.ok,
+.ap-selo.novo,
+.ap-sk-selo,
+.ap-trans-selo.ok,
+.ap-trans-troca b { color: var(--ok) !important; }
+.ap-acu-veredito.parcial,
+.ap-aviso-modo,
+.ap-cd-selo.borda,
+.ap-ctl-selo.borda,
+.ap-disp-manchete,
+.ap-hib-status.aviso,
+.ap-plc-selo.falta,
+.ap-sankey-modelo,
+.ap-sankey-troca-ctl .ap-sankey-slider span,
+.ap-sankey-troca-nota,
+.ap-selo.fim-entra,
+.ap-trans-selo.borda { color: var(--parcial) !important; }
+.ap-acu-veredito.falso,
+.ap-cam-aviso,
+.ap-conta-selo.ruim,
+.ap-ctl-status.erro { color: var(--falso) !important; }
+.ap-selo.media { color: var(--flavio) !important; }
+.ap-selo.f3,
+.ap-selo.reeleito { color: var(--terceira) !important; }
+.ap-selo.fim-fora { background: var(--cartao); color: var(--texto-3); border-color: var(--linha); }
+.ap-selo.media, .ap-selo.f3, .ap-selo.reeleito, .ap-selo.novo, .ap-selo.fim-entra { background: var(--cartao-2); }
+.ap-sim-margem.lula { color: var(--lula) !important; }
+.ap-sim-margem.flavio { color: var(--flavio) !important; }

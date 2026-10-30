@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+venv/
+# cache do TSE (votação por seção, ~1,1 GB): regenerável, baixado pelos geradores
+app/apuracao/cache/
+# pasta de trabalho do coletor ao vivo (só o arquivo congelado entra no git)
+app/apuracao/data/*
+!app/apuracao/data/arquivo/
+# bancos copiados do V2 (121 MB de microdados + 74 MB do app Políticos, congelado em 30/10/2026)
+app/politicos/data/eleicoes.db
+app/politicos/politicos.db
+# credencial do arquivo privado
+arquivo.env

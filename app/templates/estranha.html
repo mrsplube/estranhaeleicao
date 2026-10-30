@@ -1,0 +1,58 @@
+{% extends "site.html" %}
+{# estranhaeleicao.org — a entrada (30/10/2026).
+
+   Cinco coisas que circularam depois do 2º turno, cada uma como um "caso": a
+   teoria, quem a afirmou e, num clique, a resposta curta. Quem monta é
+   static/estranha.js, a partir de /apuracao/explicacao/acusacoes.json. O chute
+   do 2º turno mora em /apuracao. Versão anterior: tag git pre-redesign-20261030. #}
+{% set pagina = "casos" %}
+{% block title %}Teorias sobre fraudes na eleição, conferidas · estranhaeleição{% endblock %}
+{% block meta %}
+  <meta name="description" content="Silva Jardim, as 106 urnas zeradas, as zonas com o mesmo número, a seção de 700 votos e o algoritmo que derrubava o Bolsonaro: cada teoria sobre o 2º turno de 2026, conferida no dado do TSE.">
+  <meta property="og:title" content="Teorias sobre fraudes na eleição, conferidas">
+  <meta property="og:description" content="Cada teoria que circulou sobre o 2º turno de 2026, com quem a afirmou e o que o arquivo do TSE mostra. E um simulador para você chutar como votou cada eleitor.">
+{% endblock %}
+{% block content %}
+  {# Arte do topo: a curva da apuração do 2º turno (redesenhada dos dados do TSE,
+     static/fundo-curvas.svg) sobre a foto do app de resultados, esmaecida
+     (static/fundo-foto.webp). Só enfeite: fica atrás do texto e some para a esquerda. #}
+  <div class="arte" aria-hidden="true">
+    <img class="arte-foto" src="/static/fundo-foto.webp?v={{ static_v }}" alt="">
+    <img class="arte-curvas" src="/static/fundo-curvas.svg?v={{ static_v }}" alt="">
+  </div>
+  <header class="hero" id="topo">
+    <p class="hero-tag">2º turno · 25/10/2026 · dados do TSE</p>
+    <h1>Teorias sobre<br>fraudes na eleição,<br><span>conferidas.</span></h1>
+    <p class="hero-sub">Cinco coisas “estranhas” que circularam depois do 2º turno, com quem as afirmou e o que os dados do TSE mostram, seção por seção.</p>
+    <div class="placar" aria-label="Resultado: Lula 51,79%, Flávio 48,21%">
+      <div class="placar-barra"><span class="l" style="--p:51.79%"></span><span class="f"></span></div>
+      <div class="placar-nomes"><span class="l">Lula <b>51,79%</b></span><span class="f"><b>48,21%</b> Flávio</span></div>
+    </div>
+    <div class="hero-acoes">
+      <a class="btn btn-pri" href="#casos">Abrir os casos</a>
+      <a class="btn" href="/apuracao">Chute o 2º turno 🎯</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="casos" class="secao">
+      <h2 class="secao-tit"><span>01</span> Os casos</h2>
+      <p class="secao-sub">A teoria e quem a afirmou ficam à mostra. A resposta abre num clique: quando o número confere, a gente diz que confere.</p>
+      <div id="lista-casos" class="casos"><p class="carregando">Abrindo os casos…</p></div>
+    </section>
+
+    <section class="secao">
+      <h2 class="secao-tit"><span>02</span> Agora é com você</h2>
+      <div class="convite">
+        <p>Para onde foi o eleitor do Cury, do Caiado, do Renan? E quem anulou ou faltou no 1º turno? Arraste uma barra por grupo, com a dica do que as pesquisas esperavam, e veja se o seu 2º turno bate com o do TSE.</p>
+        <a class="btn btn-pri" href="/apuracao">Chutar o 2º turno →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p><b>Fonte:</b> votação por seção dos dois turnos (votacao_secao_2026_BR, dadosabertos.tse.jus.br), somada e conferida com o resultado oficial; 2022 pelo mesmo arquivo e pelos boletins de urna. Checagens: <a href="https://www.agencialupa.org/checagem/2026/10/28/apos-fuga-do-brasil-flavio-bolsonaro-mente-sobre-eleicoes-em-carta-com-teor-golpista/" target="_blank" rel="noopener">Lupa</a> e <a href="https://www.poder360.com.br/poder-eleicoes-2026/flavio-usa-teoria-imprecisa-para-chamar-vitoria-de-lula-de-fraude/" target="_blank" rel="noopener">Poder360</a>.</p>
+    <p>Os links levam ao post original ou a quem o republicou. A página responde à afirmação, não à pessoa. Todas as contas, com o texto longo: <a href="/apuracao/detalhe">a conta detalhada</a>.</p>
+  </footer>
+{% endblock %}
+{% block scripts %}<script src="/static/estranha.js?v={{ static_v }}" data-versao="{{ static_v }}"></script>{% endblock %}

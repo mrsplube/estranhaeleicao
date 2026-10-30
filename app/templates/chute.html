@@ -1,0 +1,41 @@
+{% extends "site.html" %}
+{# /apuracao (o chute) e /apuracao/cenarios — a mesma página, dois estados
+   (`pagina`). Quem monta é static/chute.js, a partir de
+   /apuracao/explicacao/chute.json (tools/migracoes/2026-10-30-chute-2t.py).
+   A conta detalhada antiga (Sankey, simulador, texto longo) está em /apuracao/detalhe. #}
+{% block title %}{% if pagina == "cenarios" %}Cinco jeitos de fechar a conta{% else %}Chute o 2º turno{% endif %} · Estranha eleição?{% endblock %}
+{% block meta %}
+  <meta name="description" content="Para onde foi cada eleitor do 1º turno? Arraste uma barra por grupo, com a dica das pesquisas, e veja se o seu 2º turno bate com o resultado do TSE.">
+  <meta property="og:title" content="Chute o 2º turno de 2026: o seu bate com o TSE?">
+  <meta property="og:description" content="Divida o eleitor de cada candidato entre Lula, Flávio e nenhum dos dois, e veja se a sua conta fecha.">
+{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static/chute.css?v={{ static_v }}">{% endblock %}
+{% block content %}
+  <div id="chute" data-pagina="{{ pagina }}" data-versao="{{ static_v }}">
+    {% if pagina == "cenarios" %}
+    <header class="hero hero-curto">
+      <p class="hero-tag">o passo depois do chute</p>
+      <h1>Cinco jeitos de<br><span>a conta fechar</span></h1>
+      <p class="hero-sub">Cenários extremos de propósito, do tipo “tudo foi para o Lula”. Todos chegam exatamente no resultado do TSE e mostram o tamanho da virada de 2026.</p>
+    </header>
+    {% else %}
+    <header class="hero hero-curto">
+      <p class="hero-tag">simulador · 2º turno de 2026</p>
+      <h1>Chute o<br><span>2º turno</span></h1>
+      <p class="hero-sub">Cada cartão é um grupo de eleitores do 1º turno. A pergunta é sempre a mesma: <b>quem votou em fulano no 1º turno, no 2º turno votou em quem?</b> No <b class="c-lula">Lula</b>, no <b class="c-flavio">Flávio</b> ou em <b class="c-nenhum">nenhum</b> (branco, nulo ou faltou).</p>
+      <ol class="passos">
+        <li><b>Arraste as divisas</b> da barra para dividir o grupo.</li>
+        <li>Ou <b>toque numa dica</b>: a barra vai sozinha até o que aquela pesquisa previu.</li>
+        <li>No fim, <b>veja se bate</b> com o resultado do TSE.</li>
+      </ol>
+    </header>
+    {% endif %}
+    <main class="secao" id="chute-corpo"><p class="carregando">Abrindo…</p></main>
+  </div>
+  <footer class="rodape">
+    <p><b>Dados:</b> resultado oficial do TSE (dois turnos) e eleitorado apto. <b>Dicas:</b> <a href="https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/" target="_blank" rel="noopener">Quaest de 10 a 13/10</a> (e a <a href="https://revistaoeste.com/politica/maioria-dos-eleitores-de-cury-renan-caiado-e-zema-votaria-em-flavio-no-2o-turno/" target="_blank" rel="noopener">de setembro</a> para o Zema), <a href="https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/" target="_blank" rel="noopener">AtlasIntel de 13 a 18/10</a> e <a href="https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno" target="_blank" rel="noopener">Datafolha de setembro</a> (antes do 1º turno). Cada terceira via é uma fatia pequena da amostra, então a margem de erro por grupo é grande (±6 a ±11 pontos no Datafolha). Indecisos repartidos na proporção dos outros. <b>Apoios:</b> <a href="https://acritica.net/eleicoes-2026/caiado-zema-e-cury-apoiam-flavio-no-2o-turno-renan-santos-libera-eleitores/" target="_blank" rel="noopener">Caiado, Zema e Cury apoiaram o Flávio; Renan liberou</a>; dos outros seis, <a href="https://www.terra.com.br/noticias/brasil/politica/eleicoes-2026-pco-orienta-voto-nulo-no-2-turno-da-eleicao-presidencial,6ee240a310a2fcc3dc76f9e5b34db831libdjuze.html" target="_blank" rel="noopener">Samara, Hertz Dias e Edmilson Costa apoiaram o Lula, Clariana Barão o Flávio, Wilson Grassi ficou neutro e o PCO pediu voto nulo</a>.</p>
+    <p><b>Fotos:</b> Wikimedia Commons: candidatos do <a href="https://commons.wikimedia.org/wiki/File:2026_FLAVIO_BOLSONARO_CANDIDATO_PRESIDENTE_TSE_(280002551544).jpg" target="_blank" rel="noopener">TSE</a> (CC BY 4.0) e <a href="https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_(ombros)_denoise.jpg" target="_blank" rel="noopener">Lula por Ricardo Stuckert/PR</a> (CC BY 2.0), recortadas.</p>
+    <p>O voto de uma pessoa não é observável: “o eleitor do Cury foi para o Lula” é conta sobre o grupo, nunca sobre alguém. A conta completa, com a estimativa por município: <a href="/apuracao/detalhe">a conta detalhada</a>.</p>
+  </footer>
+{% endblock %}
+{% block scripts %}<script src="/static/chute.js?v={{ static_v }}"></script>{% endblock %}

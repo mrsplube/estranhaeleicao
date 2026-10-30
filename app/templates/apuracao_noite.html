@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{# Apuração 2026 — PAINEL da noite de 04/10 (cadeiras, ALESC, Câmara, governos).
+
+   É o outro app do /apuracao: enquanto /apuracao explica o 2º turno, aqui está
+   o que aconteceu no 1º, cadeira por cadeira. Ele precisa do `apuracao.js`
+   completo (2.000 linhas: hemiciclo, quociente, sobras, cláusula de barreira,
+   mapa de SC), e é por isso que ficou em página separada — quem quer só a
+   explicação não baixa nada disto.
+#}
+{% block title %}Apuração 2026 · a noite de 04/10 · Assembleia, Câmara e governos{% endblock %}
+{% block extra_css %}
+<meta name="description" content="A apuração de 04/10/2026 em Santa Catarina e no Brasil: cadeiras na Assembleia (ALESC) e na Câmara pela regra do TSE, quociente eleitoral, sobras e cláusula de barreira. Resultado final.">
+<meta property="og:title" content="Apuração 2026 — a noite de 04/10">
+<meta property="og:description" content="Cadeiras na ALESC e na Câmara, resultado final, com quociente, sobras e cláusula de barreira.">
+<link rel="stylesheet" href="/static/apuracao.css?v={{ static_v }}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="ap" id="ap" data-versao="{{ static_v }}" data-turno="2" data-final="1">
+  <header class="ap-topo">
+    <div class="ap-topo-linha">
+      <div class="ap-marca">
+        <span class="ap-pulso parado" id="ap-pulso" aria-hidden="true"></span>
+        <div>
+          <p class="ap-trilha"><a href="/apuracao">← a conta do 2º turno</a></p>
+          <h1>Apuração 2026 <span class="ap-ao-vivo fim" id="ap-estado-rotulo">resultado final</span></h1>
+          <p class="ap-sub">Noite de 04/10 · resultado oficial do TSE · cadeiras projetadas pela regra oficial</p>
+        </div>
+      </div>
+      <div class="ap-relogio" id="ap-relogio">
+        <span id="ap-atualizado">resultado oficial do TSE</span>
+        <span class="ap-relogio-tse" id="ap-tse"></span>
+      </div>
+    </div>
+    <nav class="ap-abas" id="ap-abas" aria-label="O que acompanhar">
+      <button class="ap-aba" data-vista="presidente">Presidente · 2º turno</button>
+      <button class="ap-aba" data-vista="alesc">Assembleia SC</button>
+      <button class="ap-aba" data-vista="camara-sc">Câmara · SC</button>
+      <button class="ap-aba" data-vista="brasil">Câmara · Brasil</button>
+      <button class="ap-aba" data-vista="majoritarias"><span class="ap-longo">Governadores e Senado</span><span class="ap-curto">Governos</span></button>
+    </nav>
+    <div class="ap-foco" id="ap-foco">
+      <span class="ap-foco-rotulo">Foco</span>
+      <div class="ap-foco-chips" id="ap-foco-chips"></div>
+      <label class="ap-foco-add">
+        <span class="sr-only">Acrescentar partido ao foco</span>
+        <select id="ap-foco-select"><option value="">+ partido</option></select>
+      </label>
+    </div>
+  </header>
+
+  <div class="ap-aviso" id="ap-aviso" hidden></div>
+
+  <main class="ap-corpo" id="ap-corpo">
+    <p class="ap-carregando">Carregando o resultado…</p>
+  </main>
+
+  <footer class="ap-rodape" id="sobre">
+    <h2>Como ler</h2>
+    <p><strong>Resultado final.</strong> As cadeiras da Assembleia e da Câmara foram calculadas a cada atualização da noite, pela mesma regra que o TSE aplica: quociente eleitoral, quociente partidário (só elege quem tem 10% do quociente), sobras pela maior média (partido com 80% do quociente e candidato com 20%) e, por último, a 3ª fase aberta a todos. O resultado oficial é o que o TSE proclamou.</p>
+    <p><strong>"Garantido" é matemática, não estimativa.</strong> Eleito garantido é quem continua eleito mesmo que todo o voto que ainda podia entrar (os eleitores das seções que faltavam, todos votando contra ele) fosse para os adversários. Fora garantido é quem não alcançava uma cadeira nem recebendo, sozinho, todo esse voto.</p>
+    <p><strong>Cláusula de barreira 2026</strong> (EC 97/2017): o partido ou federação precisa de 2,5% dos votos válidos para a Câmara, com 1,5% em pelo menos 9 estados, <em>ou</em> eleger 13 deputados federais em pelo menos 9 estados. Federação conta como uma só.</p>
+    <p>A regra de distribuição deste painel reproduziu, cadeira por cadeira, o resultado oficial de 302 eleições de vereador de 2024. Fonte dos dados: resultados.tse.jus.br.</p>
+    <p><a href="/apuracao">← Voltar para a conta do 2º turno</a></p>
+  </footer>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/apuracao.js?v={{ static_v }}"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{# Apuração 2026 — a EXPLICAÇÃO do resultado, em UMA página.
+   A ordem (29/10/2026, tarde): os três números, o Sankey completo (10 fontes
+   → 3 destinos, Lula e Flavio do 1º turno fora de escala) com o placar e uma
+   barra arrastável por fonte, e o resto recolhido. Quem monta é
+   static/apuracao_analise.js.
+
+   Página leve de propósito: carrega apuracao_base.js + 3 módulos da análise,
+   e nunca o apuracao.js do painel da noite (esse vive em /apuracao/noite). #}
+{% block title %}A conta do 2º turno de 2026 · de onde vieram os votos{% endblock %}
+{% block extra_css %}
+<meta name="description" content="Como o 2º turno de 2026 fechou em 51,79% a 48,21%: de onde vieram os 64,3 milhões de votos do Lula, o que cada candidato da terceira via fez, e um simulador para testar outros cenários.">
+<meta property="og:title" content="A conta do 2º turno de 2026">
+<meta property="og:description" content="Para onde foi cada voto do 1º turno: arraste as barras e veja se o seu cenário fecha com o resultado do TSE.">
+<link rel="stylesheet" href="/static/apuracao.css?v={{ static_v }}">
+<link rel="stylesheet" href="/static/apuracao_conta.css?v={{ static_v }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/static/site_base.css?v={{ static_v }}">
+<link rel="stylesheet" href="/static/tema_site.css?v={{ static_v }}">
+{% endblock %}
+
+{% block header %}{% set pagina = "detalhe" %}{% include "site_topo.html" %}{% endblock %}
+
+{% block content %}
+<div class="ap ap-explica" id="ap" data-versao="{{ static_v }}" data-base="/apuracao" data-final="1" data-turno="2">
+  <header class="ap-topo ap-topo-compacto">
+    <div class="ap-topo-linha">
+      <div class="ap-marca">
+        <span class="ap-pulso parado" id="ap-pulso" aria-hidden="true"></span>
+        <div>
+          <h1>A conta do 2º turno <span class="ap-ao-vivo fim" id="ap-estado-rotulo">resultado final</span></h1>
+          <p class="ap-sub">Lula 51,79% × Flavio 48,21% · 25/10/2026 · dados oficiais do TSE</p>
+        </div>
+      </div>
+      {% if modo_completo %}
+      <a class="ap-aba-link" href="/apuracao/noite">Painel do 1º turno (deputados, 04/10) →</a>
+      <a class="ap-aba-link" href="/politicos/eleicao">Microdados →</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="ap-aviso" id="ap-aviso" hidden></div>
+
+  <main class="ap-corpo" id="ap-corpo">
+    <p class="ap-carregando">Abrindo a conta do 2º turno…</p>
+  </main>
+
+  <footer class="ap-rodape" id="sobre">
+    <h2>Como ler</h2>
+    <p><strong>Contagem e estimativa.</strong> A altura de cada bloco é contagem oficial do TSE (totalização de 25/10/2026, 100% das seções) e fecha nas 28 unidades da federação. A divisão das faixas é estimativa por município: você pode mudá-la, e o placar diz se o seu cenário ainda fecha com o resultado.</p>
+    <p><strong>O que não é observável.</strong> O voto de uma pessoa: “o eleitor do Zema foi para o Lula” é inferência sobre o agregado, nunca sobre alguém. Fontes: resultados.tse.jus.br (resultado oficial) e dadosabertos.tse.jus.br (votação por seção dos dois turnos).</p>
+  </footer>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/apuracao_base.js?v={{ static_v }}"></script>
+<script src="/static/apuracao_conta.js?v={{ static_v }}"></script>
+<script src="/static/apuracao_sankey.js?v={{ static_v }}"></script>
+<script src="/static/apuracao_acusacoes.js?v={{ static_v }}"></script>
+<script src="/static/apuracao_analise.js?v={{ static_v }}"></script>
+{% endblock %}

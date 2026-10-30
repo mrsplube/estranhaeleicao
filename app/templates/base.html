@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Projetos Cauê Neves{% endblock %}</title>
+    {# Ícone da aba: cada app tem o seu (favicons.py), senão o navegador trata
+       Monitor, Gabinete e Lista como a mesma página cinza. #}
+    {% set app_favicon = favicon_for_path(request.url.path) %}
+    <link rel="icon" href="{{ app_favicon }}"{% if '.svg' in app_favicon %} type="image/svg+xml" sizes="any"{% endif %}>
+    <!-- ?v muda quando style.css muda (static_v = mtime) → o navegador/celular busca a
+         versão nova em vez de servir a antiga do cache. Sem isso, um ajuste de CSS só
+         aparecia depois de limpar o cache manualmente (foi o que quebrou a aba no mobile). -->
+    <link rel="stylesheet" href="/static/style.css?v={{ static_v }}">
+    {% block extra_css %}{% endblock %}
+    {# Depois do CSS de cada app: o calendário (data.css) ajusta o campo
+       sem perder o visual da página. O script entra no fim do body. #}
+    <link rel="stylesheet" href="/static/data.css?v={{ static_v }}">
+</head>
+<body>
+    {% block header %}
+    {% if user %}
+    <header class="site-header">
+        <div class="inner">
+            <h1>Apuração 2026 · arquivo</h1>
+            <nav>
+                <a href="/">2º turno</a>
+                <a href="/apuracao/noite">Painel do 1º turno</a>
+                <a href="/politicos/eleicao">Microdados</a>
+            </nav>
+        </div>
+    </header>
+    {% endif %}
+    {% endblock %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    {# Sem defer, de propósito: o gancho em .value tem de existir antes do
+       script da página escrever uma data. #}
+    <script src="/static/data.js?v={{ static_v }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

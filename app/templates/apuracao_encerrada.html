@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{# A página pública da apuração fora de eleição: arquivada, à espera da próxima.
+   O resultado de 2026 vive na versão privada (/politicos/eleicao). #}
+{% block title %}Apuração 2026 · encerrada{% endblock %}
+{% block extra_css %}
+<meta name="description" content="A apuração das eleições de 04/10/2026 em Santa Catarina terminou. Esta página volta na próxima eleição.">
+<link rel="stylesheet" href="/static/apuracao.css?v={{ static_v }}">
+{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="ap ap-encerrada">
+  <header class="ap-topo">
+    <div class="ap-topo-linha">
+      <div class="ap-marca">
+        <span class="ap-pulso parado" aria-hidden="true"></span>
+        <div>
+          <h1>Apuração 2026 <span class="ap-ao-vivo fim">encerrada</span></h1>
+          <p class="ap-sub">Eleições de 04/10/2026 · Santa Catarina</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="ap-corpo">
+    <section class="ap-cartao">
+      <h2>A apuração terminou</h2>
+      <p>Este painel acompanhou ao vivo a contagem dos votos para a Assembleia, a Câmara, o Senado, o governo de SC e a Presidência. Com a totalização encerrada, ele foi arquivado e volta a funcionar na próxima eleição.</p>
+      <p>O resultado oficial está em <a href="https://resultados.tse.jus.br" rel="noopener">resultados.tse.jus.br</a>.</p>
+      {% if interno %}
+      <p><a href="/politicos/eleicao">Ver o resultado de 2026 e os microdados (acesso interno) →</a></p>
+      {% endif %}
+      {% if is_admin %}
+      <p class="ap-mudo"><a href="/apuracao?previa=1">Prévia da página arquivada (como estava na noite)</a></p>
+      {% endif %}
+    </section>
+  </main>
+</div>
+{% endblock %}

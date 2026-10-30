@@ -1,0 +1,47 @@
+# Apuração 2026 — ver ~/Documentation/apps/estranhaeleicao
+# Os dois serviços rodam o MESMO código (./app, somente leitura) em modos diferentes.
+x-base: &base
+  build: ./app
+  image: estranhaeleicao-app
+  restart: unless-stopped
+  # rede do host: o cloudflared chega por 127.0.0.1 e o app vê o peer
+  # 127.0.0.1, o que libera o CF-Connecting-IP para o freio por IP.
+  network_mode: host
+  read_only: true
+  volumes:
+    - ./app:/app:ro
+  # o SQLite ordena consultas grandes em arquivo temporário
+  tmpfs:
+    - /tmp:size=64m
+
+services:
+  # estranhaeleicao.org — só a conta do 2º turno presidencial, público
+  estranhaeleicao:
+    <<: *base
+    container_name: estranhaeleicao
+    environment:
+      SITE_MODO: publico
+    command: ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "3030"]
+    cpus: 1.0
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:3030/saude', timeout=5)"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
+  # apuracao.familiacaue.lol — arquivo completo (1º turno, microdados, ao vivo), com login
+  apuracao-arquivo:
+    <<: *base
+    container_name: apuracao-arquivo
+    env_file: arquivo.env
+    environment:
+      SITE_MODO: completo
+    command: ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "3031"]
+    cpus: 1.0
+    mem_limit: 768m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:3031/saude', timeout=5)"]
+      interval: 60s
+      timeout: 10s
+      retries: 3

@@ -1,0 +1,7 @@
+{# A barra do topo, igual em todas as páginas do site. `pagina` diz qual acende. #}
+<nav class="hud" aria-label="Seções do site">
+  <a class="hud-marca" href="/"><span>estranha<b>eleição</b></span><small>Entendendo 2026</small></a>
+  <a class="hud-link{% if pagina == 'casos' %} on{% endif %}" href="/"><span class="so-largo">Os casos</span><span class="so-curto">Casos</span></a>
+  <a class="hud-link{% if pagina in ('chute', 'cenarios', 'detalhe') %} on{% endif %}" href="/apuracao">Chute<span class="so-largo"> o 2º turno</span></a>
+  <a class="hud-link{% if pagina == 'sobre' %} on{% endif %}" href="/sobre">Sobre</a>
+</nav>
