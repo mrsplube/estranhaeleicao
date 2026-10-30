@@ -1,8 +1,11 @@
 /* estranhaeleicao.org — página de entrada (30/10/2026).
  *
  * Lê /apuracao/explicacao/acusacoes.json (~43 KB, gerado por
- * tools/migracoes/2026-10-29-acusacoes-2t.py). Cada caso mostra a teoria e quem
- * postou; a resposta abre num clique. Todo número vem desse arquivo; o texto
+ * tools/migracoes/2026-10-29-acusacoes-2t.py) e casos_videos.json (o vídeo de
+ * cada caso e os números dos casos novos, tools/migracoes/2026-10-30-casos-videos.py).
+ * Cada caso tem um nome curto, a teoria, uma etiqueta (verdade e estranho /
+ * premissa falsa / verdade, mas normal) e a capa do vídeo que a espalhou; a
+ * resposta abre num clique. Todo número vem desse arquivo; o texto
  * longo de cada caso continua em /apuracao/detalhe (static/apuracao_acusacoes.js).
  * O chute do 2º turno mora em /apuracao (static/chute.js).
  */
@@ -54,30 +57,53 @@
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
   }
   // ── peças de um caso ───────────────────────────────────────────────────
-  // o = {id, n, alegacao, fontes: [{rot, url?}], veredito, tom, pontos: [..], visual, mais: [{rot, corpo, classe}]}
-  function caso(o) {
+  // o = {id, titulo, alegacao, tag, video?, icone?, fontes?: [{rot, url?}], veredito,
+  //      pontos: [..], visual?, mais?: [{rot, corpo, classe}]}
+  var TAG = {
+    estranho: { rot: "Verdade e estranho", cls: "parcial" },
+    falsa: { rot: "Premissa falsa", cls: "falso" },
+    normal: { rot: "Verdade, mas normal", cls: "ok" },
+  };
+  var V = null;   // casos_videos.json
+  function mil(x) {
+    return x >= 1e6 ? (x / 1e6).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + " mi"
+      : x >= 1000 ? Math.round(x / 1000) + " mil" : String(x);
+  }
+  function capa(o, v) {
+    var dentro = [v && v.capa ? h("img", { src: v.capa, alt: "", loading: "lazy", width: "360", height: "480" })
+      : h("span", { class: "capa-ico", "aria-hidden": "true", text: o.icone || "▶" }),
+      v ? h("span", { class: "capa-play", "aria-hidden": "true" }) : null];
+    return v ? h("a", { class: "capa", href: v.url, target: "_blank", rel: "noopener nofollow",
+      "aria-label": "Ver o vídeo de @" + v.perfil + " no Instagram" }, dentro)
+      : h("div", { class: "capa sem-video" }, dentro);
+  }
+  function caso(o, n) {
+    var v = V && V.videos[o.id], t = TAG[o.tag];
     var art = h("article", { class: "caso", id: "caso-" + o.id });
-    var abrir = h("button", { class: "btn btn-pri caso-abrir", type: "button", "aria-expanded": "false",
-      text: "É estranho mesmo? Ver a resposta", onclick: function () {
+    var abrir = h("button", { class: "btn btn-mini caso-abrir", type: "button", "aria-expanded": "false",
+      text: "Ver a resposta", onclick: function () {
         var aberto = art.classList.toggle("respondido");
         abrir.setAttribute("aria-expanded", String(aberto));
-        abrir.textContent = aberto ? "Fechar a resposta" : "É estranho mesmo? Ver a resposta";
-        abrir.classList.toggle("btn-pri", !aberto);
+        abrir.textContent = aberto ? "Fechar a resposta" : "Ver a resposta";
       } });
+    var quem = v ? h("a", { class: "quem", href: v.url, target: "_blank", rel: "noopener nofollow" },
+      "▶ @" + v.perfil, v.curtidas ? h("span", { text: " · ♥ " + mil(v.curtidas) }) : null) : null;
     anexar(art, [
-      h("div", { class: "caso-topo" }, h("span", { text: "Caso " + o.n }), h("span", { class: "veredito-mini " + o.tom, text: o.selo })),
-      h("p", { class: "caso-rot", text: "A teoria" }),
-      h("blockquote", { class: "alegacao", text: o.alegacao }),
-      h("div", { class: "fontes" }, h("span", { class: "fontes-rot", text: "Quem afirmou:" }), o.fontes.map(function (f) {
-        return f.url ? h("a", { class: "fonte", href: f.url, target: "_blank", rel: "noopener nofollow", text: f.rot })
-          : h("span", { class: "fonte", text: f.rot });
-      })),
-      abrir,
+      h("div", { class: "caso-cab" },
+        capa(o, v),
+        h("div", { class: "caso-txt" },
+          h("div", { class: "caso-topo" }, h("span", { text: "Caso " + n }), h("span", { class: "tag " + t.cls, text: t.rot })),
+          h("h3", { class: "caso-tit", text: o.titulo }),
+          h("p", { class: "alegacao", text: o.alegacao }),
+          h("div", { class: "fontes" }, quem, (o.fontes || []).map(function (f) {
+            return f.url ? h("a", { class: "fonte", href: f.url, target: "_blank", rel: "noopener nofollow", text: f.rot })
+              : h("span", { class: "fonte", text: f.rot });
+          })),
+          abrir)),
       h("div", { class: "revela" }, h("div", {},
-        h("p", { class: "caso-rot", text: "A resposta" }),
-        h("span", { class: "veredito " + o.tom, text: o.veredito }),
+        h("span", { class: "veredito " + t.cls, text: o.veredito }),
         h("ul", { class: "pontos" }, o.pontos.map(function (p) { return h("li", { html: p }); })),
-        o.visual,
+        o.visual || null,
         (o.mais || []).map(function (m) {
           return h("details", { class: "mais " + (m.classe || "") }, h("summary", { text: m.rot }), h("div", { class: "corpo" }, m.corpo));
         }))),
@@ -104,15 +130,16 @@
     }));
     var pct = function (a, b) { return pc(100 * a / b, 0); };
     return caso({
-      id: "silva-jardim", n: 1,
-      alegacao: "Em Silva Jardim (RJ), Flávio ganhou 1 voto e Lula " + num(t2.lula - t1.lula) + " entre os turnos. A chance disso é de 1 em 10⁴⁶⁸.",
-      fontes: [{ rot: "Post no X", url: "https://x.com/lucascrvg_20/status/2115159021606891820" },
-               { rot: "a conta foi pedida ao Grok e republicada no Instagram" }],
-      veredito: "O número confere. A conta, não.", tom: "parcial", selo: "tem explicação",
+      id: "silva-jardim", titulo: "Cidades onde o Flávio parou", tag: "normal",
+      alegacao: "Em Araruama (RJ), o Flávio ganhou 11 votos entre os turnos e o Lula 5.581. Em Silva Jardim, 1 contra " + num(t2.lula - t1.lula) + ". A chance disso seria de 1 em 10⁴⁶⁸.",
+      fontes: [{ rot: "Silva Jardim, no X", url: "https://x.com/lucascrvg_20/status/2115159021606891820" },
+               { rot: "Campos, no Instagram", url: "https://www.instagram.com/reel/DfGXIePNOby/" }],
+      veredito: "O número confere. A conta, não.",
       pontos: [
         "<b>“+1” é saldo, não o voto que ele recebeu.</b> " + num(t1.comp - t2.comp) + " pessoas a menos foram votar no 2º turno. Eleitor do Flávio que não voltou desconta do que ele ganhou: ganhar 200 e perder 199 dá +1.",
         "<b>Os votos do Lula vieram da terceira via.</b> Eram " + num(terc) + " votos, " + num(cury + caiado) + " deles de Cury e Caiado, cujo eleitor foi mais para o Lula no país todo. Somando os " + num(bn1) + " brancos e nulos do 1º turno, a conta fecha sem nenhum eleitor do Flávio virar Lula.",
-        "<b>Silva Jardim não é exceção.</b> Em " + num(x.flavio_ganho_ate_zero) + " cidades o Flávio ganhou 0 ou menos entre os turnos, e em " + num(x.quase_tudo_lula_com_flavio_60) + " delas ele venceu com 60% ou mais, como lá. Em 2022 o mesmo aconteceu com o Bolsonaro em " + num(d.regua_2022.municipios.f_ganho_ate_zero) + ".",
+        "<b>Em Campos dos Goytacazes não há “voto do além”.</b> Os 1.386 votos que o vídeo não acha são os " + num(-V.dados.cidades["CAMPOS DOS GOYTACAZES"].f2 + V.dados.cidades["CAMPOS DOS GOYTACAZES"].f1) + " que o Flávio perdeu lá: a conta esqueceu que ele caiu.",
+        "<b>Não é exceção.</b> Em " + num(x.flavio_ganho_ate_zero) + " cidades o Flávio ganhou 0 ou menos entre os turnos, e em " + num(x.quase_tudo_lula_com_flavio_60) + " delas ele venceu com 60% ou mais, como lá. Em 2022 o mesmo aconteceu com o Bolsonaro em " + num(d.regua_2022.municipios.f_ganho_ate_zero) + ".",
       ],
       visual: visual("Municípios parecidos, onde o Flávio venceu com 60% ou mais", cidades,
         "Saldo de cada um entre o 1º e o 2º turno. O mesmo desenho de Silva Jardim, de Roraima ao Rio."),
@@ -143,10 +170,10 @@
           h("i", { class: "depois", style: "width:" + (100 * s.flavio[1] / max) + "%" })));
     }));
     return caso({
-      id: "mesma-secao", n: 2,
+      id: "mesma-secao", titulo: "Os 700 votos que sumiram", tag: "falsa", icone: "💬",
       alegacao: "Flávio fez 700 votos no 1º turno e 8 ou 9 no 2º, na mesma seção.",
       fontes: [{ rot: "prints em grupos de WhatsApp (sem link público)" }],
-      veredito: "Não existe nos dados", tom: "falso", selo: "não procede",
+      veredito: "Não existe nos dados",
       pontos: [
         "<b>700 votos não cabem numa seção.</b> O máximo que o Flávio teve numa seção foi " + num(x.max_flavio[1]) + ". A seção mais cheia do país teve " + num(x.max_comparecimento[1]) + " votantes.",
         "<b>Nenhuma seção caiu de 100 para 10.</b> Das " + num(x.secoes_nos_dois_turnos) + " seções que existiram nos dois turnos, nenhuma teve o Flávio com 100 ou mais e depois até 10.",
@@ -169,10 +196,10 @@
           h("td", { class: e ? "real" : "preso", text: placar(dona) }), h("td", { class: "real", text: placar(z) }));
       }))));
     return caso({
-      id: "zonas", n: 3,
+      id: "zonas", titulo: "O placar repetido", tag: "falsa", icone: "📺",
       alegacao: "O mesmo número se repete em cada zona: Lula " + num(dona.l) + " e Flávio " + num(dona.f) + " em várias zonas de Brasília, e igual em Salvador e São Paulo. Matematicamente isso não existe.",
-      fontes: [{ rot: "vídeo no TikTok gravado na tela do app Resultados, repassado no WhatsApp em 30/10" }],
-      veredito: "O número é real, mas de uma zona só", tom: "parcial", selo: "tem explicação",
+      fontes: [{ rot: "vídeo no TikTok, repassado no WhatsApp (sem link público)" }],
+      veredito: "O número é real, mas de uma zona só",
       pontos: [
         "<b>" + placar(dona) + " é o resultado da zona " + dona.zona + " de " + bsb.nm + "</b>, e só dela. Cada número do vídeo confere com uma única zona.",
         "<b>A tela travou.</b> No vídeo, o topo troca o nome da zona, mas os números ficam presos na zona aberta antes. A própria autora diz que o app “está demorando um pouquinho”.",
@@ -214,13 +241,13 @@
       { v: f1.por_voto, rot: "2026, 1º turno", classe: "barra-b", cor: "color-mix(in srgb, var(--flavio) 45%, transparent)" },
       { v: f2.por_voto, rot: "2026, 2º turno", classe: "barra-c", cor: "var(--flavio)" }];
     return caso({
-      id: "secoes-10", n: 4,
-      alegacao: "Em " + num(f2.secoes) + " seções Flávio fez no máximo 10 votos e Lula somou " + num(Math.round(f2.outro_somou / 1000)) + " mil; em " + f2.zeradas + " urnas ele teve zero.",
+      id: "secoes-10", titulo: "As 106 urnas zeradas", tag: "normal",
+      alegacao: "Em " + f2.zeradas + " urnas, ninguém votou no Flávio, nem branco, nem nulo: 100% Lula. Em " + num(f2.secoes) + " seções ele fez no máximo 10 votos. É como ganhar 579 vezes seguidas na Mega-Sena.",
       fontes: [{ rot: "Folha (via Repórter PB)", url: "https://www.reporterpb.com.br/noticia-extra/2026/10/27/flavio-teve-zero-voto-em-106-urnas-nas-quais-somou-quase-15-mil/136248.html" },
-               { rot: "Pleno News", url: "https://pleno.news/brasil/eleicoes-2026/flavio-tem-zero-voto-em-urnas-que-somaram-14-mil-para-lula.html" },
-               { rot: "post republicado pelo Jornal da Cidade Online" }],
-      veredito: "O número confere. Não é sinal de fraude.", tom: "parcial", selo: "tem explicação",
+               { rot: "Jornal da Cidade Online" }],
+      veredito: "O número confere. Não é sinal de fraude.",
       pontos: [
+        "<b>“Sem branco nem nulo” não confere.</b> Só " + V.dados.secoes_zeradas.sem_branco_nulo + " das " + V.dados.secoes_zeradas.total + " urnas não tiveram branco nem nulo; somadas, elas tiveram " + num(V.dados.secoes_zeradas.branco_nulo) + ". E a conta da Mega-Sena supõe que cada eleitor é sorteado do país inteiro.",
         "<b>Os números batem com o TSE:</b> " + num(f2.secoes) + " seções, " + num(f2.outro_somou) + " votos do Lula nelas, " + f2.zeradas + " com o Flávio zerado.",
         "<b>Já era assim antes.</b> No 1º turno, quando o Flávio terminou na frente no país, já eram " + num(f1.secoes) + " seções. No 2º turno de 2022, com o Bolsonaro, eram " + num(r22.t2) + ".",
         "<b>São seções pequenas e homogêneas:</b> " + x.comparecimento_medio[0] + " votantes em média (no país, " + x.comparecimento_medio[1] + "), muitas em aldeias, povoados e assentamentos. " + x.zeradas_em_aldeia[0] + " das " + x.zeradas_em_aldeia[1] + " zeradas ficam em aldeia indígena.",
@@ -258,11 +285,10 @@
   function curva(d) {
     var n = d.regua_2022.noite, r = n.recorte[0], t22 = d.regua_2022.trocas, q = n.quedas[0];
     return caso({
-      id: "curva", n: 5,
-      alegacao: "Um algoritmo derrubava o Bolsonaro de tempos em tempos durante a apuração; sem ele, teria de 60% a 65%.",
-      fontes: [{ rot: "Reel republicado pelo Vitória News (28/10)", url: "https://www.instagram.com/reels/DfBTF4LtGzB/" },
-               { rot: "Aliados Brasil", url: "https://www.aliadosbrasiloficial.com.br/noticia/professor-de-matematica-aponta-supostos-padroes-algoritmicos-na-apuracao-e-estima-que-flavio-bolsonaro-teria-vencido-com-65-dos-votos" }],
-      veredito: "É de 2022 e não se sustenta", tom: "falso", selo: "não procede",
+      id: "curva", titulo: "O algoritmo da apuração", tag: "falsa",
+      alegacao: "Um algoritmo derrubava o Bolsonaro de tempos em tempos durante a apuração; sem ele, teria de 60% a 65%. E com 51 a 49, a liderança deveria ter trocado várias vezes.",
+      fontes: [{ rot: "Aliados Brasil", url: "https://www.aliadosbrasiloficial.com.br/noticia/professor-de-matematica-aponta-supostos-padroes-algoritmicos-na-apuracao-e-estima-que-flavio-bolsonaro-teria-vencido-com-65-dos-votos" }],
+      veredito: "É de 2022 e não se sustenta",
       pontos: [
         "<b>O vídeo é sobre 2022.</b> O professor fala do Bolsonaro e das “472 urnas”, que são as " + num(n.secoes) + " seções do 2º turno de 2022. Foi a legenda do post de 2026 que pôs o 60–65% no Flávio.",
         "<b>Cada “queda” tem hora e lugar.</b> Os boletins chegam por região e fuso. A maior queda do trecho do vídeo foi às " + q.hora.slice(0, 5) + ", com boletins de " + q.lugares.join(", ") + ", seções que qualquer um confere.",
@@ -277,14 +303,123 @@
     });
   }
 
+  // ── casos novos (30/10/2026, a partir dos reels mais vistos) ────────────
+  function fonte(k) { return V.fontes[k]; }
+  function virada() {
+    var n = V.dados.nacional, dl = n.lula2 - n.lula1, df = n.flavio2 - n.flavio1;
+    return caso({
+      id: "virada", titulo: "A virada inédita", tag: "estranho",
+      alegacao: "Pela primeira vez desde 1989, quem perdeu o 1º turno ganhou o 2º. O Lula levou 3 de cada 4 votos em jogo, contra as pesquisas e o mercado de apostas.",
+      fontes: [{ rot: "Dep. Alberto Fraga", url: "https://www.instagram.com/reel/DfA-y_9uwSe/" }],
+      veredito: "É verdade e é raro. Mas a conta fecha.",
+      pontos: [
+        "<b>É inédito mesmo.</b> Nos 7 segundos turnos desde 1989, quem liderou o 1º turno ganhou o 2º. Em 2026, não.",
+        "<b>Os números conferem.</b> Entre os turnos o Lula ganhou " + mi(dl) + " e o Flávio " + mi(df) + ": de cada 4 votos novos, 3 foram para o Lula.",
+        "<b>As pesquisas erraram para o mesmo lado.</b> A última AtlasIntel dava 50,8% ao Flávio; ele terminou com 48,21%. O mercado de apostas seguiu as pesquisas.",
+        "<b>Cresceu em todo estado, e mais em %, onde tinha menos.</b> É efeito de base: em pontos do eleitorado, ganhou 6,1 no Piauí e 6,5 em Santa Catarina.",
+        "<b>Raro não é impossível.</b> Não precisa de nenhum eleitor do Flávio virar: basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/apuracao/cenarios'>Veja 5 jeitos de a conta fechar</a>.",
+      ],
+      visual: visual(null, h("div", { class: "numeros" },
+        numero("+" + mi(dl), "Lula entre os turnos", "l"), numero("+" + mi(df), "Flávio entre os turnos", "f"),
+        numero(pc(100 * dl / (dl + df), 0), "dos votos novos foram para o Lula"))),
+    });
+  }
+  function biometria() {
+    return caso({
+      id: "biometria", titulo: "8,6 milhões sem digital", tag: "falsa",
+      alegacao: "Um relatório divulgado nos EUA diz que 8,6 milhões votaram sem biometria depois das 17h. Tirando esses votos, o Flávio teria ganhado.",
+      fontes: [fonte("tse_17h"), fonte("nucleo")],
+      veredito: "Mistura dois números e conclui o que eles não dizem",
+      pontos: [
+        "<b>Depois das 17h foram 34.393 votos</b> no país inteiro, segundo o TSE: 0,03% do total, e não milhões.",
+        "<b>Os 8,6 milhões são do dia todo:</b> eleitores com digital cadastrada que a urna não reconheceu e que votaram após conferir o documento com foto. É o procedimento normal.",
+        "<b>Tirar 8,6 milhões só do Lula</b> supõe que todos votaram nele. Nada no relatório mostra isso, e o voto é secreto.",
+        "<b>O relatório não tem autor.</b> A Justiça Eleitoral o classificou como apócrifo e como distorção dos dados públicos.",
+      ],
+      visual: visual(null, h("div", { class: "numeros" },
+        numero("34.393", "votos depois das 17h (TSE)"), numero(mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2), "de vantagem do Lula", "l"))),
+    });
+  }
+  function mesario() {
+    return caso({
+      id: "mesario", titulo: "O mesário pianista", tag: "falsa",
+      alegacao: "Com o número do título, o mesário vota pelo eleitor que faltou ou morreu. Em 500 mil seções, isso dá milhões de votos.",
+      fontes: [fonte("aosfatos"), fonte("tse_17h")],
+      veredito: "Fraude isolada é crime e aparece. Milhões, não.",
+      pontos: [
+        "<b>Só o título não basta.</b> Sem a digital, a mesa confere documento com foto e a urna pede o ano de nascimento, que não está no caderno de votação.",
+        "<b>Não sobra voto para isso.</b> O vídeo fala em milhões de votos no fim do dia; depois das 17h entraram 34.393 em todo o país.",
+        "<b>Quando acontece, aparece.</b> O eleitor de verdade chega e descobre que “já votaram”, como em relatos no interior de SP. Isso vai para a ata e vira investigação.",
+        "<b>“O site diz que eu faltei”</b> foi uma mensagem errada do autoatendimento do TSE, corrigida depois (Poder360). Não é registro de voto.",
+      ],
+    });
+  }
+  function caminhonete() {
+    return caso({
+      id: "caminhonete", titulo: "A caminhonete do PT", tag: "estranho", icone: "🚚",
+      alegacao: "Urnas foram levadas numa caminhonete com adesivo do PT no Distrito Federal, depois da votação.",
+      fontes: [fonte("caminhonete"), fonte("pleno")],
+      veredito: "Aconteceu, e foi irregular. Mas não mexeu em voto.",
+      pontos: [
+        "<b>O vídeo é real.</b> Foi no Riacho Fundo II, depois do fim da votação. O TRE-DF confirmou e abriu apuração, porque usar veículo com propaganda de partido contraria as regras.",
+        "<b>Os votos já tinham saído da urna.</b> Quando ela foi recolhida, o boletim já estava impresso e os dados já tinham sido transmitidos ao TSE.",
+        "<b>Dá para conferir.</b> O boletim de urna impresso na seção é público: se a urna fosse mexida depois, o resultado publicado não bateria com o papel.",
+      ],
+    });
+  }
+  function soma() {
+    return caso({
+      id: "soma", titulo: "A soma que não fecha", tag: "falsa",
+      alegacao: "A soma dos estados não bate com o total do Brasil no site do TSE: faltam 766 mil votos.",
+      fontes: [{ rot: "print do X" }],
+      veredito: "O print é do começo da apuração",
+      pontos: [
+        "<b>No print, o Lula tem 3,5 milhões de votos</b> (no fim teve 64,3 milhões). Foi tirado com poucas urnas apuradas, e cada estado foi copiado num momento diferente, como o próprio autor conta. Durante a apuração, os números mudam a cada segundo.",
+        "<b>No resultado final, a soma fecha voto a voto.</b> As 499.205 seções somam 124.082.273 votos válidos, exatamente o total oficial, em cada estado e no exterior.",
+      ],
+      visual: visual(null, h("div", { class: "numeros" },
+        numero("124.082.273", "soma das seções"), numero("124.082.273", "resultado oficial"))),
+    });
+  }
+  function cedula() {
+    return caso({
+      id: "cedula", titulo: "Voto no papel", tag: "normal",
+      alegacao: "Em Pernambuco, uma seção passou a votar em cédula de papel, sem fiscalização. “Vão roubar essa eleição.”",
+      fontes: [fonte("tre_pe")],
+      veredito: "Existe e está na lei. É exceção.",
+      pontos: [
+        "<b>É o plano C.</b> Se a urna quebra, entra uma de reserva. Só se a reserva também falhar a seção vota em cédula, que é apurada depois pela junta eleitoral, com fiscais dos partidos.",
+        "<b>Foi raro.</b> Em Pernambuco, 80 das 22.694 urnas foram trocadas no 2º turno, menos que no 1º (123), segundo o TRE-PE.",
+        "<b>Não decide nada.</b> Uma seção tem em média uns " + num(V.dados.nacional.comp2 / 499205) + " votantes; a diferença no país foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
+      ],
+    });
+  }
+  function eleitores() {
+    var c = V.dados.bahia;
+    return caso({
+      id: "eleitores", titulo: "Mais eleitor que habitante", tag: "normal",
+      alegacao: "A Bahia tem 23 municípios com mais eleitores do que habitantes, como Catolândia e Firmino Alves.",
+      fontes: [fonte("atarde"), fonte("tatu")],
+      veredito: "É verdade, e é antigo. Não é voto a mais.",
+      pontos: [
+        "<b>Os 23 existem</b>, cruzando o eleitorado do TSE com a população estimada pelo IBGE. No país são 733; na Bahia eram 36 em 2022.",
+        "<b>É gente que mudou e não transferiu o título.</b> Quem estuda ou trabalha fora continua votando na cidade de origem, e a população do IBGE é estimada.",
+        "<b>Quem vota é menos que quem mora.</b> Catolândia tem uns 3.567 habitantes e 4.189 eleitores, mas votaram " + num(c["CATOLÂNDIA"].c2) + " no 2º turno. Em Firmino Alves, " + num(c["FIRMINO ALVES"].c2) + ".",
+      ],
+    });
+  }
+
   // ── montar os casos ────────────────────────────────────────────────────
   function montarCasos() {
     var lista = document.getElementById("lista-casos");
-    pedir("acusacoes.json").then(function (d) {
+    Promise.all([pedir("acusacoes.json"), pedir("casos_videos.json")]).then(function (r) {
+      var d = r[0], n = 0;
+      V = r[1];
       lista.textContent = "";
-      [silvaJardim, mesmaSecao, zonas, secoesAte10, curva].forEach(function (f) {
+      [virada, secoesAte10, curva, biometria, mesario, caminhonete, silvaJardim, soma, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
+      lista.querySelectorAll(".caso-topo > span:first-child").forEach(function (el) { el.textContent = "Caso " + (++n); });
       var obs = "IntersectionObserver" in window && new IntersectionObserver(function (es) {
         es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visivel"); obs.unobserve(e.target); } });
       }, { rootMargin: "0px 0px -8% 0px" });

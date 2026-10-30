@@ -292,6 +292,14 @@ async def explicacao_chute(request: Request):
     return _servir(request, ARQUIVO / "chute.json")
 
 
+@router.get("/explicacao/casos_videos.json")
+async def explicacao_casos_videos(request: Request):
+    """O vídeo de cada caso da entrada e os números dos casos novos (~5 KB).
+    Gerado por `tools/migracoes/2026-10-30-casos-videos.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "casos_videos.json")
+
+
 @router.get("/explicacao/acusacoes.json")
 async def explicacao_acusacoes(request: Request):
     """As acusações que circularam depois do 2º turno, conferidas no dado (~22 KB).

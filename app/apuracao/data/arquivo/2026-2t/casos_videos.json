@@ -1,0 +1,206 @@
+{
+ "videos": {
+  "virada": {
+   "url": "https://www.instagram.com/reel/DfBFwC2ACEp/",
+   "perfil": "pyonglee",
+   "curtidas": 128108,
+   "comentarios": 3917,
+   "capa": "/static/casos/virada.jpg"
+  },
+  "secoes-10": {
+   "url": "https://www.instagram.com/reel/DfFRR-Jx7A2/",
+   "perfil": "pradoclima",
+   "curtidas": 550473,
+   "comentarios": 24099,
+   "capa": "/static/casos/secoes-10.jpg"
+  },
+  "curva": {
+   "url": "https://www.instagram.com/reel/DfBTF4LtGzB/",
+   "perfil": "vitorianewsparacatu",
+   "curtidas": 245402,
+   "comentarios": 9389,
+   "capa": "/static/casos/curva.jpg"
+  },
+  "biometria": {
+   "url": "https://www.instagram.com/reel/DfDko4LAqq2/",
+   "perfil": "guilherme.peles",
+   "curtidas": 20985,
+   "comentarios": 618,
+   "capa": "/static/casos/biometria.jpg"
+  },
+  "mesario": {
+   "url": "https://www.instagram.com/reel/DfCYVdXisXF/",
+   "perfil": "pyonglee",
+   "curtidas": 108641,
+   "comentarios": 3810,
+   "capa": "/static/casos/mesario.jpg"
+  },
+  "silva-jardim": {
+   "url": "https://www.instagram.com/reel/DfDwG_mNfg1/",
+   "perfil": "hericles_sampaio",
+   "curtidas": 22423,
+   "comentarios": 811,
+   "capa": "/static/casos/silva-jardim.jpg"
+  },
+  "cedula": {
+   "url": "https://www.instagram.com/reel/De7oX2AMOoq/",
+   "perfil": "thiagomedinamd",
+   "curtidas": 49876,
+   "comentarios": 3377,
+   "capa": "/static/casos/cedula.jpg"
+  },
+  "eleitores": {
+   "url": "https://www.instagram.com/reel/DfAL-6rxYO-/",
+   "perfil": "felipecardozooficial",
+   "curtidas": 43885,
+   "comentarios": 1505,
+   "capa": "/static/casos/eleitores.jpg"
+  },
+  "soma": {
+   "url": "https://www.instagram.com/reel/De9kEn-vXzV/",
+   "perfil": "euicaroalmeida",
+   "curtidas": 7001,
+   "comentarios": 375,
+   "capa": "/static/casos/soma.jpg"
+  },
+  "caminhonete": {
+   "url": "https://www.instagram.com/p/DfFLlPMkf_5/",
+   "perfil": "ch7brasil",
+   "curtidas": 24303,
+   "comentarios": 7263,
+   "capa": null
+  }
+ },
+ "fontes": {
+  "tse_17h": {
+   "rot": "Justiça Eleitoral, Fato ou Boato",
+   "url": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/relatorio-apocrifo-distorce-dados-para-sugerir-fraude-nas-eleicoes-2026"
+  },
+  "nucleo": {
+   "rot": "Núcleo",
+   "url": "https://nucleo.jor.br/republicacao/2026/10/29/relatorio-apocrifo-distorce-microdados-do-tse-para-alegar-fraude-eleitoral/"
+  },
+  "tre_pe": {
+   "rot": "TRE-PE",
+   "url": "https://www.tre-pe.jus.br/comunicacao/noticias/2026/Outubro/pernambuco-registra-maior-comparecimento-as-urnas-no-segundo-turno-das-eleicoes-2026"
+  },
+  "atarde": {
+   "rot": "A Tarde",
+   "url": "https://atarde.com.br/eleicoes/bahia-tem-23-municipios-com-mais-eleitores-que-habitantes-em-2026-1396858"
+  },
+  "tatu": {
+   "rot": "Agência Tatu",
+   "url": "https://www.agenciatatu.com.br/noticia/eleitores-habitantes-nordeste-2026/"
+  },
+  "aosfatos": {
+   "rot": "Aos Fatos",
+   "url": "https://www.aosfatos.org/noticias/video-gilmar-mendes-mesario-pianista/"
+  },
+  "caminhonete": {
+   "rot": "Gazeta do Povo",
+   "url": "https://www.gazetadopovo.com.br/republica/tre-df-apura-transporte-de-urnas-em-caminhonete-com-adesivo-do-pt/"
+  },
+  "pleno": {
+   "rot": "Pleno News",
+   "url": "https://pleno.news/brasil/eleicoes-2026/tse-explica-transporte-de-urnas-em-caminhonete-adesivada-do-pt.html"
+  },
+  "faltou": {
+   "rot": "Poder360",
+   "url": "https://www.poder360.com.br/poder-eleicoes-2026/site-do-tse-registra-como-faltou-eleitores-que-votaram/"
+  },
+  "atlas": {
+   "rot": "AtlasIntel, 18 a 23/10",
+   "url": "https://bpmoney.com.br/politica/flavio-499-lula-484-ultima-atlasintel-antes-urnas/"
+  }
+ },
+ "dados": {
+  "secoes_zeradas": {
+   "total": 106,
+   "sem_branco_nulo": 29,
+   "branco_nulo": 362,
+   "lula": 14860
+  },
+  "cidades": {
+   "ARARUAMA": {
+    "l1": 23451,
+    "f1": 53415,
+    "t1": 5331,
+    "bn1": 3834,
+    "c1": 86031,
+    "l2": 29032,
+    "f2": 53426,
+    "bn2": 2749,
+    "c2": 85207
+   },
+   "CAMPOS DOS GOYTACAZES": {
+    "l1": 91105,
+    "f1": 160859,
+    "t1": 20200,
+    "bn1": 18294,
+    "c1": 290458,
+    "l2": 115927,
+    "f2": 159470,
+    "bn2": 11163,
+    "c2": 286560
+   },
+   "SILVA JARDIM": {
+    "l1": 4450,
+    "f1": 8932,
+    "t1": 897,
+    "bn1": 630,
+    "c1": 14909,
+    "l2": 5434,
+    "f2": 8933,
+    "bn2": 438,
+    "c2": 14805
+   }
+  },
+  "bahia": {
+   "CATOLÂNDIA": {
+    "l1": 2197,
+    "f1": 890,
+    "t1": 167,
+    "bn1": 92,
+    "c1": 3346,
+    "l2": 2343,
+    "f2": 947,
+    "bn2": 82,
+    "c2": 3372
+   },
+   "FIRMINO ALVES": {
+    "l1": 2361,
+    "f1": 1311,
+    "t1": 148,
+    "bn1": 197,
+    "c1": 4017,
+    "l2": 2567,
+    "f2": 1342,
+    "bn2": 122,
+    "c2": 4031
+   },
+   "SAUBARA": {
+    "l1": 7146,
+    "f1": 2147,
+    "t1": 435,
+    "bn1": 589,
+    "c1": 10317,
+    "l2": 8027,
+    "f2": 2216,
+    "bn2": 392,
+    "c2": 10635
+   }
+  },
+  "nacional": {
+   "lula1": 53879538,
+   "flavio1": 56104503,
+   "lula2": 64256232,
+   "flavio2": 59826041,
+   "comp1": 125275835,
+   "comp2": 128236074,
+   "brancos1": 2300798,
+   "nulos1": 3674249,
+   "brancos2": 1430496,
+   "nulos2": 2723305
+  }
+ }
+}

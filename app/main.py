@@ -18,6 +18,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.responses import PlainTextResponse, Response
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -41,11 +42,8 @@ def _static_version() -> str:
     return str(int(max(mt)))
 
 
-FAVICON = ("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'>"
-           "<rect width='16' height='16' rx='3' fill='%231f6feb'/>"
-           "<rect x='3' y='8' width='2' height='5' fill='white'/>"
-           "<rect x='7' y='5' width='2' height='8' fill='white'/>"
-           "<rect x='11' y='3' width='2' height='10' fill='white'/></svg>")
+# Ícone do site (30/10/2026): lupa amarela com um ✓, as cores da marca (static/favicon.svg).
+FAVICON = "/static/favicon.svg"
 
 templates.env.globals["static_v"] = _static_version()
 templates.env.globals["favicon_for_path"] = lambda path: FAVICON
@@ -89,6 +87,11 @@ async def raiz(request: Request):
 async def sobre(request: Request):
     # Por que confiar nas análises: fontes, conferência, limites (30/10/2026).
     return templates.TemplateResponse(request, "sobre.html")
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon_ico():
+    return FileResponse(static_dir / "favicon.ico", media_type="image/x-icon")
 
 
 @app.get("/robots.txt", include_in_schema=False)

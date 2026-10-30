@@ -2,7 +2,6 @@
 .hero-curto { padding-top: 40px; padding-bottom: 8px; }
 .pilares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .pilar { padding: 18px; border-radius: var(--raio); border: 1px solid var(--linha); background: linear-gradient(180deg, var(--cartao), var(--fundo-2)); box-shadow: var(--sombra); }
-.pilar.destaque { border-color: color-mix(in srgb, var(--destaque) 45%, var(--linha)); }
 .pilar-ico { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 10px; border-radius: 12px; font-size: 20px; background: color-mix(in srgb, var(--destaque) 16%, transparent); }
 .pilar-num { display: block; margin-bottom: 6px; font: 700 40px/1 var(--titulo); color: var(--destaque); letter-spacing: -.02em; }
 .pilar-num small { font: 600 15px var(--titulo); color: var(--texto-2); letter-spacing: 0; }

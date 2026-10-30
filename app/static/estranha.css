@@ -45,7 +45,7 @@
 .carregando { color: var(--texto-3); }
 
 /* ── caso ──────────────────────────────────────────────────────────── */
-.casos { display: grid; gap: 22px; }
+.casos { display: grid; gap: 16px; }
 .caso {
   position: relative;
   padding: 22px clamp(16px, 4vw, 28px);
@@ -57,17 +57,50 @@
 }
 .caso.visivel { opacity: 1; transform: none; }
 .caso.respondido { border-color: color-mix(in srgb, var(--destaque) 35%, var(--linha)); }
-.caso-topo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--texto-3); letter-spacing: .06em; text-transform: uppercase; }
-.alegacao { margin: 0; font: 600 clamp(20px, 3.4vw, 26px)/1.3 var(--titulo); letter-spacing: -.01em; }
-.alegacao::before { content: "“"; color: var(--destaque); }
-.alegacao::after { content: "”"; color: var(--destaque); }
+/* cabeçalho do caso: capa do vídeo + nome curto, etiqueta e a teoria */
+.caso-cab { display: grid; grid-template-columns: 132px 1fr; gap: 18px; align-items: start; }
+.capa { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 14px; background: linear-gradient(160deg, var(--cartao-2), var(--fundo-2)); border: 1px solid var(--linha); }
+.capa img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease, filter .3s; filter: saturate(.85) brightness(.85); }
+a.capa:hover img { transform: scale(1.05); filter: none; }
+.capa-ico { font-size: 40px; opacity: .8; }
+.capa-play { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: rgba(10, 12, 22, .55); backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, .35); transition: transform .2s, background .2s; }
+.capa-play::after { content: ""; position: absolute; left: 15px; top: 11px; border-left: 13px solid #fff; border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+a.capa:hover .capa-play { transform: scale(1.12); background: var(--destaque); }
+a.capa:hover .capa-play::after { border-left-color: var(--fundo); }
+.caso-txt { min-width: 0; }
+.caso-topo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 8px; font-size: 12px; color: var(--texto-3); letter-spacing: .06em; text-transform: uppercase; }
+.tag { padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: none; }
+.tag.parcial { background: color-mix(in srgb, var(--parcial) 18%, transparent); color: var(--parcial); }
+.tag.falso { background: color-mix(in srgb, var(--falso) 18%, transparent); color: var(--falso); }
+.tag.ok { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+.caso-tit { margin: 0 0 6px; font: 700 clamp(24px, 4vw, 32px)/1.08 var(--titulo); letter-spacing: -.025em; text-shadow: 0 2px 18px color-mix(in srgb, var(--destaque) 18%, transparent); }
+.alegacao { margin: 0; font-size: 15px; line-height: 1.5; color: var(--texto-2); }
+.quem { display: inline-flex; align-items: center; gap: 4px; padding: 5px 11px; border-radius: 99px; background: var(--cartao-2); border: 1px solid var(--linha); color: var(--texto); font-size: 13px; font-weight: 600; text-decoration: none; }
+.quem span { color: var(--texto-3); font-weight: 400; white-space: nowrap; }
+.quem { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.quem:hover { border-color: var(--texto-3); }
+.veredito.ok { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+@media (max-width: 560px) {
+  /* no celular: capa e nome lado a lado; a teoria e os links na largura toda */
+  .caso-cab { grid-template-columns: 84px 1fr; gap: 10px 14px; }
+  .caso-txt { display: contents; }
+  .caso-cab > .capa { grid-row: 1 / span 2; align-self: start; }
+  .caso-topo { grid-column: 2; margin: 2px 0 0; align-self: end; }
+  .caso-tit { grid-column: 2; align-self: start; font-size: 22px; }
+  .alegacao, .caso-cab .fontes, .caso-abrir { grid-column: 1 / -1; }
+  .caso-cab .fontes { margin-top: 0; }
+  .caso-abrir { margin-top: 2px; justify-self: start; }
+  .alegacao { font-size: 14px; }
+  .capa-play { width: 32px; height: 32px; margin: -16px 0 0 -16px; }
+  .capa-play::after { left: 12px; top: 8px; border-left-width: 11px; border-top-width: 8px; border-bottom-width: 8px; }
+}
 
-.fontes { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+.fontes { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
 .fonte {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 5px 11px; border-radius: 99px;
-  background: var(--cartao-2); border: 1px solid var(--linha);
-  color: var(--texto-2); font-size: 13px; text-decoration: none;
+  padding: 4px 10px; border-radius: 99px;
+  background: transparent; border: 1px solid var(--linha);
+  color: var(--texto-3); font-size: 12px; text-decoration: none;
 }
 a.fonte:hover { color: var(--texto); border-color: var(--texto-3); }
 a.fonte::after { content: "↗"; font-size: 11px; opacity: .7; }
@@ -75,7 +108,8 @@ a.fonte::after { content: "↗"; font-size: 11px; opacity: .7; }
 .caso-rot { margin: 0 0 6px; color: var(--destaque); font: 600 12px var(--titulo); letter-spacing: .1em; text-transform: uppercase; }
 .revela .caso-rot { margin-top: 22px; }
 .fontes-rot { align-self: center; font-size: 13px; color: var(--texto-3); }
-.caso-abrir { margin-top: 18px; }
+.caso-abrir { margin-top: 14px; }
+.revela > div > .veredito { margin-top: 18px; }
 .veredito-mini { margin-left: auto; padding: 3px 10px; border-radius: 99px; font-size: 12px; letter-spacing: 0; text-transform: none; font-weight: 600; opacity: 0; transition: opacity .4s; }
 .caso.respondido .veredito-mini { opacity: 1; }
 .veredito-mini.falso { background: color-mix(in srgb, var(--falso) 18%, transparent); color: var(--falso); }
