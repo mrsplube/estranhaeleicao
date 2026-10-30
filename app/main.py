@@ -53,6 +53,7 @@ templates.env.globals["modo_completo"] = MODO == "completo"
 
 apuracao.set_templates(templates)
 app.include_router(apuracao.router)
+app.include_router(apuracao.paginas)
 
 if MODO == "completo":
     from politicos import resultados
@@ -60,7 +61,7 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/saude", "/favicon.ico")
+PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/saude", "/favicon.ico")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 

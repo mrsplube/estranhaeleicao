@@ -49,7 +49,7 @@ from collections import deque
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse, Response
+from fastapi.responses import RedirectResponse, HTMLResponse, JSONResponse, Response
 from fastapi.templating import Jinja2Templates
 
 from app_visibility import is_visible
@@ -57,6 +57,9 @@ from auth import current_user, get_real_ip
 from apuracao import explicacao
 
 router = APIRouter(prefix="/apuracao")
+# As páginas moraram em /apuracao até 30/10/2026; agora ficam em /simulacao e
+# os endereços antigos redirecionam (301). Os dados seguem em /apuracao/explicacao.
+paginas = APIRouter(prefix="/simulacao")
 _templates: Jinja2Templates | None = None
 
 # Onde mora o 2026 encerrado. É a ÚNICA fonte de dado desta página: nada aqui
@@ -153,7 +156,7 @@ def arquivada() -> bool:
     return not is_visible("apuracao", "publico") and not os.environ.get("APURACAO_AO_VIVO")
 
 
-@router.get("", response_class=HTMLResponse)
+@paginas.get("", response_class=HTMLResponse)
 async def chute(request: Request):
     """O chute do 2º turno (desde 30/10/2026): a pessoa divide cada grupo de
     eleitor do 1º turno entre Lula, Flávio e nenhum, com a dica da pesquisa, e
@@ -162,14 +165,22 @@ async def chute(request: Request):
     return _templates.TemplateResponse(request, "chute.html", {"pagina": "chute"})
 
 
-@router.get("/cenarios", response_class=HTMLResponse)
+@paginas.get("/cenarios", response_class=HTMLResponse)
 async def cenarios(request: Request):
     """Três jeitos de a conta fechar com o TSE (o passo depois do chute)."""
     _porta(request, _freio_pagina, json_=False)
     return _templates.TemplateResponse(request, "chute.html", {"pagina": "cenarios"})
 
 
-@router.get("/detalhe", response_class=HTMLResponse)
+@router.get("", include_in_schema=False)
+@router.get("/cenarios", include_in_schema=False)
+@router.get("/detalhe", include_in_schema=False)
+async def endereco_antigo(request: Request):
+    novo = "/simulacao" + request.url.path[len("/apuracao"):]
+    return RedirectResponse(novo + (("?" + request.url.query) if request.url.query else ""), status_code=301)
+
+
+@paginas.get("/detalhe", response_class=HTMLResponse)
 async def pagina(request: Request, previa: int = 0):
     user = current_user(request)
     if arquivada() and not (previa and user):

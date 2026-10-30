@@ -390,7 +390,7 @@
       h("p", { class: "res-nota", html: "Só com a pesquisa: <b>Lula " + pc(P.pct_lula, 1) + "</b>, faltando " + mi(d.tse.lula - P.lula) + " para ele." +
         (faltam.length ? " " + faltam.length + (faltam.length > 1 ? " grupos sem mexer." : " grupo sem mexer.") : "") }),
       h("div", { class: "hero-acoes" },
-        h("a", { class: "btn btn-pri", href: "/apuracao/cenarios", text: "Ver 5 jeitos de a conta fechar →" }),
+        h("a", { class: "btn btn-pri", href: "/simulacao/cenarios", text: "Ver 5 jeitos de a conta fechar →" }),
         h("button", { class: "btn", type: "button", text: "Recomeçar", onclick: function () {
           est = { fatia: {}, mexido: {}, dica: {} };
           d.grupos.forEach(function (g) { est.fatia[g.id] = partida(g); });
@@ -491,7 +491,7 @@
       h("span", { html: temMeu ? "Seu chute deu <b>Lula " + pc(S.pct, 1) + "</b>" + (Math.abs(S.lula - d.tse.lula) > 50000 ? ", com " +
           mi(Math.abs(S.lula - d.tse.lula)) + (S.lula < d.tse.lula ? " a menos" : " a mais") + " para ele que o TSE." : ", em cima do TSE.")
         : "Você ainda não chutou." }),
-      h("a", { href: "/apuracao", text: temMeu ? "voltar ao chute" : "chutar primeiro" })));
+      h("a", { href: "/simulacao", text: temMeu ? "voltar à simulação" : "simular primeiro" })));
     CORPO.appendChild(h("p", { class: "cen-leg" }, "Cada barra: para onde foi o grupo no 2º turno. ",
       h("span", { class: "lula" }, h("i"), "Lula"), h("span", { class: "flavio" }, h("i"), "Flávio"),
       h("span", { class: "nenhum" }, h("i"), "nenhum"), h("span", { class: "fina" }, h("i"), "o que a pesquisa previa")));
@@ -510,14 +510,14 @@
             d.grupos.forEach(function (g) { mex[g.id] = true; });
             est = { fatia: copiar(c.fatia), mexido: mex, dica: {} };
             gravar();
-            location.href = "/apuracao#resultado";
+            location.href = "/simulacao#resultado";
           } }))));
     });
     CORPO.appendChild(h("section", { class: "convite" },
       h("p", { class: "caso-rot", text: "E qual é o certo?" }),
       h("p", { html: "Nenhum: são extremos, e todos fecham sem fraude. Comparando município a município, a troca direta do Flávio para o Lula fica perto de zero; " +
         "a terceira via, o branco/nulo e quem só votou no 2º turno foram mais para o Lula que a pesquisa previa. O real fica <b>entre os cenários 1, 2 e 3</b>." }),
-      h("a", { class: "btn btn-fantasma", href: "/apuracao/detalhe", text: "Estimativa por município →" })));
+      h("a", { class: "btn btn-fantasma", href: "/simulacao/detalhe", text: "Estimativa por município →" })));
   }
 
   // ── início ─────────────────────────────────────────────────────────────

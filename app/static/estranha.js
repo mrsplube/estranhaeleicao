@@ -116,11 +116,12 @@
       v ? [h("a", { href: v.url, target: "_blank", rel: "noopener nofollow", text: "vídeo de @" + v.perfil + " no Instagram" + (v.curtidas ? " (" + mil(v.curtidas) + " curtidas)" : "") })] : [],
       (o.fontes || []).map(link)));
     anexar(art, [
+      o.tag === "estranho" ? h("span", { class: "carimbo", "aria-hidden": "true", text: "estranho" }) : null,
       recolher("cima"),
       h("div", { class: "caso-cab" },
         capa(o, v),
         h("div", { class: "caso-txt" },
-          h("div", { class: "caso-topo" }, h("span", { text: "Caso " + n }), h("span", { class: "tag " + t.cls, text: t.rot })),
+          h("div", { class: "caso-topo" }, h("span", { class: "tag " + t.cls, text: t.rot })),
           h("h3", { class: "caso-tit", text: o.titulo }),
           h("p", { class: "alegacao", text: o.alegacao }),
           ver)),
@@ -346,7 +347,7 @@
         "<b>Os números conferem:</b> Lula +" + mi(dl) + ", Flávio +" + mi(df) + ". De cada 4 votos novos, 3 foram para o Lula.",
         "<b>As pesquisas erraram.</b> A última AtlasIntel dava 50,8% ao Flávio; ele fez 48,21%. As apostas seguiram as pesquisas.",
         "<b>Cresceu mais em %, onde tinha menos:</b> efeito de base. Em pontos do eleitorado, ganhou 6,1 no Piauí e 6,5 em Santa Catarina.",
-        "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/apuracao/cenarios'>5 jeitos de a conta fechar</a>.",
+        "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/simulacao/cenarios'>5 jeitos de a conta fechar</a>.",
       ],
       visual: visual(null, h("div", { class: "numeros" },
         numero("+" + mi(dl), "Lula entre os turnos", "l"), numero("+" + mi(df), "Flávio entre os turnos", "f"),
@@ -582,13 +583,47 @@
     });
   }
 
+  // ── quantos casos a pessoa já viu ──────────────────────────────────────
+  // Uma pílula fixa embaixo, só enquanto a lista está na tela: o anel enche e o
+  // número sobe conforme os cartões passam. Assim fica claro que tem mais
+  // caso abaixo. Os cartões entram 300px antes de aparecer, sem demora.
+  function contador(lista) {
+    var cards = [].slice.call(lista.querySelectorAll(".caso")), total = cards.length, vistos = {};
+    var R = 15, C = 2 * Math.PI * R;
+    var arco = s("circle", { cx: 18, cy: 18, r: R, class: "cont-arco", "stroke-dasharray": C, "stroke-dashoffset": C });
+    var anel = s("svg", { viewBox: "0 0 36 36", class: "cont-anel", "aria-hidden": "true" });
+    anel.appendChild(s("circle", { cx: 18, cy: 18, r: R, class: "cont-fundo" }));
+    anel.appendChild(arco);
+    var num = h("b", { text: "0" });
+    var pil = h("div", { class: "contador", role: "status", "aria-live": "polite" }, anel,
+      h("span", { class: "cont-txt" }, num, h("span", { text: " de " + total + " casos vistos" })));
+    document.body.appendChild(pil);
+    function pintar() {
+      var n = Object.keys(vistos).length;
+      if (num.textContent !== String(n)) { num.textContent = n; pil.classList.remove("pulo"); void pil.offsetWidth; pil.classList.add("pulo"); }
+      arco.setAttribute("stroke-dashoffset", C * (1 - n / total));
+      pil.classList.toggle("completo", n === total);
+    }
+    if (!("IntersectionObserver" in window)) { cards.forEach(function (c) { c.classList.add("visivel"); }); return; }
+    var entra = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visivel"); entra.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px 300px 0px" });
+    var viu = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { vistos[e.target.id] = 1; viu.unobserve(e.target); } });
+      pintar();
+    }, { threshold: 0.55 });
+    var naTela = new IntersectionObserver(function (es) { pil.classList.toggle("on", es[0].isIntersecting); }, { rootMargin: "-30% 0px -30% 0px" });
+    cards.forEach(function (c) { entra.observe(c); viu.observe(c); });
+    naTela.observe(lista);
+  }
+
   // ── montar os casos ────────────────────────────────────────────────────
   function montarCasos() {
     var lista = document.getElementById("lista-casos");
     var lados = fetch("/static/casos/lados.json" + (VERSAO ? "?v=" + encodeURIComponent(VERSAO) : ""))
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
     Promise.all([pedir("acusacoes.json"), pedir("casos_videos.json"), lados]).then(function (r) {
-      var d = r[0], n = 0;
+      var d = r[0];
       V = r[1]; LADOS = r[2];
       lista.textContent = "";
       [virada, secoesAte10, curva, biometria, mesario, salaCofre, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
@@ -600,11 +635,8 @@
       [prorrogacao, desfile, pacote, exercito, universidades, mesaria, faccoes, compra].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
-      lista.querySelectorAll(".caso-topo > span:first-child").forEach(function (el) { el.textContent = "Caso " + (++n); });
-      var obs = "IntersectionObserver" in window && new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visivel"); obs.unobserve(e.target); } });
-      }, { rootMargin: "0px 0px -8% 0px" });
-      lista.querySelectorAll(".caso").forEach(function (c) { obs ? obs.observe(c) : c.classList.add("visivel"); });
+
+      contador(lista);
     }).catch(function () {
       lista.innerHTML = "<p class='carregando'>Não consegui abrir os casos agora. Recarregue a página.</p>";
     });
