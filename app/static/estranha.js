@@ -345,13 +345,29 @@
       pontos: [
         "<b>É inédito.</b> Nos 7 segundos turnos desde 1989, quem liderou o 1º ganhou o 2º.",
         "<b>Os números conferem:</b> Lula +" + mi(dl) + ", Flávio +" + mi(df) + ". De cada 4 votos novos, 3 foram para o Lula.",
-        "<b>As pesquisas erraram.</b> A última AtlasIntel dava 50,8% ao Flávio; ele fez 48,21%. As apostas seguiram as pesquisas.",
         "<b>Cresceu mais em %, onde tinha menos:</b> efeito de base. Em pontos do eleitorado, ganhou 6,1 no Piauí e 6,5 em Santa Catarina.",
         "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/simulacao/cenarios'>5 jeitos de a conta fechar</a>.",
       ],
       visual: visual(null, h("div", { class: "numeros" },
         numero("+" + mi(dl), "Lula entre os turnos", "l"), numero("+" + mi(df), "Flávio entre os turnos", "f"),
         numero(pc(100 * dl / (dl + df), 0), "dos votos novos foram para o Lula"))),
+    });
+  }
+  function pesquisas() {
+    return caso({
+      id: "pesquisas", titulo: "As pesquisas e as apostas", tag: "estranho",
+      alegacao: "Na véspera, Datafolha e AtlasIntel davam o Flávio na frente, e a Polymarket dava 80% de chance a ele. O Lula ganhou. A chance de a pesquisa errar tanto era de 3 em 1.000.",
+      fontes: [L("vídeo de @pyonglee", "https://www.instagram.com/reel/DfBFwC2ACEp/"), L("post de @dadosinterativos", "https://www.instagram.com/p/DfIZAFdm56K/")],
+      checagem: [L("Bem Paraná (Datafolha 24/10)", "https://www.bemparana.com.br/eleicoes-2026/datafolha-flavio-bolsonaro-tem-51-dos-votos-validos-e-lula-49-na-vespera-do-2o-turno/"), L("BP Money (AtlasIntel)", "https://bpmoney.com.br/politica/flavio-499-lula-484-ultima-atlasintel-antes-urnas/"), L("BP Money (Polymarket)", "https://bpmoney.com.br/mercado/polymarket-errou-segundo-turno-lula-mercados-previsao/")],
+      veredito: "Erraram, e um pouco além da margem. Já aconteceu antes.",
+      pontos: [
+        "<b>Os números conferem.</b> Datafolha de 24/10: Flávio 51% × Lula 49% dos válidos, margem de 2 pontos. Última AtlasIntel: 50,8% × 49,2%. Resultado: Lula 51,79%.",
+        "<b>O erro foi de uns 3 pontos</b>, pouco além da margem. Em 2022 foi maior e para o outro lado: as pesquisas subestimaram o Bolsonaro no 1º turno em vários pontos.",
+        "<b>As apostas seguiram as pesquisas.</b> A Polymarket está proibida no Brasil desde abril; quem apostava era quase todo de fora, com pouco volume. 20% não é zero: a Betfair deu 83% à Hillary em 2016.",
+        "<b>Onde a pesquisa erra:</b> quem decide no fim, quem volta a votar e para onde vai a terceira via. Foi exatamente o que decidiu esta eleição.",
+      ],
+      visual: visual(null, h("div", { class: "numeros" },
+        numero("49%", "Lula na véspera (Datafolha)", "l"), numero("51,79%", "Lula no resultado", "l"), numero("80%", "chance do Flávio na Polymarket", "f"))),
     });
   }
   function biometria() {
@@ -626,7 +642,7 @@
       var d = r[0];
       V = r[1]; LADOS = r[2];
       lista.textContent = "";
-      [virada, secoesAte10, curva, biometria, mesario, salaCofre, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
+      [virada, pesquisas, secoesAte10, curva, biometria, mesario, salaCofre, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.appendChild(h("div", { class: "divisa-casos" },

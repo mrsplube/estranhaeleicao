@@ -5,6 +5,7 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 ## 1. Red team: o melhor argumento de fraude
 
 - **virada**: Nunca aconteceu em 7 segundos turnos, as pesquisas e as apostas erraram para o mesmo lado e o Lula precisou de 3 de cada 4 votos novos. Eventos raros que se somam são exatamente o que uma fraude produziria.
+- **pesquisas**: Todas as pesquisas da véspera e o mercado de apostas apontavam o Flávio. Quando todos os termômetros erram para o mesmo lado, o problema pode estar na contagem, não nos termômetros.
 - **secoes-10**: 106 urnas sem um voto sequer para o Flávio, num país dividido ao meio. Em cada uma, todo mundo pensou igual: parece urna preenchida.
 - **curva**: Com 51 a 49, a liderança deveria trocar várias vezes na apuração, e ela trocou uma vez só. As quedas do Bolsonaro vêm em degraus regulares, sinal de algoritmo.
 - **biometria**: 8,6 milhões votaram sem digital, quase o dobro da diferença. Sem digital, a porta fica aberta para alguém votar por outro.
@@ -30,6 +31,7 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 ## 2. Defesa: a melhor resposta
 
 - **virada**: Raro não é impossível, e cada peça tem explicação conhecida: terceira via com eleitor mais anti-Flávio do que o apoio dos candidatos sugeria, branco/nulo e quem voltou a votar pendendo para o Lula. Pesquisas brasileiras erram por 2 a 3 pontos com frequência.
+- **pesquisas**: O erro foi de uns 3 pontos, pouco além da margem, e pesquisa brasileira já errou mais (2022, para o outro lado). As apostas só repetiam as pesquisas, com pouco volume e apostadores de fora do país.
 - **secoes-10**: São seções pequenas (139 votantes em média), 41 em aldeias indígenas, e o padrão já existia no 1º turno e, com o Bolsonaro, em 2022. Só 29 não tiveram branco nem nulo. Sem elas, o Lula ainda vence por 4,05 mi.
 - **curva**: O vídeo é de 2022. Os boletins chegam por região e fuso, não sorteados; cada queda tem hora e lugar que dá para conferir. E recortar só as subidas de um lado fabrica qualquer vencedor: o mesmo truque dá vitória ao Lula.
 - **biometria**: Os 8,6 milhões são do dia todo, de quem tem digital cadastrada mas não foi lida, e votaram com documento com foto. Depois das 17h foram 34.393 votos. E nada diz que esses votos foram para o Lula.
@@ -57,6 +59,7 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 | caso | etiqueta | decisão | síntese |
 |---|---|---|---|
 | virada | Verdade e estranho | Estranho de verdade, mas explicável. | A virada é inédita e as pesquisas erraram, e isso merece explicação. A conta fecha sem nenhum voto inventado: os 5 cenários mostram como. |
+| pesquisas | Verdade e estranho | Estranho, mas não é prova. | As pesquisas erraram para o mesmo lado e merecem explicação. Mas pesquisa é estimativa: errar por 3 pontos aconteceu antes, e o resultado confere com os boletins. |
 | secoes-10 | Verdade, mas normal | Normal. | Comunidades pequenas votam em bloco, para os dois lados. O número é verdadeiro; a conclusão, não. |
 | curva | Premissa falsa | Premissa falsa. | A premissa de que os boletins chegam em ordem aleatória é falsa. Sem ela, os “degraus” são só regiões chegando. |
 | biometria | Premissa falsa | Premissa falsa. | O relatório trata “sem digital” como “sem identificação” e põe todos os votos num candidato. As duas premissas são falsas. |

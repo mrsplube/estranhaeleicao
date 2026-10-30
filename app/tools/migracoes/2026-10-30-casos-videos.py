@@ -45,6 +45,7 @@ VIDEOS = {
     "prorrogacao": "DfIJ9H4tP9_",   # @luis.lacombe
     "sala-cofre": "DfFTPO0C0vC",    # @felipececilio.reserva
     "mesaria": "De7jQditGVO",       # @bialaranjeiras
+    "pesquisas": "De-UdS6OWmt",     # @eusoudanielfernandes; também DfIZAFdm56K (carrossel)
 }
 
 # Casos sem vídeo: foto do Wikimedia Commons (crédito em `creditos`) ou capa
