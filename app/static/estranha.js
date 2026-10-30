@@ -57,7 +57,7 @@
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
   }
   // ── peças de um caso ───────────────────────────────────────────────────
-  // o = {id, titulo, alegacao, tag, video?, icone?, fontes?: [{rot, url?}], veredito,
+  // o = {id, titulo, alegacao, tag, video?, icone?, fontes?: [{rot, url?}], checagem?, situacao?, veredito,
   //      pontos: [..], visual?, mais?: [{rot, corpo, classe}]}
   var TAG = {
     estranho: { rot: "Verdade e estranho", cls: "parcial" },
@@ -114,6 +114,7 @@
           ver)),
       h("div", { class: "revela", id: "rev-" + o.id }, h("div", {},
         h("span", { class: "veredito " + t.cls, text: o.veredito }),
+        o.situacao ? h("p", { class: "situacao", html: "<b>Situação:</b> " + o.situacao }) : null,
         h("ul", { class: "pontos" }, o.pontos.map(function (p) { return h("li", { html: p }); })),
         o.visual || null,
         (o.mais || []).map(function (m) {
@@ -386,6 +387,7 @@
     return caso({
       id: "consulta", titulo: "A consulta que sumiu", tag: "normal",
       alegacao: "Depois que muita gente foi conferir se pessoas mortas votaram, o TSE tirou do ar a consulta de quem votou. Diz que volta em 3 de novembro.",
+      fontes: [{ rot: "vídeo de @rubensdettoni", url: "https://www.instagram.com/reel/DfGFl7UNHr1/" }],
       checagem: [fonte("tse_certidao"), fonte("tre_df_certidao")],
       veredito: "Saiu do ar, sim. Estava no calendário desde fevereiro.",
       pontos: [
@@ -438,6 +440,108 @@
     });
   }
 
+  // ── além da urna: denúncias sobre a campanha (30/10/2026) ──────────────
+  // Não são sobre a contagem: são acusações de abuso de poder, desinformação
+  // e compra de voto. As que estão no TSE ainda não foram julgadas.
+  function L(rot, url) { return { rot: rot, url: url }; }
+  function prorrogacao() {
+    return caso({
+      id: "prorrogacao", titulo: "A prorrogação de última hora", tag: "estranho", icone: "⏰",
+      alegacao: "A meia hora do fim, o ministro Zanin, ex-advogado do Lula, prorrogou a votação até as 19h em todo o país, a pedido da campanha do Lula.",
+      fontes: [L("vídeo de @namaquete.br", "https://www.instagram.com/reel/DfFIOFdvQXQ/"), L("vídeo de @luis.lacombe", "https://www.instagram.com/reel/DfIJ9H4tP9_/")],
+      checagem: [L("Poder360", "https://www.poder360.com.br/poder-eleicoes-2026/zanin-prorroga-votacao-do-2o-turno-ate-19h/"), L("Conjur", "https://conjur.com.br/2026-out-25/crise-dos-onibus-faz-zanin-prorrogar-eleicoes-ate-as-19h-em-todo-o-brasil/"), L("Exame", "https://exame.com/brasil/por-que-o-tse-decidiu-prorrogar-o-horario-de-votacao-ate-as-19h/"), L("Rádio Senado", "https://www12.senado.leg.br/radio/1/noticia/2026/10/26/prorrogacao-do-horario-de-votacao-marca-o-segundo-turno-de-2026"), fonte("tse_17h")],
+      veredito: "Aconteceu, e é estranho. Mas quase ninguém votou depois.",
+      pontos: [
+        "<b>É verdade.</b> A coligação do Lula pediu ao STF às 16h32 por falta de ônibus na Bahia e em São Paulo; Zanin foi sorteado às 16h33 e decidiu às 17h03, para o país todo. O Ministério Público Eleitoral foi contra.",
+        "<b>A campanha do Flávio também pediu</b> prorrogação em cidades do Sul e Sudeste, por causa de chuva.",
+        "<b>Na prática, mudou pouco.</b> A ordem chegou com a maioria das seções já fechadas, que não precisaram reabrir. Depois das 17h entraram 34.393 votos no país; a diferença foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
+      ],
+    });
+  }
+  function desfile() {
+    return caso({
+      id: "desfile", titulo: "O desfile do Lula", tag: "estranho", icone: "🎭",
+      alegacao: "A Acadêmicos de Niterói fez um desfile de Carnaval em homenagem ao Lula, com jingle e o número 13, pago com dinheiro público. O Novo pediu a cassação da chapa.",
+      checagem: [L("Metrópoles", "https://www.metropoles.com/colunas/manoela-alcantara/tse-suposto-abuso-desfile-lula-carnaval"), L("Congresso em Foco", "https://www.congressoemfoco.com.br/noticia/121132/novo-pede-ao-tse-inelegibilidade-de-lula-por-desfile-de-carnaval"), L("Poder360", "https://www.poder360.com.br/poder-governo/saiba-como-foi-o-desfile-pro-lula-da-academicos-de-niteroi/"), L("Gazeta do Povo", "https://www.gazetadopovo.com.br/republica/oito-abusos-eleitorais-de-lula-que-nao-foram-contidos-pela-justica/")],
+      veredito: "O desfile e o dinheiro público existem. O TSE ainda não julgou.",
+      situacao: "o TSE aceitou a ação do Novo por abuso de poder econômico e de meios de comunicação. Está na fase de provas, sem julgamento. Não houve absolvição.",
+      pontos: [
+        "<b>O dinheiro é público.</b> Segundo o Novo, ao menos R$ 7,5 milhões da Prefeitura de Niterói e da Embratur; outras contas chegam a R$ 9,65 milhões. A defesa diz que as 12 escolas do Grupo Especial receberam pelos mesmos critérios.",
+        "<b>O TSE não proibiu o desfile antes,</b> por unanimidade: seria censura prévia. Mas deixou claro que pode punir depois, se houve abuso.",
+        "<b>Se o abuso for provado,</b> a pena pode ir de multa até a cassação do diploma e 8 anos de inelegibilidade. A escola ficou em último lugar e foi rebaixada.",
+      ],
+    });
+  }
+  function pacote() {
+    return caso({
+      id: "pacote", titulo: "O pacote antes da eleição", tag: "estranho", icone: "💸",
+      alegacao: "Nas semanas antes da eleição, o governo cortou imposto de combustível, aumentou o Bolsa Família, lançou o Desenrola 3.0 e usou o WhatsApp do Gov.br para falar com milhões de eleitores.",
+      checagem: [L("Gazeta do Povo", "https://www.gazetadopovo.com.br/republica/oito-abusos-eleitorais-de-lula-que-nao-foram-contidos-pela-justica/"), L("Metrópoles", "https://www.metropoles.com/colunas/neila-guimaraes/novo-pede-cassacao-da-chapa-de-lula-por-medidas-em-ano-eleitoral"), L("Revista Oeste", "https://revistaoeste.com/politica/cassacao-chapa-lula-flavio-tse/")],
+      veredito: "As medidas existem. Se foram abuso, o TSE ainda vai dizer.",
+      situacao: "várias ações do Novo e da campanha do Flávio aguardam julgamento. O pedido para suspender as mensagens do Gov.br foi negado; a ação continua.",
+      pontos: [
+        "<b>Datas apertadas.</b> Aumento do Bolsa Família 17 dias antes do 1º turno; Desenrola 3.0 (R$ 15 bilhões) e proibição das bets 9 dias antes; subsídio ao diesel renovável até 26/10, véspera do 2º turno.",
+        "<b>A máquina no celular.</b> A conta de WhatsApp do Gov.br mandou mensagens a dezenas de milhões de pessoas, e o Meu INSS disse a aposentados que votar serviria de “prova de vida”.",
+        "<b>A lei proíbe usar o governo a favor de candidato,</b> mas permite programa social já previsto em lei e no orçamento. A defesa diz que é o caso; a acusação diz que a data foi escolhida pela campanha.",
+        "<b>Nada disso é fraude na urna.</b> Se o TSE entender que houve abuso, a pena é cassação e inelegibilidade, não recontagem.",
+      ],
+    });
+  }
+  function exercito() {
+    return caso({
+      id: "exercito", titulo: "O Exército do Lula", tag: "estranho", icone: "📣",
+      alegacao: "Um canal de WhatsApp do deputado André Janones, com mais de 3 milhões de seguidores, coordenava fake news contra o Flávio para a campanha do Lula.",
+      checagem: [L("CNN Brasil", "https://www.cnnbrasil.com.br/blogs/gustavo-uribe/eleicoes/tecnicos-do-tse-dizem-nao-poder-aferir-se-exercito-do-lula-usou-fake-news/"), L("Gazeta do Povo", "https://www.gazetadopovo.com.br/eleicoes/2026/tse-nao-acha-fake-news-canal-janones-mas-registra-mensagens-apagadas/"), L("TSE", "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/tse-determina-esclarecimentos-antes-de-analisar-pedidos-de-flavio-contra-lula-e-janones")],
+      veredito: "O canal e as “missões” existem. Fake news, o TSE não conseguiu medir.",
+      pontos: [
+        "<b>O canal existe</b> e distribuía “missões” de compartilhamento, segundo a ação da campanha do Flávio.",
+        "<b>Os técnicos do TSE não acharam conteúdo falso</b> no que analisaram, mas registraram mensagens apagadas: 81 sumiram antes de poderem ser lidas. Por isso disseram que não dava para afirmar se houve ou não.",
+        "<b>O canal foi suspenso e depois liberado</b>: o presidente do TSE o tirou do ar, e o corregedor o devolveu até o plenário decidir.",
+      ],
+    });
+  }
+  function universidades() {
+    return caso({
+      id: "universidades", titulo: "Universidades em campanha", tag: "estranho", icone: "🎓",
+      alegacao: "Universidades públicas, como a UFSC, viraram comitê do Lula: adesivos no campus, atos de campanha e aulas suspensas para os estudantes irem votar.",
+      fontes: [L("vídeo de professor da UFSC (Jornal Razão)", "https://jornalrazao.com/politica/ufsc-virou-comite-do-pt-professor-denuncia-adesivos-lula-campus-florianopolis")],
+      checagem: [L("Gazeta do Povo", "https://www.gazetadopovo.com.br/eleicoes/2026/universidades-suspendem-aulas-pedido-dces-campanha-lula/"), L("OitoMeia", "https://www.oitomeia.com.br/noticias/politica/2026/09/26/ato-politico-lula-ufpi-realizado-gera-questionamentos-controversias/"), L("Revista Oeste", "https://revistaoeste.com/politica/deputado-denuncia-uso-de-espacos-de-universidade-federal-para-campanha-do-pt/")],
+      veredito: "Aconteceu em vários campi. Propaganda em prédio público é proibida.",
+      pontos: [
+        "<b>Os casos existem.</b> Adesivos do Lula distribuídos no campus da UFSC; ato “Quintou com Lula” na UFPI; denúncia de uso de espaços da Ufes e do Ifes. A Justiça Eleitoral de Sergipe mandou tirar cartazes da UFS.",
+        "<b>A lei é clara:</b> o artigo 37 da Lei das Eleições proíbe propaganda eleitoral em bem público, e universidade pública é bem público. Quem organiza ato de campanha no campus pode ser multado.",
+        "<b>As aulas suspensas</b> (UFPB, UFS, UFSC, Unesp e outras, nos dias 23 e 26/10) foram pedidas pelos DCEs para os alunos viajarem até onde votam. Não há ação na Justiça contra isso.",
+        "<b>Mudou o resultado?</b> Não há como medir. Estudante vota em quem quiser, e o voto é secreto.",
+      ],
+    });
+  }
+  function faccoes() {
+    return caso({
+      id: "faccoes", titulo: "As facções votaram no Lula", tag: "falsa", icone: "🚨",
+      alegacao: "O PCC e o Comando Vermelho declararam apoio ao Lula e pagavam R$ 200 a moradores para votar nele.",
+      checagem: [L("Aos Fatos", "https://www.aosfatos.org/noticias/pcc-comando-vermelho-apoio-lula-falso/"), L("Boatos.org", "https://www.boatos.org/politica/pcc-e-comando-vermelho-cv-declaram-apoio-a-lula-no-2o-turno-das-eleicoes.html"), L("Correio Braziliense", "https://www.correiobraziliense.com.br/politica/2026/10/7521443-mendonca-manda-retirar-videos-que-associam-lula-ao-pcc-e-impoe-multa-de-rs-10-mil.html")],
+      veredito: "Não há registro de nada disso",
+      pontos: [
+        "<b>Nenhum comunicado das facções foi encontrado</b> em imprensa, canais de segurança pública ou redes. O MP do Rio disse não ter informação; uma fonte das investigações do PCC em São Paulo desmentiu.",
+        "<b>O TSE mandou tirar os vídeos</b> que diziam que o PCC pagava R$ 200 por voto, e também posts do Flávio associando o Lula às facções, com multa.",
+        "<b>A regra valeu para os dois lados:</b> o ministro André Mendonça disse que o critério usado contra os posts que ligavam o Flávio ao crime organizado vale para os que ligam o Lula.",
+      ],
+    });
+  }
+  function compra() {
+    return caso({
+      id: "compra", titulo: "Compra de votos", tag: "normal", icone: "💵",
+      alegacao: "Houve compra de votos institucionalizada nesta eleição, com dinheiro vivo para eleitores.",
+      checagem: [L("CNN Brasil", "https://www.cnnbrasil.com.br/eleicoes/pf-ja-apreendeu-r-27-milhoes-em-especie-em-combate-a-compra-de-voto/"), L("O Tempo", "https://www.otempo.com.br/eleicoes/2026/2026/10/3/pf-prende-47-pessoas-em-flagrante-durante-11-acoes-contra-compra-de-votos")],
+      veredito: "Existe, foi combatida, e não aponta para o 2º turno",
+      pontos: [
+        "<b>É real.</b> Até a véspera do 1º turno, a PF apreendeu R$ 27 milhões em dinheiro vivo, contra R$ 4,6 milhões em toda a eleição de 2022, e prendeu 47 pessoas em flagrante.",
+        "<b>É crime local.</b> As apreensões se concentram em Tocantins, Roraima, Pará, Amazonas e Amapá e envolvem candidatos a deputado e governador. Nenhuma reportagem liga os casos à campanha presidencial.",
+        "<b>Mais apreensão não quer dizer mais compra:</b> pode ser mais fiscalização. O número é alto e merece atenção, mas não explica a virada do 2º turno.",
+      ],
+    });
+  }
+
   // ── montar os casos ────────────────────────────────────────────────────
   function montarCasos() {
     var lista = document.getElementById("lista-casos");
@@ -446,6 +550,12 @@
       V = r[1];
       lista.textContent = "";
       [virada, secoesAte10, curva, biometria, mesario, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
+        try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
+      });
+      lista.appendChild(h("div", { class: "divisa-casos" },
+        h("h3", { text: "Além da urna" }),
+        h("p", { text: "Denúncias que não são sobre a contagem dos votos, mas sobre a campanha: abuso de poder, desinformação e compra de voto. As que estão no TSE ainda não foram julgadas." })));
+      [prorrogacao, desfile, pacote, exercito, universidades, faccoes, compra].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.querySelectorAll(".caso-topo > span:first-child").forEach(function (el) { el.textContent = "Caso " + (++n); });
