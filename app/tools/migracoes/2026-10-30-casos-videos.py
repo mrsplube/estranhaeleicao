@@ -41,6 +41,7 @@ VIDEOS = {
     "eleitores": "DfAL-6rxYO-",     # @felipecardozooficial
     "soma": "De9kEn-vXzV",          # @euicaroalmeida (print do X)
     "caminhonete": "DfFLlPMkf_5",   # @ch7brasil (carrossel: sem capa baixável)
+    "consulta": "DfGEElqB7Ff",      # @gugomes.br
 }
 
 FONTES = {
@@ -54,6 +55,9 @@ FONTES = {
     "caminhonete": {"rot": "Gazeta do Povo", "url": "https://www.gazetadopovo.com.br/republica/tre-df-apura-transporte-de-urnas-em-caminhonete-com-adesivo-do-pt/"},
     "pleno": {"rot": "Pleno News", "url": "https://pleno.news/brasil/eleicoes-2026/tse-explica-transporte-de-urnas-em-caminhonete-adesivada-do-pt.html"},
     "faltou": {"rot": "Poder360", "url": "https://www.poder360.com.br/poder-eleicoes-2026/site-do-tse-registra-como-faltou-eleitores-que-votaram/"},
+    "tse_certidao": {"rot": "TSE", "url": "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/emissao-de-certidao-de-quitacao-eleitoral-sera-retomada-na-proxima-terca-feira-3"},
+    "tre_df_certidao": {"rot": "TRE-DF", "url": "https://www.tre-df.jus.br/comunicacao/noticias/2026/Outubro/emissao-de-certidao-de-quitacao-eleitoral-pela-internet-fica-suspensa-ate-2-de-novembro"},
+    "faltou_tse": {"rot": "Justiça Eleitoral, Fato ou Boato", "url": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/mensagem-faltou-no-servico-de-justificativa-eleitoral-nao-significa-que-eleitor-nao-votou"},
     "atlas": {"rot": "AtlasIntel, 18 a 23/10", "url": "https://bpmoney.com.br/politica/flavio-499-lula-484-ultima-atlasintel-antes-urnas/"},
 }
 

@@ -69,6 +69,13 @@
    "curtidas": 24303,
    "comentarios": 7263,
    "capa": null
+  },
+  "consulta": {
+   "url": "https://www.instagram.com/reel/DfGEElqB7Ff/",
+   "perfil": "gugomes.br",
+   "curtidas": 18418,
+   "comentarios": 595,
+   "capa": "/static/casos/consulta.jpg"
   }
  },
  "fontes": {
@@ -107,6 +114,18 @@
   "faltou": {
    "rot": "Poder360",
    "url": "https://www.poder360.com.br/poder-eleicoes-2026/site-do-tse-registra-como-faltou-eleitores-que-votaram/"
+  },
+  "tse_certidao": {
+   "rot": "TSE",
+   "url": "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/emissao-de-certidao-de-quitacao-eleitoral-sera-retomada-na-proxima-terca-feira-3"
+  },
+  "tre_df_certidao": {
+   "rot": "TRE-DF",
+   "url": "https://www.tre-df.jus.br/comunicacao/noticias/2026/Outubro/emissao-de-certidao-de-quitacao-eleitoral-pela-internet-fica-suspensa-ate-2-de-novembro"
+  },
+  "faltou_tse": {
+   "rot": "Justiça Eleitoral, Fato ou Boato",
+   "url": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/mensagem-faltou-no-servico-de-justificativa-eleitoral-nao-significa-que-eleitor-nao-votou"
   },
   "atlas": {
    "rot": "AtlasIntel, 18 a 23/10",

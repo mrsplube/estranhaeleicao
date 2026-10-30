@@ -367,6 +367,20 @@
       ],
     });
   }
+  function consulta() {
+    return caso({
+      id: "consulta", titulo: "A consulta que sumiu", tag: "normal",
+      alegacao: "Depois que muita gente foi conferir se pessoas mortas votaram, o TSE tirou do ar a consulta de quem votou. Diz que volta em 3 de novembro.",
+      fontes: [fonte("tse_certidao"), fonte("tre_df_certidao")],
+      veredito: "Saiu do ar, sim. Estava no calendário desde fevereiro.",
+      pontos: [
+        "<b>A suspensão é real</b> e vai de 26/10 a 2/11. A consulta e a certidão de quitação voltam na terça, 3 de novembro.",
+        "<b>Acontece em toda eleição.</b> Nesses dias a Justiça Eleitoral processa os arquivos das urnas: quem votou, quem faltou e quem justificou. A pausa estava prevista no calendário desde fevereiro.",
+        "<b>A mensagem de suspensão não é resultado.</b> Quem vê “ausente” ou “faltou” nesse período não teve o voto apagado: o dado ainda não foi processado.",
+        "<b>E morto não vota.</b> O óbito chega ao cartório eleitoral, que cancela o título. Sem título válido, o nome não está no caderno da seção.",
+      ],
+    });
+  }
   function soma() {
     return caso({
       id: "soma", titulo: "A soma que não fecha", tag: "falsa",
@@ -416,7 +430,7 @@
       var d = r[0], n = 0;
       V = r[1];
       lista.textContent = "";
-      [virada, secoesAte10, curva, biometria, mesario, caminhonete, silvaJardim, soma, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
+      [virada, secoesAte10, curva, biometria, mesario, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.querySelectorAll(".caso-topo > span:first-child").forEach(function (el) { el.textContent = "Caso " + (++n); });
