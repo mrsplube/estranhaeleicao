@@ -333,7 +333,9 @@
     if (painel && !painel.hidden) mostrarResultado(false);
   }
 
-  // Bate quando os dois candidatos ficam a menos de 400 mil votos do TSE.
+  // Bate quando os dois candidatos ficam a menos de 400 mil votos do TSE, em
+  // votos absolutos (não em %). Como os grupos somam o eleitorado e cada barra
+  // fecha em 100%, acertar os dois em votos acerta também os válidos.
   var TOLERA = 400000;
 
   function linhaVotos(nome, cls, seu, tse) {
@@ -360,11 +362,15 @@
         h("b", { class: "lado-pct", text: pc(pct, 2) }),
         v ? h("span", { class: "lado-tag", text: "venceria" }) : null);
     }
-    function precisa(nome, x) {
-      return Math.abs(x) < TOLERA ? null : "o " + nome + " precisaria de " + (x < 0 ? "mais " + mi(-x) : mi(x) + " a menos");
+    // Frase curta: quanto faltou ou sobrou para cada um, em votos.
+    function erro1(nome, x) {
+      return Math.abs(x) < TOLERA ? null : (x < 0 ? "faltaram " : "sobraram ") + mi(Math.abs(x)) + " para o " + nome;
     }
-    var dica = bate ? "Os votos dos dois batem com o resultado oficial." :
-      "Para bater, " + [precisa("Lula", dl), precisa("Flávio", df)].filter(Boolean).join(" e ") + ".";
+    var dica = bate ? "Lula e Flávio a menos de 400 mil votos do oficial." :
+      [erro1("Lula", dl), erro1("Flávio", df)].filter(Boolean).join(" e ")
+        .replace(/^(faltaram|sobraram) (.*) e \1 /, "$1 $2 e ")
+        .replace(/^./, function (c) { return c.toUpperCase(); }) + "." +
+      (certoVencedor ? "" : " Na vida real, o Lula venceu.");
     painel.hidden = false;
     painel.textContent = "";
     anexar(painel, [
@@ -377,7 +383,7 @@
         h("span", { class: "vr-ico", "aria-hidden": "true", text: bate ? "✓" : "✕" }),
         h("div", null,
           h("b", { text: bate ? "Bateu com o TSE" : "Não bateu com o TSE" }),
-          h("span", { text: (bate ? "" : certoVencedor ? "O vencedor confere, mas os votos não. " : "Até o vencedor ficou trocado: na vida real o Lula venceu. ") + dica }))),
+          h("span", { text: dica }))),
       h("table", { class: "tab-votos" },
         h("thead", null, h("tr", null, h("th", { text: "" }), h("th", { text: "Seu chute" }), h("th", { text: "TSE" }), h("th", { text: "Diferença" }))),
         h("tbody", null, linhaVotos("Lula", "lula", S.lula, d.tse.lula), linhaVotos("Flávio", "flavio", S.flavio, d.tse.flavio))),
