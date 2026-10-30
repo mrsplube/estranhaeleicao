@@ -70,7 +70,8 @@
       : x >= 1000 ? Math.round(x / 1000) + " mil" : String(x);
   }
   function capa(o, v) {
-    var dentro = [v && v.capa ? h("img", { src: v.capa, alt: "", loading: "lazy", width: "360", height: "480" })
+    var foto = (v && v.capa) || (V && V.capas && V.capas[o.id] && V.capas[o.id].src);
+    var dentro = [foto ? h("img", { src: foto, alt: "", loading: "lazy", width: "360", height: "480" })
       : h("span", { class: "capa-ico", "aria-hidden": "true", text: o.icone || "▶" }),
       v ? h("span", { class: "capa-play", "aria-hidden": "true" }) : null];
     return v ? h("a", { class: "capa", href: v.url, target: "_blank", rel: "noopener nofollow",
@@ -152,10 +153,10 @@
                { rot: "Campos, no Instagram", url: "https://www.instagram.com/reel/DfGXIePNOby/" }],
       veredito: "O número confere. A conta, não.",
       pontos: [
-        "<b>“+1” é saldo, não o voto que ele recebeu.</b> " + num(t1.comp - t2.comp) + " pessoas a menos foram votar no 2º turno. Eleitor do Flávio que não voltou desconta do que ele ganhou: ganhar 200 e perder 199 dá +1.",
-        "<b>Os votos do Lula vieram da terceira via.</b> Eram " + num(terc) + " votos, " + num(cury + caiado) + " deles de Cury e Caiado, cujo eleitor foi mais para o Lula no país todo. Somando os " + num(bn1) + " brancos e nulos do 1º turno, a conta fecha sem nenhum eleitor do Flávio virar Lula.",
-        "<b>Em Campos dos Goytacazes não há “voto do além”.</b> Os 1.386 votos que o vídeo não acha são os " + num(-V.dados.cidades["CAMPOS DOS GOYTACAZES"].f2 + V.dados.cidades["CAMPOS DOS GOYTACAZES"].f1) + " que o Flávio perdeu lá: a conta esqueceu que ele caiu.",
-        "<b>Não é exceção.</b> Em " + num(x.flavio_ganho_ate_zero) + " cidades o Flávio ganhou 0 ou menos entre os turnos, e em " + num(x.quase_tudo_lula_com_flavio_60) + " delas ele venceu com 60% ou mais, como lá. Em 2022 o mesmo aconteceu com o Bolsonaro em " + num(d.regua_2022.municipios.f_ganho_ate_zero) + ".",
+        "<b>“+1” é saldo, não o voto que ele recebeu.</b> " + num(t1.comp - t2.comp) + " pessoas a menos votaram no 2º turno. Ganhar 200 e perder 199 dá +1.",
+        "<b>Os votos do Lula vieram da terceira via.</b> Eram " + num(terc) + " votos, " + num(cury + caiado) + " deles de Cury e Caiado. Com os " + num(bn1) + " brancos e nulos do 1º turno, a conta fecha sem nenhum eleitor do Flávio virar Lula.",
+        "<b>Em Campos dos Goytacazes não há “voto do além”.</b> Os 1.386 votos que o vídeo não acha são os " + num(-V.dados.cidades["CAMPOS DOS GOYTACAZES"].f2 + V.dados.cidades["CAMPOS DOS GOYTACAZES"].f1) + " que o Flávio perdeu lá.",
+        "<b>Não é exceção.</b> Em " + num(x.flavio_ganho_ate_zero) + " cidades o Flávio ganhou 0 ou menos entre os turnos, e em " + num(x.quase_tudo_lula_com_flavio_60) + " delas ele venceu com 60% ou mais. Em 2022, o Bolsonaro em " + num(d.regua_2022.municipios.f_ganho_ate_zero) + ".",
       ],
       visual: visual("Municípios parecidos, onde o Flávio venceu com 60% ou mais", cidades,
         "Saldo de cada um entre o 1º e o 2º turno. O mesmo desenho de Silva Jardim, de Roraima ao Rio."),
@@ -192,8 +193,8 @@
       veredito: "Não existe nos dados",
       pontos: [
         "<b>700 votos não cabem numa seção.</b> O máximo que o Flávio teve numa seção foi " + num(x.max_flavio[1]) + ". A seção mais cheia do país teve " + num(x.max_comparecimento[1]) + " votantes.",
-        "<b>Nenhuma seção caiu de 100 para 10.</b> Das " + num(x.secoes_nos_dois_turnos) + " seções que existiram nos dois turnos, nenhuma teve o Flávio com 100 ou mais e depois até 10.",
-        "<b>As quedas reais são de uns 100 votos</b>, sempre com o comparecimento caindo junto: seções rurais do Acre e do Amazonas em que menos gente voltou para votar.",
+        "<b>Nenhuma seção caiu de 100 para 10</b>, entre as " + num(x.secoes_nos_dois_turnos) + " que existiram nos dois turnos.",
+        "<b>As maiores quedas reais são de uns 100 votos</b>, com o comparecimento caindo junto, em seções rurais do Acre e do Amazonas.",
       ],
       visual: visual("As maiores quedas reais, na mesma seção", linhas,
         "Barra clara: votos do Flávio no 1º turno. Barra escura: no 2º. Um print de 700 → 8 costuma comparar o local de votação inteiro com uma seção, ou outro cargo."),
@@ -213,13 +214,13 @@
       }))));
     return caso({
       id: "zonas", titulo: "O placar repetido", tag: "falsa", icone: "📺",
-      alegacao: "O mesmo número se repete em cada zona: Lula " + num(dona.l) + " e Flávio " + num(dona.f) + " em várias zonas de Brasília, e igual em Salvador e São Paulo. Matematicamente isso não existe.",
+      alegacao: "O mesmo número se repete em cada zona: Lula " + num(dona.l) + " e Flávio " + num(dona.f) + " em várias zonas de Brasília, e igual em Salvador e São Paulo. Isso não existe.",
       fontes: [{ rot: "vídeo no TikTok, repassado no WhatsApp (sem link público)" }],
       veredito: "O número é real, mas de uma zona só",
       pontos: [
-        "<b>" + placar(dona) + " é o resultado da zona " + dona.zona + " de " + bsb.nm + "</b>, e só dela. Cada número do vídeo confere com uma única zona.",
-        "<b>A tela travou.</b> No vídeo, o topo troca o nome da zona, mas os números ficam presos na zona aberta antes. A própria autora diz que o app “está demorando um pouquinho”.",
-        "<b>No país inteiro, nenhuma zona repete outra.</b> São " + num(x.zonas_pais) + " zonas e " + num(x.placares_repetidos) + " placares repetidos, nem entre cidades diferentes.",
+        "<b>" + placar(dona) + " é o resultado da zona " + dona.zona + " de " + bsb.nm + "</b>, e só dela.",
+        "<b>A tela travou.</b> O nome da zona muda, mas os números ficam presos na zona anterior. A autora diz que o app “está demorando um pouquinho”.",
+        "<b>No país inteiro, nenhuma zona repete outra.</b> São " + num(x.zonas_pais) + " zonas e " + num(x.placares_repetidos) + " placares repetidos.",
       ],
       visual: visual("O que a tela mostrou × o que cada zona teve (Lula × Flávio)", tabela,
         "Somando as " + x.cidades[bsb.nm].zonas + " zonas, " + bsb.nm + " deu " + placar(x.cidades[bsb.nm]) + ", o mesmo total que o app mostra em “Zona: Todas”."),
@@ -263,11 +264,11 @@
                { rot: "Jornal da Cidade Online" }],
       veredito: "O número confere. Não é sinal de fraude.",
       pontos: [
-        "<b>“Sem branco nem nulo” não confere.</b> Só " + V.dados.secoes_zeradas.sem_branco_nulo + " das " + V.dados.secoes_zeradas.total + " urnas não tiveram branco nem nulo; somadas, elas tiveram " + num(V.dados.secoes_zeradas.branco_nulo) + ". E a conta da Mega-Sena supõe que cada eleitor é sorteado do país inteiro.",
+        "<b>“Sem branco nem nulo” não confere.</b> Só " + V.dados.secoes_zeradas.sem_branco_nulo + " das " + V.dados.secoes_zeradas.total + " urnas não tiveram branco nem nulo; somadas, elas tiveram " + num(V.dados.secoes_zeradas.branco_nulo) + ". A conta da Mega-Sena supõe eleitor sorteado do país inteiro.",
         "<b>Os números batem com o TSE:</b> " + num(f2.secoes) + " seções, " + num(f2.outro_somou) + " votos do Lula nelas, " + f2.zeradas + " com o Flávio zerado.",
-        "<b>Já era assim antes.</b> No 1º turno, quando o Flávio terminou na frente no país, já eram " + num(f1.secoes) + " seções. No 2º turno de 2022, com o Bolsonaro, eram " + num(r22.t2) + ".",
-        "<b>São seções pequenas e homogêneas:</b> " + x.comparecimento_medio[0] + " votantes em média (no país, " + x.comparecimento_medio[1] + "), muitas em aldeias, povoados e assentamentos. " + x.zeradas_em_aldeia[0] + " das " + x.zeradas_em_aldeia[1] + " zeradas ficam em aldeia indígena.",
-        "<b>Não decidem nada:</b> anulando todas, a vantagem do Lula cairia de " + mi(x.margem) + " para " + mi(x.margem_sem_elas) + " votos.",
+        "<b>Já era assim antes:</b> " + num(f1.secoes) + " no 1º turno, com o Flávio na frente; " + num(r22.t2) + " no 2º turno de 2022, com o Bolsonaro.",
+        "<b>São seções pequenas e homogêneas:</b> " + x.comparecimento_medio[0] + " votantes em média (no país, " + x.comparecimento_medio[1] + "), em aldeias, povoados e assentamentos. " + x.zeradas_em_aldeia[0] + " das " + x.zeradas_em_aldeia[1] + " zeradas ficam em aldeia indígena.",
+        "<b>Não decidem nada:</b> sem elas, a vantagem do Lula cai de " + mi(x.margem) + " para " + mi(x.margem_sem_elas) + ".",
       ],
       visual: visual("Seções por número de votos do candidato do 22 (de 0 a 10)", [
         barras(series),
@@ -306,9 +307,9 @@
       fontes: [{ rot: "Aliados Brasil", url: "https://www.aliadosbrasiloficial.com.br/noticia/professor-de-matematica-aponta-supostos-padroes-algoritmicos-na-apuracao-e-estima-que-flavio-bolsonaro-teria-vencido-com-65-dos-votos" }],
       veredito: "É de 2022 e não se sustenta",
       pontos: [
-        "<b>O vídeo é sobre 2022.</b> O professor fala do Bolsonaro e das “472 urnas”, que são as " + num(n.secoes) + " seções do 2º turno de 2022. Foi a legenda do post de 2026 que pôs o 60–65% no Flávio.",
-        "<b>Cada “queda” tem hora e lugar.</b> Os boletins chegam por região e fuso. A maior queda do trecho do vídeo foi às " + q.hora.slice(0, 5) + ", com boletins de " + q.lugares.join(", ") + ", seções que qualquer um confere.",
-        "<b>Recortar e colar fabrica qualquer vencedor.</b> Juntar só as subidas dá " + pc(r.bolsonaro_so_subidas, 1) + " ao Bolsonaro, o número do vídeo. O mesmo recorte dá " + pc(r.lula_so_quedas, 1) + " ao Lula.",
+        "<b>O vídeo é sobre 2022.</b> As “472 urnas” são as " + num(n.secoes) + " seções do 2º turno de 2022. A legenda de 2026 trocou Bolsonaro por Flávio.",
+        "<b>Cada “queda” tem hora e lugar:</b> os boletins chegam por região. A maior foi às " + q.hora.slice(0, 5) + ", com boletins de " + q.lugares.join(", ") + ".",
+        "<b>Recortar e colar fabrica qualquer vencedor.</b> Juntar só as subidas dá " + pc(r.bolsonaro_so_subidas, 1) + " ao Bolsonaro. O mesmo recorte dá " + pc(r.lula_so_quedas, 1) + " ao Lula.",
       ],
       visual: visual("A apuração de 2022 refeita com os boletins, na ordem de chegada", [
         grafCurva(n),
@@ -329,11 +330,11 @@
       fontes: [{ rot: "Dep. Alberto Fraga", url: "https://www.instagram.com/reel/DfA-y_9uwSe/" }],
       veredito: "É verdade e é raro. Mas a conta fecha.",
       pontos: [
-        "<b>É inédito mesmo.</b> Nos 7 segundos turnos desde 1989, quem liderou o 1º turno ganhou o 2º. Em 2026, não.",
-        "<b>Os números conferem.</b> Entre os turnos o Lula ganhou " + mi(dl) + " e o Flávio " + mi(df) + ": de cada 4 votos novos, 3 foram para o Lula.",
-        "<b>As pesquisas erraram para o mesmo lado.</b> A última AtlasIntel dava 50,8% ao Flávio; ele terminou com 48,21%. O mercado de apostas seguiu as pesquisas.",
-        "<b>Cresceu em todo estado, e mais em %, onde tinha menos.</b> É efeito de base: em pontos do eleitorado, ganhou 6,1 no Piauí e 6,5 em Santa Catarina.",
-        "<b>Raro não é impossível.</b> Não precisa de nenhum eleitor do Flávio virar: basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/apuracao/cenarios'>Veja 5 jeitos de a conta fechar</a>.",
+        "<b>É inédito.</b> Nos 7 segundos turnos desde 1989, quem liderou o 1º ganhou o 2º.",
+        "<b>Os números conferem:</b> Lula +" + mi(dl) + ", Flávio +" + mi(df) + ". De cada 4 votos novos, 3 foram para o Lula.",
+        "<b>As pesquisas erraram.</b> A última AtlasIntel dava 50,8% ao Flávio; ele fez 48,21%. As apostas seguiram as pesquisas.",
+        "<b>Cresceu mais em %, onde tinha menos:</b> efeito de base. Em pontos do eleitorado, ganhou 6,1 no Piauí e 6,5 em Santa Catarina.",
+        "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/apuracao/cenarios'>5 jeitos de a conta fechar</a>.",
       ],
       visual: visual(null, h("div", { class: "numeros" },
         numero("+" + mi(dl), "Lula entre os turnos", "l"), numero("+" + mi(df), "Flávio entre os turnos", "f"),
@@ -345,12 +346,12 @@
       id: "biometria", titulo: "8,6 milhões sem digital", tag: "falsa",
       alegacao: "Um relatório divulgado nos EUA diz que 8,6 milhões votaram sem biometria depois das 17h. Tirando esses votos, o Flávio teria ganhado.",
       checagem: [fonte("tse_17h"), fonte("nucleo")],
-      veredito: "Mistura dois números e conclui o que eles não dizem",
+      veredito: "Mistura dois números",
       pontos: [
-        "<b>Depois das 17h foram 34.393 votos</b> no país inteiro, segundo o TSE: 0,03% do total, e não milhões.",
-        "<b>Os 8,6 milhões são do dia todo:</b> eleitores com digital cadastrada que a urna não reconheceu e que votaram após conferir o documento com foto. É o procedimento normal.",
-        "<b>Tirar 8,6 milhões só do Lula</b> supõe que todos votaram nele. Nada no relatório mostra isso, e o voto é secreto.",
-        "<b>O relatório não tem autor.</b> A Justiça Eleitoral o classificou como apócrifo e como distorção dos dados públicos.",
+        "<b>Depois das 17h foram 34.393 votos</b> no país, segundo o TSE: 0,03% do total.",
+        "<b>Os 8,6 milhões são do dia todo:</b> digital não reconhecida, voto liberado com documento com foto. Procedimento normal.",
+        "<b>Tirar 8,6 milhões só do Lula</b> supõe que todos votaram nele. O voto é secreto.",
+        "<b>O relatório não tem autor.</b> A Justiça Eleitoral o chamou de apócrifo.",
       ],
       visual: visual(null, h("div", { class: "numeros" },
         numero("34.393", "votos depois das 17h (TSE)"), numero(mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2), "de vantagem do Lula", "l"))),
@@ -363,10 +364,10 @@
       checagem: [fonte("aosfatos"), fonte("tse_17h")],
       veredito: "Fraude isolada é crime e aparece. Milhões, não.",
       pontos: [
-        "<b>Só o título não basta.</b> Sem a digital, a mesa confere documento com foto e a urna pede o ano de nascimento, que não está no caderno de votação.",
-        "<b>Não sobra voto para isso.</b> O vídeo fala em milhões de votos no fim do dia; depois das 17h entraram 34.393 em todo o país.",
-        "<b>Quando acontece, aparece.</b> O eleitor de verdade chega e descobre que “já votaram”, como em relatos no interior de SP. Isso vai para a ata e vira investigação.",
-        "<b>“O site diz que eu faltei”</b> foi uma mensagem errada do autoatendimento do TSE, corrigida depois (Poder360). Não é registro de voto.",
+        "<b>Só o título não basta.</b> Sem digital, a mesa confere documento com foto e a urna pede o ano de nascimento, que não está no caderno.",
+        "<b>Não sobra voto para isso:</b> depois das 17h entraram 34.393 votos no país todo.",
+        "<b>Quando acontece, aparece:</b> em Salvador, no 1º turno, uma mesária foi presa suspeita de votar no lugar de um PM, que chegou depois. Há relatos parecidos no interior de SP.",
+        "<b>“O site diz que eu faltei”</b> foi um erro de mensagem do TSE, já corrigido.",
       ],
     });
   }
@@ -377,24 +378,38 @@
       checagem: [fonte("caminhonete"), fonte("pleno")],
       veredito: "Aconteceu, e foi irregular. Mas não mexeu em voto.",
       pontos: [
-        "<b>O vídeo é real.</b> Foi no Riacho Fundo II, depois do fim da votação. O TRE-DF confirmou e abriu apuração, porque usar veículo com propaganda de partido contraria as regras.",
-        "<b>Os votos já tinham saído da urna.</b> Quando ela foi recolhida, o boletim já estava impresso e os dados já tinham sido transmitidos ao TSE.",
-        "<b>Dá para conferir.</b> O boletim de urna impresso na seção é público: se a urna fosse mexida depois, o resultado publicado não bateria com o papel.",
+        "<b>O vídeo é real.</b> Riacho Fundo II, depois da votação. O TRE-DF abriu apuração: veículo com propaganda de partido é proibido.",
+        "<b>Os votos já tinham saído:</b> boletim impresso e dados transmitidos ao TSE antes do recolhimento.",
+        "<b>Dá para conferir:</b> o boletim impresso é público. Se a urna fosse mexida, o resultado não bateria com o papel.",
       ],
     });
   }
   function consulta() {
     return caso({
       id: "consulta", titulo: "A consulta que sumiu", tag: "normal",
-      alegacao: "Depois que muita gente foi conferir se pessoas mortas votaram, o TSE tirou do ar a consulta de quem votou. Diz que volta em 3 de novembro.",
+      alegacao: "O TSE tirou do ar a consulta de quem votou, depois que muita gente foi ver se mortos votaram.",
       fontes: [{ rot: "vídeo de @rubensdettoni", url: "https://www.instagram.com/reel/DfGFl7UNHr1/" }],
       checagem: [fonte("tse_certidao"), fonte("tre_df_certidao")],
       veredito: "Saiu do ar, sim. Estava no calendário desde fevereiro.",
       pontos: [
-        "<b>A suspensão é real</b> e vai de 26/10 a 2/11. A consulta e a certidão de quitação voltam na terça, 3 de novembro.",
-        "<b>Acontece em toda eleição.</b> Nesses dias a Justiça Eleitoral processa os arquivos das urnas: quem votou, quem faltou e quem justificou. A pausa estava prevista no calendário desde fevereiro.",
-        "<b>A mensagem de suspensão não é resultado.</b> Quem vê “ausente” ou “faltou” nesse período não teve o voto apagado: o dado ainda não foi processado.",
-        "<b>E morto não vota.</b> O óbito chega ao cartório eleitoral, que cancela o título. Sem título válido, o nome não está no caderno da seção.",
+        "<b>A suspensão é real:</b> de 26/10 a 2/11. Volta na terça, 3/11.",
+        "<b>Acontece em toda eleição:</b> nesses dias o TSE processa quem votou, faltou ou justificou.",
+        "<b>“Ausente” agora não é resultado:</b> o dado ainda não foi processado.",
+        "<b>Morto não vota:</b> o cartório cancela o título, e o nome sai do caderno da seção.",
+      ],
+    });
+  }
+  function salaCofre() {
+    return caso({
+      id: "sala-cofre", titulo: "Os comandos na sala-cofre", tag: "falsa",
+      alegacao: "Um servidor da sala-cofre do TSE recebia ao menos oito comandos externos. E os fiscais do PL foram tirados da sala depois das 17h.",
+      fontes: [L("fala do Flávio Bolsonaro", "https://www.aosfatos.org/noticias/derrotado-flavio-mente-sugerir-eleicao-fraudada/")],
+      checagem: [L("Justiça Eleitoral, Fato ou Boato", "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens/2026/e-falso-que-fiscais-do-pl-foram-retirados-da-sala-cofre-do-tse"), L("Agência Brasil", "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-nega-acusacao-de-flavio-sobre-expulsao-de-fiscais-de-sala-cofre"), L("Aos Fatos", "https://www.aosfatos.org/noticias/derrotado-flavio-mente-sugerir-eleicao-fraudada/")],
+      veredito: "Promessa sem prova. E a soma das urnas não deixa espaço.",
+      pontos: [
+        "<b>Nenhuma prova foi mostrada.</b> O vídeo promete revelar os “comandos” depois; até agora, nada.",
+        "<b>Os fiscais não foram tirados:</b> a sala-cofre nunca foi aberta a visitas. Fiscais do PL acompanharam a sala de totalização, que é filmada.",
+        "<b>Mexer no servidor não muda o papel.</b> Cada urna imprime o boletim antes de transmitir. A soma das 499.205 seções bate voto a voto com o total oficial.",
       ],
     });
   }
@@ -405,8 +420,8 @@
       fontes: [{ rot: "print do X" }],
       veredito: "O print é do começo da apuração",
       pontos: [
-        "<b>No print, o Lula tem 3,5 milhões de votos</b> (no fim teve 64,3 milhões). Foi tirado com poucas urnas apuradas, e cada estado foi copiado num momento diferente, como o próprio autor conta. Durante a apuração, os números mudam a cada segundo.",
-        "<b>No resultado final, a soma fecha voto a voto.</b> As 499.205 seções somam 124.082.273 votos válidos, exatamente o total oficial, em cada estado e no exterior.",
+        "<b>No print, o Lula tem 3,5 milhões de votos</b> (no fim, 64,3 milhões). Cada estado foi copiado num momento diferente, com a apuração andando.",
+        "<b>No final, a soma fecha voto a voto:</b> 124.082.273 válidos nas 499.205 seções, igual ao oficial.",
       ],
       visual: visual(null, h("div", { class: "numeros" },
         numero("124.082.273", "soma das seções"), numero("124.082.273", "resultado oficial"))),
@@ -419,9 +434,9 @@
       checagem: [fonte("tre_pe")],
       veredito: "Existe e está na lei. É exceção.",
       pontos: [
-        "<b>É o plano C.</b> Se a urna quebra, entra uma de reserva. Só se a reserva também falhar a seção vota em cédula, que é apurada depois pela junta eleitoral, com fiscais dos partidos.",
-        "<b>Foi raro.</b> Em Pernambuco, 80 das 22.694 urnas foram trocadas no 2º turno, menos que no 1º (123), segundo o TRE-PE.",
-        "<b>Não decide nada.</b> Uma seção tem em média uns " + num(V.dados.nacional.comp2 / 499205) + " votantes; a diferença no país foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
+        "<b>É o plano C:</b> urna quebrou, entra a reserva. Se a reserva falhar, cédula, apurada pela junta eleitoral com fiscais.",
+        "<b>Foi raro:</b> 80 de 22.694 urnas trocadas em Pernambuco (TRE-PE).",
+        "<b>Não decide nada:</b> uma seção tem uns " + num(V.dados.nacional.comp2 / 499205) + " votantes; a diferença foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
       ],
     });
   }
@@ -433,9 +448,9 @@
       checagem: [fonte("atarde"), fonte("tatu")],
       veredito: "É verdade, e é antigo. Não é voto a mais.",
       pontos: [
-        "<b>Os 23 existem</b>, cruzando o eleitorado do TSE com a população estimada pelo IBGE. No país são 733; na Bahia eram 36 em 2022.",
-        "<b>É gente que mudou e não transferiu o título.</b> Quem estuda ou trabalha fora continua votando na cidade de origem, e a população do IBGE é estimada.",
-        "<b>Quem vota é menos que quem mora.</b> Catolândia tem uns 3.567 habitantes e 4.189 eleitores, mas votaram " + num(c["CATOLÂNDIA"].c2) + " no 2º turno. Em Firmino Alves, " + num(c["FIRMINO ALVES"].c2) + ".",
+        "<b>Os 23 existem</b> (TSE × IBGE). No país são 733; na Bahia eram 36 em 2022.",
+        "<b>É gente que mudou e não transferiu o título.</b> E a população do IBGE é estimada.",
+        "<b>Vota menos gente do que mora:</b> Catolândia tem 3.567 habitantes e 4.189 eleitores; votaram " + num(c["CATOLÂNDIA"].c2) + " no 2º turno. Em Firmino Alves, " + num(c["FIRMINO ALVES"].c2) + ".",
       ],
     });
   }
@@ -448,13 +463,13 @@
     return caso({
       id: "prorrogacao", titulo: "A prorrogação de última hora", tag: "estranho", icone: "⏰",
       alegacao: "A meia hora do fim, o ministro Zanin, ex-advogado do Lula, prorrogou a votação até as 19h em todo o país, a pedido da campanha do Lula.",
-      fontes: [L("vídeo de @namaquete.br", "https://www.instagram.com/reel/DfFIOFdvQXQ/"), L("vídeo de @luis.lacombe", "https://www.instagram.com/reel/DfIJ9H4tP9_/")],
+      fontes: [L("vídeo de @namaquete.br", "https://www.instagram.com/reel/DfFIOFdvQXQ/")],
       checagem: [L("Poder360", "https://www.poder360.com.br/poder-eleicoes-2026/zanin-prorroga-votacao-do-2o-turno-ate-19h/"), L("Conjur", "https://conjur.com.br/2026-out-25/crise-dos-onibus-faz-zanin-prorrogar-eleicoes-ate-as-19h-em-todo-o-brasil/"), L("Exame", "https://exame.com/brasil/por-que-o-tse-decidiu-prorrogar-o-horario-de-votacao-ate-as-19h/"), L("Rádio Senado", "https://www12.senado.leg.br/radio/1/noticia/2026/10/26/prorrogacao-do-horario-de-votacao-marca-o-segundo-turno-de-2026"), fonte("tse_17h")],
       veredito: "Aconteceu, e é estranho. Mas quase ninguém votou depois.",
       pontos: [
-        "<b>É verdade.</b> A coligação do Lula pediu ao STF às 16h32 por falta de ônibus na Bahia e em São Paulo; Zanin foi sorteado às 16h33 e decidiu às 17h03, para o país todo. O Ministério Público Eleitoral foi contra.",
-        "<b>A campanha do Flávio também pediu</b> prorrogação em cidades do Sul e Sudeste, por causa de chuva.",
-        "<b>Na prática, mudou pouco.</b> A ordem chegou com a maioria das seções já fechadas, que não precisaram reabrir. Depois das 17h entraram 34.393 votos no país; a diferença foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
+        "<b>É verdade.</b> A coligação do Lula pediu às 16h32 (falta de ônibus na BA e em SP); Zanin decidiu às 17h03, para o país todo. O MP Eleitoral foi contra.",
+        "<b>O Flávio também pediu</b>, em cidades com chuva no Sul e Sudeste.",
+        "<b>Mudou pouco:</b> a maioria das seções já tinha fechado. Depois das 17h foram 34.393 votos; a diferença foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
       ],
     });
   }
@@ -464,26 +479,26 @@
       alegacao: "A Acadêmicos de Niterói fez um desfile de Carnaval em homenagem ao Lula, com jingle e o número 13, pago com dinheiro público. O Novo pediu a cassação da chapa.",
       checagem: [L("Metrópoles", "https://www.metropoles.com/colunas/manoela-alcantara/tse-suposto-abuso-desfile-lula-carnaval"), L("Congresso em Foco", "https://www.congressoemfoco.com.br/noticia/121132/novo-pede-ao-tse-inelegibilidade-de-lula-por-desfile-de-carnaval"), L("Poder360", "https://www.poder360.com.br/poder-governo/saiba-como-foi-o-desfile-pro-lula-da-academicos-de-niteroi/"), L("Gazeta do Povo", "https://www.gazetadopovo.com.br/republica/oito-abusos-eleitorais-de-lula-que-nao-foram-contidos-pela-justica/")],
       veredito: "O desfile e o dinheiro público existem. O TSE ainda não julgou.",
-      situacao: "o TSE aceitou a ação do Novo por abuso de poder econômico e de meios de comunicação. Está na fase de provas, sem julgamento. Não houve absolvição.",
+      situacao: "ação do Novo aceita pelo TSE, na fase de provas. Não houve absolvição.",
       pontos: [
-        "<b>O dinheiro é público.</b> Segundo o Novo, ao menos R$ 7,5 milhões da Prefeitura de Niterói e da Embratur; outras contas chegam a R$ 9,65 milhões. A defesa diz que as 12 escolas do Grupo Especial receberam pelos mesmos critérios.",
-        "<b>O TSE não proibiu o desfile antes,</b> por unanimidade: seria censura prévia. Mas deixou claro que pode punir depois, se houve abuso.",
-        "<b>Se o abuso for provado,</b> a pena pode ir de multa até a cassação do diploma e 8 anos de inelegibilidade. A escola ficou em último lugar e foi rebaixada.",
+        "<b>Dinheiro público:</b> R$ 7,5 a 9,65 milhões (Prefeitura de Niterói, Embratur e outros). A defesa diz que as 12 escolas receberam pelos mesmos critérios.",
+        "<b>O TSE não proibiu antes</b> (seria censura prévia), mas pode punir depois.",
+        "<b>Se provado o abuso:</b> de multa até cassação e 8 anos de inelegibilidade. A escola foi rebaixada.",
       ],
     });
   }
   function pacote() {
     return caso({
       id: "pacote", titulo: "O pacote antes da eleição", tag: "estranho", icone: "💸",
-      alegacao: "Nas semanas antes da eleição, o governo cortou imposto de combustível, aumentou o Bolsa Família, lançou o Desenrola 3.0 e usou o WhatsApp do Gov.br para falar com milhões de eleitores.",
+      alegacao: "Antes da eleição, o governo cortou imposto de combustível, aumentou o Bolsa Família, lançou o Desenrola 3.0 e mandou mensagens pelo Gov.br.",
       checagem: [L("Gazeta do Povo", "https://www.gazetadopovo.com.br/republica/oito-abusos-eleitorais-de-lula-que-nao-foram-contidos-pela-justica/"), L("Metrópoles", "https://www.metropoles.com/colunas/neila-guimaraes/novo-pede-cassacao-da-chapa-de-lula-por-medidas-em-ano-eleitoral"), L("Revista Oeste", "https://revistaoeste.com/politica/cassacao-chapa-lula-flavio-tse/")],
       veredito: "As medidas existem. Se foram abuso, o TSE ainda vai dizer.",
-      situacao: "várias ações do Novo e da campanha do Flávio aguardam julgamento. O pedido para suspender as mensagens do Gov.br foi negado; a ação continua.",
+      situacao: "ações do Novo e do Flávio sem julgamento. Suspender as mensagens do Gov.br foi negado; a ação segue.",
       pontos: [
-        "<b>Datas apertadas.</b> Aumento do Bolsa Família 17 dias antes do 1º turno; Desenrola 3.0 (R$ 15 bilhões) e proibição das bets 9 dias antes; subsídio ao diesel renovável até 26/10, véspera do 2º turno.",
-        "<b>A máquina no celular.</b> A conta de WhatsApp do Gov.br mandou mensagens a dezenas de milhões de pessoas, e o Meu INSS disse a aposentados que votar serviria de “prova de vida”.",
-        "<b>A lei proíbe usar o governo a favor de candidato,</b> mas permite programa social já previsto em lei e no orçamento. A defesa diz que é o caso; a acusação diz que a data foi escolhida pela campanha.",
-        "<b>Nada disso é fraude na urna.</b> Se o TSE entender que houve abuso, a pena é cassação e inelegibilidade, não recontagem.",
+        "<b>Datas apertadas:</b> Bolsa Família 17 dias antes do 1º turno; Desenrola 3.0 (R$ 15 bi) e fim das bets 9 dias antes; diesel subsidiado até 26/10.",
+        "<b>A máquina no celular:</b> o WhatsApp do Gov.br falou com dezenas de milhões, e o Meu INSS disse a aposentados que votar valia como “prova de vida”.",
+        "<b>A lei proíbe usar o governo para candidato</b>, mas permite programa já previsto no orçamento. A defesa diz que é o caso; a acusação, que a data foi escolhida pela campanha.",
+        "<b>Não é fraude na urna:</b> a pena por abuso é cassação, não recontagem.",
       ],
     });
   }
@@ -494,9 +509,9 @@
       checagem: [L("CNN Brasil", "https://www.cnnbrasil.com.br/blogs/gustavo-uribe/eleicoes/tecnicos-do-tse-dizem-nao-poder-aferir-se-exercito-do-lula-usou-fake-news/"), L("Gazeta do Povo", "https://www.gazetadopovo.com.br/eleicoes/2026/tse-nao-acha-fake-news-canal-janones-mas-registra-mensagens-apagadas/"), L("TSE", "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/tse-determina-esclarecimentos-antes-de-analisar-pedidos-de-flavio-contra-lula-e-janones")],
       veredito: "O canal e as “missões” existem. Fake news, o TSE não conseguiu medir.",
       pontos: [
-        "<b>O canal existe</b> e distribuía “missões” de compartilhamento, segundo a ação da campanha do Flávio.",
-        "<b>Os técnicos do TSE não acharam conteúdo falso</b> no que analisaram, mas registraram mensagens apagadas: 81 sumiram antes de poderem ser lidas. Por isso disseram que não dava para afirmar se houve ou não.",
-        "<b>O canal foi suspenso e depois liberado</b>: o presidente do TSE o tirou do ar, e o corregedor o devolveu até o plenário decidir.",
+        "<b>O canal existe</b> e dava “missões” de compartilhamento.",
+        "<b>Os técnicos do TSE não acharam conteúdo falso</b>, mas 81 mensagens foram apagadas antes de serem lidas. Disseram que não dá para afirmar.",
+        "<b>Suspenso e liberado:</b> o presidente do TSE tirou do ar; o corregedor devolveu até o plenário decidir.",
       ],
     });
   }
@@ -508,10 +523,23 @@
       checagem: [L("Gazeta do Povo", "https://www.gazetadopovo.com.br/eleicoes/2026/universidades-suspendem-aulas-pedido-dces-campanha-lula/"), L("OitoMeia", "https://www.oitomeia.com.br/noticias/politica/2026/09/26/ato-politico-lula-ufpi-realizado-gera-questionamentos-controversias/"), L("Revista Oeste", "https://revistaoeste.com/politica/deputado-denuncia-uso-de-espacos-de-universidade-federal-para-campanha-do-pt/")],
       veredito: "Aconteceu em vários campi. Propaganda em prédio público é proibida.",
       pontos: [
-        "<b>Os casos existem.</b> Adesivos do Lula distribuídos no campus da UFSC; ato “Quintou com Lula” na UFPI; denúncia de uso de espaços da Ufes e do Ifes. A Justiça Eleitoral de Sergipe mandou tirar cartazes da UFS.",
-        "<b>A lei é clara:</b> o artigo 37 da Lei das Eleições proíbe propaganda eleitoral em bem público, e universidade pública é bem público. Quem organiza ato de campanha no campus pode ser multado.",
-        "<b>As aulas suspensas</b> (UFPB, UFS, UFSC, Unesp e outras, nos dias 23 e 26/10) foram pedidas pelos DCEs para os alunos viajarem até onde votam. Não há ação na Justiça contra isso.",
-        "<b>Mudou o resultado?</b> Não há como medir. Estudante vota em quem quiser, e o voto é secreto.",
+        "<b>Os casos existem:</b> adesivos na UFSC, ato na UFPI, espaços da Ufes e do Ifes, cartazes retirados da UFS por ordem judicial.",
+        "<b>A lei proíbe</b> propaganda em bem público (art. 37 da Lei das Eleições). Dá multa.",
+        "<b>Aulas suspensas</b> em 23 e 26/10 (UFPB, UFS, UFSC, Unesp e outras), a pedido dos DCEs, para os alunos viajarem para votar. Sem ação na Justiça.",
+        "<b>Mudou o resultado?</b> Não dá para medir: o voto é secreto.",
+      ],
+    });
+  }
+  function mesaria() {
+    return caso({
+      id: "mesaria", titulo: "A mesária cabo eleitoral", tag: "estranho",
+      alegacao: "Uma mesária pediu voto para o 13 dentro da seção, na Bahia.",
+      checagem: [L("Metrópoles", "https://www.metropoles.com/distrito-federal/na-mira/mesaria-e-presa-no-df-suspeita-de-fazer-campanha-para-lula-dentro-de-escola"), L("Jornal Opção", "https://www.jornalopcao.com.br/ultimas-noticias/mesaria-e-detida-suspeita-de-pedir-votos-para-lula-durante-segundo-turno-no-distrito-federal-882307/"), L("Correio", "https://www.correio24horas.com.br/bahia/mesaria-e-presa-sob-suspeita-de-votar-no-lugar-de-policial-militar-em-salvador-1026")],
+      veredito: "Na Bahia, não confirmado. No DF, aconteceu, e é crime.",
+      pontos: [
+        "<b>O vídeo da Bahia não foi confirmado</b> por nenhum veículo nem pelo TRE-BA.",
+        "<b>No DF, uma mesária foi detida</b> no 2º turno, no Gama, por fazer campanha na seção. A primeira notícia dizia que era para o Lula; a PM disse depois que era para o Flávio.",
+        "<b>É crime e é pego:</b> a presidente da seção chamou o juiz e a polícia. Um caso numa seção não muda um resultado com " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + " de diferença.",
       ],
     });
   }
@@ -522,22 +550,22 @@
       checagem: [L("Aos Fatos", "https://www.aosfatos.org/noticias/pcc-comando-vermelho-apoio-lula-falso/"), L("Boatos.org", "https://www.boatos.org/politica/pcc-e-comando-vermelho-cv-declaram-apoio-a-lula-no-2o-turno-das-eleicoes.html"), L("Correio Braziliense", "https://www.correiobraziliense.com.br/politica/2026/10/7521443-mendonca-manda-retirar-videos-que-associam-lula-ao-pcc-e-impoe-multa-de-rs-10-mil.html")],
       veredito: "Não há registro de nada disso",
       pontos: [
-        "<b>Nenhum comunicado das facções foi encontrado</b> em imprensa, canais de segurança pública ou redes. O MP do Rio disse não ter informação; uma fonte das investigações do PCC em São Paulo desmentiu.",
-        "<b>O TSE mandou tirar os vídeos</b> que diziam que o PCC pagava R$ 200 por voto, e também posts do Flávio associando o Lula às facções, com multa.",
-        "<b>A regra valeu para os dois lados:</b> o ministro André Mendonça disse que o critério usado contra os posts que ligavam o Flávio ao crime organizado vale para os que ligam o Lula.",
+        "<b>Nenhum comunicado das facções existe</b> (Aos Fatos). O MP do Rio não tem informação; uma fonte do MP-SP desmentiu.",
+        "<b>O TSE mandou tirar</b> os vídeos do “R$ 200 do PCC” e posts do Flávio ligando o Lula às facções.",
+        "<b>Mesma regra para os dois:</b> posts que ligavam o Flávio ao crime também caíram.",
       ],
     });
   }
   function compra() {
     return caso({
       id: "compra", titulo: "Compra de votos", tag: "normal", icone: "💵",
-      alegacao: "Houve compra de votos institucionalizada nesta eleição, com dinheiro vivo para eleitores.",
+      alegacao: "Houve compra de votos em massa, com dinheiro vivo.",
       checagem: [L("CNN Brasil", "https://www.cnnbrasil.com.br/eleicoes/pf-ja-apreendeu-r-27-milhoes-em-especie-em-combate-a-compra-de-voto/"), L("O Tempo", "https://www.otempo.com.br/eleicoes/2026/2026/10/3/pf-prende-47-pessoas-em-flagrante-durante-11-acoes-contra-compra-de-votos")],
       veredito: "Existe, foi combatida, e não aponta para o 2º turno",
       pontos: [
-        "<b>É real.</b> Até a véspera do 1º turno, a PF apreendeu R$ 27 milhões em dinheiro vivo, contra R$ 4,6 milhões em toda a eleição de 2022, e prendeu 47 pessoas em flagrante.",
-        "<b>É crime local.</b> As apreensões se concentram em Tocantins, Roraima, Pará, Amazonas e Amapá e envolvem candidatos a deputado e governador. Nenhuma reportagem liga os casos à campanha presidencial.",
-        "<b>Mais apreensão não quer dizer mais compra:</b> pode ser mais fiscalização. O número é alto e merece atenção, mas não explica a virada do 2º turno.",
+        "<b>É real:</b> R$ 27 milhões apreendidos até o 1º turno (R$ 4,6 mi em 2022) e 47 presos em flagrante.",
+        "<b>É crime local:</b> TO, RR, PA, AM e AP, em disputas de deputado e governador. Nada liga à campanha presidencial.",
+        "<b>Mais apreensão pode ser mais fiscalização.</b> Não explica a virada do 2º turno.",
       ],
     });
   }
@@ -549,13 +577,13 @@
       var d = r[0], n = 0;
       V = r[1];
       lista.textContent = "";
-      [virada, secoesAte10, curva, biometria, mesario, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
+      [virada, secoesAte10, curva, biometria, mesario, salaCofre, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.appendChild(h("div", { class: "divisa-casos" },
         h("h3", { text: "Além da urna" }),
         h("p", { text: "Denúncias que não são sobre a contagem dos votos, mas sobre a campanha: abuso de poder, desinformação e compra de voto. As que estão no TSE ainda não foram julgadas." })));
-      [prorrogacao, desfile, pacote, exercito, universidades, faccoes, compra].forEach(function (f) {
+      [prorrogacao, desfile, pacote, exercito, universidades, mesaria, faccoes, compra].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.querySelectorAll(".caso-topo > span:first-child").forEach(function (el) { el.textContent = "Caso " + (++n); });

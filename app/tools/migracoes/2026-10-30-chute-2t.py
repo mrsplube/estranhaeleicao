@@ -240,19 +240,16 @@ def main():
     # 1. Todo branco/nulo do 1º turno foi para o Lula.
     f1, sl, sf = extremo({**mant, "bn1": fica("lula")}, TERC + ["abst1"])
     cen.append({"id": "bn-lula", "titulo": "Todo branco e nulo do 1º turno virou Lula", "tudo": ["bn1"], "fatia": f1,
-                "resumo": f"Os {br(V['bn1'])} mi que votaram branco ou nulo no 1º turno foram todos de Lula. Ainda assim faltam {br(A['lula'] - V['lula1'] - V['bn1'])} mi: "
-                          f"a terceira via e quem só votou no 2º turno teriam de dar {pct(sl)} ao Lula e {pct(sf)} ao Flávio."})
+                "resumo": f"São {br(V['bn1'])} mi, e ainda faltam {br(A['lula'] - V['lula1'] - V['bn1'])} mi. O resto teria de dar {pct(sl)} ao Lula e {pct(sf)} ao Flávio."})
     # 2. Todo mundo que só votou no 2º turno foi de Lula.
     f2, sl, sf = extremo({**mant, "abst1": fica("lula")}, TERC + ["bn1"])
     cen.append({"id": "novos-lula", "titulo": "Todo mundo que só votou no 2º turno foi de Lula", "tudo": ["abst1"], "fatia": f2,
-                "resumo": f"Os {br(V['abst1'])} mi a mais do 2º turno, todos no Lula. Não chega nem perto: faltam {br(A['lula'] - V['lula1'] - V['abst1'])} mi, "
-                          f"e a terceira via e o branco/nulo teriam de dar {pct(sl)} ao Lula e {pct(sf)} ao Flávio."})
+                "resumo": f"São só {br(V['abst1'])} mi; faltam {br(A['lula'] - V['lula1'] - V['abst1'])} mi. O resto teria de dar {pct(sl)} ao Lula e {pct(sf)} ao Flávio."})
     # 3. A terceira via inteira virou Lula.
     f3, sl, sf = extremo({**mant, **{i: fica("lula") for i in TERC}}, ["bn1", "abst1"])
     vt = sum(V[i] for i in TERC)
     cen.append({"id": "terceira-lula", "titulo": "A terceira via inteira virou Lula", "tudo": TERC, "fatia": f3,
-                "resumo": f"Os {br(vt)} mi de Cury, Renan, Caiado, Zema e outros, todos no Lula, mesmo com o Flávio apoiado por quatro deles. "
-                          f"Aí o resto quase não precisa ajudar o Lula: {pct(sl)} do branco/nulo e de quem só votou no 2º turno, contra {pct(sf)} para o Flávio."})
+                "resumo": f"{br(vt)} mi, mesmo com quatro deles apoiando o Flávio. Aí o resto pode dar só {pct(sl)} ao Lula e {pct(sf)} ao Flávio."})
     # 4. Só a virada: parte do eleitor do Flávio troca de lado e todo o resto se divide meio a meio.
     x = ((A["lula"] - A["flavio"]) - (V["lula1"] - V["flavio1"])) / 2
     resto4 = TERC + ["bn1", "abst1"]
@@ -262,13 +259,11 @@ def main():
     for i in resto4:
         f4[i] = {"lula": e / P4, "flavio": e / P4, "nenhum": 1 - 2 * e / P4}
     cen.append({"id": "virada", "titulo": f"{round(100 * x / V['flavio1'])} em cada 100 eleitores do Flávio viraram Lula", "tudo": ["flavio1"], "fatia": f4,
-                "resumo": f"{br(x)} mi trocaram de lado e todo o resto se dividiu meio a meio ({pct(e / P4)} para cada um). "
-                          "É a virada sem nenhuma ajuda de fora."})
+                "resumo": f"{br(x)} mi trocaram de lado; o resto se dividiu meio a meio ({pct(e / P4)} para cada um)."})
     # 5. Sem extremo: todo grupo de fora dos dois finalistas votou igual.
     f5, sl, sf = extremo(mant, TERC + ["bn1", "abst1"])
     cen.append({"id": "todos-igual", "titulo": "Todo eleitor de fora dos dois votou igual", "tudo": [], "fatia": f5,
-                "resumo": f"Cada grupo que não votou em Lula nem Flávio no 1º turno deu {pct(sl)} ao Lula e {pct(sf)} ao Flávio. "
-                          f"É o tamanho da virada: quase {sl / sf:.0f} votos para o Lula a cada 1 do Flávio."})
+                "resumo": f"Cada grupo de fora dos dois deu {pct(sl)} ao Lula e {pct(sf)} ao Flávio: quase {sl / sf:.0f} para 1."})
 
     for c in cen:
         c["resultado"] = resultado(gs, c["fatia"])

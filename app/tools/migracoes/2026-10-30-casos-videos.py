@@ -41,7 +41,20 @@ VIDEOS = {
     "eleitores": "DfAL-6rxYO-",     # @felipecardozooficial
     "soma": "De9kEn-vXzV",          # @euicaroalmeida (print do X)
     "caminhonete": "DfFLlPMkf_5",   # @ch7brasil (carrossel: sem capa baixável)
-    "consulta": "DfGEElqB7Ff",      # @gugomes.br
+    "consulta": "DfGEElqB7Ff",      # @gugomes.br; também DfGFl7UNHr1
+    "prorrogacao": "DfIJ9H4tP9_",   # @luis.lacombe
+    "sala-cofre": "DfFTPO0C0vC",    # @felipececilio.reserva
+    "mesaria": "De7jQditGVO",       # @bialaranjeiras
+}
+
+# Casos sem vídeo: foto do Wikimedia Commons (crédito em `creditos`) ou capa
+# desenhada com o número do caso (gerada à parte, <caso>.png na mesma pasta).
+CAPAS_SEM_VIDEO = {
+    "desfile": ("desfile.jpg", "Marvin Brandão, CC BY-SA 4.0"),
+    "exercito": ("exercito.jpg", "TSE, CC BY 4.0"),
+    "universidades": ("universidades.jpg", "Airton Jordani, CC BY-SA 4.0"),
+    "mesma-secao": ("mesma-secao.png", None), "zonas": ("zonas.png", None),
+    "pacote": ("pacote.png", None), "faccoes": ("faccoes.png", None), "compra": ("compra.png", None),
 }
 
 FONTES = {
@@ -63,7 +76,7 @@ FONTES = {
 
 
 def capa(origem: Path, destino: Path) -> None:
-    im = Image.open(origem).convert("RGB")
+    im = Image.open(origem).convert("RGB")  # PNG desenhado ou JPG
     w, h = im.size
     alvo = 3 / 4
     if w / h > alvo:
@@ -96,6 +109,11 @@ def main(pasta: Path):
                         "curtidas": info.get("like_count"), "comentarios": info.get("comment_count"),
                         "capa": f"/static/casos/{caso}.jpg" if tem_capa else None}
 
+    capas = {}
+    for caso, (arq, credito) in CAPAS_SEM_VIDEO.items():
+        capa(pasta / arq, CAPAS / f"{caso}.jpg")
+        capas[caso] = {"src": f"/static/casos/{caso}.jpg", "credito": credito}
+
     t = pickle.load(open(RAIZ / "apuracao" / "cache" / "secoes_2026.pkl", "rb"))
     A, ch, mun = t["A"].astype(np.int64), t["chaves"], t["mun"]
     zer = (A[:, F2] == 0) & (A[:, C2] > 0)
@@ -107,7 +125,7 @@ def main(pasta: Path):
         "bahia": {nm: soma_mun(A, ch, mun, "ba", nm) for nm in ("CATOLÂNDIA", "FIRMINO ALVES", "SAUBARA")},
         "nacional": {k: conta[k] for k in ("lula1", "flavio1", "lula2", "flavio2", "comp1", "comp2", "brancos1", "nulos1", "brancos2", "nulos2")},
     }
-    saida = {"videos": videos, "fontes": FONTES, "dados": dados}
+    saida = {"videos": videos, "capas": capas, "fontes": FONTES, "dados": dados}
     (ARQ / "casos_videos.json").write_text(json.dumps(saida, ensure_ascii=False, indent=1))
     print(json.dumps(dados["secoes_zeradas"]), {k: (v["l2"] - v["l1"], v["f2"] - v["f1"]) for k, v in dados["cidades"].items()})
 

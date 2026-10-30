@@ -76,6 +76,61 @@
    "curtidas": 18418,
    "comentarios": 595,
    "capa": "/static/casos/consulta.jpg"
+  },
+  "prorrogacao": {
+   "url": "https://www.instagram.com/reel/DfIJ9H4tP9_/",
+   "perfil": "luis.lacombe",
+   "curtidas": 171589,
+   "comentarios": 4243,
+   "capa": "/static/casos/prorrogacao.jpg"
+  },
+  "sala-cofre": {
+   "url": "https://www.instagram.com/reel/DfFTPO0C0vC/",
+   "perfil": "felipececilio.reserva",
+   "curtidas": 74782,
+   "comentarios": 4906,
+   "capa": "/static/casos/sala-cofre.jpg"
+  },
+  "mesaria": {
+   "url": "https://www.instagram.com/reel/De7jQditGVO/",
+   "perfil": "bialaranjeiras",
+   "curtidas": 236042,
+   "comentarios": 12445,
+   "capa": "/static/casos/mesaria.jpg"
+  }
+ },
+ "capas": {
+  "desfile": {
+   "src": "/static/casos/desfile.jpg",
+   "credito": "Marvin Brandão, CC BY-SA 4.0"
+  },
+  "exercito": {
+   "src": "/static/casos/exercito.jpg",
+   "credito": "TSE, CC BY 4.0"
+  },
+  "universidades": {
+   "src": "/static/casos/universidades.jpg",
+   "credito": "Airton Jordani, CC BY-SA 4.0"
+  },
+  "mesma-secao": {
+   "src": "/static/casos/mesma-secao.jpg",
+   "credito": null
+  },
+  "zonas": {
+   "src": "/static/casos/zonas.jpg",
+   "credito": null
+  },
+  "pacote": {
+   "src": "/static/casos/pacote.jpg",
+   "credito": null
+  },
+  "faccoes": {
+   "src": "/static/casos/faccoes.jpg",
+   "credito": null
+  },
+  "compra": {
+   "src": "/static/casos/compra.jpg",
+   "credito": null
   }
  },
  "fontes": {

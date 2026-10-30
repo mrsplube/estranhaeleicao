@@ -42,8 +42,9 @@ def _static_version() -> str:
     return str(int(max(mt)))
 
 
-# Ícone do site (30/10/2026): lupa amarela com um ✓, as cores da marca (static/favicon.svg).
-FAVICON = "/static/favicon.svg"
+# Ícone do site (30/10/2026): "ee" das iniciais, branco e amarelo no fundo escuro
+# (static/favicon.svg é a fonte; o PNG garante a mesma letra em qualquer navegador).
+FAVICON = "/static/favicon-64.png"
 
 templates.env.globals["static_v"] = _static_version()
 templates.env.globals["favicon_for_path"] = lambda path: FAVICON

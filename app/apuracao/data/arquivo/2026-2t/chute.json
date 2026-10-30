@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-30T18:41:48",
+ "gerado_em": "2026-10-30T20:32:38",
  "eleitorado": 158745502,
  "alvo": {
   "lula": 64256232,
@@ -821,7 +821,7 @@
      "nenhum": 0.33830876125065346
     }
    },
-   "resumo": "Os 6,0 mi que votaram branco ou nulo no 1º turno foram todos de Lula. Ainda assim faltam 4,4 mi: a terceira via e quem só votou no 2º turno teriam de dar 36% ao Lula e 30% ao Flávio.",
+   "resumo": "São 6,0 mi, e ainda faltam 4,4 mi. O resto teria de dar 36% ao Lula e 30% ao Flávio.",
    "resultado": {
     "lula": 64256232.0,
     "flavio": 59826041.0,
@@ -887,7 +887,7 @@
      "nenhum": 0.27160794249976106
     }
    },
-   "resumo": "Os 3,0 mi a mais do 2º turno, todos no Lula. Não chega nem perto: faltam 7,4 mi, e a terceira via e o branco/nulo teriam de dar 49% ao Lula e 24% ao Flávio.",
+   "resumo": "São só 3,0 mi; faltam 7,4 mi. O resto teria de dar 49% ao Lula e 24% ao Flávio.",
    "resultado": {
     "lula": 64256232.0,
     "flavio": 59826041.0,
@@ -957,7 +957,7 @@
      "nenhum": 0.4648103037776295
     }
    },
-   "resumo": "Os 9,3 mi de Cury, Renan, Caiado, Zema e outros, todos no Lula, mesmo com o Flávio apoiado por quatro deles. Aí o resto quase não precisa ajudar o Lula: 12% do branco/nulo e de quem só votou no 2º turno, contra 42% para o Flávio.",
+   "resumo": "9,3 mi, mesmo com quatro deles apoiando o Flávio. Aí o resto pode dar só 12% ao Lula e 42% ao Flávio.",
    "resultado": {
     "lula": 64256232.0,
     "flavio": 59826041.0,
@@ -1023,7 +1023,7 @@
      "nenhum": 0.22755529767643057
     }
    },
-   "resumo": "3,3 mi trocaram de lado e todo o resto se dividiu meio a meio (39% para cada um). É a virada sem nenhuma ajuda de fora.",
+   "resumo": "3,3 mi trocaram de lado; o resto se dividiu meio a meio (39% para cada um).",
    "resultado": {
     "lula": 64256232.0,
     "flavio": 59826041.0,
@@ -1087,7 +1087,7 @@
      "nenhum": 0.2275552976764306
     }
    },
-   "resumo": "Cada grupo que não votou em Lula nem Flávio no 1º turno deu 57% ao Lula e 20% ao Flávio. É o tamanho da virada: quase 3 votos para o Lula a cada 1 do Flávio.",
+   "resumo": "Cada grupo de fora dos dois deu 57% ao Lula e 20% ao Flávio: quase 3 para 1.",
    "resultado": {
     "lula": 64256232.0,
     "flavio": 59826041.0,

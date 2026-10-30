@@ -387,8 +387,8 @@
       h("table", { class: "tab-votos" },
         h("thead", null, h("tr", null, h("th", { text: "" }), h("th", { text: "Seu chute" }), h("th", { text: "TSE" }), h("th", { text: "Diferença" }))),
         h("tbody", null, linhaVotos("Lula", "lula", S.lula, d.tse.lula), linhaVotos("Flávio", "flavio", S.flavio, d.tse.flavio))),
-      h("p", { class: "res-nota", html: "Só seguindo a pesquisa em todos os grupos dá <b>Lula " + pc(P.pct_lula, 1) + "</b>: faltam " + mi(d.tse.lula - P.lula) + " para ele." +
-        (faltam.length ? " Você ainda não mexeu em " + faltam.length + (faltam.length > 1 ? " grupos." : " grupo.") : "") }),
+      h("p", { class: "res-nota", html: "Só com a pesquisa: <b>Lula " + pc(P.pct_lula, 1) + "</b>, faltando " + mi(d.tse.lula - P.lula) + " para ele." +
+        (faltam.length ? " " + faltam.length + (faltam.length > 1 ? " grupos sem mexer." : " grupo sem mexer.") : "") }),
       h("div", { class: "hero-acoes" },
         h("a", { class: "btn btn-pri", href: "/apuracao/cenarios", text: "Ver 5 jeitos de a conta fechar →" }),
         h("button", { class: "btn", type: "button", text: "Recomeçar", onclick: function () {
@@ -490,7 +490,7 @@
     CORPO.appendChild(h("div", { class: "aviso-meu" },
       h("span", { html: temMeu ? "Seu chute deu <b>Lula " + pc(S.pct, 1) + "</b>" + (Math.abs(S.lula - d.tse.lula) > 50000 ? ", com " +
           mi(Math.abs(S.lula - d.tse.lula)) + (S.lula < d.tse.lula ? " a menos" : " a mais") + " para ele que o TSE." : ", em cima do TSE.")
-        : "Você ainda não chutou. Faça o seu antes: é mais divertido." }),
+        : "Você ainda não chutou." }),
       h("a", { href: "/apuracao", text: temMeu ? "voltar ao chute" : "chutar primeiro" })));
     CORPO.appendChild(h("p", { class: "cen-leg" }, "Cada barra: para onde foi o grupo no 2º turno. ",
       h("span", { class: "lula" }, h("i"), "Lula"), h("span", { class: "flavio" }, h("i"), "Flávio"),
@@ -515,11 +515,9 @@
     });
     CORPO.appendChild(h("section", { class: "convite" },
       h("p", { class: "caso-rot", text: "E qual é o certo?" }),
-      h("p", { html: "Nenhum: são extremos de propósito, para mostrar o tamanho da virada. Todos fecham com o TSE sem fraude nenhuma. " +
-        "Urna não diz quem votou em quem; o que dá para medir vem da comparação município a município (5.643 municípios): " +
-        "a troca direta do Flávio para o Lula fica perto de zero, e a terceira via, o branco/nulo e quem só votou no 2º turno foram mais para o Lula do que a pesquisa previa. " +
-        "O real fica <b>entre os cenários 1, 2 e 3</b>, um pouco de cada." }),
-      h("a", { class: "btn btn-fantasma", href: "/apuracao/detalhe", text: "A conta detalhada, com a estimativa por município →" })));
+      h("p", { html: "Nenhum: são extremos, e todos fecham sem fraude. Comparando município a município, a troca direta do Flávio para o Lula fica perto de zero; " +
+        "a terceira via, o branco/nulo e quem só votou no 2º turno foram mais para o Lula que a pesquisa previa. O real fica <b>entre os cenários 1, 2 e 3</b>." }),
+      h("a", { class: "btn btn-fantasma", href: "/apuracao/detalhe", text: "Estimativa por município →" })));
   }
 
   // ── início ─────────────────────────────────────────────────────────────

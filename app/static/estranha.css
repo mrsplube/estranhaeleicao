@@ -265,3 +265,5 @@ body:has(.arte) { position: relative; }
 .divisa-casos { margin: 26px 0 4px; padding-top: 22px; border-top: 1px dashed var(--linha); }
 .divisa-casos h3 { margin: 0 0 6px; font: 700 clamp(22px, 3.6vw, 28px)/1.1 var(--titulo); color: var(--destaque); }
 .divisa-casos p { margin: 0; max-width: 640px; color: var(--texto-2); font-size: 15px; }
+.faixa-voce { margin-top: 40px; padding: 18px 0 40px; background: linear-gradient(180deg, color-mix(in srgb, var(--destaque) 9%, var(--fundo-2)), var(--fundo-2)); border-top: 1px solid color-mix(in srgb, var(--destaque) 25%, var(--linha)); border-bottom: 1px solid var(--linha); }
+.faixa-voce .secao-sub { max-width: 600px; margin-bottom: 20px; }
