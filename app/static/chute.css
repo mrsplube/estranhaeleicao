@@ -1,7 +1,7 @@
 /* O chute do 2º turno e os cenários (templates/chute.html, static/chute.js).
    Cores e peças comuns vêm de static/estranha.css. */
 
-:root { --nenhum: #4a5170; --erro: #ff4d5e; }
+:root { --nenhum: #4a5170; }
 
 .hero-curto { padding-top: 40px; padding-bottom: 8px; }
 .c-lula { color: var(--lula); }

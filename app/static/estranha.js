@@ -65,6 +65,7 @@
     normal: { rot: "Verdade, mas normal", cls: "ok" },
   };
   var V = null;   // casos_videos.json
+  var LADOS = null;   // static/casos/lados.json: quem acusa, quem defende e a decisão de cada caso
   function mil(x) {
     return x >= 1e6 ? (x / 1e6).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + " mi"
       : x >= 1000 ? Math.round(x / 1000) + " mil" : String(x);
@@ -86,6 +87,16 @@
     var out = [];
     els.forEach(function (el, i) { if (i) out.push(i === els.length - 1 ? " e " : ", "); out.push(el); });
     return out;
+  }
+  // "Os dois lados": o melhor argumento de quem acusa, a melhor resposta e a decisão.
+  function dois(id) {
+    var x = LADOS && LADOS.casos[id];
+    if (!x) return null;
+    return h("details", { class: "mais lados" }, h("summary", { text: "Os dois lados" }),
+      h("div", { class: "corpo lados-grade" },
+        h("div", { class: "lado-a" }, h("b", { text: "Quem acusa" }), h("p", { text: x.fraude })),
+        h("div", { class: "lado-d" }, h("b", { text: "Quem defende" }), h("p", { text: x.defesa })),
+        h("div", { class: "lado-j" }, h("b", { text: "Decisão: " + x.juiz.decisao }), h("p", { text: x.juiz.sintese }))));
   }
   function caso(o, n) {
     var v = V && V.videos[o.id], t = TAG[o.tag];
@@ -118,6 +129,7 @@
         o.situacao ? h("p", { class: "situacao", html: "<b>Situação:</b> " + o.situacao }) : null,
         h("ul", { class: "pontos" }, o.pontos.map(function (p) { return h("li", { html: p }); })),
         o.visual || null,
+        dois(o.id),
         (o.mais || []).map(function (m) {
           return h("details", { class: "mais " + (m.classe || "") }, h("summary", { text: m.rot }), h("div", { class: "corpo" }, m.corpo));
         }),
@@ -573,9 +585,11 @@
   // ── montar os casos ────────────────────────────────────────────────────
   function montarCasos() {
     var lista = document.getElementById("lista-casos");
-    Promise.all([pedir("acusacoes.json"), pedir("casos_videos.json")]).then(function (r) {
+    var lados = fetch("/static/casos/lados.json" + (VERSAO ? "?v=" + encodeURIComponent(VERSAO) : ""))
+      .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    Promise.all([pedir("acusacoes.json"), pedir("casos_videos.json"), lados]).then(function (r) {
       var d = r[0], n = 0;
-      V = r[1];
+      V = r[1]; LADOS = r[2];
       lista.textContent = "";
       [virada, secoesAte10, curva, biometria, mesario, salaCofre, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }

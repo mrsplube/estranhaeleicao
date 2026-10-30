@@ -37,3 +37,12 @@
 .pilar-ico.gh { color: var(--texto); }
 .pilar-ico.gh svg { width: 22px; height: 22px; }
 .btn-gh { margin-top: 14px; }
+.contra { margin-top: 18px; }
+.lados-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lados-grade > div { padding: 12px 14px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); }
+.lados-grade b { display: block; margin-bottom: 4px; font: 700 13px var(--titulo); }
+.lados-grade p { margin: 0; font-size: 14px; color: var(--texto-2); }
+.lado-a b { color: var(--erro); } .lado-d b { color: var(--ok); }
+.lado-j { grid-column: 1 / -1; border-color: color-mix(in srgb, var(--destaque) 45%, var(--linha)) !important; }
+.lado-j b { color: var(--destaque); }
+@media (max-width: 560px) { .lados-grade { grid-template-columns: 1fr; } }

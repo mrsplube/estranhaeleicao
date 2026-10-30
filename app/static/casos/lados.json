@@ -1,0 +1,120 @@
+{
+ "_sobre": "Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem acusa (red team); defesa = a melhor resposta de quem defende o sistema; juiz = a decisão e a síntese que vão para o site. Gerado à mão; docs/analise-tres-papeis.md é montado a partir deste arquivo por tools/lados_md.py.",
+ "geral": {
+  "fraude": "Toda a conferência do site usa arquivos do próprio TSE. Se a fraude estivesse na origem, a soma das seções bateria com o total do mesmo jeito: conferir o TSE com o TSE não prova nada.",
+  "defesa": "A origem não é um arquivo só. Cada urna imprime o boletim na seção antes de transmitir, os fiscais dos partidos fotografam e o boletim tem QR code assinado. Qualquer partido pode comparar o papel com o arquivo publicado, e até agora ninguém apresentou um boletim divergente.",
+  "juiz": "A objeção é justa: somar os arquivos do TSE mostra que a totalização não alterou nada, mas não substitui conferir o papel. Essa conferência é possível, é pública e é o que deveria ser feito por quem acusa. Sem um boletim divergente, a soma é a melhor prova disponível."
+ },
+ "casos": {
+  "virada": {
+   "fraude": "Nunca aconteceu em 7 segundos turnos, as pesquisas e as apostas erraram para o mesmo lado e o Lula precisou de 3 de cada 4 votos novos. Eventos raros que se somam são exatamente o que uma fraude produziria.",
+   "defesa": "Raro não é impossível, e cada peça tem explicação conhecida: terceira via com eleitor mais anti-Flávio do que o apoio dos candidatos sugeria, branco/nulo e quem voltou a votar pendendo para o Lula. Pesquisas brasileiras erram por 2 a 3 pontos com frequência.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho de verdade, mas explicável.", "sintese": "A virada é inédita e as pesquisas erraram, e isso merece explicação. A conta fecha sem nenhum voto inventado: os 5 cenários mostram como."}
+  },
+  "secoes-10": {
+   "fraude": "106 urnas sem um voto sequer para o Flávio, num país dividido ao meio. Em cada uma, todo mundo pensou igual: parece urna preenchida.",
+   "defesa": "São seções pequenas (139 votantes em média), 41 em aldeias indígenas, e o padrão já existia no 1º turno e, com o Bolsonaro, em 2022. Só 29 não tiveram branco nem nulo. Sem elas, o Lula ainda vence por 4,05 mi.",
+   "juiz": {"tag": "normal", "decisao": "Normal.", "sintese": "Comunidades pequenas votam em bloco, para os dois lados. O número é verdadeiro; a conclusão, não."}
+  },
+  "curva": {
+   "fraude": "Com 51 a 49, a liderança deveria trocar várias vezes na apuração, e ela trocou uma vez só. As quedas do Bolsonaro vêm em degraus regulares, sinal de algoritmo.",
+   "defesa": "O vídeo é de 2022. Os boletins chegam por região e fuso, não sorteados; cada queda tem hora e lugar que dá para conferir. E recortar só as subidas de um lado fabrica qualquer vencedor: o mesmo truque dá vitória ao Lula.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "A premissa de que os boletins chegam em ordem aleatória é falsa. Sem ela, os “degraus” são só regiões chegando."}
+  },
+  "biometria": {
+   "fraude": "8,6 milhões votaram sem digital, quase o dobro da diferença. Sem digital, a porta fica aberta para alguém votar por outro.",
+   "defesa": "Os 8,6 milhões são do dia todo, de quem tem digital cadastrada mas não foi lida, e votaram com documento com foto. Depois das 17h foram 34.393 votos. E nada diz que esses votos foram para o Lula.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "O relatório trata “sem digital” como “sem identificação” e põe todos os votos num candidato. As duas premissas são falsas."}
+  },
+  "mesario": {
+   "fraude": "Fraude de mesário existe: em Salvador uma mesária foi presa por votar no lugar de um PM. Os casos pegos são os que o eleitor descobriu; os de quem não foi votar ninguém descobre.",
+   "defesa": "Votar por outro exige o ano de nascimento, que não está no caderno, e deixa rastro: o eleitor que aparece depois, o registro de horário de cada voto, os fiscais na seção. Para mudar a eleição seriam milhões de votos, e depois das 17h entraram 34 mil no país.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa quanto à escala.", "sintese": "Casos isolados existem e são presos. A premissa de que isso soma milhões não se sustenta nos números de horário nem no comparecimento."}
+  },
+  "sala-cofre": {
+   "fraude": "Fiscais do PL foram tirados da sala-cofre depois das 17h, e há indícios de comandos externos num servidor que deveria estar isolado.",
+   "defesa": "A sala-cofre nunca recebeu visitas; fiscais acompanharam a sala de totalização, que é filmada. Sobre os comandos, nenhuma prova foi apresentada. E o servidor não muda o boletim impresso em cada seção.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "Um fato desmentido e uma promessa sem prova. Se houver prova, ela precisa explicar por que os boletins em papel batem."}
+  },
+  "caminhonete": {
+   "fraude": "Urnas numa caminhonete com adesivo do PT, depois da votação. Quem garante o que fizeram com elas no caminho?",
+   "defesa": "Os votos já tinham saído: boletim impresso e afixado, dados transmitidos antes do recolhimento. A urna no caminho não tem mais como mudar o resultado publicado.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho, e irregular.", "sintese": "Foi uma falha real de logística e o TRE-DF apura. Não muda votos, que já estavam transmitidos e impressos."}
+  },
+  "silva-jardim": {
+   "fraude": "O Flávio ganhou 1 voto em Silva Jardim, 11 em Araruama e perdeu 1.389 em Campos, enquanto o Lula ganhava milhares. É como se os votos tivessem sido transferidos.",
+   "defesa": "“+1” é saldo: menos gente votou no 2º turno, e quem não voltou desconta. A terceira via e o branco/nulo da cidade bastam para os votos do Lula. O mesmo desenho aparece em centenas de cidades, inclusive em 2022 com o Bolsonaro.",
+   "juiz": {"tag": "normal", "decisao": "Normal.", "sintese": "O número confere; ler saldo como voto recebido é o erro. A conta fecha em cada cidade."}
+  },
+  "soma": {
+   "fraude": "No site do TSE, a soma dos estados não bate com o total do Brasil: sumiram 766 mil votos.",
+   "defesa": "O print foi tirado no começo da apuração, cada estado num instante diferente. No resultado final, a soma das seções bate voto a voto com o total.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "Comparar números de momentos diferentes durante a contagem sempre dá diferença. No final, fecha."}
+  },
+  "consulta": {
+   "fraude": "Bem quando as pessoas iam conferir se mortos votaram, o TSE tirou a consulta do ar.",
+   "defesa": "A pausa estava no calendário desde fevereiro e acontece em toda eleição, enquanto o TSE processa quem votou e quem faltou. Volta em 3/11.",
+   "juiz": {"tag": "normal", "decisao": "Normal.", "sintese": "A coincidência de datas é do calendário, não da reação. Vale conferir de novo depois de 3/11."}
+  },
+  "mesma-secao": {
+   "fraude": "Há prints de seções em que o Flávio caiu de 700 votos para 8 entre os turnos.",
+   "defesa": "Nenhuma seção do país teve o Flávio com 700 votos, e nenhuma caiu de 100 para 10. Os prints comparam local de votação inteiro com uma seção, ou outro cargo.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "O dado não existe no arquivo de nenhuma das 499 mil seções."}
+  },
+  "zonas": {
+   "fraude": "O mesmo placar aparece em várias zonas de Brasília, Salvador e São Paulo. Números idênticos não acontecem por acaso.",
+   "defesa": "A tela do app travou: o nome da zona mudava, os números não. Cada placar do vídeo é de uma zona só, e no país nenhum placar se repete.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "Erro de tela, não de urna."}
+  },
+  "cedula": {
+   "fraude": "Uma seção em Pernambuco votou em papel, sem treinamento e sem fiscalização. Voto em papel é onde se frauda.",
+   "defesa": "Cédula é o último recurso legal quando a urna e a reserva falham, e é apurada por junta com fiscais. Em Pernambuco, 80 de 22.694 urnas foram trocadas.",
+   "juiz": {"tag": "normal", "decisao": "Normal.", "sintese": "Previsto em lei e raro. Uma seção não muda nada."}
+  },
+  "eleitores": {
+   "fraude": "Cidades com mais eleitores que habitantes são o terreno ideal para voto fantasma.",
+   "defesa": "É gente que mudou e não transferiu o título, somado à população estimada do IBGE. Em Catolândia votaram menos pessoas do que moram lá.",
+   "juiz": {"tag": "normal", "decisao": "Normal.", "sintese": "O cadastro desatualizado é um problema antigo, mas não vira voto: quem não mora lá não aparece para votar."}
+  },
+  "prorrogacao": {
+   "fraude": "A meia hora do fim, um ministro que foi advogado do Lula mudou a regra para o país todo, a pedido da campanha do Lula e contra o Ministério Público.",
+   "defesa": "A campanha do Flávio também pediu prorrogação. A ordem chegou com a maioria das seções fechadas, e depois das 17h foram 34 mil votos, para uma diferença de 4,43 mi.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho.", "sintese": "Quem decidiu, quando e como foram decisões ruins para a confiança. O efeito no resultado foi desprezível."}
+  },
+  "desfile": {
+   "fraude": "Dinheiro público pagou um desfile que fez propaganda do presidente-candidato em rede nacional.",
+   "defesa": "As escolas recebem verba pública pelos mesmos critérios, e homenagem a político é tradição do Carnaval. O TSE não viu motivo para censurar antes.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho, em julgamento.", "sintese": "O fato e o dinheiro estão provados; se foi abuso, o TSE vai decidir. Não houve absolvição."}
+  },
+  "pacote": {
+   "fraude": "Bolsa Família, Desenrola, diesel e mensagens do Gov.br concentrados nas semanas da eleição: é compra de voto com dinheiro público.",
+   "defesa": "Programas sociais previstos em lei e no orçamento podem continuar em ano eleitoral. Governos de todos os partidos anunciam medidas antes de eleição.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho, em julgamento.", "sintese": "O calendário é suspeito e merece julgamento. Se for abuso, a pena é cassação, não recontagem: não é fraude na urna."}
+  },
+  "exercito": {
+   "fraude": "Um canal com 3 milhões de pessoas distribuía “missões” de ataque ao Flávio, e mensagens foram apagadas antes de o TSE ler.",
+   "defesa": "Os técnicos do TSE não acharam conteúdo falso no que analisaram. Mobilizar militância em rede social é legal.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho.", "sintese": "Apagar mensagens durante a análise é estranho. Não há prova de fake news, mas também não há como afastar."}
+  },
+  "universidades": {
+   "fraude": "Universidades públicas viraram comitê do Lula, com adesivos, atos e até aulas suspensas para estudante ir votar.",
+   "defesa": "Os casos são pontuais, alguns foram retirados por ordem judicial, e suspender aula para o aluno viajar e votar não é propaganda.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho.", "sintese": "Propaganda em prédio público é proibida e aconteceu. O efeito no voto não dá para medir."}
+  },
+  "mesaria": {
+   "fraude": "Mesárias pediram voto para o 13 dentro da seção.",
+   "defesa": "O vídeo da Bahia não foi confirmado. No DF, a mesária detida fazia campanha para o Flávio, segundo a PM.",
+   "juiz": {"tag": "estranho", "decisao": "Estranho, e isolado.", "sintese": "Mesário fazendo campanha é crime e aconteceu. De que lado, há duas versões."}
+  },
+  "faccoes": {
+   "fraude": "PCC e Comando Vermelho mandaram votar no Lula e pagaram por voto.",
+   "defesa": "Nenhum registro foi encontrado por imprensa, Ministério Público ou checagem. O TSE mandou tirar os vídeos, com o mesmo critério usado contra posts sobre o Flávio.",
+   "juiz": {"tag": "falsa", "decisao": "Premissa falsa.", "sintese": "Não há registro algum."}
+  },
+  "compra": {
+   "fraude": "A PF apreendeu R$ 27 milhões em dinheiro vivo, seis vezes 2022. A compra de votos foi em massa.",
+   "defesa": "As apreensões são de disputas locais (deputado, governador) e se concentram no Norte. Nada liga à eleição presidencial.",
+   "juiz": {"tag": "normal", "decisao": "Normal, para o 2º turno.", "sintese": "Compra de voto é real e cresceu ou foi mais fiscalizada. Não explica a eleição presidencial."}
+  }
+ }
+}
