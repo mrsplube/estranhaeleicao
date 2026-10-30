@@ -77,36 +77,51 @@
       "aria-label": "Ver o vídeo de @" + v.perfil + " no Instagram" }, dentro)
       : h("div", { class: "capa sem-video" }, dentro);
   }
+  function link(f) {
+    return f.url ? h("a", { href: f.url, target: "_blank", rel: "noopener nofollow", text: f.rot }) : h("span", { text: f.rot });
+  }
+  // Lista em texto corrido: "a, b e c".
+  function emLinha(els) {
+    var out = [];
+    els.forEach(function (el, i) { if (i) out.push(i === els.length - 1 ? " e " : ", "); out.push(el); });
+    return out;
+  }
   function caso(o, n) {
     var v = V && V.videos[o.id], t = TAG[o.tag];
     var art = h("article", { class: "caso", id: "caso-" + o.id });
-    var abrir = h("button", { class: "btn btn-mini caso-abrir", type: "button", "aria-expanded": "false",
-      text: "Ver a resposta", onclick: function () {
-        var aberto = art.classList.toggle("respondido");
-        abrir.setAttribute("aria-expanded", String(aberto));
-        abrir.textContent = aberto ? "Fechar a resposta" : "Ver a resposta";
-      } });
-    var quem = v ? h("a", { class: "quem", href: v.url, target: "_blank", rel: "noopener nofollow" },
-      "▶ @" + v.perfil, v.curtidas ? h("span", { text: " · ♥ " + mil(v.curtidas) }) : null) : null;
+    function alternar(abrir) {
+      var aberto = art.classList.toggle("respondido", abrir);
+      ver.setAttribute("aria-expanded", String(aberto));
+      if (!aberto && art.getBoundingClientRect().top < 0) art.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    var ver = h("button", { class: "btn btn-mini caso-abrir", type: "button", "aria-expanded": "false", "aria-controls": "rev-" + o.id,
+      text: "Ver a resposta", onclick: function () { alternar(true); } });
+    function recolher(onde) {
+      return h("button", { class: "recolher " + onde, type: "button", title: "Recolher a resposta", "aria-label": "Recolher a resposta",
+        onclick: function () { alternar(false); } }, h("i", { "aria-hidden": "true" }));
+    }
+    var onde = emLinha([].concat(
+      v ? [h("a", { href: v.url, target: "_blank", rel: "noopener nofollow", text: "vídeo de @" + v.perfil + " no Instagram" + (v.curtidas ? " (" + mil(v.curtidas) + " curtidas)" : "") })] : [],
+      (o.fontes || []).map(link)));
     anexar(art, [
+      recolher("cima"),
       h("div", { class: "caso-cab" },
         capa(o, v),
         h("div", { class: "caso-txt" },
           h("div", { class: "caso-topo" }, h("span", { text: "Caso " + n }), h("span", { class: "tag " + t.cls, text: t.rot })),
           h("h3", { class: "caso-tit", text: o.titulo }),
           h("p", { class: "alegacao", text: o.alegacao }),
-          h("div", { class: "fontes" }, quem, (o.fontes || []).map(function (f) {
-            return f.url ? h("a", { class: "fonte", href: f.url, target: "_blank", rel: "noopener nofollow", text: f.rot })
-              : h("span", { class: "fonte", text: f.rot });
-          })),
-          abrir)),
-      h("div", { class: "revela" }, h("div", {},
+          ver)),
+      h("div", { class: "revela", id: "rev-" + o.id }, h("div", {},
         h("span", { class: "veredito " + t.cls, text: o.veredito }),
         h("ul", { class: "pontos" }, o.pontos.map(function (p) { return h("li", { html: p }); })),
         o.visual || null,
         (o.mais || []).map(function (m) {
           return h("details", { class: "mais " + (m.classe || "") }, h("summary", { text: m.rot }), h("div", { class: "corpo" }, m.corpo));
-        }))),
+        }),
+        h("p", { class: "circulou" }, onde.length ? ["Onde circulou: ", onde, ". "] : null,
+          o.checagem ? ["Fontes da resposta: ", emLinha(o.checagem.map(link)), "."] : null),
+        recolher("baixo"))),
     ]);
     return art;
   }
@@ -328,7 +343,7 @@
     return caso({
       id: "biometria", titulo: "8,6 milhões sem digital", tag: "falsa",
       alegacao: "Um relatório divulgado nos EUA diz que 8,6 milhões votaram sem biometria depois das 17h. Tirando esses votos, o Flávio teria ganhado.",
-      fontes: [fonte("tse_17h"), fonte("nucleo")],
+      checagem: [fonte("tse_17h"), fonte("nucleo")],
       veredito: "Mistura dois números e conclui o que eles não dizem",
       pontos: [
         "<b>Depois das 17h foram 34.393 votos</b> no país inteiro, segundo o TSE: 0,03% do total, e não milhões.",
@@ -344,7 +359,7 @@
     return caso({
       id: "mesario", titulo: "O mesário pianista", tag: "falsa",
       alegacao: "Com o número do título, o mesário vota pelo eleitor que faltou ou morreu. Em 500 mil seções, isso dá milhões de votos.",
-      fontes: [fonte("aosfatos"), fonte("tse_17h")],
+      checagem: [fonte("aosfatos"), fonte("tse_17h")],
       veredito: "Fraude isolada é crime e aparece. Milhões, não.",
       pontos: [
         "<b>Só o título não basta.</b> Sem a digital, a mesa confere documento com foto e a urna pede o ano de nascimento, que não está no caderno de votação.",
@@ -358,7 +373,7 @@
     return caso({
       id: "caminhonete", titulo: "A caminhonete do PT", tag: "estranho", icone: "🚚",
       alegacao: "Urnas foram levadas numa caminhonete com adesivo do PT no Distrito Federal, depois da votação.",
-      fontes: [fonte("caminhonete"), fonte("pleno")],
+      checagem: [fonte("caminhonete"), fonte("pleno")],
       veredito: "Aconteceu, e foi irregular. Mas não mexeu em voto.",
       pontos: [
         "<b>O vídeo é real.</b> Foi no Riacho Fundo II, depois do fim da votação. O TRE-DF confirmou e abriu apuração, porque usar veículo com propaganda de partido contraria as regras.",
@@ -371,7 +386,7 @@
     return caso({
       id: "consulta", titulo: "A consulta que sumiu", tag: "normal",
       alegacao: "Depois que muita gente foi conferir se pessoas mortas votaram, o TSE tirou do ar a consulta de quem votou. Diz que volta em 3 de novembro.",
-      fontes: [fonte("tse_certidao"), fonte("tre_df_certidao")],
+      checagem: [fonte("tse_certidao"), fonte("tre_df_certidao")],
       veredito: "Saiu do ar, sim. Estava no calendário desde fevereiro.",
       pontos: [
         "<b>A suspensão é real</b> e vai de 26/10 a 2/11. A consulta e a certidão de quitação voltam na terça, 3 de novembro.",
@@ -399,7 +414,7 @@
     return caso({
       id: "cedula", titulo: "Voto no papel", tag: "normal",
       alegacao: "Em Pernambuco, uma seção passou a votar em cédula de papel, sem fiscalização. “Vão roubar essa eleição.”",
-      fontes: [fonte("tre_pe")],
+      checagem: [fonte("tre_pe")],
       veredito: "Existe e está na lei. É exceção.",
       pontos: [
         "<b>É o plano C.</b> Se a urna quebra, entra uma de reserva. Só se a reserva também falhar a seção vota em cédula, que é apurada depois pela junta eleitoral, com fiscais dos partidos.",
@@ -413,7 +428,7 @@
     return caso({
       id: "eleitores", titulo: "Mais eleitor que habitante", tag: "normal",
       alegacao: "A Bahia tem 23 municípios com mais eleitores do que habitantes, como Catolândia e Firmino Alves.",
-      fontes: [fonte("atarde"), fonte("tatu")],
+      checagem: [fonte("atarde"), fonte("tatu")],
       veredito: "É verdade, e é antigo. Não é voto a mais.",
       pontos: [
         "<b>Os 23 existem</b>, cruzando o eleitorado do TSE com a população estimada pelo IBGE. No país são 733; na Bahia eram 36 em 2022.",

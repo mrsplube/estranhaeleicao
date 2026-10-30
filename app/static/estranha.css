@@ -75,10 +75,6 @@ a.capa:hover .capa-play::after { border-left-color: var(--fundo); }
 .tag.ok { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
 .caso-tit { margin: 0 0 6px; font: 700 clamp(24px, 4vw, 32px)/1.08 var(--titulo); letter-spacing: -.025em; text-shadow: 0 2px 18px color-mix(in srgb, var(--destaque) 18%, transparent); }
 .alegacao { margin: 0; font-size: 15px; line-height: 1.5; color: var(--texto-2); }
-.quem { display: inline-flex; align-items: center; gap: 4px; padding: 5px 11px; border-radius: 99px; background: var(--cartao-2); border: 1px solid var(--linha); color: var(--texto); font-size: 13px; font-weight: 600; text-decoration: none; }
-.quem span { color: var(--texto-3); font-weight: 400; white-space: nowrap; }
-.quem { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.quem:hover { border-color: var(--texto-3); }
 .veredito.ok { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
 @media (max-width: 560px) {
   /* no celular: capa e nome lado a lado; a teoria e os links na largura toda */
@@ -87,8 +83,7 @@ a.capa:hover .capa-play::after { border-left-color: var(--fundo); }
   .caso-cab > .capa { grid-row: 1 / span 2; align-self: start; }
   .caso-topo { grid-column: 2; margin: 2px 0 0; align-self: end; }
   .caso-tit { grid-column: 2; align-self: start; font-size: 22px; }
-  .alegacao, .caso-cab .fontes, .caso-abrir { grid-column: 1 / -1; }
-  .caso-cab .fontes { margin-top: 0; }
+  .alegacao, .caso-abrir { grid-column: 1 / -1; }
   .caso-abrir { margin-top: 2px; justify-self: start; }
   .alegacao { font-size: 14px; }
   .capa-play { width: 32px; height: 32px; margin: -16px 0 0 -16px; }
@@ -244,3 +239,24 @@ body:has(.arte) { position: relative; }
   .hero { padding-top: 172px; }
 }
 @media (prefers-reduced-motion: reduce) { .arte-curvas { animation: none; } }
+
+/* Resposta aberta: o "Ver a resposta" some e aparecem dois botões de recolher,
+   no canto de cima e no de baixo do cartão, para fechar de onde a pessoa estiver. */
+.caso.respondido .caso-abrir { display: none; }
+.recolher {
+  position: absolute; right: 14px; z-index: 2; display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--linha);
+  background: var(--cartao-2); color: var(--texto-2); cursor: pointer;
+  opacity: 0; visibility: hidden; transform: scale(.8);
+  transition: opacity .25s, transform .25s, background .2s, color .2s, visibility 0s .25s;
+}
+.recolher i { width: 12px; height: 2px; border-radius: 2px; background: currentColor; }
+.recolher.cima { top: 14px; }
+.recolher.baixo { position: relative; right: auto; margin: 14px 0 0 auto; }
+.caso.respondido .recolher { opacity: 1; visibility: visible; transform: none; transition: opacity .25s, transform .25s, background .2s, color .2s; }
+.recolher:hover { background: var(--destaque); border-color: var(--destaque); color: var(--fundo); }
+.recolher:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+.caso.respondido .caso-topo { padding-right: 40px; }
+.circulou { margin: 18px 0 0; font-size: 12.5px; line-height: 1.6; color: var(--texto-3); }
+.circulou a { color: var(--texto-3); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--texto-3) 45%, transparent); text-underline-offset: 2px; }
+.circulou a:hover { color: var(--texto-2); }
