@@ -297,13 +297,28 @@
         ops.length ? h("div", { class: "dicas" },
           h("p", { class: "dicas-tit" }, h("span", { class: "dicas-ico", "aria-hidden": "true", text: "💡" }),
             h("span", null, "Sugestões", h("small", { text: " · toque numa para aplicar" }))),
-          h("div", { class: "ops" }, ops)) : null),
+          barraOps(ops)) : null),
     ]);
     pintar();
     cartoes[g.id] = { el: art, pos: b.pos, pintar: pintar, barra: b };
     return art;
   }
 
+  // A faixa de sugestões do celular rola para o lado. Sem sinal, o cartão
+  // cortado na borda parece quebrado — então a borda esmaece enquanto houver
+  // mais para o lado, e o esmaecimento some ao chegar no fim.
+  function barraOps(ops) {
+    var box = h("div", { class: "ops" }, ops);
+    function marcar() {
+      var fim = box.scrollLeft + box.clientWidth >= box.scrollWidth - 4;
+      box.classList.toggle("no-fim", fim);
+      box.classList.toggle("no-inicio", box.scrollLeft <= 4);
+    }
+    box.addEventListener("scroll", marcar, { passive: true });
+    if (window.ResizeObserver) new ResizeObserver(marcar).observe(box);
+    setTimeout(marcar, 0);
+    return box;
+  }
   // Na primeira visita, a primeira barra se mexe sozinha uma vez, com a mãozinha.
   function demonstrar() {
     if (calmo || Object.keys(est.mexido).length) return;

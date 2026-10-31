@@ -144,6 +144,11 @@
   .ops::-webkit-scrollbar { display: none; }
   .op { scroll-snap-align: start; }
   .op:hover { transform: none; }
+  /* O 3º cartão aparecia cortado sem nada indicando que a faixa rola para o
+     lado — e cartão cortado lê-se como "quebrado", não como "tem mais". A
+     máscara esmaece a borda direita; o esmaecimento some na última carta. */
+  .ops { --corte: 26px; mask-image: linear-gradient(to right, #000 calc(100% - var(--corte)), transparent); -webkit-mask-image: linear-gradient(to right, #000 calc(100% - var(--corte)), transparent); }
+  .ops.no-fim { mask-image: none; -webkit-mask-image: none; }
 }
 
 /* ── barra fixa embaixo ────────────────────────────────────────────── */
@@ -262,10 +267,26 @@ tr.ok .dif-ico { background: var(--ok); } tr.erro .dif-ico { background: var(--e
 .tutorial { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 16px; background: rgba(5, 7, 15, .78); backdrop-filter: blur(6px); animation: entra .3s ease; }
 .tutorial[hidden] { display: none; }
 .tutorial-caixa { width: min(440px, 100%); max-height: 100%; overflow: auto; padding: 20px; border-radius: var(--raio); background: var(--cartao); border: 1px solid var(--linha); box-shadow: var(--sombra); text-align: center; }
+/* Em tela curta (celular deitado, 320×568, 360×640) o conteúdo passa da caixa e
+   o "Entendi" ficava escondido abaixo da dobra: o modal abria sem saída visível
+   — o botão só aparecia para quem adivinhasse rolar dentro dele. Agora o botão
+   fica preso no rodapé da caixa enquanto o resto rola. */
+.tutorial-caixa { display: flex; flex-direction: column; }
+.tutorial-caixa > * { flex: none; }
+#tutorial-ok { position: sticky; bottom: 0; margin-top: 4px; padding-top: 12px; background: linear-gradient(to bottom, transparent, var(--cartao) 24%); }
 .tutorial h2 { margin: 0 0 8px; font: 700 24px var(--titulo); }
 .tutorial p { margin: 0 0 14px; color: var(--texto-2); font-size: 15px; text-align: left; }
 .tutorial p b { color: var(--texto); }
 .tutorial video { display: block; width: auto; max-width: 100%; max-height: 46vh; margin: 0 auto 12px; border-radius: 14px; border: 1px solid var(--linha); background: var(--fundo); }
+/* Escondido, o vídeo não pode ocupar altura: em tela curta ele empurrava o
+   "Entendi" para fora da caixa mesmo antes do play. */
+.tutorial video:not([src]), .tutorial video[hidden] { display: none; }
+@media (max-height: 700px) {
+  .tutorial video { max-height: 32vh; }
+  .tutorial h2 { font-size: 21px; }
+  .tutorial p { font-size: 14px; margin-bottom: 10px; }
+  .tutorial-caixa { padding: 16px; }
+}
 .tutorial-passos { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 16px; padding: 0; list-style: none; counter-reset: t; font-size: 13px; color: var(--texto-2); }
 .tutorial-passos li { counter-increment: t; }
 .tutorial-passos li::before { content: counter(t); display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 5px; border-radius: 50%; background: var(--destaque); color: var(--fundo); font: 700 11px var(--titulo); }
