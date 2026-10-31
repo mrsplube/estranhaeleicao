@@ -462,12 +462,11 @@
         visual("Chance do Lula na Polymarket, no dia da eleição", grafPoly(),
           "Às 17h03 a votação foi prorrogada; às 19h10 saíram os primeiros números da apuração. A virada do gráfico é a apuração chegando, não a prorrogação."),
         visual("Onde o favorito das apostas já perdeu", h("div", { class: "mapa-apostas" },
-          h("img", { src: "/static/casos/mapa-apostas.svg", alt: "Mapa: Brasil, Venezuela, Polônia e Estados Unidos destacados", loading: "lazy" }),
+          h("img", { src: "/static/casos/mapa-apostas.svg", alt: "Mapa: Brasil, Venezuela e Polônia destacados", loading: "lazy" }),
           h("ul", { class: "mapa-leg" },
             h("li", { html: "<b>Brasil 2026</b> · Flávio ~80% na Polymarket" }),
             h("li", { html: "<b>Polônia 2025</b> · Trzaskowski ~64% na Polymarket" }),
-            h("li", { html: "<b>Venezuela 2024</b> · Maduro ~87% na Polymarket" }),
-            h("li", { class: "outra", html: "<b>EUA 2016</b> · Hillary 83% na Betfair" }))))],
+            h("li", { html: "<b>Venezuela 2024</b> · Maduro ~87% na Polymarket" }))))],
     });
   }
   function biometria() {

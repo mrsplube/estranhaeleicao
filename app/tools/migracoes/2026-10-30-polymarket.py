@@ -52,7 +52,7 @@ def mapa():
             out += ("M" if ant is None or abs(q[0] - ant[0]) > W / 2 else "L") + "%.1f,%.1f" % q
             ant = q
         return out + "Z"
-    DESTAQUE = {"076": "br", "862": "ve", "616": "pl", "840": "us"}
+    DESTAQUE = {"076": "br", "862": "ve", "616": "pl"}   # EUA 2016 (Betfair) saiu do mapa em 30/10
     caminhos = []
     for g in topo["objects"]["countries"]["geometries"]:
         if g.get("id") == "010":   # Antártida
@@ -62,7 +62,7 @@ def mapa():
         d = "".join(anel(r, g.get("id") in ("643", "242")) for poli in polis for r in poli)   # Rússia e Fiji passam da linha de data
         caminhos.append(f'<path class="{DESTAQUE.get(g.get("id"), "")}" d="{d}"/>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" overflow="hidden"><style>path{{fill:#2a3253;stroke:#0e1326;stroke-width:.5}}'
-            '.br,.ve,.pl{fill:#e6be55}.us{fill:#a07f2e}</style>' + "".join(caminhos) + "</svg>")
+            '.br,.ve,.pl{fill:#e6be55}</style>' + "".join(caminhos) + "</svg>")
 
 
 if __name__ == "__main__":

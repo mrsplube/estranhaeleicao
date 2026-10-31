@@ -342,7 +342,6 @@ body:has(.arte) { position: relative; }
 .mapa-apostas img { display: block; width: 100%; height: auto; }
 .mapa-leg { display: grid; gap: 5px; margin: 12px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--texto-2); }
 .mapa-leg li::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 3px; background: #e6be55; vertical-align: -1px; }
-.mapa-leg li.outra::before { background: #a07f2e; }
 
 /* ── fluxo em etapas (o caminho de uma coisa) ───────────────────────── */
 .fluxo { display: grid; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; counter-reset: etapa; }
