@@ -38,7 +38,9 @@ templates.env.auto_reload = False
 
 def _static_version() -> str:
     mt = [0.0]
-    for padrao in ("*.js", "*.css", "*/*.js", "*/*.css", "*/*.json"):
+    # .svg também: um mapa ou gráfico trocado tem de mudar o `?v=` (senão o
+    # Cloudflare serve a imagem velha por 4 h, ver mapa-apostas.svg em 30/10).
+    for padrao in ("*.js", "*.css", "*.svg", "*/*.js", "*/*.css", "*/*.json", "*/*.svg"):
         mt.extend(f.stat().st_mtime for f in static_dir.glob(padrao))
     return str(int(max(mt)))
 
