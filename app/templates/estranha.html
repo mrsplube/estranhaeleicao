@@ -93,17 +93,24 @@
         <p class="resumo-nota">As {{ casos_resumo|length }} afirmações conferidas, em resumo. Clique em qualquer uma para ver o vídeo, as fontes e os gráficos.</p>
         <ol class="lista-resumo">
           {% for c in casos_resumo %}
-          <li><a href="#caso-{{ c.id }}">
-            <span class="lr-tag t-{{ 'falsa' if c.tag == 'falsa' else ('estranho' if c.tag == 'estranho' else 'normal') }}">{{ 'Premissa falsa' if c.tag == 'falsa' else ('Verdade e estranho' if c.tag == 'estranho' else 'Verdade, mas normal') }}</span>
-            <b>{{ c.titulo }}</b>
-            {# O subtítulo é a frase que a pessoa digita no Google — "106 urnas
-               sem voto para Flávio" em vez de "As 106 urnas zeradas". O título
-               do cartão continua o de sempre: um é bom de ler, o outro é bom
-               de buscar. #}
-            {% if c.busca %}<span class="lr-busca">{{ c.busca }}</span>{% endif %}
-            {% if c.alegacao %}<span class="lr-aleg">{{ c.alegacao }}</span>{% endif %}
-            {% if c.veredito %}<span class="lr-ver">{{ c.veredito }}</span>{% endif %}
-          </a></li>
+          <li>
+            <a href="#caso-{{ c.id }}">
+              <span class="lr-tag t-{{ 'falsa' if c.tag == 'falsa' else ('estranho' if c.tag == 'estranho' else 'normal') }}">{{ 'Premissa falsa' if c.tag == 'falsa' else ('Verdade e estranho' if c.tag == 'estranho' else 'Verdade, mas normal') }}</span>
+              <b>{{ c.titulo }}</b>
+              {# O subtítulo é a frase que a pessoa digita no Google — "106 urnas
+                 sem voto para Flávio" em vez de "As 106 urnas zeradas". O título
+                 do cartão continua o de sempre: um é bom de ler, o outro é bom
+                 de buscar. #}
+              {% if c.busca %}<span class="lr-busca">{{ c.busca }}</span>{% endif %}
+              {% if c.alegacao %}<span class="lr-aleg">{{ c.alegacao }}</span>{% endif %}
+              {% if c.veredito %}<span class="lr-ver">{{ c.veredito }}</span>{% endif %}
+            </a>
+            {# O link do tema fica FORA do <a> de cima: âncora dentro de âncora é
+               HTML inválido, e o navegador desmancha as duas. Aqui ele existe no
+               HTML servido — o do cartão nasce via JS, e robô de IA, que
+               renderiza pouco JS, pode não chegar a vê-lo. #}
+            {% if tema_do_caso.get(c.id) %}<a class="lr-tema" href="/{{ tema_do_caso[c.id][0] }}">Leia o tema: {{ tema_do_caso[c.id][1] }} →</a>{% endif %}
+          </li>
           {% endfor %}
         </ol>
       </div>

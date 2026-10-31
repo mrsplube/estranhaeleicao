@@ -489,3 +489,12 @@ body:has(.arte) { position: relative; }
 /* O subtítulo pesquisável da lista em texto (31/10/2026): a frase que a pessoa
    digita no Google, abaixo do título do cartão e acima da alegação. */
 .lista-resumo .lr-busca { display: block; margin-top: 2px; font-size: 13.5px; color: var(--destaque); font-weight: 600; }
+
+/* "Saber mais" (31/10/2026) — discreto, no fim da resposta do cartão, e na
+   lista em texto da entrada. O do cartão só aparece com a resposta aberta
+   (está dentro do .revela); o da lista é o que existe no HTML servido. */
+.saber-mais { margin: 14px 0 0; font-size: 13.5px; }
+.saber-mais a { color: var(--texto-3); text-decoration: none; border-bottom: 1px dotted currentColor; }
+.saber-mais a:hover { color: var(--destaque); border-bottom-color: var(--destaque); }
+.lista-resumo .lr-tema { display: inline-block; margin: 5px 0 0 12px; font-size: 12.5px; color: var(--texto-3); text-decoration: none; border-bottom: 1px dotted currentColor; }
+.lista-resumo .lr-tema:hover { color: var(--destaque); border-bottom-color: var(--destaque); }

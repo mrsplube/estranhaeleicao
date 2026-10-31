@@ -80,6 +80,11 @@ def _temas() -> list[dict]:
 
 TEMAS = _temas()
 
+# caso → [slug, pergunta do tema], para o link "saber mais" da lista em texto
+# (que precisa existir no HTML servido, não só no cartão montado por JS).
+templates.env.globals["tema_do_caso"] = {
+    item["id"]: [t["slug"], t["titulo"]] for t in TEMAS for item in t["itens"]}
+
 
 # Extensões que entram no `?v=`. .svg também (um mapa ou gráfico trocado tem de
 # mudar a versão, senão o Cloudflare serve a imagem velha por 4 h — ver

@@ -89,6 +89,9 @@
   };
   var V = null;   // casos_videos.json
   var LADOS = null;   // static/casos/lados.json: quem acusa, quem defende e a decisão de cada caso
+  // caso → [slug do tema, pergunta do tema] (gerado de temas.json pelo gerador
+  // 2026-10-31-temas). Alimenta o "saber mais" no fim da resposta.
+  var TEMAS = {"secoes-10":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"curva":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"soma":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"mesma-secao":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"zonas":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"sala-cofre":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"caminhonete":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"cedula":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"eleitores":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"biometria":["biometria","8,6 milhões de votos sem biometria: é fraude?"],"virada":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"pesquisas":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"silva-jardim":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"prorrogacao":["prorrogacao","Por que a votação foi prorrogada até as 19h?"],"onibus":["prorrogacao","Por que a votação foi prorrogada até as 19h?"],"mesario":["mesario","Mesário pode votar no lugar do eleitor?"],"mesaria":["mesario","Mesário pode votar no lugar do eleitor?"],"consulta":["mesario","Mesário pode votar no lugar do eleitor?"],"pacote":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"maquina-celular":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"exercito":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"universidades":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"desfile":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"faccoes":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"desinformacao":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"compra":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"padroeira":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"]};
   function mil(x) {
     return x >= 1e6 ? (x / 1e6).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + " mi"
       : x >= 1000 ? Math.round(x / 1000) + " mil" : String(x);
@@ -226,6 +229,13 @@
         }),
         h("p", { class: "circulou" }, onde.length ? ["Onde circulou: ", onde, ". "] : null,
           o.checagem ? ["Fontes da resposta: ", emLinha(o.checagem.map(link)), "."] : null),
+        // "Saber mais" (31/10/2026): link discreto para a página de tema, só
+        // visível com a resposta aberta. Não é conteúdo novo — é o caminho para
+        // quem quer o assunto inteiro. O mesmo link existe no HTML da entrada
+        // (lista em texto), porque este aqui nasce via JS e robô de IA, que
+        // renderiza pouco JS, pode não chegar a vê-lo.
+        TEMAS[o.id] ? h("p", { class: "saber-mais" },
+          h("a", { href: "/" + TEMAS[o.id][0] }, "Saber mais: " + TEMAS[o.id][1] + " →")) : null,
         h("div", { class: "caso-pe" }, linkDoCaso(o.id), recolher("baixo")))),
     ]);
     return art;
