@@ -3,11 +3,19 @@
    dá para verificar: de onde vêm os dados, como foram conferidos e o que o site não sabe. #}
 {% set pagina = "sobre" %}
 {% block title %}Sobre o site · estranhaeleicao.org{% endblock %}
-{# Ícones: Font Awesome Free 6.5.2 (CC BY 4.0). #}
-{% block meta %}
-  <meta name="description" content="De onde vêm os números do estranhaeleicao.org, como eles são conferidos e o que o site não consegue saber.">
-  <meta property="og:title" content="Sobre o estranhaeleicao.org: por que confiar nos números">
+{% set descricao = "De onde vêm os números do site, como são conferidos e o que ele não sabe. Fontes abertas do TSE." %}
+{% set og_titulo = "Não confie em nós. Confira. · sobre o estranhaeleicao.org" %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/sobre.png" %}
+{% set og_imagem_alt = "Não confie em nós. Confira: fontes abertas do TSE e contas públicas." %}
+{% block breadcrumb %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+    {"@type":"ListItem","position":2,"name":"Sobre o site","item":"https://estranhaeleicao.org/sobre"}
+  ]}
+  </script>
 {% endblock %}
+{# Ícones: Font Awesome Free 6.5.2 (CC BY 4.0). #}
 {% block css %}<link rel="stylesheet" href="/static/sobre.css?v={{ static_v }}">{% endblock %}
 {% block content %}
   <header class="hero hero-curto">

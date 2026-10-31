@@ -6,24 +6,32 @@
    static/estranha.js, a partir de /apuracao/explicacao/acusacoes.json. O chute
    do 2º turno mora em /apuracao. Versão anterior: tag git pre-redesign-20261030. #}
 {% set pagina = "casos" %}
-{% block title %}Teorias sobre fraudes na eleição, conferidas · estranhaeleicao.org{% endblock %}
-{% block meta %}
-  <meta name="description" content="Silva Jardim, as 106 urnas zeradas, as zonas com o mesmo número, a seção de 700 votos e o algoritmo que derrubava o Bolsonaro: cada teoria sobre o 2º turno de 2026, conferida no dado do TSE.">
-  <meta property="og:title" content="Teorias sobre fraudes na eleição, conferidas">
-  <meta property="og:description" content="Cada teoria que circulou sobre o 2º turno de 2026, com quem a afirmou e o que o arquivo do TSE mostra. E um simulador para você chutar como votou cada eleitor.">
-{% endblock %}
+{# SEO (31/10/2026): o Seobility mede o título e a descrição em pixels, não em
+   caracteres (limites de 580 e 1000). O título antigo — "Teorias sobre fraudes
+   na eleição, conferidas · estranhaeleicao.org" — dava 591 px e era o único
+   aviso de metadado no relatório. Este dá 570 px; a descrição, 971 px em 105
+   caracteres. As palavras do h1 (fraudes, eleição, teorias, conferidas)
+   continuam no título, na ordem em que a busca as procura. #}
+{% block title %}Fraudes na eleição: as teorias, conferidas · estranhaeleicao.org{% endblock %}
+{% set descricao = "Cada teoria de fraude do 2º turno de 2026, conferida no dado do TSE: urnas zeradas, a seção de 700 votos." %}
+{% set og_titulo = "Fraudes na eleição: as teorias, conferidas" %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/entrada.png" %}
+{% set og_imagem_alt = "Fraudes na eleição: as teorias, conferidas, ao lado do placar de 51,79% a 48,21% do 2º turno." %}
 {% block content %}
   {# Arte do topo: a curva da apuração do 2º turno (redesenhada dos dados do TSE,
      static/fundo-curvas.svg) sobre a foto do app de resultados, esmaecida
      (static/fundo-foto.webp). Só enfeite: fica atrás do texto e some para a esquerda. #}
+  {# width/height nas duas: sem eles o navegador não reserva o espaço e o
+     texto pula quando a imagem chega (o CLS que o PageSpeed reclama). Os
+     valores são os intrínsecos dos arquivos; o CSS manda no tamanho real. #}
   <div class="arte" aria-hidden="true">
-    <img class="arte-foto" src="/static/fundo-foto.webp?v={{ static_v }}" alt="">
-    <img class="arte-curvas" src="/static/fundo-curvas.svg?v={{ static_v }}" alt="">
+    <img class="arte-foto" src="/static/fundo-foto.webp?v={{ static_v }}" alt="" width="590" height="554" decoding="async">
+    <img class="arte-curvas" src="/static/fundo-curvas.svg?v={{ static_v }}" alt="" width="800" height="300" decoding="async">
   </div>
   <header class="hero" id="topo">
     <p class="hero-tag">2º turno · 25/10/2026 · dados do TSE</p>
     <h1>Teorias sobre<br>fraudes na eleição,<br><span>conferidas.</span></h1>
-    <p class="hero-sub">23 teorias e denúncias sobre o 2º turno, cada uma com o vídeo de quem a espalhou e o que os dados do TSE mostram.</p>
+    <p class="hero-sub">As teorias e denúncias sobre o 2º turno, cada uma com o vídeo de quem a espalhou e o que os dados do TSE mostram.</p>
     <div class="placar" aria-label="Resultado: Lula 51,79%, Flávio 48,21%">
       <div class="placar-barra"><span class="l" style="--p:51.79%"></span><span class="f"></span></div>
       <div class="placar-nomes"><span class="l">Lula <b>51,79%</b></span><span class="f"><b>48,21%</b> Flávio</span></div>
@@ -39,6 +47,14 @@
       <h2 class="secao-tit">Os casos</h2>
       <p class="secao-sub">Quando o número confere, a gente diz que confere.</p>
       <div id="lista-casos" class="casos"><p class="carregando">Abrindo os casos…</p></div>
+      {# A lista é montada pelo navegador, a partir de um JSON. Sem JS ela não
+         existe — e é por isso que esta página NÃO leva FAQPage: o Google exige
+         o conteúdo visível no HTML, e marcar o que só aparece via script seria
+         cloaking. O `noscript` abaixo só avisa onde o dado está; não esconde
+         texto nenhum no HTML para robô ler. #}
+      <noscript>
+        <p class="secao-sub">Os casos desta página são montados pelo navegador, a partir do arquivo público <a href="/apuracao/explicacao/acusacoes.json">acusacoes.json</a>: nele estão a afirmação, quem a fez e o que o dado do TSE mostra.</p>
+      </noscript>
     </section>
 
     {# Faixa de outra tonalidade, de ponta a ponta, para separar dos casos. #}
@@ -53,8 +69,12 @@
 
   <footer class="rodape">
     <p><b>Fonte:</b> votação por seção dos dois turnos (votacao_secao_2026_BR, dadosabertos.tse.jus.br), somada e conferida com o resultado oficial; 2022 pelo mesmo arquivo e pelos boletins de urna. Checagens: <a href="https://www.agencialupa.org/checagem/2026/10/28/apos-fuga-do-brasil-flavio-bolsonaro-mente-sobre-eleicoes-em-carta-com-teor-golpista/" target="_blank" rel="noopener">Lupa</a> e <a href="https://www.poder360.com.br/poder-eleicoes-2026/flavio-usa-teoria-imprecisa-para-chamar-vitoria-de-lula-de-fraude/" target="_blank" rel="noopener">Poder360</a>.</p>
-    <p><b>Capas:</b> quadros dos vídeos citados; fotos do Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Desfile_da_Acad%C3%AAmicos_de_Niter%C3%B3i_no_Carnaval_de_2026,_Rio_de_Janeiro,_Brasil_por_Marvin_Brand%C3%A3o_01.jpg" target="_blank" rel="noopener">Marvin Brandão</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:2026_ANDR%C3%89_JANONES_CANDIDATO_DEPUTADO_FEDERAL_MG_(130002539715).jpg" target="_blank" rel="noopener">TSE</a> (CC BY 4.0) e <a href="https://commons.wikimedia.org/wiki/File:Pr%C3%A9dio_da_Reitoria_-_Universidade_Federal_de_Santa_Catarina_(UFSC).JPG" target="_blank" rel="noopener">Airton Jordani</a> (CC BY-SA 4.0), recortadas.</p>
+    <p><b>Capas:</b> quadros dos vídeos citados; fotos do Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Desfile_da_Acad%C3%AAmicos_de_Niter%C3%B3i_no_Carnaval_de_2026,_Rio_de_Janeiro,_Brasil_por_Marvin_Brand%C3%A3o_01.jpg" target="_blank" rel="noopener">Marvin Brandão</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:2026_ANDR%C3%89_JANONES_CANDIDATO_DEPUTADO_FEDERAL_MG_(130002539715).jpg" target="_blank" rel="noopener">TSE</a> (CC BY 4.0) e <a href="https://commons.wikimedia.org/wiki/File:Pr%C3%A9dio_da_Reitoria_-_Universidade_Federal_de_Santa_Catarina_(UFSC).JPG" target="_blank" rel="noopener">Airton Jordani</a> (CC BY-SA 4.0); <a href="https://commons.wikimedia.org/wiki/File:Urna_eletr%C3%B4nica_brasileira_UE2020.jpg" target="_blank" rel="noopener">Antonio Augusto/TSE</a> (domínio público), <a href="https://commons.wikimedia.org/wiki/File:Elei%C3%A7%C3%B5es_2026_-_Primeiro_turno_(55568483402).jpg" target="_blank" rel="noopener">Carlos Moura/Agência Senado</a>, <a href="https://commons.wikimedia.org/wiki/File:Ag%C3%AAncia_da_Caixa_Econ%C3%B4mica_Federal_na_Universidade_Federal_de_Goi%C3%A1s,_Goi%C3%A2nia,_dezembro_de_2022_(1).jpg" target="_blank" rel="noopener">Fronteira</a>, <a href="https://commons.wikimedia.org/wiki/File:Unidade_Prisional_em_Pacatuba.jpg" target="_blank" rel="noopener">Porto Neto</a> e <a href="https://commons.wikimedia.org/wiki/File:Dinheiro_encontrado.jpg" target="_blank" rel="noopener">Mendes Lima/Dourados Agora</a> (CC BY-SA 4.0), recortadas.</p>
     <p>A página responde à afirmação, não à pessoa. Todas as contas: <a href="/simulacao/detalhe">a conta detalhada</a>.</p>
   </footer>
 {% endblock %}
-{% block scripts %}<script src="/static/estranha.js?v={{ static_v }}" data-versao="{{ static_v }}"></script>{% endblock %}
+{# `defer` (31/10/2026): o estranha.js já só age no DOMContentLoaded, então
+   baixar em paralelo ao HTML não muda nada no comportamento — e a página
+   deixa de esperar a rede para terminar de aparecer. O `?v=` continua, e é
+   lido pelo próprio script (dataset.versao) para versionar os JSON. #}
+{% block scripts %}<script src="/static/estranha.js?v={{ static_v }}" data-versao="{{ static_v }}" defer></script>{% endblock %}

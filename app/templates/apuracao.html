@@ -8,14 +8,40 @@
    Página leve de propósito: carrega apuracao_base.js + 3 módulos da análise,
    e nunca o apuracao.js do painel da noite (esse vive em /apuracao/noite). #}
 {% block title %}A conta do 2º turno de 2026 · de onde vieram os votos{% endblock %}
+{# SEO (31/10/2026): os metadados desta página moram aqui, e não no site.html:
+   ela estende o base.html (moldura das páginas de dados), que não traz nada
+   de Open Graph. O `extra_css` é o único bloco do base.html que cai dentro
+   do <head> — por isso nome esquisito para o que vem abaixo. `meta` no head
+   é válido em qualquer ordem; só não pode ficar espalhado no meio das
+   folhas de estilo, como estava. #}
 {% block extra_css %}
-<meta name="description" content="Como o 2º turno de 2026 fechou em 51,79% a 48,21%: de onde vieram os 64,3 milhões de votos do Lula, o que cada candidato da terceira via fez, e um simulador para testar outros cenários.">
-<meta property="og:title" content="A conta do 2º turno de 2026">
-<meta property="og:site_name" content="estranhaeleicao.org">
+{% set descricao_pagina = "A conta do 2º turno de 2026 por grupo de eleitor: de onde vieram os votos de Lula e de Flávio, e um simulador." %}
+<meta name="description" content="{{ descricao_pagina }}">
 <link rel="canonical" href="https://estranhaeleicao.org/simulacao/detalhe">
-<meta property="og:image" content="https://estranhaeleicao.org/static/og.jpg">
+<meta property="og:site_name" content="estranhaeleicao.org">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://estranhaeleicao.org/simulacao/detalhe">
+<meta property="og:title" content="A conta do 2º turno de 2026: de onde vieram os votos">
+<meta property="og:description" content="{{ descricao_pagina }}">
+<meta property="og:image" content="https://estranhaeleicao.org/static/og/detalhe.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A conta do 2º turno de 2026: 51,79% a 48,21%, com os votos por grupo de eleitor.">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:description" content="Para onde foi cada voto do 1º turno: arraste as barras e veja se o seu cenário fecha com o resultado do TSE.">
+<meta name="twitter:title" content="A conta do 2º turno de 2026: de onde vieram os votos">
+<meta name="twitter:description" content="{{ descricao_pagina }}">
+<meta name="twitter:image" content="https://estranhaeleicao.org/static/og/detalhe.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+  {"@type":"ListItem","position":2,"name":"Simulação","item":"https://estranhaeleicao.org/simulacao"},
+  {"@type":"ListItem","position":3,"name":"A conta do 2º turno","item":"https://estranhaeleicao.org/simulacao/detalhe"}
+]}
+</script>
+{# As folhas de estilo, logo depois dos metadados. Antes, descrição, og:,
+   canonical e twitter: viviam misturados a elas — funcionava, mas ninguém
+   achava nada. #}
 <link rel="stylesheet" href="/static/apuracao.css?v={{ static_v }}">
 <link rel="stylesheet" href="/static/apuracao_conta.css?v={{ static_v }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">

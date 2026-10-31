@@ -14,10 +14,11 @@ lógica; `auth.py` e `app_visibility.py` são substitutos. O container só lê.
 """
 from __future__ import annotations
 
+import time
 from pathlib import Path
 
 from fastapi import FastAPI, Request
-from fastapi.responses import PlainTextResponse, Response
+from fastapi.responses import PlainTextResponse, RedirectResponse, Response
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -91,11 +92,44 @@ PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detal
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 
+# O domínio canônico do modo público. Tudo que chega por `www.` ou por `http://`
+# vai para cá com 301 (o Seobility marcou os dois: "o site usa www e não-www, o
+# que gera conteúdo duplicado" e "o redirecionamento para HTTPS não está certo").
+CANONICO = "estranhaeleicao.org"
+
+
+def _destino_canonico(cabecalhos, caminho: str) -> str | None:
+    """A URL de 301 para este pedido, ou None se ele já está no lugar certo.
+
+    Atrás do túnel da Cloudflare o que o app vê não é o que o visitante
+    digitou: o pedido chega em `127.0.0.1:3030`, em `http`. O que falta vem
+    nos cabeçalhos que o túnel repassa — o `Host` do site e o
+    `X-Forwarded-Proto`. Só age quando o host é do domínio do site; qualquer
+    outro (a rede local, o healthcheck do compose) passa intacto, senão o
+    container se redirecionaria para fora do ar.
+    """
+    host = (cabecalhos.get("host") or "").split(":")[0].lower()
+    if host not in (CANONICO, "www." + CANONICO):
+        return None
+    proto = (cabecalhos.get("x-forwarded-proto") or "").split(",")[0].strip().lower()
+    # `proto` vazio é o teste local (`http://127.0.0.1:3038` com Host do site):
+    # nesse caso não dá para saber o esquema real, e seguir em frente evita um
+    # 301 em falso que quebraria o ensaio.
+    if host == CANONICO and proto != "http":
+        return None
+    return "https://" + CANONICO + caminho
+
+
 @app.middleware("http")
 async def porta(request: Request, call_next):
     caminho = request.url.path
     # `?v=` novo em cada resposta: o código muda sem rebuild (ver _atualizar_versao).
     _atualizar_versao()
+    if MODO != "completo" and caminho != "/saude":  # o healthcheck usa 127.0.0.1
+        fila = ("?" + request.url.query) if request.url.query else ""
+        destino = _destino_canonico(request.headers, caminho + fila)
+        if destino:
+            return RedirectResponse(destino, status_code=301)
     if MODO == "completo":
         # Arquivo privado: tudo atrás do login (menos o healthcheck).
         if caminho != "/saude" and not current_user(request):
@@ -104,7 +138,16 @@ async def porta(request: Request, call_next):
     elif caminho not in PUBLICO and not caminho.startswith(PUBLICO_PREFIXOS):
         return PlainTextResponse("não encontrado", status_code=404)
     resposta = await call_next(request)
-    # Página vista (só as páginas, não os arquivos; ver visitas.py).
+    # Cache dos estáticos (31/10/2026, achado do Seobility: "a página leva
+    # 0,69 s"). O `?v=` do template muda quando o arquivo muda, então o
+    # navegador pode guardar: 1 h, e o ETag do Starlette resolve o resto com
+    # 304 sem corpo. As imagens de Open Graph entram junto — o WhatsApp e o X
+    # buscam a URL uma vez e guardam do lado deles.
+    # NÃO vira `immutable`/`max-age` longo: o `static_v` recalcula o mtime por
+    # request de propósito (ver _atualizar_versao) e um arquivo trocado tem de
+    # furar o cache. 1 h é o que segura a navegação sem prender o visitante.
+    if caminho.startswith("/static/") and resposta.status_code == 200:
+        resposta.headers.setdefault("Cache-Control", "public, max-age=3600")
     if MODO != "completo" and request.method == "GET" and caminho in PAGINAS and resposta.status_code == 200:
         try:
             visitas.anotar(caminho, get_real_ip(request), request.headers.get("user-agent", ""), request.headers.get("referer", ""))
@@ -161,13 +204,41 @@ async def favicon_ico():
 async def robots():
     if MODO == "completo":
         return PlainTextResponse("User-agent: *\nDisallow: /\n")
-    return PlainTextResponse("User-agent: *\nAllow: /\nSitemap: https://estranhaeleicao.org/sitemap.xml\n")
+    # O Sitemap vai com URL absoluta (é o que a norma do robots.txt pede) e o
+    # resto continua liberado: o site é público e não tem área de busca.
+    return PlainTextResponse("User-agent: *\nAllow: /\n\nSitemap: https://estranhaeleicao.org/sitemap.xml\n")
+
+
+# As páginas que entram no sitemap e os templates que cada uma usa. O `lastmod`
+# sai do mtime deles, não de uma data escrita à mão: quando o texto de um caso
+# muda, a data da página muda junto — e quando nada muda, a data também não.
+SITEMAP = {
+    "/": ("site.html", "estranha.html"),
+    "/simulacao": ("site.html", "chute.html"),
+    "/simulacao/cenarios": ("site.html", "chute.html"),
+    "/simulacao/detalhe": ("base.html", "apuracao.html"),
+    "/sobre": ("site.html", "sobre.html"),
+}
+
+
+def _lastmod(templates_usados: tuple[str, ...]) -> str:
+    """A data do arquivo mais novo que monta a página, em AAAA-MM-DD."""
+    mt = [Path(__file__).stat().st_mtime]
+    for nome in templates_usados:
+        caminho = BASE / "templates" / nome
+        if caminho.exists():
+            mt.append(caminho.stat().st_mtime)
+    return time.strftime("%Y-%m-%d", time.localtime(max(mt)))
 
 
 @app.get("/sitemap.xml", include_in_schema=False)
 async def sitemap():
-    urls = "".join(f"<url><loc>https://estranhaeleicao.org{u}</loc></url>"
-                   for u in ("/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre"))
+    urls = "".join(
+        f"<url><loc>https://estranhaeleicao.org{u}</loc>"
+        f"<lastmod>{_lastmod(usados)}</lastmod>"
+        f"<changefreq>{'daily' if u == '/' else 'weekly'}</changefreq>"
+        f"<priority>{'1.0' if u == '/' else '0.8'}</priority></url>"
+        for u, usados in SITEMAP.items())
     return Response('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
                     + urls + "</urlset>", media_type="application/xml")
 

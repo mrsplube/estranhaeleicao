@@ -72,7 +72,7 @@
   function tabelaTroca(d) {
     var a = d.troca_minima["2026"], b = d.troca_minima["2022"];
     var par = function (x) { return num(x[0]) + " (" + num(x[1]) + " eleitores)"; };
-    return tabela(["Precisou eleitor do outro finalista mudar de lado?", "2026: do 22 para o Lula", "2022: do Lula para o 22"], [
+    return tabela(["Precisou eleitor do outro finalista mudar de lado?", "2026: do Flávio para o Lula", "2022: do Lula para o Bolsonaro"], [
       ["Municípios em que a conta exige troca (contando quem faltou no 1º turno)",
         num(a.municipios_estrito.para_13) + " de " + num(a.municipios_estrito.com_eleitorado),
         num(b.municipios_estrito.para_22) + " de " + num(b.municipios_estrito.com_eleitorado)],
@@ -88,7 +88,7 @@
   function foraDoPadrao(d) {
     var f = d.fora_do_padrao;
     if (!f) return p("Sem o dado das cidades.");
-    var pp = function (x) { return (x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + " p.p."; };
+    var pp = function (x) { return (x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + " ponto percentual"; };
     var nome = function (c) { return c.nm + "/" + c.uf.toUpperCase(); };
     var de2022 = function (c) {
       var y = c.em_2022;
@@ -111,18 +111,18 @@
     if (rg && rg.em_2022) casos.push("Em Rafael Godeiro (RN) o Flávio caiu em todas as " + rg.secoes + " seções (" + sinal(rg.f[1] - rg.f[0]) + " votos); em 2022 a cidade acompanhou o país, " +
       "com o Lula perdendo " + num(rg.em_2022.l[0] - rg.em_2022.l[1]) + " votos entre os turnos.");
     return [
-      p("Silva Jardim não é a mais estranha. A régua: quanto a fatia do candidato do 22 mudou entre os turnos na cidade, menos quanto mudou no país (" +
+      p("Silva Jardim não é a mais estranha. A régua: quanto a fatia do candidato do PL mudou entre os turnos na cidade, menos quanto ela mudou no país (" +
         pp(f.nacional[0]) + " em 2026, " + pp(f.nacional[1]) + " em 2022). As " + num(f.cidades) + " cidades se espalham do mesmo jeito nas duas eleições: desvio-padrão de " +
-        f.dp[0].toLocaleString("pt-BR") + " ponto em 2026 e " + f.dp[1].toLocaleString("pt-BR") + " em 2022."),
+        f.dp[0].toLocaleString("pt-BR") + " ponto percentual em 2026 e " + f.dp[1].toLocaleString("pt-BR") + " em 2022."),
       p("Onde o Flávio subiu bem mais que o país: " + f.ufs_favor[0].cidades + " das 50 cidades da ponta ficam em " + f.ufs_favor[0].nome +
         ", terra do Caiado — lá a terceira via foi para o Flávio (o estado inteiro ficou, em média, " + pp(f.goias.desvio_medio) + " acima do país)."),
-      tabela(["Cidade", "o 22: 1º → 2º turno", "em relação ao país", "seções em que o 22 subiu", "2022 (em relação ao país)"],
+      tabela(["Cidade", "o candidato do PL: 1º → 2º turno", "em relação ao país", "seções em que ele subiu", "2022 (em relação ao país)"],
         linhas(f.a_favor_do_22), ["", "num", "num", "num", "num"]),
       p("Onde o Flávio ficou bem abaixo do país: pequenas cidades de " + f.ufs_contra.slice(0, 3).map(function (u) { return u.nome + " (" + u.cidades + " das 50)"; }).join(", ") + "."),
-      tabela(["Cidade", "o 22: 1º → 2º turno", "em relação ao país", "seções em que o 22 caiu", "2022 (em relação ao país)"],
+      tabela(["Cidade", "o candidato do PL: 1º → 2º turno", "em relação ao país", "seções em que ele caiu", "2022 (em relação ao país)"],
         linhas(f.contra_o_22), ["", "num", "num", "num", "num"]),
-      p("A coluna das seções é o teste que separa cidade de urna. Nas duas pontas a mudança aparece na maior parte das seções da cidade, e a seção em que o 22 mais mudou " +
-        "responde por uma fatia pequena do total (a “pior” entre parênteses). Onde o 22 caiu em menos seções, como em Paranhos, ele ficou parado e o desvio veio de eleitor novo do outro lado. Uma adulteração deixaria a mudança presa a poucas seções; o que aparece é a cidade inteira mudando. " +
+      p("A coluna das seções é o teste que separa cidade de urna. Nas duas pontas a mudança aparece na maior parte das seções da cidade, e a seção em que o candidato do PL mais mudou " +
+        "responde por uma fatia pequena do total (a “pior” entre parênteses). Onde ele caiu em menos seções, como em Paranhos, ficou parado e o desvio veio de eleitor novo do outro lado. Uma adulteração deixaria a mudança presa a poucas seções; o que aparece é a cidade inteira mudando. " +
         "Em cidade pequena isso tem nome: liderança local que muda de lado entre os turnos, ou comparecimento que despenca ou dispara."),
       casos.length ? p(casos.join(" ")) : null,
     ];
@@ -158,10 +158,10 @@
           if (!v) return p("Sem o dado de 2022 para a cidade.");
           return [
             tabela(["Entre o 1º e o 2º turno", "2022 (Bolsonaro)", "2026 (Flávio)"], [
-              ["Saldo do candidato do 22", sinal(v.f2 - v.f1), sinal(t2.flavio - t1.flavio)],
+              ["Saldo do candidato do PL (Bolsonaro em 2022, Flávio em 2026)", sinal(v.f2 - v.f1), sinal(t2.flavio - t1.flavio)],
               ["Saldo do Lula", sinal(v.l2 - v.l1), sinal(t2.lula - t1.lula)],
               ["Terceira via no 1º turno", num(v.t1), num(t1.validos - t1.lula - t1.flavio)],
-              ["O 22 no 2º turno", pc(100 * v.f2 / v.v2, 1), pc(100 * t2.flavio / t2.validos, 1)],
+              ["O candidato do PL no 2º turno", pc(100 * v.f2 / v.v2, 1), pc(100 * t2.flavio / t2.validos, 1)],
             ], ["", "num", "num"]),
             p("Em 2022 a cidade foi para o outro lado: o Bolsonaro ganhou mais que o Lula entre os turnos (" + sinal(v.f2 - v.f1) + " × " +
               sinal(v.l2 - v.l1) + "), como no país (" + mi(n.flavio2 - n.flavio1) + " × " + mi(n.lula2 - n.lula1) + "). " +
@@ -180,14 +180,43 @@
             "O ganho líquido do Flávio foi zero ou negativo em " + num(x.flavio_ganho_ate_zero) + " dos " + num(x.municipios) +
             " municípios, e em " + num(x.quase_tudo_lula) + " deles 99% ou mais do saldo ficou com o Lula — " + num(x.quase_tudo_lula_com_flavio_60) +
             " desses com o Flávio vencendo por 60% ou mais."))),
-        bloco("Municípios parecidos, onde o Flávio venceu com 60% ou mais",
-          tabela(["Município", "Flávio no 2º t.", "saldos 2026 (22 × Lula)", "saldos 2022 (22 × Lula)", "terceira via 2026"],
-            x.exemplos.map(function (e) {
+        bloco("Municípios parecidos, onde o Flávio venceu com 60% ou mais: 2026 comparado com 2022",
+          (function () {
+            var lin = [], com22 = 0, lulaCresceu = 0, bolsoCresceu = 0, positivo22 = [], perderam = [], pior = null;
+            // "A, B e C" — sem repetir a frase inteira para cada cidade.
+            var nomes = function (a) {
+              var n = a.map(function (q) { return q.nm; });
+              return n.length > 1 ? n.slice(0, -1).join(", ") + " e " + n[n.length - 1] : n[0];
+            };
+            x.exemplos.forEach(function (e) {
               var v = d.regua_2022.municipios.exemplos[e.uf + "-" + e.cd];
-              return [e.nm + "/" + e.uf.toUpperCase(), pc(e.f2_pct, 1), sinal(e.d_f) + " × " + sinal(e.d_l),
-                v ? sinal(v.f2 - v.f1) + " × " + sinal(v.l2 - v.l1) : "—", num(e.terc)];
-            }),
-            ["", "num", "num", "num", "num"])),
+              var b22 = v ? v.f2 - v.f1 : null, l22 = v ? v.l2 - v.l1 : null;
+              lin.push([e.nm + "/" + e.uf.toUpperCase(), pc(e.f2_pct, 1), sinal(e.d_f) + " × " + sinal(e.d_l),
+                v ? sinal(b22) + " × " + sinal(l22) : "—", num(e.terc)]);
+              if (!v) return;
+              com22++;
+              if (e.d_l > e.d_f) lulaCresceu++;
+              if (b22 > l22) bolsoCresceu++;
+              (b22 > 0 && l22 > 0 ? positivo22 : perderam).push({ nm: e.nm, b: b22, l: l22 });
+              if (!pior || b22 - l22 > pior.dif) pior = { nm: e.nm + "/" + e.uf.toUpperCase(), dif: b22 - l22, b22: b22, df: e.d_f };
+            });
+            return [
+              tabela(["Município", "Flávio no 2º turno", "saldo 2026 (Flávio × Lula)", "saldo 2022 (Bolsonaro × Lula)", "terceira via em 2026"],
+                lin, ["", "num", "num", "num", "num"]),
+              h("p", { class: "ap-acu-leg", text:
+                "Saldo = quantos votos o candidato ganhou ou perdeu entre o 1º e o 2º turno. " +
+                "Em 2022, o Bolsonaro cresceu mais que o Lula em " + bolsoCresceu + " das " + com22 + " cidades; em 2026, o Lula cresceu mais que o Flávio em " +
+                lulaCresceu + " das " + com22 + ". " + pior.nm + " é o caso extremo: o Bolsonaro somou " + sinal(pior.b22) + " em 2022 e o Flávio perdeu " +
+                num(-pior.df) + " em 2026." }),
+              h("p", { class: "ap-acu-leg", text:
+                (positivo22.length ? "Não é uniforme. Em " + nomes(positivo22) + ", os dois saldos de 2022 são positivos: o Bolsonaro cresceu mais, mas o Lula não perdeu voto." : "") }),
+              h("p", { class: "ap-acu-leg", text:
+                "Em " + nomes(perderam) + ", o Lula perdeu votos em 2022 — é o contraste mais direto com 2026." }),
+              h("p", { class: "ap-acu-leg", text:
+                "Não é o país inteiro. São as seis cidades em que o Flávio venceu com 60% ou mais e em que quase todo o saldo ficou com o Lula, entre as " +
+                num(x.municipios) + " com os dois turnos. O que elas mostram, juntas, é o mesmo eleitorado indo com o candidato que o país escolheu em cada ano." }),
+            ];
+          })()),
         bloco("Precisou eleitor do Flávio virar Lula?", (function () {
           var tm = d.troca_minima, el = tm.silva_jardim.eleitorado, terc1 = t1.validos - t1.lula - t1.flavio;
           var faltou = el ? el - t1.comp : null;
@@ -208,7 +237,7 @@
             p("Monte Carlo é um jeito legítimo de calcular uma chance: sorteia-se um modelo milhares de vezes. A resposta só vale o que vale o modelo. " +
               "O do post trata os 985 votos como moedas independentes, cada uma com a mesma chance de cair no Flávio. Para ver se esse modelo mede fraude, " +
               "basta aplicá-lo a todas as cidades, e não só à escolhida depois de ver o resultado:"),
-            tabela(["Eleição", "cidades avaliadas", "“impossíveis” a favor do Lula", "“impossíveis” a favor do 22"], [
+            tabela(["Eleição", "cidades avaliadas", "“impossíveis” a favor do Lula", "“impossíveis” a favor do candidato do PL"], [
               ["2026", num(g["2026"].avaliados), num(g["2026"].impossivel_a_favor_do_13), num(g["2026"].impossivel_a_favor_do_22)],
               ["2022", num(g["2022"].avaliados), num(g["2022"].impossivel_a_favor_do_13), num(g["2022"].impossivel_a_favor_do_22)],
             ], ["", "num", "num", "num"]),
@@ -368,7 +397,7 @@
           barras([{ v: d.regua_2022.secoes.f_ate_10.por_voto_2t, rot: "2022, 2º turno (Bolsonaro)", classe: "c" },
                   { v: f1.por_voto, rot: "2026, 1º turno", classe: "a" },
                   { v: f2.por_voto, rot: "2026, 2º turno", classe: "b" }],
-            "Seções por número de votos do candidato do 22, de 0 a 10: 2º turno de 2022, 1º e 2º turno de 2026"),
+            "Seções por número de votos do candidato do PL, de 0 a 10: 2º turno de 2022, 1º e 2º turno de 2026"),
           p("No 1º turno já havia " + num(f1.secoes) + " seções com o Flávio até 10 votos (" + f1.zeradas + " zeradas). " +
             "Das " + num(f2.secoes) + " do 2º turno, " + num(x.ja_eram.secoes) + " já tinham o Flávio até 10 votos em 04/10. " +
             "As outras " + num(x.entraram.secoes) + " entraram na lista porque ele caiu de pouco mais de 10 para 10 ou menos: perdeu " +
@@ -481,7 +510,7 @@
     var c = d.curva, r = d.regua_2022, n = r.noite, j = n.janela, t26 = d.trocas_2026, t22 = r.trocas;
     var pctDe = function (x) { return 100 * x / n.secoes; };
     var vira = n.trocas.length ? n.trocas[n.trocas.length - 1] : null;
-    var lin = function (l) { return [l.hora, (l.variacao_pp > 0 ? "+" : "−") + Math.abs(l.variacao_pp).toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + " p.p.",
+    var lin = function (l) { return [l.hora, (l.variacao_pp > 0 ? "+" : "−") + Math.abs(l.variacao_pp).toLocaleString("pt-BR", { maximumFractionDigits: 3 }) + " ponto percentual",
       pc(l.bolsonaro_no_lote, 1), l.lugares.join(", ")]; };
     var noite22 = grafico({
       W: 640, H: 250, x: [0, 100], y: [44, 60], tx: [0, 25, 50, 75, 100], ty: [44, 48, 52, 56, 60],
@@ -547,7 +576,7 @@
             pc(t26.ultima_troca_max, 1) + " contado; do Sul para o Nordeste, o Lula começa com " + pc(c.por_regiao[0][1], 1) + " e vira no fim."),
           p("Os boletins de 2026 com a hora de chegada ainda não saíram nos dados abertos do TSE; quando saírem, a noite de 2026 se refaz do mesmo jeito.")]),
         bloco("Confira você mesmo", p("Os boletins de urna de 2022 estão em dadosabertos.tse.jus.br (conjunto “resultados-2022-boletim-de-urna”). " +
-          "Ordene as seções pela coluna DT_BU_RECEBIDO, some os votos do 13 e do 22 e desenhe a fração acumulada.")),
+          "Ordene as seções pela coluna DT_BU_RECEBIDO, some os votos do 13 (Lula) e do 22 (Bolsonaro) e desenhe a fração acumulada.")),
       ]);
   }
 

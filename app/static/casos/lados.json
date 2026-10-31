@@ -62,7 +62,7 @@
   },
   "sala-cofre": {
    "fraude": "Fiscais do PL foram tirados da sala-cofre depois das 17h, e há indícios de comandos externos num servidor que deveria estar isolado.",
-   "defesa": "A sala-cofre nunca recebeu visitas; fiscais acompanharam a sala de totalização, que é filmada. Sobre os comandos, nenhuma prova foi apresentada. E o servidor não muda o boletim impresso em cada seção.",
+   "defesa": "A sala-cofre é uma câmara fechada, na Secretaria de Tecnologia da Informação do TSE, onde ficam as cópias lacradas dos programas e os computadores da totalização, e não um espaço de visitação: no dia da eleição, ninguém trabalha nela. Os fiscais do PL acompanharam a sala de totalização, a poucos metros dali, que é aberta e filmada. Sobre os comandos, nenhuma prova foi apresentada. E o servidor não muda o boletim de urna impresso em cada seção.",
    "juiz": {
     "tag": "falsa",
     "decisao": "Premissa falsa.",
@@ -160,12 +160,21 @@
    }
   },
   "pacote": {
-   "fraude": "Bolsa Família, Desenrola, diesel e mensagens do Gov.br concentrados nas semanas da eleição: é compra de voto com dinheiro público.",
+   "fraude": "Bolsa Família, combustíveis, Desenrola, blusinhas e bets concentrados nas semanas da eleição: é compra de voto com dinheiro público.",
    "defesa": "Programas sociais previstos em lei e no orçamento podem continuar em ano eleitoral. Governos de todos os partidos anunciam medidas antes de eleição.",
    "juiz": {
     "tag": "estranho",
     "decisao": "Estranho, em julgamento.",
     "sintese": "O calendário é suspeito e merece julgamento. Se for abuso, a pena é cassação, não recontagem: não é fraude na urna."
+   }
+  },
+  "maquina-celular": {
+   "fraude": "O governo usou a base do Gov.br, do INSS e da Receita para falar com dezenas de milhões às vésperas do voto, e o aviso de prova de vida sugere que quem não votar perde o benefício. Ao mesmo tempo, não mobilizou o jovem a tirar o título.",
+   "defesa": "Votar vale como prova de vida desde 2022, por portaria do INSS, e quem não vota não perde nada. A campanha de alistamento é da Justiça Eleitoral, não do governo, e o TSE não viu nas mensagens pedido de voto nem menção a candidato.",
+   "juiz": {
+    "tag": "estranho",
+    "decisao": "Estranho, em julgamento.",
+    "sintese": "As mensagens e a queda do eleitorado jovem estão documentadas. Que uma coisa tenha causado a outra, ou que o governo tenha escolhido não falar com o jovem, não está demonstrado."
    }
   },
   "exercito": {

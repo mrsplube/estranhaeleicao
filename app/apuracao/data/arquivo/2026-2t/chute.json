@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-30T21:48:32",
+ "gerado_em": "2026-10-31T10:27:23",
  "eleitorado": 158745502,
  "alvo": {
   "lula": 64256232,
@@ -18,7 +18,7 @@
    "v": 53879538,
    "fam": "finalistas",
    "dica": null,
-   "dica_txt": "A pesquisa não publicou quantos mantêm o voto. Na prática, quase todo mundo mantém.",
+   "dica_txt": "Na BTG/Nexus de outubro, 98% repetem o voto.",
    "opinioes": [
     {
      "inst": "Datafolha",
@@ -37,6 +37,23 @@
      },
      "obs": "antes do 1º turno",
      "texto": "98% mantêm o voto · 2% mudam"
+    },
+    {
+     "inst": "BTG/Nexus",
+     "fonte": {
+      "nome": "BTG/Nexus, 10 a 12/10/2026",
+      "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/"
+     },
+     "lula": 0.98,
+     "flavio": 0.01,
+     "nenhum": 0.01,
+     "bruto": {
+      "lula": 98,
+      "flavio": 1,
+      "nenhum": 1,
+      "indecisos": 0
+     },
+     "texto": "98% repetem o voto · 2% não informado"
     },
     {
      "inst": "Palpite clássico",
@@ -69,7 +86,7 @@
    "v": 56104503,
    "fam": "finalistas",
    "dica": null,
-   "dica_txt": "A pesquisa não publicou quantos mantêm o voto. Na prática, quase todo mundo mantém.",
+   "dica_txt": "Na BTG/Nexus de outubro, 98% repetem o voto.",
    "opinioes": [
     {
      "inst": "Datafolha",
@@ -88,6 +105,23 @@
      },
      "obs": "antes do 1º turno",
      "texto": "99% mantêm o voto · 1% muda"
+    },
+    {
+     "inst": "BTG/Nexus",
+     "fonte": {
+      "nome": "BTG/Nexus, 10 a 12/10/2026",
+      "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/"
+     },
+     "lula": 0.01,
+     "flavio": 0.98,
+     "nenhum": 0.01,
+     "bruto": {
+      "lula": 1,
+      "flavio": 98,
+      "nenhum": 1,
+      "indecisos": 0
+     },
+     "texto": "98% repetem o voto · 2% não informado"
     },
     {
      "inst": "Palpite clássico",
@@ -364,22 +398,38 @@
    "v": 326427,
    "fam": "terceira",
    "dica": {
-    "lula": 0.04,
-    "flavio": 0.59,
-    "nenhum": 0.37,
+    "lula": 0.12,
+    "flavio": 0.8,
+    "nenhum": 0.08,
     "bruto": {
-     "lula": 4,
-     "flavio": 59,
-     "nenhum": 37,
+     "lula": 12,
+     "flavio": 80,
+     "nenhum": 8,
      "indecisos": 0
     }
    },
    "fonte": {
-    "nome": "Quaest, 3 a 6/09/2026",
-    "url": "https://revistaoeste.com/politica/maioria-dos-eleitores-de-cury-renan-caiado-e-zema-votaria-em-flavio-no-2o-turno/"
+    "nome": "BTG/Nexus, 10 a 12/10/2026",
+    "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/"
    },
-   "nota": "Pesquisa de antes do 1º turno: a de outubro não separou o Zema.",
+   "nota": "A Quaest e a AtlasIntel de outubro não separaram o Zema; a BTG/Nexus separou.",
    "opinioes": [
+    {
+     "inst": "BTG/Nexus",
+     "fonte": {
+      "nome": "BTG/Nexus, 10 a 12/10/2026",
+      "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/"
+     },
+     "lula": 0.12,
+     "flavio": 0.8,
+     "nenhum": 0.08,
+     "bruto": {
+      "lula": 12,
+      "flavio": 80,
+      "nenhum": 8,
+      "indecisos": 0
+     }
+    },
     {
      "inst": "Quaest",
      "fonte": {
@@ -396,23 +446,6 @@
       "indecisos": 0
      },
      "obs": "antes do 1º turno"
-    },
-    {
-     "inst": "AtlasIntel",
-     "fonte": {
-      "nome": "AtlasIntel, 13 a 18/10/2026",
-      "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"
-     },
-     "lula": 0.307,
-     "flavio": 0.613,
-     "nenhum": 0.08,
-     "bruto": {
-      "lula": 30.7,
-      "flavio": 61.3,
-      "nenhum": 8.0,
-      "indecisos": 0
-     },
-     "obs": "Zema junto com outros"
     },
     {
      "inst": "Datafolha",
@@ -527,6 +560,20 @@
    ],
    "opinioes": [
     {
+     "inst": "Palpite dos apoios",
+     "fonte": null,
+     "lula": 0.7240372253669769,
+     "flavio": 0.15358725894656047,
+     "nenhum": 0.12237551568646263,
+     "bruto": {
+      "lula": 72.40372253669769,
+      "flavio": 15.358725894656049,
+      "nenhum": 12.237551568646262,
+      "indecisos": 0
+     },
+     "obs": "cada eleitor segue o apoio do seu candidato"
+    },
+    {
      "inst": "Quaest",
      "fonte": {
       "nome": "Quaest, 10 a 13/10/2026",
@@ -540,7 +587,8 @@
       "flavio": 38,
       "nenhum": 22,
       "indecisos": 7
-     }
+     },
+     "obs": "menos de 1% da amostra; pode incluir o Zema"
     },
     {
      "inst": "AtlasIntel",
@@ -557,7 +605,7 @@
       "nenhum": 8.0,
       "indecisos": 0
      },
-     "obs": "inclui o Zema"
+     "obs": "inclui o Zema, que teve mais votos que os 6"
     }
    ],
    "icone": "👥"
@@ -684,6 +732,20 @@
       "nenhum": 4.2,
       "indecisos": 0
      }
+    },
+    {
+     "inst": "Palpite: como o 1º turno",
+     "fonte": null,
+     "lula": 0.4898579021585856,
+     "flavio": 0.5101420978414145,
+     "nenhum": 0.0,
+     "bruto": {
+      "lula": 48.98579021585856,
+      "flavio": 51.01420978414145,
+      "nenhum": 0,
+      "indecisos": 0
+     },
+     "obs": "Lula e Flávio na proporção do 1º turno"
     }
    ],
    "icone": "🏠"
@@ -730,9 +792,9 @@
     "nenhum": 0.336734693877551
    },
    "zema": {
-    "lula": 0.04,
-    "flavio": 0.59,
-    "nenhum": 0.37
+    "lula": 0.12,
+    "flavio": 0.8,
+    "nenhum": 0.08
    },
    "outros": {
     "lula": 0.3548387096774194,
@@ -756,10 +818,10 @@
    }
   },
   "resultado": {
-   "lula": 60423111.476813994,
-   "flavio": 63429563.128395796,
-   "nenhum": 34892239.39479021,
-   "pct_lula": 48.78627907666705
+   "lula": 60449225.636814,
+   "flavio": 63498112.7983958,
+   "nenhum": 34797575.564790204,
+   "pct_lula": 48.77008768398221
   }
  },
  "cenarios": [

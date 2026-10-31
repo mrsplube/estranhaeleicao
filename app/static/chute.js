@@ -123,7 +123,9 @@
     function definir(qual, frac) {
       var x = f(), a = x.lula, b = x.lula + x.flavio;
       frac = Math.round(1000 * preso(frac)) / 1000;
-      if (qual === 0) { a = Math.min(frac, b); } else { b = Math.max(frac, a); }
+      // Passar da outra divisa empurra ela junto (e não trava): é assim que o
+      // arrasto chega a 100% de um lado sem depender de uma sugestão pronta.
+      if (qual === 0) { a = frac; if (a > b) b = a; } else { b = frac; if (b < a) a = b; }
       x.lula = a; x.flavio = b - a; x.nenhum = 1 - b;
       pos(); aoMudar(true);
     }

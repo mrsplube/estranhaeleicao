@@ -3,11 +3,28 @@
    (`pagina`). Quem monta é static/chute.js, a partir de
    /apuracao/explicacao/chute.json (tools/migracoes/2026-10-30-chute-2t.py).
    A conta detalhada antiga (Sankey, simulador, texto longo) está em /apuracao/detalhe. #}
-{% block title %}{% if pagina == "cenarios" %}Cinco jeitos de fechar a conta{% else %}Simulação do 2º turno{% endif %} · estranhaeleicao.org{% endblock %}
-{% block meta %}
-  <meta name="description" content="Para onde foi cada eleitor do 1º turno? Arraste uma barra por grupo, com a dica das pesquisas, e veja se o seu 2º turno bate com o resultado do TSE.">
-  <meta property="og:title" content="Simule o 2º turno de 2026: a sua conta fecha com o TSE?">
-  <meta property="og:description" content="Divida o eleitor de cada candidato entre Lula, Flávio e nenhum dos dois, e veja se a sua conta fecha.">
+{% block title %}{% if pagina == "cenarios" %}Cinco jeitos de fechar a conta · estranhaeleicao.org{% else %}Simulação do 2º turno de 2026 · estranhaeleicao.org{% endif %}{% endblock %}
+{# Uma página, dois estados: cada um com a sua descrição, a sua imagem e o
+   seu cartão social. Antes os dois dividiam a mesma descrição, e o
+   /simulacao/cenarios descrevia o simulador em vez dos cenários. #}
+{% if pagina == "cenarios" %}
+{% set descricao = "Cinco jeitos extremos de a conta fechar, como “tudo foi para o Lula”, e todos chegando no resultado do TSE." %}
+{% set og_titulo = "Cinco jeitos de a conta do 2º turno fechar" %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/cenarios.png" %}
+{% set og_imagem_alt = "Cinco jeitos de a conta fechar: cenários extremos que chegam ao resultado do TSE." %}
+{% else %}
+{% set descricao = "Para onde foi o eleitor do 1º turno? Arraste uma barra por grupo e veja se o seu 2º turno bate com o TSE." %}
+{% set og_titulo = "Simule o 2º turno de 2026: a sua conta fecha com o TSE?" %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/simulacao.png" %}
+{% set og_imagem_alt = "Simule o 2º turno: divida cada grupo de eleitores entre Lula e Flávio." %}
+{% endif %}
+{% block breadcrumb %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+    {"@type":"ListItem","position":2,"name":"{% if pagina == 'cenarios' %}Cenários{% else %}Simulação{% endif %}","item":"https://estranhaeleicao.org{{ request.url.path }}"}
+  ]}
+  </script>
 {% endblock %}
 {% block css %}<link rel="stylesheet" href="/static/chute.css?v={{ static_v }}">{% endblock %}
 {% block content %}
@@ -50,4 +67,7 @@
     <p>“O eleitor do Cury foi para o Lula” é conta sobre o grupo, nunca sobre alguém. Estimativa por município: <a href="/simulacao/detalhe">a conta detalhada</a>.</p>
   </footer>
 {% endblock %}
-{% block scripts %}<script src="/static/chute.js?v={{ static_v }}"></script>{% endblock %}
+{# `defer`: o chute.js só lê o #chute depois de o HTML estar montado (ele
+   busca o RAIZ por getElementById), e assim o download começa junto com o
+   HTML em vez de esperar o parser chegar ao fim do body. #}
+{% block scripts %}<script src="/static/chute.js?v={{ static_v }}" defer></script>{% endblock %}

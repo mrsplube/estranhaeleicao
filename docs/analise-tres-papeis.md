@@ -21,7 +21,8 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 - **eleitores**: Cidades com mais eleitores que habitantes são o terreno ideal para voto fantasma.
 - **prorrogacao**: A meia hora do fim, um ministro que foi advogado do Lula mudou a regra para o país todo, a pedido da campanha do Lula e contra o Ministério Público.
 - **desfile**: Dinheiro público pagou um desfile que fez propaganda do presidente-candidato em rede nacional.
-- **pacote**: Bolsa Família, Desenrola, diesel e mensagens do Gov.br concentrados nas semanas da eleição: é compra de voto com dinheiro público.
+- **pacote**: Bolsa Família, combustíveis, Desenrola, blusinhas e bets concentrados nas semanas da eleição: é compra de voto com dinheiro público.
+- **maquina-celular**: O governo usou a base do Gov.br, do INSS e da Receita para falar com dezenas de milhões às vésperas do voto, e o aviso de prova de vida sugere que quem não votar perde o benefício. Ao mesmo tempo, não mobilizou o jovem a tirar o título.
 - **exercito**: Um canal com 3 milhões de pessoas distribuía “missões” de ataque ao Flávio, e mensagens foram apagadas antes de o TSE ler.
 - **universidades**: Universidades públicas viraram comitê do Lula, com adesivos, atos e até aulas suspensas para estudante ir votar.
 - **mesaria**: Mesárias pediram voto para o 13 dentro da seção.
@@ -36,7 +37,7 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 - **curva**: O vídeo é de 2022. Os boletins chegam por região e fuso, não sorteados; cada queda tem hora e lugar que dá para conferir. E recortar só as subidas de um lado fabrica qualquer vencedor: o mesmo truque dá vitória ao Lula.
 - **biometria**: Os 8,6 milhões são do dia todo, de quem tem digital cadastrada mas não foi lida, e votaram com documento com foto. Depois das 17h foram 34.393 votos. E nada diz que esses votos foram para o Lula.
 - **mesario**: Votar por outro exige o ano de nascimento, que não está no caderno, e deixa rastro: o eleitor que aparece depois, o registro de horário de cada voto, os fiscais na seção. Para mudar a eleição seriam milhões de votos, e depois das 17h entraram 34 mil no país.
-- **sala-cofre**: A sala-cofre nunca recebeu visitas; fiscais acompanharam a sala de totalização, que é filmada. Sobre os comandos, nenhuma prova foi apresentada. E o servidor não muda o boletim impresso em cada seção.
+- **sala-cofre**: A sala-cofre é uma câmara fechada, na Secretaria de Tecnologia da Informação do TSE, onde ficam as cópias lacradas dos programas e os computadores da totalização, e não um espaço de visitação: no dia da eleição, ninguém trabalha nela. Os fiscais do PL acompanharam a sala de totalização, a poucos metros dali, que é aberta e filmada. Sobre os comandos, nenhuma prova foi apresentada. E o servidor não muda o boletim de urna impresso em cada seção.
 - **caminhonete**: Os votos já tinham saído: boletim impresso e afixado, dados transmitidos antes do recolhimento. A urna no caminho não tem mais como mudar o resultado publicado.
 - **silva-jardim**: “+1” é saldo: menos gente votou no 2º turno, e quem não voltou desconta. A terceira via e o branco/nulo da cidade bastam para os votos do Lula. O mesmo desenho aparece em centenas de cidades, inclusive em 2022 com o Bolsonaro.
 - **soma**: O print foi tirado no começo da apuração, cada estado num instante diferente. No resultado final, a soma das seções bate voto a voto com o total.
@@ -48,6 +49,7 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 - **prorrogacao**: A campanha do Flávio também pediu prorrogação. A ordem chegou com a maioria das seções fechadas, e depois das 17h foram 34 mil votos, para uma diferença de 4,43 mi.
 - **desfile**: As escolas recebem verba pública pelos mesmos critérios, e homenagem a político é tradição do Carnaval. O TSE não viu motivo para censurar antes.
 - **pacote**: Programas sociais previstos em lei e no orçamento podem continuar em ano eleitoral. Governos de todos os partidos anunciam medidas antes de eleição.
+- **maquina-celular**: Votar vale como prova de vida desde 2022, por portaria do INSS, e quem não vota não perde nada. A campanha de alistamento é da Justiça Eleitoral, não do governo, e o TSE não viu nas mensagens pedido de voto nem menção a candidato.
 - **exercito**: Os técnicos do TSE não acharam conteúdo falso no que analisaram. Mobilizar militância em rede social é legal.
 - **universidades**: Os casos são pontuais, alguns foram retirados por ordem judicial, e suspender aula para o aluno viajar e votar não é propaganda.
 - **mesaria**: O vídeo da Bahia não foi confirmado. No DF, a mesária detida fazia campanha para o Flávio, segundo a PM.
@@ -76,6 +78,7 @@ Três leituras de cada caso (30/10/2026): fraude = o melhor argumento de quem ac
 | prorrogacao | Verdade e estranho | Estranho. | Quem decidiu, quando e como foram decisões ruins para a confiança. O efeito no resultado foi desprezível. |
 | desfile | Verdade e estranho | Estranho, em julgamento. | O fato e o dinheiro estão provados; se foi abuso, o TSE vai decidir. Não houve absolvição. |
 | pacote | Verdade e estranho | Estranho, em julgamento. | O calendário é suspeito e merece julgamento. Se for abuso, a pena é cassação, não recontagem: não é fraude na urna. |
+| maquina-celular | Verdade e estranho | Estranho, em julgamento. | As mensagens e a queda do eleitorado jovem estão documentadas. Que uma coisa tenha causado a outra, ou que o governo tenha escolhido não falar com o jovem, não está demonstrado. |
 | exercito | Verdade e estranho | Estranho. | Apagar mensagens durante a análise é estranho. Não há prova de fake news, mas também não há como afastar. |
 | universidades | Verdade e estranho | Estranho. | Propaganda em prédio público é proibida e aconteceu. O efeito no voto não dá para medir. |
 | mesaria | Verdade e estranho | Estranho, e isolado. | Mesário fazendo campanha é crime e aconteceu. De que lado, há duas versões. |

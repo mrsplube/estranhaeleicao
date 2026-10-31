@@ -15,8 +15,9 @@ eleitorado menos os votos dos dois, e a conta fecha nos três destinos.
 
 **A dica.** Quaest de 10 a 13/10/2026 (2.154 entrevistas, Exame, 14/10): o voto
 no 2º turno por eleitor do 1º. Os indecisos são repartidos na proporção dos
-outros três. A Quaest não abriu o Zema em outubro; para ele vale a de 3 a
-6/09/2026 (Revista Oeste, 07/09). Retenção de Lula e Flávio não foi publicada.
+outros três. A Quaest não abriu o Zema em outubro; para ele vale a BTG/Nexus
+de 10 a 12/10/2026, a única de depois do 1º turno que o separou. A retenção de
+Lula e Flávio (98% cada) também é da BTG/Nexus.
 
 **Os cenários.** Cada um fixa uma hipótese e o IPF (ajuste proporcional
 iterativo) acha, partindo da pesquisa, o cenário mais parecido com ela que bate
@@ -35,6 +36,7 @@ DEST = ("lula", "flavio", "nenhum")
 QUAEST_OUT = {"nome": "Quaest, 10 a 13/10/2026", "url": "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"}
 QUAEST_SET = {"nome": "Quaest, 3 a 6/09/2026", "url": "https://revistaoeste.com/politica/maioria-dos-eleitores-de-cury-renan-caiado-e-zema-votaria-em-flavio-no-2o-turno/"}
 ATLAS_OUT = {"nome": "AtlasIntel, 13 a 18/10/2026", "url": "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"}
+BTG_OUT = {"nome": "BTG/Nexus, 10 a 12/10/2026", "url": "https://tribunadejundiai.com.br/politica/eleicoes-2026/pesquisa-btg-nexus-flavio-bolsonaro-lula-segundo-turno/"}
 DATAFOLHA_SET = {"nome": "Datafolha, 8 a 17/09/2026", "url": "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno"}
 APOIOS = {"nome": "Apoios no 2º turno", "url": "https://acritica.net/eleicoes-2026/caiado-zema-e-cury-apoiam-flavio-no-2o-turno-renan-santos-libera-eleitores/"}
 FOTOS = {  # /static/fotos/<id>.jpg, recortadas de Wikimedia Commons
@@ -63,13 +65,30 @@ def op(inst, fonte, lula, flavio, nenhum, indecisos=0, obs=None, texto=None):
     return o
 
 
+# Os 6 de "outros" e o apoio de cada um no 2º turno (votos do 1º turno, TSE).
+# Nenhuma pesquisa abriu esse grupo sem o Zema, que sozinho teve mais votos
+# que os seis juntos (326 mil × 261 mil): o "outros" da Quaest e o da
+# AtlasIntel medem, na prática, o eleitor do Zema. O palpite abaixo não é
+# pesquisa: supõe que cada eleitor seguiu o apoio do seu candidato.
+APOIO_OUTROS = {"lula": 122890 + 43095 + 22681,   # Samara, Hertz Dias, Edmilson Costa
+                "flavio": 40021,                  # Clariana Barão
+                "nenhum": 16875 + 15013}          # Grassi (neutro), Rui Costa Pimenta (nulo)
+_ao = sum(APOIO_OUTROS.values())
+# Quem só votou no 2º turno, no palpite "como o 1º turno": Lula e Flávio na
+# proporção dos votos deles no 1º turno (45,16% × 47,03% dos válidos).
+LULA1, FLAVIO1 = 45.16, 47.03
+
 # Para onde cada grupo iria, segundo cada pesquisa (até três por grupo).
+# BTG/Nexus de 10 a 12/10: 98% de quem votou no Lula e 98% de quem votou no
+# Flávio repetem o voto; o destino dos outros 2% não foi publicado.
 # Datafolha de setembro é de antes do 1º turno (2º turno hipotético); para Cury
 # e Caiado ela não separou branco/nulo de indeciso, então "nenhum" é o resto.
 OPINIOES = {
     "lula1": [op("Datafolha", DATAFOLHA_SET, 98, 1, 1, obs="antes do 1º turno", texto="98% mantêm o voto · 2% mudam"),
+              op("BTG/Nexus", BTG_OUT, 98, 1, 1, texto="98% repetem o voto · 2% não informado"),
               op("Palpite clássico", None, 100, 0, 0, texto="Todo mundo repete o voto")],
     "flavio1": [op("Datafolha", DATAFOLHA_SET, 1, 99, 0, obs="antes do 1º turno", texto="99% mantêm o voto · 1% muda"),
+                op("BTG/Nexus", BTG_OUT, 1, 98, 1, texto="98% repetem o voto · 2% não informado"),
                 op("Palpite clássico", None, 0, 100, 0, texto="Todo mundo repete o voto")],
     "cury": [op("Quaest", QUAEST_OUT, 34, 30, 30, 6), op("AtlasIntel", ATLAS_OUT, 52.1, 42.4, 5.6),
              op("Datafolha", DATAFOLHA_SET, 35, 41, 24, obs="antes do 1º turno")],
@@ -77,13 +96,20 @@ OPINIOES = {
               op("Datafolha", DATAFOLHA_SET, 22, 43, 34, obs="antes do 1º turno")],
     "caiado": [op("Quaest", QUAEST_OUT, 23, 42, 33, 2), op("AtlasIntel", ATLAS_OUT, 24.5, 69.8, 5.7),
                op("Datafolha", DATAFOLHA_SET, 30, 43, 27, obs="antes do 1º turno")],
-    "zema": [op("Quaest", QUAEST_SET, 4, 59, 37, obs="antes do 1º turno"), op("AtlasIntel", ATLAS_OUT, 30.7, 61.3, 8.0, obs="Zema junto com outros"),
+    # A BTG/Nexus é a única de depois do 1º turno que separou o Zema: 80% Flávio,
+    # 12% Lula; os 8% restantes (branco, nulo, indeciso) não foram abertos.
+    "zema": [op("BTG/Nexus", BTG_OUT, 12, 80, 8), op("Quaest", QUAEST_SET, 4, 59, 37, obs="antes do 1º turno"),
              op("Datafolha", DATAFOLHA_SET, 25, 48, 27, obs="antes do 1º turno")],
-    "outros": [op("Quaest", QUAEST_OUT, 33, 38, 22, 7), op("AtlasIntel", ATLAS_OUT, 30.7, 61.3, 8.0, obs="inclui o Zema")],
+    "outros": [op("Palpite dos apoios", None, 100 * APOIO_OUTROS["lula"] / _ao, 100 * APOIO_OUTROS["flavio"] / _ao, 100 * APOIO_OUTROS["nenhum"] / _ao,
+                  obs="cada eleitor segue o apoio do seu candidato"),
+               op("Quaest", QUAEST_OUT, 33, 38, 22, 7, obs="menos de 1% da amostra; pode incluir o Zema"),
+               op("AtlasIntel", ATLAS_OUT, 30.7, 61.3, 8.0, obs="inclui o Zema, que teve mais votos que os 6")],
     "bn1": [op("Quaest", QUAEST_OUT, 43, 38, 17, 2, obs="junto com quem não votou"), op("AtlasIntel", ATLAS_OUT, 21.1, 38.7, 40.2),
             op("Datafolha", DATAFOLHA_SET, 20, 17, 62, obs="antes do 1º turno")],
     # Quem só foi votar no 2º turno: a pesquisa ouve quem faltou no 1º e pretende votar.
-    "abst1": [op("Quaest", QUAEST_OUT, 43, 38, 17, 2, obs="junto com brancos e nulos"), op("AtlasIntel", ATLAS_OUT, 55.7, 40.2, 4.2)],
+    "abst1": [op("Quaest", QUAEST_OUT, 43, 38, 17, 2, obs="junto com brancos e nulos"), op("AtlasIntel", ATLAS_OUT, 55.7, 40.2, 4.2),
+              op("Palpite: como o 1º turno", None, 100 * LULA1 / (LULA1 + FLAVIO1), 100 * FLAVIO1 / (LULA1 + FLAVIO1), 0,
+                 obs="Lula e Flávio na proporção do 1º turno")],
     "fora2": [],
 }
 FOTO = {"lula1": "lula", "flavio1": "flavio", "cury": "cury", "renan": "renan", "caiado": "caiado", "zema": "zema"}
@@ -110,9 +136,9 @@ def grupos(conta):
     outros = {k: v for k, v in cand.items() if k not in ("ESCRITOR AUGUSTO CURY", "RENAN SANTOS", "RONALDO CAIADO", "ZEMA")}
     g = [
         {"id": "lula1", "nome": "Votou no Lula", "v": n["lula1"], "fam": "finalistas",
-         "dica": None, "dica_txt": "A pesquisa não publicou quantos mantêm o voto. Na prática, quase todo mundo mantém."},
+         "dica": None, "dica_txt": "Na BTG/Nexus de outubro, 98% repetem o voto."},
         {"id": "flavio1", "nome": "Votou no Flávio", "v": n["flavio1"], "fam": "finalistas",
-         "dica": None, "dica_txt": "A pesquisa não publicou quantos mantêm o voto. Na prática, quase todo mundo mantém."},
+         "dica": None, "dica_txt": "Na BTG/Nexus de outubro, 98% repetem o voto."},
         {"id": "cury", "nome": "Votou no Augusto Cury", "v": cand["ESCRITOR AUGUSTO CURY"], "fam": "terceira",
          "dica": dica(34, 30, 30, 6), "fonte": QUAEST_OUT, "nota": "Cury declarou apoio ao Flávio em 08/10."},
         {"id": "renan", "nome": "Votou no Renan Santos", "v": cand["RENAN SANTOS"], "fam": "terceira",
@@ -120,7 +146,7 @@ def grupos(conta):
         {"id": "caiado", "nome": "Votou no Ronaldo Caiado", "v": cand["RONALDO CAIADO"], "fam": "terceira",
          "dica": dica(23, 42, 33, 2), "fonte": QUAEST_OUT},
         {"id": "zema", "nome": "Votou no Zema", "v": cand["ZEMA"], "fam": "terceira",
-         "dica": dica(4, 59, 37), "fonte": QUAEST_SET, "nota": "Pesquisa de antes do 1º turno: a de outubro não separou o Zema."},
+         "dica": dica(12, 80, 8), "fonte": BTG_OUT, "nota": "A Quaest e a AtlasIntel de outubro não separaram o Zema; a BTG/Nexus separou."},
         {"id": "outros", "nome": "Votou em outro candidato", "v": sum(outros.values()), "fam": "terceira",
          "dica": dica(33, 38, 22, 7), "fonte": QUAEST_OUT, "membros": len(outros),
          "lista": [{"nome": OUTROS[k][0], "partido": OUTROS[k][1], "foto": "/static/fotos/" + OUTROS[k][2] + ".jpg",

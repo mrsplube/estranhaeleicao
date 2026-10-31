@@ -143,15 +143,25 @@ a.fonte::after { content: "↗"; font-size: 11px; opacity: .7; }
 .trilho .l { background: var(--lula); }
 
 /* cards de cidade */
-.cidades { display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 8px; }
+.cid-chave { margin: 0 0 10px; font-size: 13px; line-height: 1.5; color: var(--texto-3); }
+/* 220px: em 1280 dá três colunas e cada linha de saldo cabe inteira; no
+   celular o cartão ocupa a largura toda em vez de espremer "Bolsonaro +8.623". */
+.cidades { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
 .cid { padding: 10px 12px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); }
 .cid-nome { font-weight: 600; font-size: 14px; }
 .cid-nome small { color: var(--texto-3); font-weight: 500; }
 .cid-pct { font: 700 22px var(--titulo); color: var(--flavio); }
 .cid-pct small { font: 500 12px "Inter"; color: var(--texto-3); }
+/* as duas eleições, uma embaixo da outra, com o ano à frente */
+.cid-bloco + .cid-bloco { margin-top: 7px; padding-top: 7px; border-top: 1px dashed var(--linha); }
 .cid-saldo { font-size: 13px; color: var(--texto-2); font-variant-numeric: tabular-nums; }
-.cid-saldo .f { color: var(--flavio); }
+.cid-saldo .ano { display: inline-block; min-width: 34px; color: var(--texto-3); font-size: 11px; }
+.cid-saldo .f { color: var(--flavio); margin-right: 8px; }
 .cid-saldo .l { color: var(--lula); }
+.cid-barra { display: flex; gap: 2px; height: 3px; margin-top: 5px; border-radius: 99px; overflow: hidden; }
+.cid-barra i { border-radius: 99px; }
+.cid-barra .f { background: var(--flavio); }
+.cid-barra .l { background: var(--lula); }
 
 /* tabela compacta (zonas) */
 .tab { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
@@ -364,10 +374,9 @@ body:has(.arte) { position: relative; }
 .tempo { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .tempo li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 9px 0 9px 0; border-left: 2px solid var(--linha); padding-left: 14px; position: relative; }
 .tempo li::before { content: ""; position: absolute; left: -6px; top: 15px; width: 10px; height: 10px; border-radius: 50%; background: var(--texto-3); }
-.tempo li.forte::before { background: var(--destaque); box-shadow: 0 0 0 4px color-mix(in srgb, var(--destaque) 22%, transparent); }
-.tempo li.forte { border-left-color: color-mix(in srgb, var(--destaque) 55%, var(--linha)); }
+/* Sem destaque numa linha só: marcar um dia em amarelo sugere que os outros
+ * não importam, e a linha do tempo é uma sequência, não um pódio. */
 .tempo time { font: 700 13px var(--titulo); color: var(--texto-3); font-variant-numeric: tabular-nums; }
-.tempo li.forte time { color: var(--destaque); }
 .tempo li span { font-size: 14px; line-height: 1.45; color: var(--texto-2); }
 .tempo li span b { color: var(--texto); }
 
@@ -395,3 +404,32 @@ body:has(.arte) { position: relative; }
 .onde li { padding: 10px 12px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); }
 .onde li b { display: block; font: 700 14px var(--titulo); color: var(--destaque); }
 .onde li span { font-size: 13px; color: var(--texto-2); }
+
+/* ── biometria: barras por eleição ─────────────────────────────────── */
+.graf-bio { margin-bottom: 10px; }
+.grafico .bio-outra { fill: color-mix(in srgb, var(--texto-3) 60%, transparent); }
+.grafico .bio-hoje { fill: var(--destaque); }
+.grafico .eixo.valor { font-weight: 700; fill: var(--texto); }
+.grafico .eixo.fraco { fill: var(--texto-3); font-size: 11px; }
+
+/* ── placar de decisões (caso 'desinformação') ──────────────────────────
+   Duas colunas de conteúdo com muito texto: no celular elas não cabem lado a
+   lado, então cada linha vira um bloco com o título em cima. */
+.placar-tab th, .placar-tab td { vertical-align: top; }
+.placar-tab td b { color: var(--texto); }
+.placar-tab td small { display: block; margin-top: 2px; color: var(--texto-3); font-size: 12px; }
+@media (max-width: 600px) {
+  .placar-tab, .placar-tab tbody, .placar-tab tr, .placar-tab td { display: block; width: 100%; min-width: 0; }
+  .placar-tab { min-width: 0 !important; }
+  .placar-tab thead { display: none; }
+  .placar-tab tr { padding: 12px 0; border-top: 1px solid var(--linha); }
+  .placar-tab tr:first-child { border-top: 0; padding-top: 0; }
+  .placar-tab td { border: 0; padding: 0; }
+  .placar-tab td + td { margin-top: 8px; padding-left: 12px; border-left: 2px solid var(--linha); }
+  .placar-tab td + td::before {
+    display: block; margin-bottom: 2px; color: var(--texto-3);
+    font-size: 11px; letter-spacing: .07em; text-transform: uppercase;
+  }
+  .placar-tab td:nth-child(2)::before { content: "Favoreceu o Flávio"; }
+  .placar-tab td:nth-child(3)::before { content: "Favoreceu o Lula"; }
+}

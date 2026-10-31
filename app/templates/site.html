@@ -8,16 +8,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}estranhaeleicao.org · 2º turno de 2026{% endblock %}</title>
-  {% block meta %}{% endblock %}
-  {# Prévia ao compartilhar (WhatsApp, X, Facebook): a mesma imagem em todas as páginas. #}
+  {# Os metadados de cada página vêm de variáveis que a página `set`a no topo
+     do arquivo (fora de bloco, como `pagina`). A 1ª linha de cada trio abaixo
+     é o padrão: `default` mantém o que a página definiu e só cobre o resto.
+     og:description é a mesma descrição do <meta>, para não divergirem como em
+     30/10, quando só a entrada tinha descrição social. #}
+  {% set descricao = descricao | default("As 23 teorias sobre o 2º turno de 2026, cada uma com o vídeo de quem a espalhou e o que o dado do TSE mostra.") %}
+  {% set og_titulo = og_titulo | default(self.title() | trim) %}
+  {% set og_imagem = og_imagem | default("https://estranhaeleicao.org/static/og/entrada.png") %}
+  {% set og_imagem_alt = og_imagem_alt | default("Arte do estranhaeleicao.org: teorias sobre fraudes na eleição, conferidas.") %}
+  {% set descricao_pagina = descricao | trim %}
+  {% set titulo_social = og_titulo | trim %}
+  {% set imagem_social = og_imagem | trim %}
+  {% set alt_social = og_imagem_alt | trim %}
+  {% set url_canonica = "https://estranhaeleicao.org" ~ request.url.path %}
+  <meta name="description" content="{{ descricao_pagina }}">
+  <link rel="canonical" href="{{ url_canonica }}">
   <meta property="og:site_name" content="estranhaeleicao.org">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://estranhaeleicao.org{{ request.url.path }}">
-  <meta property="og:image" content="https://estranhaeleicao.org/static/og.jpg">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
   <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="{{ url_canonica }}">
+  <meta property="og:title" content="{{ titulo_social }}">
+  <meta property="og:description" content="{{ descricao_pagina }}">
+  <meta property="og:image" content="{{ imagem_social }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ alt_social }}">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://estranhaeleicao.org{{ request.url.path }}">
+  <meta name="twitter:title" content="{{ titulo_social }}">
+  <meta name="twitter:description" content="{{ descricao_pagina }}">
+  <meta name="twitter:image" content="{{ imagem_social }}">
+  {% block meta %}{% endblock %}
+  {# A migalha de navegação (BreadcrumbList), para o Google mostrar
+     "Início › Simulação" no resultado em vez da URL crua. Fica vazia na
+     entrada, que é a raiz do site — migalha de um item só não ajuda. #}
+  {% block breadcrumb %}{% endblock %}
   {# Dados estruturados: o Google entende o site como um veículo de checagem
      (Organization + WebSite) em vez de um blog qualquer. #}
   <script type="application/ld+json">

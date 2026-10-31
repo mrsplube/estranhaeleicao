@@ -121,22 +121,34 @@
   },
   "mesma-secao": {
    "src": "/static/casos/mesma-secao.jpg",
-   "credito": null
+   "credito": "Antonio Augusto / TSE, Domínio Público"
   },
   "zonas": {
    "src": "/static/casos/zonas.jpg",
-   "credito": null
+   "credito": "Carlos Moura / Agência Senado, CC BY-SA 4.0"
   },
   "pacote": {
    "src": "/static/casos/pacote.jpg",
-   "credito": null
+   "credito": "Fronteira, CC BY-SA 4.0"
   },
   "faccoes": {
    "src": "/static/casos/faccoes.jpg",
-   "credito": null
+   "credito": "Porto Neto, CC BY-SA 4.0"
   },
   "compra": {
    "src": "/static/casos/compra.jpg",
+   "credito": "Mendes Lima / Dourados Agora, CC BY-SA 4.0"
+  },
+  "desinformacao": {
+   "src": "/static/casos/desinformacao.jpg",
+   "credito": null
+  },
+  "maquina-celular": {
+   "src": "/static/casos/maquina-celular.jpg",
+   "credito": null
+  },
+  "padroeira": {
+   "src": "/static/casos/padroeira.jpg",
    "credito": null
   }
  },

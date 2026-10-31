@@ -54,8 +54,28 @@ CAPAS_SEM_VIDEO = {
     "desfile": ("desfile.jpg", "Marvin Brandão, CC BY-SA 4.0"),
     "exercito": ("exercito.jpg", "TSE, CC BY 4.0"),
     "universidades": ("universidades.jpg", "Airton Jordani, CC BY-SA 4.0"),
-    "mesma-secao": ("mesma-secao.png", None), "zonas": ("zonas.png", None),
-    "pacote": ("pacote.png", None), "faccoes": ("faccoes.png", None), "compra": ("compra.png", None),
+    # As cinco capas desenhadas até 30/10 viraram foto (31/10), pelo mesmo
+    # critério dos três casos acima: imagem do Commons, licença verificada na
+    # página do arquivo, recorte 3:4. A origem de cada uma está no comentário.
+    # urna UE2020 (seção vazia) — File:Urna eletrônica brasileira UE2020.jpg
+    "mesma-secao": ("mesma-secao.jpg", "Antonio Augusto / TSE, Domínio Público"),
+    # painel de apuração do TSE, 1º turno de 2026 — File:Eleições 2026 - Primeiro turno (55568483402).jpg
+    "zonas": ("zonas.jpg", "Carlos Moura / Agência Senado, CC BY-SA 4.0"),
+    # agência da Caixa (o benefício que caiu antes da eleição) — File:Agência da Caixa Econômica Federal na Universidade Federal de Goiás, Goiânia, dezembro de 2022 (1).jpg
+    "pacote": ("pacote.jpg", "Fronteira, CC BY-SA 4.0"),
+    # presídio de Pacatuba (CE), sem rosto nem pessoa — File:Unidade Prisional em Pacatuba.jpg
+    "faccoes": ("faccoes.jpg", "Porto Neto, CC BY-SA 4.0"),
+    # cédulas de real apreendidas — File:Dinheiro encontrado.jpg
+    "compra": ("compra.jpg", "Mendes Lima / Dourados Agora, CC BY-SA 4.0"),
+    # o contencioso de desinformação dos dois lados (31/10): balança desenhada,
+    # um prato de cada campanha, sem foto e sem rosto.
+    "desinformacao": ("desinformacao.png", None),
+    # a máquina no celular (31/10): as duas acusações num caso só, e o número
+    # que mede a escala (as notificações do contrato do Serpro).
+    "maquina-celular": ("maquina-celular.png", None),
+    # a padroeira depois da correção (31/10): só o número ("2 dias" entre a
+    # correção da GloboNews e a fala de Lula), sem foto de santa nem de pessoa.
+    "padroeira": ("padroeira.png", None),
 }
 
 FONTES = {
