@@ -35,7 +35,7 @@
   }
 
   var A = { cor: "#e3364a", nm: "Lula", n: "13" };
-  var B = { cor: "#2a78d6", nm: "Flavio", n: "22" };
+  var B = { cor: "#2a78d6", nm: "Flávio", n: "22" };
 
   function $(id) { return document.getElementById(id); }
   function mm(x) {
@@ -94,7 +94,7 @@
     var novos = d.novos_validos, terc = d.terceira_via;
     // A frase que responde à pergunta antes de qualquer gráfico.
     return cartao("A pergunta, respondida em três números",
-      "Se o Flavio foi o mais votado em 04/10, como o Lula terminou com " + mi(n.lula2) +
+      "Se o Flávio foi o mais votado em 04/10, como o Lula terminou com " + mi(n.lula2) +
       " milhões de votos? A resposta não é opinião: são estes três números, e os três podem ser conferidos no TSE.",
       h("div", { class: "ap-conta-tres" },
         h("div", { class: "ap-conta-tres-item", vars: { "--cor": A.cor } },
@@ -103,7 +103,7 @@
           h("div", { class: "ap-conta-tres-nota", text: "Ele tinha " + mi(n.lula1) + " mi em 04/10 e teve " + mi(n.lula2) + " mi em 25/10." })),
         h("div", { class: "ap-conta-tres-item", vars: { "--cor": B.cor } },
           h("div", { class: "ap-conta-tres-num", text: "+" + mi(ganhoFlavio) + " mi" }),
-          h("div", { class: "ap-conta-tres-rot", text: "de votos a mais para o Flavio" }),
+          h("div", { class: "ap-conta-tres-rot", text: "de votos a mais para o Flávio" }),
           h("div", { class: "ap-conta-tres-nota", text: "Ele tinha " + mi(n.flavio1) + " mi em 04/10 e teve " + mi(n.flavio2) + " mi em 25/10." })),
         h("div", { class: "ap-conta-tres-item", vars: { "--cor": "#64748b" } },
           h("div", { class: "ap-conta-tres-num", text: mi(terc) + " mi" }),
@@ -176,7 +176,7 @@
       h("p", { class: "ap-conta-conta" },
         "A conta fecha no voto: " + mm(f.novos_para_lula) + " + " + mm(f.terceira_para_lula) + " = " + mm(d.ganho_lula) +
         " para o Lula, e " + mm(f.novos_para_flavio) + " + " + mm(f.terceira_para_flavio) + " = " + mm(d.ganho_flavio) +
-        " para o Flavio. Somando os dois lados dá " + mm(f.novos + f.terceira) + " — exatamente os " + mm(f.novos) +
+        " para o Flávio. Somando os dois lados dá " + mm(f.novos + f.terceira) + " — exatamente os " + mm(f.novos) +
         " de votos novos mais os " + mm(f.terceira) + " da terceira via. Nenhum voto entra em duas faixas."),
       h("p", { class: "ap-conta-conta" },
         "O " + pct(bl.terceira_lula, 1) + " da terceira via é o mínimo que a aritmética obriga, não o chute do modelo: a regressão sozinha dizia " +
@@ -197,7 +197,7 @@
           "voto de cada pessoa." }),
         h("p", { text: "O que ela NÃO prova: (1) que um eleitor específico do Ciro ou do Caiado votou no Lula — voto é secreto e isso não é observável; " +
           "(2) que a transferência foi igual em todo lugar — em cidade pequena o intervalo é maior; (3) que não houve troca nos dois sentidos (gente que " +
-          "votou Lula no 1º turno e Flavio no 2º). A conta é consistente com os totais, e é o máximo que dado agregado permite afirmar." }),
+          "votou Lula no 1º turno e Flávio no 2º). A conta é consistente com os totais, e é o máximo que dado agregado permite afirmar." }),
         h("p", { text: "Sobre os candidatos da terceira via, um por um: NÃO é possível separar. Os votos dos 10 andam juntos demais (quem tem voto do Cury " +
           "também tem voto do Caiado, na mesma cidade), e a conta devolveria números inventados. Quem fizer essa conta por candidato e publicar " +
           "casa decimal está vendendo precisão que o dado não tem." })),
@@ -210,12 +210,12 @@
         h("span", { class: "ap-conta-pool-titulo", text: titulo }),
         h("span", { class: "ap-conta-pool-total", text: mm(total) + " votos" })),
       h("div", { class: "ap-conta-pool-barra", role: "img",
-        "aria-label": titulo + ": " + pctv(pctLula, 1) + " para o Lula, " + pctv(pctFlavio, 1) + " para o Flavio" },
+        "aria-label": titulo + ": " + pctv(pctLula, 1) + " para o Lula, " + pctv(pctFlavio, 1) + " para o Flávio" },
         h("span", { class: "ap-conta-pool-a", vars: { "--p": pctLula + "%", "--cor": A.cor } }),
         h("span", { class: "ap-conta-pool-b", vars: { "--p": pctFlavio + "%", "--cor": B.cor } })),
       h("div", { class: "ap-conta-pool-legenda" },
         h("span", { vars: { "--cor": A.cor } }, h("b", { text: pctv(pctLula, 1) }), " Lula · ≈" + mm(total * pctLula / 100)),
-        h("span", { vars: { "--cor": B.cor } }, h("b", { text: pctv(pctFlavio, 1) }), " Flavio · ≈" + mm(total * pctFlavio / 100))),
+        h("span", { vars: { "--cor": B.cor } }, h("b", { text: pctv(pctFlavio, 1) }), " Flávio · ≈" + mm(total * pctFlavio / 100))),
       h("p", { class: "ap-conta-pool-nota", text: nota }));
   }
 
@@ -339,7 +339,7 @@
           h("span", { vars: { "--p": (100 * f / t) + "%", "--cor": B.cor } })),
         h("div", { class: "ap-conta-mun-nums" },
           h("span", { vars: { "--cor": A.cor }, text: pctv(100 * l / t, 1) + " Lula" }),
-          h("span", { vars: { "--cor": B.cor }, text: pctv(100 * f / t, 1) + " Flavio" })));
+          h("span", { vars: { "--cor": B.cor }, text: pctv(100 * f / t, 1) + " Flávio" })));
     }
     entrada.addEventListener("change", function () { abrir(achar(entrada.value)); });
     if (muns) {

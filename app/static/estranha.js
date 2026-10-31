@@ -82,9 +82,9 @@
     "eleitores": ["✅", "🚚", "🏠"], "prorrogacao": ["⏰", "🌧️", "📉", "🕰️"], "desfile": ["💰", "🛑", "⚖️"],
     "pacote": ["📆", "📲", "⚖️", "🗳️", "🚫"], "exercito": ["📣", "🔍", "🔁"], "universidades": ["🎓", "📜", "📚", "❔"],
     "mesaria": ["❓", "🚔", "⚖️"], "faccoes": ["🔍", "🗑️", "⚖️"], "compra": ["💵", "📍", "🔎"],
-    "padroeira": ["📜", "⛪", "🗣️", "📣", "🔁"],
-    "desinformacao": ["⚖️", "🔁", "⏳", "🚫", "🧮"],
-    "maquina-celular": ["📲", "✅", "⚖️", "🎓", "🗳️"],
+    "padroeira": ["📜", "📣", "🔁"],
+    "desinformacao": ["⚖️", "🔁", "⏳"],
+    "maquina-celular": ["📲", "⚖️", "🎓"],
     "onibus": ["🏷️", "🚌", "⏰", "🗳️"],
   };
   var V = null;   // casos_videos.json
@@ -127,9 +127,57 @@
         h("div", { class: "lado-d" }, h("b", { text: "Quem defende" }), h("p", { text: x.defesa })),
         h("div", { class: "lado-j" }, h("b", { text: "Decisão: " + x.juiz.decisao }), h("p", { text: x.juiz.sintese }))));
   }
+  // "Copiar link deste caso": quem compartilha no grupo manda a resposta de uma
+  // denúncia, não a página inteira. O link abre o caso já respondido.
+  function linkDoCaso(id) {
+    var b = h("button", { class: "btn btn-mini link-caso", type: "button", text: "Copiar link deste caso" });
+    b.addEventListener("click", function () {
+      var url = location.origin + location.pathname + "#caso-" + id, rot = b.textContent;
+      var ok = function () { b.textContent = "Link copiado ✓"; setTimeout(function () { b.textContent = rot; }, 2000); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(ok, function () { window.prompt("Copie o link:", url); });
+      else window.prompt("Copie o link:", url);
+      sinal("link", id);
+    });
+    return b;
+  }
+  // Resumo por veredito, que também filtra a lista, e a data da última revisão.
+  function filtro(lista) {
+    var cards = [].slice.call(lista.querySelectorAll(".caso")), botoes = [];
+    var conta = { falsa: 0, estranho: 0, normal: 0 };
+    cards.forEach(function (c) { conta[c.getAttribute("data-tag")]++; });
+    function aplicar(tag) {
+      cards.forEach(function (c) { c.hidden = !!tag && c.getAttribute("data-tag") !== tag; });
+      [].forEach.call(lista.querySelectorAll(".divisa-casos"), function (d) {
+        var tem = false;
+        for (var el = d.nextElementSibling; el; el = el.nextElementSibling) if (!el.hidden) { tem = true; break; }
+        d.hidden = !tem;
+      });
+      botoes.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-tag") === (tag || ""))); });
+    }
+    var itens = [["", "Todos", cards.length]].concat(["falsa", "estranho", "normal"].map(function (k) { return [k, TAG[k].rot, conta[k]]; }));
+    var barra = h("div", { class: "filtro-casos", role: "group", "aria-label": "Filtrar os casos pelo veredito" }, itens.map(function (it) {
+      var b = h("button", { type: "button", class: "filtro-btn " + (it[0] ? TAG[it[0]].cls : "todos"), "data-tag": it[0],
+        "aria-pressed": it[0] ? "false" : "true", onclick: function () { aplicar(it[0] || null); } }, it[1] + " ", h("b", { text: String(it[2]) }));
+      botoes.push(b);
+      return b;
+    }));
+    var quando = VERSAO ? new Date(1000 * Number(VERSAO)) : null;
+    var data = quando && !isNaN(quando) ? quando.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }).replace(", ", " às ").replace(":", "h") : null;
+    lista.parentNode.insertBefore(h("div", { class: "resumo-casos" }, barra,
+      data ? h("p", { class: "atualizado", text: "Revisado em " + data + "." }) : null), lista);
+  }
+  // Quem chega por um link de caso (#caso-x) já cai nele, com a resposta aberta.
+  function abrirDoLink() {
+    var m = /^#caso-([\w-]+)$/.exec(location.hash), art = m && document.getElementById("caso-" + m[1]);
+    if (!art) return;
+    art.classList.add("visivel");
+    var ver = art.querySelector(".caso-abrir");
+    if (ver) ver.click();
+    setTimeout(function () { art.scrollIntoView({ block: "start" }); }, 50);
+  }
   function caso(o, n) {
     var v = V && V.videos[o.id], t = TAG[o.tag];
-    var art = h("article", { class: "caso", id: "caso-" + o.id });
+    var art = h("article", { class: "caso", id: "caso-" + o.id, "data-tag": o.tag });
     function alternar(abrir) {
       var aberto = art.classList.toggle("respondido", abrir);
       ver.setAttribute("aria-expanded", String(aberto));
@@ -176,7 +224,7 @@
         }),
         h("p", { class: "circulou" }, onde.length ? ["Onde circulou: ", onde, ". "] : null,
           o.checagem ? ["Fontes da resposta: ", emLinha(o.checagem.map(link)), "."] : null),
-        recolher("baixo"))),
+        h("div", { class: "caso-pe" }, linkDoCaso(o.id), recolher("baixo")))),
     ]);
     return art;
   }
@@ -877,11 +925,9 @@
       veredito: "As mensagens existem; a queda dos jovens também. O elo entre as duas não está demonstrado.",
       situacao: "AIJE 0603241-16.2026.6.00.0000 no TSE, sem julgamento. Suspender os disparos foi negado em 22/10; o mérito não tem data.",
       pontos: [
-        "<b>Os avisos saíram.</b> Em 21/10, a quatro dias do 2º turno, a conta GovBR no WhatsApp e o Meu INSS avisaram aposentados de que votar valia como prova de vida. O aviso de 1/10 já listava o voto entre as formas de fazer a comprovação.",
-        "<b>O que a mensagem diz é verdade.</b> Desde 2022, por portaria do INSS, votar conta como prova de vida, e a Justiça Eleitoral repassa ao INSS a lista de quem compareceu. Quem não vota não perde o benefício: o INSS segue procurando outros registros.",
-        "<b>O TSE não suspendeu os disparos.</b> Em 22/10, o corregedor Cueva negou o pedido: nos exemplos do processo não há candidato, pedido de voto nem elogio ao governo. Ele ressalvou que a negativa não é salvo-conduto, e a ação continua.",
-        "<b>Os jovens:</b> o eleitorado de 16 e 17 anos caiu de 2,12 milhões para 1,63 milhão (−22,8%), enquanto a população dessa idade caiu 5,6%. E houve campanha do TSE em 2026, menor que a de 2022: 470 mil contas alcançadas nos 19 posts do Instagram, contra 88 milhões de pessoas no tuitaço de 2022.",
-        "<b>“Jovem é de direita” não aparece no dado.</b> Na véspera, o Datafolha deu Lula 52% e Flávio 44% entre 16 e 24 anos; a Quaest, na faixa de 16 a 34, deu Flávio 47% a 43%. Intenção declarada muda de pesquisa para pesquisa.",
+        "<b>Os avisos saíram, e o que diziam é verdade.</b> A quatro dias do 2º turno, o WhatsApp do Gov.br e o Meu INSS avisaram aposentados de que votar vale como prova de vida, regra que existe desde 2022. Quem não vota não perde o benefício.",
+        "<b>O TSE não suspendeu.</b> Em 22/10, o corregedor negou o pedido do Flávio: as mensagens não citam candidato nem pedem voto. A ação segue, sem julgamento.",
+        "<b>Os jovens: a queda é real, o motivo não está provado.</b> Os eleitores de 16 e 17 anos caíram 22,8% desde 2022, bem mais que a população dessa idade (−5,6%). Houve campanha do TSE, mas bem menor que a de 2022. E “jovem é de direita” não aparece nas pesquisas: o Datafolha deu Lula na frente entre 16 e 24 anos; a Quaest, Flávio na frente entre 16 e 34.",
       ],
       visual: visual("As datas dos avisos e o tamanho do eleitorado jovem", [
         linhaTempo([["4/7", "começa o período em que a lei veda publicidade institucional", ""],
@@ -1035,11 +1081,9 @@
       veredito: "Os dois lados apagaram conteúdo e pagaram multa",
       situacao: "quase tudo é liminar, não sentença. O plenário já confirmou remoções contra os dois lados. Seguem sem julgamento final, por exemplo, os vídeos do Lula e da Janja (08/10) e a peça da “saidinha” do Flávio (21/10).",
       pontos: [
-        "<b>A Justiça mandou apagar conteúdo dos dois lados.</b> Não há contagem oficial: o TSE não publica quantos conteúdos removeu de cada campanha.",
-        "<b>Os placares que existem quase empatam.</b> Até o 1º turno, levantamento do Globo achou 55 decisões favoráveis ao Lula e 50 ao Flávio, em 698 ações. O jurídico do Lula diz ter 371 decisões a favor em 584, mas é a conta da própria campanha.",
-        "<b>As multas também foram dos dois lados.</b> R$ 5 mil ao Flávio por ligar o Lula ao PCC e R$ 5 mil por impulsionar propaganda negativa; R$ 15 mil à campanha do Lula por impulsionar vídeo contra a família Bolsonaro.",
-        "<b>A maior parte é liminar, e algumas caíram.</b> O plenário liberou os posts da escala 7x0 por 5 a 1, e o vídeo do Lula sobre o “tesouraço” só continua fora do ar porque o relator pediu destaque.",
-        "<b>Os números não se somam.</b> Uma ordem pode atingir 1.125 publicações; outra, um único post.",
+        "<b>Os dois lados foram punidos.</b> Houve remoção e multa contra as duas campanhas: R$ 5 mil ao Flávio por ligar o Lula ao PCC, R$ 15 mil à campanha do Lula por impulsionar vídeo contra a família Bolsonaro.",
+        "<b>Os placares quase empatam.</b> Até o 1º turno, levantamento do Globo achou 55 decisões favoráveis ao Lula e 50 ao Flávio. O TSE não publica um balanço oficial por campanha.",
+        "<b>Quase tudo é liminar.</b> Algumas decisões caíram no plenário, como a dos posts da escala 7x0. E uma ordem pode atingir um post ou 1.125, então os números não se somam.",
       ],
       visual: visual("O placar, por categoria de decisão", [
         h("div", { class: "duelo" },
@@ -1110,11 +1154,9 @@
       veredito: "Insistiu no tema, não na autoria",
       situacao: "não há sentença: as remoções são liminares ou referendos do plenário. A notícia-crime contra o servidor da Secom foi enviada à Polícia Federal, e a Justiça restringiu as redes dele, sem prender.",
       pontos: [
-        "<b>O que circulou era falso, e o projeto era de outro.</b> O texto que tiraria da santa o título de padroeira é o PL 2.623/2007, do então deputado Victório Galli, rejeitado pela Comissão de Educação e Cultura e arquivado em 22 de agosto de 2008. O Flávio era deputado estadual no Rio e não há registro de autoria ou de apoio dele.",
-        "<b>O título não sai por caneta presidencial.</b> Quem declarou Aparecida padroeira do Brasil foi o papa Pio XI, em 1930, e a lei de 1980, sancionada por Figueiredo, criou o feriado nacional de 12 de outubro citando o título na redação. O projeto de 2007 mudava a redação dessa lei — não o ato que deu o título.",
-        "<b>Dois dias depois da correção, o enquadramento não mudou.</b> Em 27/09, na Band, Lula disse que “mexer com Nossa Senhora Aparecida não é aceitável”; avisado de que a história era falsa, respondeu “eu não sei se foi fake news” e que o “dado concreto” era a circulação nas redes. Nessa fala, ele não atribui o projeto ao Flávio.",
-        "<b>O assunto seguiu no palanque.</b> Em 28/09, em Belém, Lula disse que “ninguém vai avacalhar com Nossa Senhora Aparecida” e a Janja, que “o outro lado quer o fim da Padroeira do Brasil”; no fim do ato, recebeu e ergueu uma imagem de Nossa Senhora de Nazaré, padroeira do Pará, e em 29/09, em Fortaleza, recebeu outra. Na semana seguinte, a campanha pagou R$ 70 mil para impulsionar um corte em que ele promete manter o título.",
-        "<b>A peça contrária também existiu.</b> Em 30/09, o TSE mandou apagar quatro posts com uma capa falsa da Veja que atribuía ao Lula e ao PT um projeto para excluir Aparecida e favorecer a umbanda; a Abril e a Reuters confirmaram que a capa não foi publicada. O Aos Fatos lembra que boatos do mesmo tipo circularam contra o Jair Bolsonaro em 2018 e 2022, também sem base.",
+        "<b>A história era falsa.</b> O projeto que tiraria o título de padroeira é de 2007, do deputado Victório Galli, e foi arquivado em 2008. O Flávio não teve nada com ele, e o título vem do papa, em 1930, não de uma lei.",
+        "<b>A campanha seguiu no tema.</b> Dois dias depois da correção, Lula disse na Band: “eu não sei se foi fake news”. Em Belém, Janja disse que “o outro lado quer o fim da Padroeira”, e a campanha pagou R$ 70 mil para impulsionar um vídeo sobre o assunto. Mas não repetiu que o projeto era do Flávio.",
+        "<b>O outro lado também teve a sua.</b> O TSE mandou apagar posts com uma capa falsa da Veja dizendo que o Lula queria tirar o título de Aparecida. Boatos parecidos circularam contra o Jair Bolsonaro em 2018 e 2022.",
       ],
       visual: visual("O que aconteceu, e o que a campanha fez depois do desmentido", [
         linhaTempo([
@@ -1204,12 +1246,14 @@
       });
       lista.appendChild(h("div", { class: "divisa-casos" },
         h("h3", { text: "Além da urna" }),
-        h("p", { text: "Denúncias que não são sobre a contagem dos votos, mas sobre a campanha: abuso de poder, desinformação e compra de voto. As ações no TSE ainda não foram julgadas no mérito — a exceção é o placar de decisões sobre desinformação, que reúne justamente liminares e as poucas sentenças." })));
+        h("p", { text: "Denúncias sobre a campanha e o dia da votação, não sobre a contagem: abuso de poder, desinformação, transporte e compra de voto. Quase nada aqui tem julgamento final; cada caso diz em que pé está." })));
       [prorrogacao, onibus, desfile, pacote, maquinaCelular, exercito, universidades, mesaria, faccoes, padroeira, desinformacao, compra].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
 
+      filtro(lista);
       contador(lista);
+      abrirDoLink();
     }).catch(function () {
       lista.innerHTML = "<p class='carregando'>Não consegui abrir os casos agora. Recarregue a página.</p>";
     });

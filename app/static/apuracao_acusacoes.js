@@ -380,7 +380,7 @@
     return item("secoes-10",
       "Em " + num(f2.secoes) + " seções Flávio fez no máximo 10 votos e Lula somou " + num(Math.round(f2.outro_somou / 1000)) + " mil; em " + f2.zeradas + " urnas ele teve zero",
       "post republicado pelo Jornal da Cidade Online e levantamento divulgado pela Folha",
-      "o número confere; não é do 2º turno", "parcial", [
+      "o número confere; já era assim no 1º turno", "parcial", [
         bloco("O que confere", p("Os números estão certos: " + num(f2.secoes) + " seções com o Flávio entre 0 e 10 votos no 2º turno, " +
           num(f2.outro_somou) + " votos do Lula nelas, e " + f2.zeradas + " seções com o Flávio zerado (" + num(f2.outro_nas_zeradas) + " votos do Lula). " +
           "A contagem de 0 a 10 do post bate seção por seção.")),
@@ -594,6 +594,14 @@
   }
 
   function cartaoAcusacoes() {
+    // No site público as acusações vivem na página de casos, sempre a versão
+    // atual; repetir aqui uma cópia antiga deixava os dois textos divergirem.
+    var raiz = document.getElementById("ap"), casos = raiz && raiz.dataset.casos;
+    if (casos) {
+      return cartao("As acusações, uma por uma",
+        "Cada teoria que circulou depois do 2º turno, conferida no arquivo seção a seção do TSE, está na página de casos, com a resposta completa e as fontes.",
+        h("p", null, h("a", { class: "ap-aba-link", href: casos, text: "Ver os casos conferidos →" })));
+    }
     corpo = h("div", { class: "ap-acu-lista" });
     preencher();
     carregar();

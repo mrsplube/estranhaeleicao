@@ -219,13 +219,13 @@ def sankey(dados: dict, f: dict) -> dict:
 
     entradas = [
         {"id": "lula1", "rotulo": "Lula no 1º turno", "grupo": "lula", "votos": n1["lula"]},
-        {"id": "flavio1", "rotulo": "Flavio no 1º turno", "grupo": "flavio", "votos": n1["flavio"]},
+        {"id": "flavio1", "rotulo": "Flávio no 1º turno", "grupo": "flavio", "votos": n1["flavio"]},
         {"id": "terceira", "rotulo": "Terceira via no 1º turno", "grupo": "terceira", "votos": terceira},
         {"id": "novos", "rotulo": "Votos válidos que apareceram", "grupo": "novos", "votos": novos},
     ]
     saidas = [
         {"id": "lula2", "rotulo": "Lula no 2º turno", "grupo": "lula", "votos": n2["lula"]},
-        {"id": "flavio2", "rotulo": "Flavio no 2º turno", "grupo": "flavio", "votos": n2["flavio"]},
+        {"id": "flavio2", "rotulo": "Flávio no 2º turno", "grupo": "flavio", "votos": n2["flavio"]},
     ]
     fluxos = [
         {"de": "lula1", "para": "lula2", "votos": n1["lula"], "tipo": "contagem"},

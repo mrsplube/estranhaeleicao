@@ -12,19 +12,19 @@
  *      só o que mudou + a prova do piso), cada candidato com
  *      o intervalo, comparecimento, cidade, conferência
  *
- * **A quebra de escala.** Os 53,88 mi do Lula e os 56,10 mi do Flavio no 1º
+ * **A quebra de escala.** Os 53,88 mi do Lula e os 56,10 mi do Flávio no 1º
  * turno são 6 vezes tudo o que mudou de lado; na mesma régua, o Zema vira fio.
  * A versão de 28/10 resolvia com raiz quadrada (e a legenda "largura = votos"
  * mentia); aqui os dois blocos têm altura FIXA com a marca ≈ ("fora de
  * escala") e todo o resto é linear. No destino, o bloco diz "já tinha + ganhou".
  *
- * **Os destinos na ordem Lula / Branco-nulo / Flavio.** O voto que ficou anda
- * reto (Lula em cima, Flavio embaixo), e branco/nulo — "nenhum dos dois" —
+ * **Os destinos na ordem Lula / Branco-nulo / Flávio.** O voto que ficou anda
+ * reto (Lula em cima, Flávio embaixo), e branco/nulo — "nenhum dos dois" —
  * fica no meio. Dentro de cada família, as fontes vão da que mais deu ao Lula
- * para a que mais deu ao Flavio (ordem do ponto de partida, fixa depois disso):
+ * para a que mais deu ao Flávio (ordem do ponto de partida, fixa depois disso):
  * menos faixa cruzando faixa.
  *
- * **Um controle por fonte.** Uma barra de três cores (Lula | Flavio |
+ * **Um controle por fonte.** Uma barra de três cores (Lula | Flávio |
  * branco/nulo) com duas divisas que se arrastam; setas do teclado também
  * movem. No toque, a barra só obedece a gesto HORIZONTAL (o vertical é rolar a
  * página) e tocar no nome abre dois controles deslizantes, para quem não
@@ -32,7 +32,7 @@
  *
  * **O estado.** As 8 fontes móveis (5 grupos da terceira via, comparecimento a
  * mais, branco e nulo do 1º turno) se dividem entre três destinos; os votos que
- * já eram do Lula e do Flavio ficam com eles (a troca direta medida é ≈ 0,
+ * já eram do Lula e do Flávio ficam com eles (a troca direta medida é ≈ 0,
  * `transicao.py`). Assim as fontes somam os destinos ao voto: +10,38 mi,
  * +3,72 mi e os 4,15 mi de branco/nulo do 2º turno.
  *
@@ -54,7 +54,7 @@
   var COR = { lula: "#e3364a", flavio: "#2a78d6", bn: "#64748b", fonte: "#94a3b8" };
   var DEST = ["lula", "flavio", "bn"];            // ordem da barra de cada fonte
   var DEST_DESENHO = ["lula", "bn", "flavio"];    // ordem no Sankey
-  var NOME_DEST = { lula: "Lula", flavio: "Flavio", bn: "Branco/nulo" };
+  var NOME_DEST = { lula: "Lula", flavio: "Flávio", bn: "Branco/nulo" };
 
   // ── formatação ──────────────────────────────────────────────────────────
   function mm(x) {
@@ -256,7 +256,7 @@
       { de: "n", para: "l", v: nL - nLfixo },
       { de: "n", para: "f", v: b.N - nL },
     ];
-    var nomeE = { t: "Terceira via", n: "Votos novos" }, nomeD = { l: "Lula", f: "Flavio" };
+    var nomeE = { t: "Terceira via", n: "Votos novos" }, nomeD = { l: "Lula", f: "Flávio" };
     fl.forEach(function (f) {
       f.cor = f.para === "l" ? COR.lula : COR.flavio;
       f.op = f.fixo ? 0.85 : 0.32;
@@ -266,7 +266,7 @@
     return sankeyH({
       W: W, H: estreito ? 230 : 290, vao: 22,
       rotE: estreito ? 96 : 200, rotD: estreito ? 80 : 120,
-      rotulo: "De onde vieram os votos a mais do Lula e do Flavio no 2º turno",
+      rotulo: "De onde vieram os votos a mais do Lula e do Flávio no 2º turno",
       fontes: [
         { id: "t", v: b.T, linhas: ["Terceira via", mi(b.T), estreito ? null : "Cury, Renan, Caiado e mais 7"] },
         { id: "n", v: b.N, linhas: [estreito ? "Votos novos" : "Votos válidos novos", mi(b.N),
@@ -274,7 +274,7 @@
       ],
       destinos: [
         { id: "l", v: b.GL, cor: COR.lula, linhas: ["Lula", "+" + mi(b.GL)] },
-        { id: "f", v: b.GF, cor: COR.flavio, linhas: ["Flavio", "+" + mi(b.GF)] },
+        { id: "f", v: b.GF, cor: COR.flavio, linhas: ["Flávio", "+" + mi(b.GF)] },
       ],
       fluxos: fl,
     });
@@ -303,10 +303,10 @@
     cam.saida.textContent = noPiso ? pc(100 * b.qmin, 1) + " (o mínimo)" : pc(100 * q, 0);
     var tL = q * b.T, nL = b.GL - tL;
     var frase = "Neste cenário, " + pc(100 * q, noPiso ? 1 : 0) + " da terceira via (" + mi(tL) + ") e " +
-      pc(100 * nL / b.N, 0) + " dos votos novos (" + mi(nL) + ") foram para o Lula. O Flavio ficou com " +
+      pc(100 * nL / b.N, 0) + " dos votos novos (" + mi(nL) + ") foram para o Lula. O Flávio ficou com " +
       mi(b.T - tL) + " da terceira via e " + mi(b.N - nL) + " dos votos novos.";
     if (noPiso) frase += " É o mínimo possível: todo voto novo foi para o Lula, e ainda faltavam " + mi(b.qmin * b.T) + ".";
-    else if (noTeto) frase += " É o outro extremo: o ganho do Flavio veio todo dos votos novos.";
+    else if (noTeto) frase += " É o outro extremo: o ganho do Flávio veio todo dos votos novos.";
     cam.frase.textContent = frase + " Qualquer posição do controle fecha com o TSE.";
     cam.aviso.hidden = !abaixo;
   }
@@ -331,7 +331,7 @@
         ? ", abaixo do mínimo, então o número honesto é o piso de " + pc(100 * b.qmin, 1) +
           (b.faixa ? ", com intervalo até " + pc(100 * b.faixa[1], 1) : "") + "."
         : (b.faixa ? " (intervalo de " + pc(100 * b.faixa[0], 1) + " a " + pc(100 * b.faixa[1], 1) + ")." : ".")) +
-      " Nenhum cenário põe a terceira via majoritariamente no Flavio.") : null;
+      " Nenhum cenário põe a terceira via majoritariamente no Flávio.") : null;
 
     var controle = h("div", { class: "ap-cam-ctl" },
       h("div", { class: "ap-cam-ctl-topo" },
@@ -354,11 +354,11 @@
 
     var c = cartao("De onde vieram os " + mi(b.GL + b.GF) + " de votos a mais",
       "O mesmo resultado em dois blocos: a terceira via do 1º turno e os votos válidos que apareceram no 2º, " +
-      "divididos entre o ganho do Lula e o do Flavio. Neste recorte a conta tem um grau de liberdade só, e por isso " +
+      "divididos entre o ganho do Lula e o do Flávio. Neste recorte a conta tem um grau de liberdade só, e por isso " +
       "dá para ver o mínimo que a aritmética obriga.",
       cam.host,
       h("p", { class: "ap-cam-fora", text: "Fora do desenho, porque não mudaram de lado: os " + mi(n.lula1) +
-        " que já eram do Lula e os " + mi(n.flavio1) + " que já eram do Flavio no 1º turno." }),
+        " que já eram do Lula e os " + mi(n.flavio1) + " que já eram do Flávio no 1º turno." }),
       h("div", { class: "ap-cam-leg" },
         h("span", { class: "cheio", text: "cheio: a aritmética obriga (contagem e subtração)" }),
         h("span", { class: "claro", text: "claro: depende do cenário (nenhum dado agregado decide)" })),
@@ -463,7 +463,7 @@
   // dentro do intervalo de cada um (Cury 99%, Caiado ~77%, Renan ~14%), o que
   // não acontecia com o `inicial` do servidor (Caiado 90%, Renan 3%).
   // Depois, cada família é ordenada da fonte que mais deu ao Lula para a que
-  // mais deu ao Flavio — e essa ordem não muda mais (linha que pula de lugar
+  // mais deu ao Flávio — e essa ordem não muda mais (linha que pula de lugar
   // enquanto a pessoa arrasta é pior que uma faixa cruzada).
   var FAMILIAS = ["terceira", "novos"];
   function iniciarSim() {
@@ -497,7 +497,7 @@
 
   // A fonte travada (branco e nulo do 1º turno): a parte que continua
   // branco/nulo é o branco/nulo do 2º turno menos o que as OUTRAS fontes
-  // mandaram para lá. O resto se divide entre Lula e Flavio na proporção que a
+  // mandaram para lá. O resto se divide entre Lula e Flávio na proporção que a
   // pessoa escolheu. Com isso o destino branco/nulo fecha sempre com o TSE, e
   // "o Renan anulou metade" puxa sozinho mais branco/nulo do 1º turno para um
   // candidato — é o que a conta exige.
@@ -565,7 +565,7 @@
 
   // ── as histórias prontas ────────────────────────────────────────────────
   // Cada uma é um clique que monta um cenário e diz, numa frase, o que ele
-  // mostra. "Toda para o Flavio" é de propósito impossível: é o mínimo de
+  // mostra. "Toda para o Flávio" é de propósito impossível: é o mínimo de
   // 60% visto pelo avesso.
   function fonteRenan() {
     return fontesSim().filter(function (f) { return /renan/i.test(f.nome); })[0];
@@ -588,7 +588,7 @@
         "e a conta ainda fecha: as outras fontes se ajustaram (compare as barras com o ponto de partida). " +
         "O dado não descarta essa história, nem a confirma." };
     } },
-    { id: "flavio", rot: "E se a terceira via fosse toda para o Flavio?", fazer: function () {
+    { id: "flavio", rot: "E se a terceira via fosse toda para o Flávio?", fazer: function () {
       sim.fatia = copiar(sim.partida); sim.mexidos = {};
       var paraFlavio = 0;
       fontesSim().forEach(function (f) {
@@ -600,7 +600,7 @@
       });
       ajustarTravado();
       sim.status = { ok: false, txt: "Não fecha, e nenhum ajuste salva: só a terceira via mandaria " + mi(paraFlavio) +
-        " ao Flavio, mais que todo o ganho dele entre os turnos (" + mi(alvosSim().flavio) + "). " +
+        " ao Flávio, mais que todo o ganho dele entre os turnos (" + mi(alvosSim().flavio) + "). " +
         "É o mínimo de 60% para o Lula visto pelo avesso." };
     } },
   ];
@@ -618,7 +618,7 @@
         linhas: [estreito ? f.curto : f.nome, mi(f.v)] });
     });
     fontes.push({ id: "flavio1", px: STUB, cor: COR.flavio, quebra: true, vao: 16,
-      linhas: [estreito ? "Flavio 1º t." : "Flavio no 1º turno", mi(n.flavio1) + " ≈", estreito ? null : "fora de escala"] });
+      linhas: [estreito ? "Flávio 1º t." : "Flávio no 1º turno", mi(n.flavio1) + " ≈", estreito ? null : "fora de escala"] });
 
     var ganho = function (k, b) { return estreito ? mi2(b) + " + " + mi2(c.S[k]) : "já tinha " + mi2(b) + " + ganhou " + mi2(c.S[k]); };
     var destinos = [
@@ -627,7 +627,7 @@
       { id: "bn", v: c.S.bn, alvo: c.alvo.bn, cor: COR.bn,
         linhas: ["Branco/nulo", mi(c.S.bn), estreito ? null : "nenhum dos dois"] },
       { id: "flavio", v: c.S.flavio, alvo: c.alvo.flavio, cor: COR.flavio, base: { px: STUB, noFim: true },
-        linhas: ["Flavio", mi(n.flavio1 + c.S.flavio), ganho("flavio", n.flavio1)] },
+        linhas: ["Flávio", mi(n.flavio1 + c.S.flavio), ganho("flavio", n.flavio1)] },
     ];
 
     var fluxos = [{ de: "lula1", para: "lula", px: STUB, cor: COR.lula, op: 0.16,
@@ -640,11 +640,11 @@
       });
     });
     fluxos.push({ de: "flavio1", para: "flavio", px: STUB, cor: COR.flavio, op: 0.16,
-      titulo: "Flavio no 1º turno → Flavio: " + mi(n.flavio1) + " ficaram (fora de escala)" });
+      titulo: "Flávio no 1º turno → Flávio: " + mi(n.flavio1) + " ficaram (fora de escala)" });
 
     return sankeyH({ W: W, H: estreito ? 470 : 500, vao: 22,
       rotE: estreito ? 114 : 176, rotD: estreito ? 92 : 190, classe: "ap-hib-svg", minPx: 1.5,
-      rotulo: "Para onde foi cada voto do 1º turno: dez fontes à esquerda, Lula, branco/nulo e Flavio no 2º turno à direita",
+      rotulo: "Para onde foi cada voto do 1º turno: dez fontes à esquerda, Lula, branco/nulo e Flávio no 2º turno à direita",
       fontes: fontes, destinos: destinos, fluxos: fluxos });
   }
 
@@ -664,7 +664,7 @@
     }
     if (id === "lula1" || id === "flavio1") {
       var t = (d.transicao || {}).troca || {};
-      return (id === "lula1" ? "Lula" : "Flavio") + " no 1º turno · " + mi(id === "lula1" ? n.lula1 : n.flavio1) +
+      return (id === "lula1" ? "Lula" : "Flávio") + " no 1º turno · " + mi(id === "lula1" ? n.lula1 : n.flavio1) +
         ". No desenho, esses votos ficam com ele: a troca direta medida entre os dois é praticamente zero" +
         (t.votos_ic ? " (intervalo de 0 a " + mi(t.votos_ic[1]) + ")" : "") + ". O bloco está fora de escala.";
     }
@@ -751,13 +751,13 @@
   }
 
   // ── a barra de três cores, com duas divisas arrastáveis ─────────────────
-  // Lula | Flavio | branco/nulo. A divisa A separa Lula de Flavio; a B separa
-  // Flavio de branco/nulo. Clicar na barra leva a divisa mais próxima até ali.
+  // Lula | Flávio | branco/nulo. A divisa A separa Lula de Flávio; a B separa
+  // Flávio de branco/nulo. Clicar na barra leva a divisa mais próxima até ali.
   // No toque, só gesto horizontal mexe (o vertical continua rolando a página);
   // um toque parado também leva a divisa — é intenção, não rolagem.
   function barra3(f, aoMudar) {
     var segs = DEST.map(function (k) { return h("span", { class: "ap-b3-seg", vars: { "--cor": COR[k] } }); });
-    var alcas = ["Divisa entre Lula e Flavio", "Divisa entre Flavio e branco/nulo"].map(function (rot) {
+    var alcas = ["Divisa entre Lula e Flávio", "Divisa entre Flávio e branco/nulo"].map(function (rot) {
       return h("span", { class: "ap-b3-alca", role: "slider", tabindex: "0", "aria-label": rot + " — " + f.nome,
         "aria-valuemin": "0", "aria-valuemax": "100" });
     });
@@ -766,13 +766,13 @@
       h("span", { class: "ap-b3-est", vars: { "--p": (100 * f.est) + "%" } })] : [];
     var el = h("div", { class: "ap-b3" }, segs, ic, alcas);
     // Fonte travada: o pedaço branco/nulo sai da conta, não se arrasta. Fica
-    // só a divisa Lula | Flavio.
+    // só a divisa Lula | Flávio.
     if (f.travado) {
       segs[2].classList.add("travado");
       alcas[1].classList.add("oculta");
       alcas[1].setAttribute("tabindex", "-1");
       alcas[1].setAttribute("aria-hidden", "true");
-      alcas[0].setAttribute("aria-label", "Divisa entre Lula e Flavio — " + f.nome + " (o branco/nulo é travado pela conta)");
+      alcas[0].setAttribute("aria-label", "Divisa entre Lula e Flávio — " + f.nome + " (o branco/nulo é travado pela conta)");
     }
 
     function pos() {
@@ -783,9 +783,9 @@
       alcas[0].style.left = (100 * a) + "%";
       alcas[1].style.left = (100 * b) + "%";
       alcas[0].setAttribute("aria-valuenow", String(Math.round(100 * a)));
-      alcas[0].setAttribute("aria-valuetext", "Lula " + pc(100 * x.lula, 0) + ", Flavio " + pc(100 * x.flavio, 0));
+      alcas[0].setAttribute("aria-valuetext", "Lula " + pc(100 * x.lula, 0) + ", Flávio " + pc(100 * x.flavio, 0));
       alcas[1].setAttribute("aria-valuenow", String(Math.round(100 * b)));
-      alcas[1].setAttribute("aria-valuetext", "Flavio " + pc(100 * x.flavio, 0) + ", branco/nulo " + pc(100 * x.bn, 0));
+      alcas[1].setAttribute("aria-valuetext", "Flávio " + pc(100 * x.flavio, 0) + ", branco/nulo " + pc(100 * x.bn, 0));
     }
     function definir(qual, frac) {
       var x = sim.fatia[f.id], a = x.lula, b = x.lula + x.flavio;
@@ -881,7 +881,7 @@
     }
     var barra = barra3(f, mudou);
 
-    // Os controles finos: dois deslizantes (Lula e branco/nulo; o Flavio é o
+    // Os controles finos: dois deslizantes (Lula e branco/nulo; o Flávio é o
     // que sobra). Para quem não acerta a divisa com o dedo.
     var inL = h("input", { type: "range", min: "0", max: "100", step: "1", "aria-label": "Parte de " + f.nome + " que foi para o Lula",
       oninput: function (ev) { fino("lula", parseFloat(ev.target.value) / 100); } });
@@ -909,7 +909,7 @@
     painel.appendChild(h("label", { class: "ap-hib-fino" }, h("span", { vars: { "--cor": COR.lula }, text: "Lula" }), inL));
     if (!f.travado) painel.appendChild(h("label", { class: "ap-hib-fino" }, h("span", { vars: { "--cor": COR.bn }, text: "Branco/nulo" }), inB));
     painel.appendChild(h("p", { class: "ap-hib-fino-nota", text: f.travado
-      ? "O branco/nulo é travado pela conta; o Flavio fica com o que sobra." : "O Flavio fica com o que sobra." }));
+      ? "O branco/nulo é travado pela conta; o Flávio fica com o que sobra." : "O Flávio fica com o que sobra." }));
     sincronizarPainel();
     repintar[f.id] = function () { barra.pos(); pintarNums(); sincronizarPainel(); };
 
@@ -922,7 +922,7 @@
     var meta = f.ic ? "modelo " + pc(100 * f.est, 0) + " para o Lula (" + pc(100 * f.ic[0], 0) + "–" + pc(100 * f.ic[1], 0) + ")"
       : f.membros ? f.membros
       : f.travado ? "branco " + mi(f.partes[0]) + " + nulo " + mi(f.partes[1]) + ". O pedaço riscado é travado: é o branco/nulo do 2º turno (" +
-          mi(alvosSim().bn) + ") menos o que as outras fontes mandaram para lá. Você divide o resto entre Lula e Flavio."
+          mi(alvosSim().bn) + ") menos o que as outras fontes mandaram para lá. Você divide o resto entre Lula e Flávio."
       : f.nota || "";
     linha = h("div", { class: "ap-hib-linha" + (sim.mexidos[f.id] ? " mexido" : "") },
       h("div", { class: "ap-hib-quem" },
@@ -992,7 +992,7 @@
       hib.chips,
       hib.status,
       hib.linhas,
-      h("p", { class: "ap-conta-fonte", text: "Lula e Flavio do 1º turno ficam com eles: a troca direta medida é praticamente zero" +
+      h("p", { class: "ap-conta-fonte", text: "Lula e Flávio do 1º turno ficam com eles: a troca direta medida é praticamente zero" +
         (t.votos_ic ? " (intervalo de 0 a " + mi(t.votos_ic[1]) + ")" : "") +
         ". Fonte: totais do TSE nos dois turnos; estimativa por candidato com a votação por seção agregada por município." }));
     c.classList.add("ap-hib");

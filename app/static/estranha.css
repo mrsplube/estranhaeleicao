@@ -433,3 +433,19 @@ body:has(.arte) { position: relative; }
   .placar-tab td:nth-child(2)::before { content: "Favoreceu o Flávio"; }
   .placar-tab td:nth-child(3)::before { content: "Favoreceu o Lula"; }
 }
+
+/* Resumo/filtro por veredito e data da revisão (31/10/2026) */
+.resumo-casos { margin: -8px 0 20px; }
+.filtro-casos { display: flex; flex-wrap: wrap; gap: 8px; }
+.filtro-btn { padding: 7px 12px; border-radius: 99px; border: 1px solid var(--linha); background: transparent; color: var(--texto-2); font: 600 13px/1.2 inherit; cursor: pointer; }
+.filtro-btn b { margin-left: 2px; font-weight: 800; }
+.filtro-btn.falso { color: var(--falso); }
+.filtro-btn.parcial { color: var(--parcial); }
+.filtro-btn.ok { color: var(--ok); }
+.filtro-btn[aria-pressed="true"] { background: color-mix(in srgb, currentColor 16%, transparent); border-color: currentColor; }
+.filtro-btn.todos[aria-pressed="true"] { color: var(--texto); }
+.filtro-btn:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+.atualizado { margin: 10px 0 0; font-size: 13px; color: var(--texto-3); }
+.caso[hidden], .divisa-casos[hidden] { display: none; }
+.caso-pe { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.caso-pe .recolher.baixo { margin: 0 0 0 auto; }

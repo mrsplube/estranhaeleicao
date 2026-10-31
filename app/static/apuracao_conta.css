@@ -785,3 +785,4 @@
    conta — riscado e sem divisa; só a divisa Lula | Flavio se arrasta */
 .ap-b3-seg.travado { background: repeating-linear-gradient(135deg, var(--cor) 0 5px, #94a3b8 5px 8px); }
 .ap-b3-alca.oculta { display: none; }
+.ap-trans-pesquisa { margin: 14px 0 0; font-size: 13px; line-height: 1.55; color: var(--texto-2, #aab3d4); }

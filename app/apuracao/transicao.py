@@ -166,7 +166,7 @@ def calcular(base: Path) -> dict:
         "identificados": sum(1 for c in candidatos if c["identificado"]),
         "total": len(candidatos),
         # Referência externa: quem apura urna a urna também não mede a troca direta.
-        "referencia_externa": "DataDCO (urna a urna) publica a troca Lula↔Flavio como não mensurável.",
+        "referencia_externa": "DataDCO (urna a urna) publica a troca Lula↔Flávio como não mensurável.",
     }
 
 

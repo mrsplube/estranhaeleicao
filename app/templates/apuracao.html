@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {# Apuração 2026 — a EXPLICAÇÃO do resultado, em UMA página.
    A ordem (29/10/2026, tarde): os três números, o Sankey completo (10 fontes
-   → 3 destinos, Lula e Flavio do 1º turno fora de escala) com o placar e uma
+   → 3 destinos, Lula e Flávio do 1º turno fora de escala) com o placar e uma
    barra arrastável por fonte, e o resto recolhido. Quem monta é
    static/apuracao_analise.js.
 
@@ -54,14 +54,14 @@
 {% block header %}{% set pagina = "detalhe" %}{% include "site_topo.html" %}{% endblock %}
 
 {% block content %}
-<div class="ap ap-explica" id="ap" data-versao="{{ static_v }}" data-base="/apuracao" data-final="1" data-turno="2">
+<div class="ap ap-explica" id="ap" data-versao="{{ static_v }}" data-base="/apuracao" data-final="1" data-turno="2"{% if not modo_completo %} data-casos="/#casos"{% endif %}>
   <header class="ap-topo ap-topo-compacto">
     <div class="ap-topo-linha">
       <div class="ap-marca">
         <span class="ap-pulso parado" id="ap-pulso" aria-hidden="true"></span>
         <div>
           <h1>A conta do 2º turno <span class="ap-ao-vivo fim" id="ap-estado-rotulo">resultado final</span></h1>
-          <p class="ap-sub">Lula 51,79% × Flavio 48,21% · 25/10/2026 · dados oficiais do TSE</p>
+          <p class="ap-sub">Lula 51,79% × Flávio 48,21% · 25/10/2026 · dados oficiais do TSE</p>
         </div>
       </div>
       {% if modo_completo %}

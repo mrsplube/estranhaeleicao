@@ -43,11 +43,11 @@
           h("span", { text: "Sobra que veio obrigatoriamente da terceira via" }),
           h("b", { text: "= " + mm(l.q_min_votos) }))),
       h("p", { class: "ap-conta-conta" },
-        "O contrário também vale, e é o que derruba a hipótese mais comum: se a terceira via tivesse ido TODA para o Flavio, " +
+        "O contrário também vale, e é o que derruba a hipótese mais comum: se a terceira via tivesse ido TODA para o Flávio, " +
         "o Lula precisaria tirar " + mm(l.ganho_lula) + " dos votos novos — isto é, " +
         pct(100 * l.p_necessario_se_q_zero, 0) + " de " + mm(l.novos) + ". Como não existe " +
         pct(100 * l.p_necessario_se_q_zero, 0) + " de um conjunto, esse cenário é impossível. " +
-        "E o Flavio não perdeu voto para ninguém: ele também ganhou (" + mm(l.ganho_flavio) + ")."),
+        "E o Flávio não perdeu voto para ninguém: ele também ganhou (" + mm(l.ganho_flavio) + ")."),
       h("p", { class: "ap-conta-fonte", text: "Fonte: votos válidos e votos por candidato, arquivo oficial do TSE nos dois turnos. A identidade é contábil: novos + terceira via = ganho dos dois candidatos, ao voto." }));
   }
 
@@ -110,13 +110,22 @@
       "Estimativa por município, com o intervalo de 95% de cada uma. A barra cinza é o intervalo: quanto mais larga, menos o dado decide. " +
       "Só " + t.identificados + " de " + t.total + " candidatos têm intervalo estreito o bastante para afirmar alguma coisa.",
       h("div", { class: "ap-trans-legenda" },
-        h("span", { class: "ap-mudo", text: "0% = todo o voto dele foi para o Flavio · 100% = todo para o Lula" })),
+        h("span", { class: "ap-mudo", text: "0% = todo o voto dele foi para o Flávio · 100% = todo para o Lula" })),
       h("div", { class: "ap-trans-lista" }, linhas),
+      // As pesquisas dão ao Lula de 34% a 52% do eleitor do Cury; o modelo, bem
+      // mais. Sem explicar a diferença, o leitor toma uma das duas por erro.
+      h("p", { class: "ap-trans-pesquisa" },
+        h("b", { text: "Por que o modelo e as pesquisas não batem. " }),
+        "As pesquisas perguntaram ao eleitor do Cury em quem ia votar e deram ao Lula de 34% (Quaest) a 52% (AtlasIntel). " +
+        "O modelo não pergunta a ninguém: compara, cidade por cidade, onde o Cury teve voto e onde o Lula cresceu. " +
+        "Se o Lula cresceu justamente onde o Cury era forte, o modelo atribui o crescimento ao eleitor do Cury, mesmo que parte " +
+        "tenha vindo de outros eleitores das mesmas cidades. Por isso a estimativa sai alta e o intervalo, largo: é o limite do " +
+        "dado por cidade, não o voto de cada pessoa."),
       h("div", { class: "ap-trans-troca" },
-        h("b", { text: "E a troca direta do Flavio para o Lula? " }),
+        h("b", { text: "E a troca direta do Flávio para o Lula? " }),
         "≈ " + num(tr.votos) + " votos (intervalo de " + num(tr.votos_ic[0]) + " a " + num(tr.votos_ic[1]) +
         ", sobre " + num(tr.eleitorado_flavio) + " que votaram nele no 1º turno). Ou seja: praticamente nenhuma. " +
-        "O Flavio terminou o 2º turno com MAIS votos que tinha no 1º — não houve debandada."),
+        "O Flávio terminou o 2º turno com MAIS votos que tinha no 1º — não houve debandada."),
       h("details", { class: "ap-conta-detalhe" },
         h("summary", { text: "Por que 8 dos 10 vêm como “não decide”" }),
         h("p", { text: "O modelo é de inferência ecológica: mínimos quadrados por município com os parâmetros presos entre 0 e 1 " +
