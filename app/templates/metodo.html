@@ -73,8 +73,19 @@
       <p>“Estranho” não é sinônimo de “fraude”, e “normal” não é absolvição: são respostas a perguntas diferentes. Um caso marcado como estranho diz que a pergunta continua aberta; um marcado como normal diz que o número não sustenta a conclusão que se tirou dele.</p>
     </section>
 
-    <section class="m-b" aria-labelledby="m-limites">
+    <section class="m-b" aria-labelledby="m-origem">
       <p class="m-num">04</p>
+      <h2 id="m-origem">De onde vieram os casos</h2>
+      <p>Não de uma amostra. Por um dia, o autor deste site consumiu no Reels do Instagram o conteúdo que acusava as urnas de fraude — e, como o algoritmo funciona, quanto mais consumia, mais recebia. Desse feed saíram os casos: foram escolhidos <b>os que pareciam mais verdadeiros e os que tinham mais engajamento</b>.</p>
+      <p>Isso precisa estar dito porque muda o que o site pode afirmar, em duas coisas.</p>
+      <p><b>Primeira: a proporção de casos “falsos” aqui não mede a desinformação sobre as urnas.</b> Ela mede a parcela de falsidade no que o algoritmo amplificou — que é justamente onde a desinformação se concentra. Se o número parece alto, provavelmente é: mas ele é do feed, não do país.</p>
+      <p><b>Segunda: o filtro foi do autor, olhando o material.</b> “Parecia mais verdadeiro” foi um julgamento feito caso a caso, depois de ver o vídeo, e não um critério fixado antes. Não é reproduzível como um sorteio, e o site não apresenta a escolha como se fosse.</p>
+      <p><b>O que isso tem a favor:</b> o ponto de partida não foi uma lista montada para confirmar uma tese — foi o que circulava de fato, no ambiente onde circulava, que é o mesmo critério das agências de checagem (conferir o que viralizou). <b>O que isso não permite:</b> falar pelo país. É uma rede, não o Brasil — não cobre o WhatsApp da família, o grupo do trabalho nem o que circulou longe dali. Serve para medir a desinformação sobre as urnas naquele feed e naquele período; não serve como retrato nacional.</p>
+      <p>O que é verificável é o <b>tratamento</b>, não a seleção: todo caso passou pelo mesmo rito (red team, defesa e decisão), as fontes de quem acusa estão linkadas e o histórico de correções é público no GitHub, commit a commit.</p>
+    </section>
+
+    <section class="m-b" aria-labelledby="m-limites">
+      <p class="m-num">05</p>
       <h2 id="m-limites">O que o site não faz</h2>
       <p>Esta seção existe porque os limites são reais e é melhor enunciá-los do que deixar que sejam encontrados.</p>
 
@@ -90,16 +101,10 @@
 
       <h3>O voto é secreto</h3>
       <p>Não é possível saber em quem uma pessoa votou. “O eleitor do Cury foi para o Lula” é uma afirmação sobre um grupo, obtida por inferência — nunca sobre um eleitor. Toda vez que o site faz uma conta desse tipo, ela é sobre o grupo e vem com o intervalo.</p>
-
-      <h3>Não é um estudo pré-registrado</h3>
-      <p>O conjunto de casos não veio de uma amostra: <b>veio do que os algoritmos mostraram</b>. O autor deste site passou a alimentar, no Instagram, o conteúdo que acusava as urnas de fraude — e o algoritmo passou a devolver cada vez mais disso. Desse fluxo saíram os casos: foram selecionados os que pareciam mais críveis e os que mais circulavam. Isso é o oposto de uma amostra aleatória, e tem duas consequências que o site assume.</p>
-      <p><b>Primeira:</b> a proporção de casos “falsos” aqui <b>não</b> mede a desinformação sobre as urnas. Ela mede a parcela de falsidade <i>naquele fluxo que o algoritmo amplificou</i>, que é justamente onde a desinformação tende a se concentrar. Se o número parece alto, é provável que seja — mas o número certo é do fluxo, não do total.</p>
-      <p><b>Segunda:</b> o critério de escolha — o que parecia crível — é um julgamento do autor, feito depois de ver o material, e não um plano fixado antes da coleta. Ele não é verificável como um sorteio. O que se pode verificar é outra coisa: <b>o tratamento</b>. Todo caso recebeu o mesmo rito (red team, defesa e decisão), as fontes de quem acusa estão linkadas e o histórico de correções é público no GitHub, commit a commit.</p>
-      <p>Isso tem um lado a favor: o algoritmo mostrou o que estava circulando, não uma lista que o autor escolheu procurar — e é o mesmo ponto de partida das agências de checagem, que conferem o que viralizou. O limite é que isso é uma rede, não o país: o Instagram de uma pessoa não representa o WhatsApp da família nem o que circulou longe dali, e o filtro do que parecia crível é do autor. Serve para medir a desinformação sobre as urnas naquele período e naquela rede; não serve como retrato nacional.</p>
     </section>
 
     <section class="m-b" aria-labelledby="m-ref">
-      <p class="m-num">05</p>
+      <p class="m-num">06</p>
       <h2 id="m-ref">Referências de método</h2>
       <ul class="m-refs">
         <li>Totalização e boletim de urna: documentação do TSE em <a href="https://www.tse.jus.br" target="_blank" rel="noopener">tse.jus.br</a>, incluindo o formato do BU e o procedimento de conferência pelos fiscais.</li>
@@ -108,14 +113,14 @@
     </section>
 
     <section class="m-b" aria-labelledby="m-ia">
-      <p class="m-num">06</p>
+      <p class="m-num">07</p>
       <h2 id="m-ia">Uso de inteligência artificial</h2>
       <p>O código, os textos e as checagens foram produzidos com assistência de modelos de linguagem (Claude e DeepSeek). Isso está dito aqui porque quem lê tem o direito de saber e de calibrar a confiança por isso.</p>
       <p>O que não é gerado por modelo: <b>os números</b>. Todas as contas rodam sobre os arquivos do TSE, por código versionado e auditável neste repositório, e qualquer pessoa pode executá-lo e comparar. Onde um modelo escreveu uma frase errada, o erro é do projeto e a correção fica no histórico. A responsabilidade editorial é do autor, não do modelo.</p>
     </section>
 
     <section class="m-b m-fim" aria-labelledby="m-erro">
-      <p class="m-num">07</p>
+      <p class="m-num">08</p>
       <h2 id="m-erro">Como apontar um erro</h2>
       <p>Correção de número, de método ou de leitura tem prioridade sobre qualquer outra coisa. Duas formas:</p>
       <ul>
