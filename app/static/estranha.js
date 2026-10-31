@@ -616,7 +616,7 @@
         });
         // Os rótulos encostam na borda nos dois extremos: o texto é curto e
         // desliza para dentro do quadro em vez de sair dele.
-        var cx = Math.max(mE + 22, Math.min(W - mD - 26, x0 + lb));
+        var cx = Math.max(mE + 24, Math.min(W - mD - 42, x0 + lb));
         svg.appendChild(s("text", { x: cx, y: H - mB + 15, "text-anchor": "middle", class: "eixo", text: x.curto }));
         svg.appendChild(s("text", { x: cx, y: H - mB + 30, "text-anchor": "middle", class: "eixo fraco", text: numf(x.secoes) + " seções" }));
       });

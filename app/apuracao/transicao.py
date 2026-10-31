@@ -18,10 +18,12 @@ do Flavio no 1º turno e:
 - `p` (0–1) — fração dos votos novos que foi para o Lula;
 - `c` (0–1) — fração do eleitorado do Flavio que migrou para o Lula.
 
-Ajuste por mínimos quadrados ponderados (peso = tamanho do município), com as
-três famílias de parâmetro presas em [0, 1] — é a abordagem de inferência
-ecológica clássica (Goodman/King) na forma que a literatura recomenda para
-tabelas J×K: mínimos quadrados com restrição de simplex.
+Ajuste por mínimos quadrados ponderados (peso = tamanho do município), com cada
+parâmetro preso ao intervalo [0, 1] e resolvido por L-BFGS-B. É um ajuste
+restrito, no espírito da inferência ecológica, mas **não** é o modelo de King
+(1997) nem uma solução por simplex: os limites aqui são por parâmetro, um a um,
+e não uma restrição de que as linhas de uma tabela somem 1. A diferença importa
+para quem for replicar: não há aqui a estrutura de bounds/prior do King.
 
 ## Por que o intervalo é obrigatório
 
@@ -151,7 +153,7 @@ def calcular(base: Path) -> dict:
     larguras = [c["largura"] for c in candidatos]
     return {
         "ok": True,
-        "metodo": "mínimos quadrados com simplex, inferência ecológica por município",
+        "metodo": "mínimos quadrados por município, com cada parâmetro preso em [0, 1]",
         "municipios": len(muns),
         "candidatos": candidatos,
         "novos_lula": round(float(base_est[k]), 4),

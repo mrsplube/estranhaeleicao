@@ -86,20 +86,21 @@
       <p>Para isso existe uma conferência distinta, e ela é pública: cada urna imprime o boletim de urna na seção, antes de transmitir, e o boletim tem QR code assinado; os fiscais dos partidos podem fotografá-lo. Comparar o papel com o arquivo publicado é o que fecharia essa lacuna, e qualquer partido pode fazer isso. Até a última revisão deste texto, nenhum boletim divergente havia sido apresentado publicamente. Se um aparecer, o site está errado na sua conclusão principal e terá de ser refeito.</p>
 
       <h3>O simulador não identifica a divisão dos votos</h3>
-      <p>Os cenários de 2º turno usam inferência ecológica para estimar que fração dos votos de cada candidato da terceira via foi para cada lado. O modelo prevê bem o total, mas <b>isso não quer dizer que cada parâmetro esteja bem estimado</b>: o intervalo de 95% (bootstrap por município) tem largura média de cerca de 0,78 numa faixa possível de 0 a 1, e para 6 dos 10 candidatos da terceira via o intervalo é o próprio [0, 1]. Nesses casos o dado não decide, e o site não finge que decide: o resultado aparece como faixa, não como número. Os cinco cenários da página são hipóteses construídas sobre esses intervalos, não previsões.</p>
+      <p>Os cenários de 2º turno partem de uma conta: quanto cada candidato da terceira via rendeu de votos ao Lula, ao Flávio ou a branco e nulo. Essas fatias não estão nos dados — são <b>estimadas</b> por município, ajustando o modelo ao resultado de cada um. O modelo reproduz bem o total, mas <b>isso não quer dizer que cada fatia esteja bem estimada</b>: o intervalo de 95% (simulado por reamostragem dos municípios) tem largura média de cerca de 0,78 numa faixa possível de 0 a 1, e para 6 dos 10 candidatos da terceira via o intervalo é o próprio [0, 1]. Nesses casos o dado não decide, e o site não finge que decide: o resultado aparece como faixa, não como número. Os cinco cenários da página são hipóteses construídas sobre esses intervalos, não previsões.</p>
 
       <h3>O voto é secreto</h3>
       <p>Não é possível saber em quem uma pessoa votou. “O eleitor do Cury foi para o Lula” é uma afirmação sobre um grupo, obtida por inferência — nunca sobre um eleitor. Toda vez que o site faz uma conta desse tipo, ela é sobre o grupo e vem com o intervalo.</p>
 
       <h3>Não é um estudo pré-registrado</h3>
-      <p>O conjunto de casos foi reunido a partir do que circulou na internet, não de um plano fixado antes da coleta. Isso significa que a escolha de quais teorias conferir não é aleatória, e não dá para tratar a proporção de casos “falsos” como uma taxa de acerto da desinformação. O histórico de correções do projeto é público no GitHub, commit a commit.</p>
+      <p>O conjunto de casos não veio de uma amostra: <b>veio do que os algoritmos mostraram</b>. O autor deste site passou a alimentar, no Instagram, o conteúdo que acusava as urnas de fraude — e o algoritmo passou a devolver cada vez mais disso. Desse fluxo saíram os casos: foram selecionados os que pareciam mais críveis e os que mais circulavam. Isso é o oposto de uma amostra aleatória, e tem duas consequências que o site assume.</p>
+      <p><b>Primeira:</b> a proporção de casos “falsos” aqui <b>não</b> mede a desinformação sobre as urnas. Ela mede a parcela de falsidade <i>naquele fluxo que o algoritmo amplificou</i>, que é justamente onde a desinformação tende a se concentrar. Se o número parece alto, é provável que seja — mas o número certo é do fluxo, não do total.</p>
+      <p><b>Segunda:</b> o critério de escolha — o que parecia crível — é um julgamento do autor, feito depois de ver o material, e não um plano fixado antes da coleta. Ele não é verificável como um sorteio. O que se pode verificar é outra coisa: <b>o tratamento</b>. Todo caso recebeu o mesmo rito (red team, defesa e decisão), as fontes de quem acusa estão linkadas e o histórico de correções é público no GitHub, commit a commit.</p>
     </section>
 
     <section class="m-b" aria-labelledby="m-ref">
       <p class="m-num">05</p>
       <h2 id="m-ref">Referências de método</h2>
       <ul class="m-refs">
-        <li>Inferência ecológica: <b>Goodman, L. A.</b> (1953), <i>Ecological Regressions and Behavior of Individuals</i>; <b>King, G.</b> (1997), <i>A Solution to the Ecological Inference Problem</i>. É a abordagem usada no simulador, com restrição de simplex.</li>
         <li>Totalização e boletim de urna: documentação do TSE em <a href="https://www.tse.jus.br" target="_blank" rel="noopener">tse.jus.br</a>, incluindo o formato do BU e o procedimento de conferência pelos fiscais.</li>
         <li>Cada caso com afirmação atribuída traz o link da fonte de quem a fez (vídeo, post, reportagem) na própria página do caso.</li>
       </ul>
