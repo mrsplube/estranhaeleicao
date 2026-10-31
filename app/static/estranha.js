@@ -219,11 +219,7 @@
       h("div", { class: "revela", id: "rev-" + o.id }, h("div", {},
         h("span", { class: "veredito " + t.cls, text: o.veredito }),
         o.situacao ? h("p", { class: "situacao", html: "<b>Situação:</b> " + o.situacao }) : null,
-        h("ul", { class: "pontos com-icone" }, o.pontos.map(function (p, i) {
-          var ic = (ICONES[o.id] || [])[i];
-          return h("li", null, h("span", { class: "pt-ico", "aria-hidden": "true", text: ic || "•" }), h("span", { html: p }));
-        })),
-        o.visual || null,
+        miolo(o),
         dois(o.id),
         (o.mais || []).map(function (m) {
           return h("details", { class: "mais " + (m.classe || "") }, h("summary", { text: m.rot }), h("div", { class: "corpo" }, m.corpo));
@@ -234,6 +230,37 @@
     ]);
     return art;
   }
+  // O corpo do caso: pontos e gráficos na ordem em que o caso declara.
+  //
+  // Até 31/10 a resposta saía sempre como "todos os pontos, depois todos os
+  // visuais" — quem lia oito pontos sobre cidades e só então via os dois
+  // gráficos tinha de reencontrar mentalmente o que era de quê. Agora o caso
+  // pode intercalar: um item "visual" no meio de `pontos` entra ali mesmo, e
+  // a lista de pontos continua sendo uma lista (as pílulas, os ícones) mesmo
+  // quando quebrada por um gráfico no meio.
+  function miolo(o) {
+    if (!o.pontos.length) return o.visual || null;
+    var saida = [], lote = [];
+    function fechar() {
+      if (!lote.length) return;
+      saida.push(h("ul", { class: "pontos com-icone" }, lote));
+      lote = [];
+    }
+    o.pontos.forEach(function (item, i) {
+      if (item && typeof item === "object" && item.visual) {
+        fechar();
+        saida.push(item.visual);
+        return;
+      }
+      var ic = (ICONES[o.id] || [])[i];
+      lote.push(h("li", null, h("span", { class: "pt-ico", "aria-hidden": "true", text: ic || "•" }), h("span", { html: item })));
+    });
+    fechar();
+    // Sem marcação explícita, o visual declarado em `o.visual` continua indo no fim.
+    if (o.visual && saida.indexOf(o.visual) === -1) saida.push(o.visual);
+    return saida;
+  }
+  // O que o caso declara como "visual" pode ser um gráfico só ou uma lista.
   function visual(titulo, conteudo, leg) {
     return h("div", { class: "visual" }, titulo ? h("h4", { text: titulo }) : null, conteudo, leg ? h("p", { class: "leg", text: leg }) : null);
   }
@@ -322,15 +349,15 @@
         "<b>Os votos do Lula vieram da terceira via.</b> Eram " + num(terc) + " votos, " + num(cury + caiado) + " deles de Cury e Caiado. Com os " + num(bn1) + " brancos e nulos do 1º turno, a conta fecha sem nenhum eleitor do Flávio virar Lula.",
         "<b>Em Campos dos Goytacazes não há “voto do além”.</b> Os 1.386 votos que o vídeo não acha são os " + num(-V.dados.cidades["CAMPOS DOS GOYTACAZES"].f2 + V.dados.cidades["CAMPOS DOS GOYTACAZES"].f1) + " que o Flávio perdeu lá.",
         "<b>Não é exceção.</b> O Flávio ganhou 0 voto ou perdeu em " + num(x.flavio_ganho_ate_zero) + " cidades; em " + num(x.quase_tudo_lula_com_flavio_60) + " delas, ele tinha vencido com 60% ou mais. Em 2022, o Bolsonaro estava no mesmo lugar em " + num(d.regua_2022.municipios.f_ganho_ate_zero) + ".",
+        { visual: visual("Municípios parecidos, onde o Flávio venceu com 60% ou mais, 2022 e 2026", cidades,
+          "Uma amostra, não o país: das " + num(x.municipios) + " cidades, são as seis em que o Flávio venceu com 60% ou mais e em que o saldo ficou quase todo com o Lula. O saldo é quantos votos cada candidato ganhou (ou perdeu) entre o 1º e o 2º turno.") },
         "<b>As seis cidades da Região dos Lagos também conferem com o TSE</b>, de Cabo Frio a Arraial do Cabo — e o número do carrossel está certo: nelas o Flávio ganhou entre 11 (Araruama) e 433 votos (São Pedro da Aldeia) entre os turnos, e o carrossel não inventou nenhum. Só que em todas as seis o Lula ganhou menos do que havia de terceira via e branco/nulo no 1º turno, então nenhum voto precisou sair do Flávio: o eleitor que estava livre foi para o Lula, como no país inteiro (lá, 73,6% dos votos novos foram do Lula; nelas, de 89% a 99,8%).",
+        { visual: visual("As seis cidades do carrossel da Região dos Lagos, conferidas no TSE", [
+          tabelaLagos()],
+          "O carrossel do @direitaraiiz traz estas seis cidades e o percentual de votos novos que foram do Lula — que confere. O que ele não traz é a coluna da terceira via e do branco/nulo: em todas as seis, o que o Lula ganhou cabe no que sobrou do 1º turno fora do Flávio.") },
         "<b>E multiplicar a chance das seis não vale.</b> O terceiro slide do carrossel chama isso de “significado estatístico global”: se uma cidade já é “numericamente impossível”, multiplicar as seis daria “ordens de grandeza que extrapolam os limites físicos do universo conhecido”. O problema é o passo anterior. São cidades vizinhas, com o mesmo eleitorado, a mesma campanha e o mesmo noticiário: multiplicar supõe sorteios independentes, e não são. É o mesmo erro do “1 em 10⁴⁶⁸”. No Rio, o Lula ganhou mais votos que o Flávio entre os turnos em 92 das 92 cidades — se cada uma valesse uma probabilidade, o estado inteiro seria “impossível” também.",
         "<b>Quem cresceu mais mudou de candidato.</b> Nas seis cidades do quadro, em 2022 o Bolsonaro ganhou mais votos que o Lula entre os turnos. Em 2026, o Lula ganhou mais que o Flávio.",
       ],
-      visual: [visual("Municípios parecidos, onde o Flávio venceu com 60% ou mais, 2022 e 2026", cidades,
-        "Uma amostra, não o país: das " + num(x.municipios) + " cidades, são as seis em que o Flávio venceu com 60% ou mais e em que o saldo ficou quase todo com o Lula. O saldo é quantos votos cada candidato ganhou (ou perdeu) entre o 1º e o 2º turno."),
-        visual("As seis cidades do carrossel da Região dos Lagos, conferidas no TSE", [
-          tabelaLagos()],
-          "O carrossel do @direitaraiiz traz estas seis cidades e o percentual de votos novos que foram do Lula — que confere. O que ele não traz é a coluna da terceira via e do branco/nulo: em todas as seis, o que o Lula ganhou cabe no que sobrou do 1º turno fora do Flávio.")],
       mais: [{
         rot: "Adendo: e o Monte Carlo?", classe: "adendo",
         corpo: [
@@ -518,22 +545,22 @@
         "<b>As quedas existem — e cada uma tem hora e lugar.</b> A urna conta os votos e manda o resultado para o TSE; os resultados chegam por região, não sorteados, e rápido: no trecho do vídeo, quase 180 urnas por segundo. A maior queda é às " + q.hora.slice(0, 5) + ", quando as 400 urnas seguintes deram " + pc(q.bolsonaro_no_lote, 1) + " ao Bolsonaro contra os 51,7% acumulados até ali. Não é o voto que muda: é a leva de urnas que chega, e a maior parte dela era de " + q.lugares.join(", ") + ".",
         "<b>O gráfico dele não é o dado do TSE.</b> No trecho que ele amplia, o eixo vai de 51,5% a 51,8%. Ali, o dado oficial varia " + ppNum(amp).replace(" ponto percentual", " ponto") + " e sai quase reto; o traço do vídeo sobe e desce uns 0,17 ponto, seis vezes mais. Refazendo a conta com os boletins, em várias ordens, o serrote dele não aparece.",
         "<b>Não houve “uma inversão só”.</b> Na ordem do arquivo do TSE, a liderança muda 6 vezes: três com poucos votos contados e três às 18h43, quando a diferença era de 13 a 176 votos em 80 milhões. É empate virando a cada lote de urnas.",
-        "<b>Sorteio e apuração real não se comparam.</b> Em ordem sorteada, a liderança troca em média " + t22.trocas_mediana + " vezes, todas antes de " + pc(t22.ultima_troca_max, 1) + " contado. Na apuração real, as urnas chegam por região, e a virada pode vir tarde. Contar inversões não diz nada sobre fraude.",
+
+        { visual: visual("O eixo do gráfico dele (0,515 a 0,518) com o dado do TSE na mesma janela", [
+          grafZoom(n),
+          h("div", { class: "numeros" },
+            numero("0,3", "ponto de altura no eixo do vídeo", "falso"),
+            numero(ppNum(amp).replace(" ponto percentual", ""), "ponto de variação no dado do TSE", "ok"),
+            numero("18h43", "quando a liderança virou — com 80 milhões de votos contados"))],
+          "A linha azul é o dado do TSE — a fatia acumulada do Bolsonaro — desenhada no eixo do gráfico do vídeo. Ela sai quase reta: no mesmo trecho, o dado oficial varia 0,028 ponto, e o eixo do vídeo tem 0,3 ponto de altura. O serrilhado que ele aponta não aparece aí.") },        "<b>Sorteio e apuração real não se comparam.</b> Em ordem sorteada, a liderança troca em média " + t22.trocas_mediana + " vezes, todas antes de " + pc(t22.ultima_troca_max, 1) + " contado. Na apuração real, as urnas chegam por região, e a virada pode vir tarde. Contar inversões não diz nada sobre fraude.",
         "<b>Recortar e colar fabrica qualquer vencedor.</b> Juntar só os trechos em que o Bolsonaro sobe dá " + pc(r.bolsonaro_so_subidas, 1) + " a ele; juntar só os que caem dá " + pc(r.lula_so_quedas, 1) + " ao Lula. O recorte escolhe o vencedor.",
-      ],
-      visual: [visual("O eixo do gráfico dele (0,515 a 0,518) com o dado do TSE na mesma janela", [
-        grafZoom(n),
-        h("div", { class: "numeros" },
-          numero("0,3", "ponto de altura no eixo do vídeo", "falso"),
-          numero(ppNum(amp).replace(" ponto percentual", ""), "ponto de variação no dado do TSE", "ok"),
-          numero("18h43", "quando a liderança virou — com 80 milhões de votos contados"))],
-        "A linha azul é o dado do TSE — a fatia acumulada do Bolsonaro — desenhada no eixo do gráfico do vídeo. Ela sai quase reta: no mesmo trecho, o dado oficial varia 0,028 ponto, e o eixo do vídeo tem 0,3 ponto de altura. O serrilhado que ele aponta não aparece aí."),
-        visual("A apuração de 2022 refeita com os boletins, na ordem de chegada", [
+        { visual: visual("A apuração de 2022 refeita com os boletins, na ordem de chegada", [
           grafCurva(n),
           h("div", { class: "duelo" },
             h("div", { class: "f" }, h("b", { text: pc(r.bolsonaro_so_subidas, 1) }), h("span", { text: "Bolsonaro, juntando só as subidas dele" })),
             h("div", { class: "l" }, h("b", { text: pc(r.lula_so_quedas, 1) }), h("span", { text: "Lula, juntando só as quedas do Bolsonaro" })))],
-          "Fatia do Bolsonaro (vertical) conforme os boletins chegavam (horizontal). Ela começa em 49%, mas salta para 56% com 1,2% das urnas contadas — as primeiras que chegaram eram do Distrito Federal e do Paraná —, e desce até 49% quando o resto do país entra. Visto de longe, o que existe é uma subida e uma descida longas, não um serrote de degraus.")],
+          "Fatia do Bolsonaro (vertical) conforme os boletins chegavam (horizontal). Ela começa em 49%, mas salta para 56% com 1,2% das urnas contadas — as primeiras que chegaram eram do Distrito Federal e do Paraná —, e desce até 49% quando o resto do país entra. Visto de longe, o que existe é uma subida e uma descida longas, não um serrote de degraus.") },
+      ],
     });
   }
 
@@ -652,19 +679,19 @@
       pontos: [
         "<b>É inédito.</b> De 1989 a 2022 houve 7 segundos turnos para presidente, e em todos eles quem liderou o 1º turno ganhou o 2º. Em 2026, pela primeira vez, quem estava atrás virou.",
         "<b>Os números conferem:</b> o Lula ganhou " + mi(dl) + " votos a mais que no 1º turno, e o Flávio, " + mi(df) + ". De cada 4 votos que apareceram no 2º turno, 3 foram para o Lula.",
+        { visual: visual(null, h("div", { class: "numeros" },
+          numero("+" + mi(dl), "Lula entre os turnos", "l"), numero("+" + mi(df), "Flávio entre os turnos", "f"),
+          numero(pc(100 * dl / (dl + df), 0), "dos votos novos foram para o Lula"))) },
         "<b>Onde já era forte, cresceu menos em %.</b> No Piauí, onde teve 71% dos votos válidos no 1º turno, o Lula ganhou 8,6% mais votos no 2º; em Santa Catarina, onde teve 25%, ganhou 26%. Em número de votos, porém, o ganho foi parecido: o equivalente a 6,1% dos válidos do 1º turno no Piauí e a 6,5% em Santa Catarina.",
         "<b>A virada foi espalhada.</b> Em 211 cidades o Flávio venceu o 1º turno e o Lula, o 2º; o contrário aconteceu em uma só, Uirapuru (GO). Três de cada quatro ficam no Sudeste e no Sul.",
         "<b>A geografia explica mais que a urna.</b> Dos 5.571 municípios do país, o Lula ganhou mais votos que o Flávio entre os turnos em 5.228 (93,8%) — inclusive nos 92 do Rio e em 1.457 dos 1.569 de chapa com o PL. Não há mancha: é o país inteiro.",
         "<b>E não seguiu o palanque do prefeito.</b> Nas cidades de prefeito filiado ao PL em que o Flávio ganhou o 1º turno, o Lula virou em 16 de 413 (3,9%) — menos que nas de prefeito do PSDB (17 de 164, 10,4%) e do PSD (39 de 489, 8,0%). O voto presidencial não acompanhou o municipal.",
+        { visual: visual("A virada por partido do prefeito eleito em 2024 (cidades em que o Flávio ganhou o 1º turno)", [
+          tabelaPrefeitos()],
+          "Recálculo do levantamento que a Metrópoles publicou em 26/10 (“70 cidades de prefeito do PL”, 41 no Sudeste e 17 no Sul). Com o critério da reportagem — prefeito filiado ao PL ou eleito por coligação que inclui o PL — saem 75 cidades, 44 no Sudeste e 18 no Sul; as do PT em que o Lula virou são 5, não 4. A diferença é de critério e de data de cadastro, não de dado: a reportagem chegou ao mesmo desenho.") },
         "<b>“Uma cidade do PT” também confere, e é a mesma.</b> A única cidade que virou para o Flávio, Uirapuru (GO), é justamente a de prefeito eleito por coligação que inclui a federação do PT. A Metrópoles escreveu “apenas uma cidade de gestão do PT”: confere, e o detalhe é esse.",
         "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/simulacao/cenarios'>5 jeitos de a conta fechar</a>.",
       ],
-      visual: [visual(null, h("div", { class: "numeros" },
-        numero("+" + mi(dl), "Lula entre os turnos", "l"), numero("+" + mi(df), "Flávio entre os turnos", "f"),
-        numero(pc(100 * dl / (dl + df), 0), "dos votos novos foram para o Lula"))),
-        visual("A virada por partido do prefeito eleito em 2024 (cidades em que o Flávio ganhou o 1º turno)", [
-          tabelaPrefeitos()],
-          "Recálculo do levantamento que a Metrópoles publicou em 26/10 (“70 cidades de prefeito do PL”, 41 no Sudeste e 17 no Sul). Com o critério da reportagem — prefeito filiado ao PL ou eleito por coligação que inclui o PL — saem 75 cidades, 44 no Sudeste e 18 no Sul; as do PT em que o Lula virou são 5, não 4. A diferença é de critério e de data de cadastro, não de dado: a reportagem chegou ao mesmo desenho.")],
     });
   }
   // Gráfico de linha da chance do Lula na Polymarket em 25/10 (static/casos/polymarket.json).
@@ -705,21 +732,21 @@
       veredito: "Erraram, e um pouco além da margem. Já aconteceu antes.",
       pontos: [
         "<b>Os números das pesquisas conferem.</b> O Datafolha de 24/10 dava Flávio 51% e Lula 49% dos votos válidos, com margem de erro de 2 pontos para mais ou para menos. A última AtlasIntel dava 50,8% a 49,2%. O resultado oficial foi Lula 51,79%.",
+        { visual: visual(null, h("div", { class: "numeros" },
+          numero("49%", "Lula na véspera (Datafolha)", "l"), numero("51,79%", "Lula no resultado", "l"), numero("80%", "chance do Flávio na Polymarket", "f"))) },
         "<b>O erro foi de uns 3 pontos percentuais.</b> A pesquisa dava Flávio 51% e Lula 49%; o resultado deu Lula 51,79% e Flávio 48,21%. Cada um ficou a 2,8 pontos do que a pesquisa dizia — um pouco além da margem de 2. Em 2022 foi maior e para o outro lado: as pesquisas subestimaram o Bolsonaro no 1º turno em vários pontos.",
         "<b>As apostas seguiram as pesquisas.</b> A Polymarket está proibida no Brasil desde abril; segundo analistas, o preço foi definido sobretudo por apostadores de fora do país, num mercado que movimentou 4,5% do volume da eleição americana de 2024. E 20% de chance não é zero: em 2016, a Betfair dava 83% de chance a Hillary Clinton, que perdeu.",
-        "<b>A conta dos “3 em 1.000” está quase certa, mas mede uma coisa só.</b> Com margem de erro de 2 pontos, um erro de 2,8 pontos causado apenas pelo sorteio da amostra acontece umas 3 vezes em 1.000. Só que a margem de erro cobre só esse sorteio: a pesquisa também erra por quem não responde, por quem decide no fim e pelo peso dado a cada grupo. Por isso erros desse tamanho são bem mais comuns. No 1º turno de 2022, o Datafolha da véspera deu 36% ao Bolsonaro, e ele teve 43,2%.",
-        "<b>Onde a pesquisa costuma errar:</b> em quem decide o voto no fim, em quem não votou no 1º turno e volta no 2º, e no destino da terceira via. Foi exatamente o que decidiu esta eleição.",
-      ],
-      visual: [visual(null, h("div", { class: "numeros" },
-        numero("49%", "Lula na véspera (Datafolha)", "l"), numero("51,79%", "Lula no resultado", "l"), numero("80%", "chance do Flávio na Polymarket", "f"))),
-        visual("Chance do Lula na Polymarket, no dia da eleição", grafPoly(),
-          "Às 17h03 a votação foi prorrogada; às 17h06 saiu a primeira parcial (0,25% das seções, com o Lula na frente), e o TSE parou a contagem até as 19h. A subida das 17h é essa parcial; a virada, depois das 19h, é a apuração voltando."),
-        visual("Onde o favorito das apostas já perdeu", h("div", { class: "mapa-apostas" },
+        { visual: visual("Chance do Lula na Polymarket, no dia da eleição", grafPoly(),
+          "Às 17h03 a votação foi prorrogada; às 17h06 saiu a primeira parcial (0,25% das seções, com o Lula na frente), e o TSE parou a contagem até as 19h. A subida das 17h é essa parcial; a virada, depois das 19h, é a apuração voltando.") },
+        { visual: visual("Onde o favorito das apostas já perdeu", h("div", { class: "mapa-apostas" },
           h("img", { src: "/static/casos/mapa-apostas.svg" + (VERSAO ? "?v=" + encodeURIComponent(VERSAO) : ""), alt: "Mapa: Brasil, Venezuela e Polônia destacados", loading: "lazy", width: "720", height: "330" }),
           h("ul", { class: "mapa-leg" },
             h("li", { html: "<b>Brasil 2026</b> · Flávio ~80% na Polymarket" }),
             h("li", { html: "<b>Polônia 2025</b> · Trzaskowski ~64% na Polymarket" }),
-            h("li", { html: "<b>Venezuela 2024</b> · Maduro ~80% na Polymarket, e o mercado o deu como derrotado; o resultado oficial, contestado, o declarou eleito" }))))],
+            h("li", { html: "<b>Venezuela 2024</b> · Maduro ~80% na Polymarket, e o mercado o deu como derrotado; o resultado oficial, contestado, o declarou eleito" })))) },
+        "<b>A conta dos “3 em 1.000” está quase certa, mas mede uma coisa só.</b> Com margem de erro de 2 pontos, um erro de 2,8 pontos causado apenas pelo sorteio da amostra acontece umas 3 vezes em 1.000. Só que a margem de erro cobre só esse sorteio: a pesquisa também erra por quem não responde, por quem decide no fim e pelo peso dado a cada grupo. Por isso erros desse tamanho são bem mais comuns. No 1º turno de 2022, o Datafolha da véspera deu 36% ao Bolsonaro, e ele teve 43,2%.",
+        "<b>Onde a pesquisa costuma errar:</b> em quem decide o voto no fim, em quem não votou no 1º turno e volta no 2º, e no destino da terceira via. Foi exatamente o que decidiu esta eleição.",
+      ],
     });
   }
   // ── biometria: quantos votaram sem a digital, por eleição ───────────────
@@ -774,25 +801,25 @@
       pontos: [
         "<b>Os 8,6 milhões existem, mas são do dia todo:</b> o Boletim de Urna do TSE — o arquivo com o resultado de cada urna — soma " + num(8632488) + " eleitores com biometria que votaram sem ela no 2º turno, em todo o país, dos " + num(127854631) + " que votaram. É a digital que não foi reconhecida e o voto liberado com documento com foto.",
         "<b>Isso é menos que nas eleições anteriores:</b> em 2022 foram 8,08% no 2º turno e 8,74% no 1º; em 2026, 6,68% no 1º. A taxa caiu, não subiu.",
+        { visual: visual("Quem votou sem a digital reconhecida, por eleição (% de quem votou)", [
+          grafBio(),
+          h("div", { class: "numeros" },
+            numero("6,75%", "no 2º turno de 2026", "f"),
+            numero("8,08%", "no 2º turno de 2022", "ok"))],
+          "Fonte: Boletim de Urna do TSE, soma de todas as seções do país. O 1º turno de 2026 marcou 6,68%. A prática é antiga e a taxa vem caindo: o que o relatório chama de prova é o procedimento normal, em volume menor que o de 2022.") },
         "<b>Depois das 17h foram 34.393 votos</b> no país, segundo o TSE: 0,03% do total. É esse o número da prorrogação, não 8,6 milhões.",
         "<b>Tirar 8,6 milhões só do Lula</b> supõe que todos votaram nele. O voto é secreto.",
         "<b>O relatório não tem autor.</b> A Justiça Eleitoral o chamou de apócrifo.",
         "<b>Se o voto sem digital tivesse feito a virada, ele teria crescido no 2º turno.</b> Cresceu " + num(8632488 - 8342249) + " (de 8,34 milhões para 8,63 milhões). Mesmo que todos fossem votos inventados para o Lula, seriam " + pc(100 * (8632488 - 8342249) / (V.dados.nacional.lula2 - V.dados.nacional.flavio2), 1) + " da diferença final.",
         "<b>A falha da digital é de quem vota ali, não do turno.</b> Em cada estado a taxa quase não mudou entre os turnos: no Piauí, 8,7% e 9,0%; em São Paulo, 6,0% nos dois. A falha costuma ser maior entre idosos e quem faz trabalho manual, que gastam a digital. Por isso a comparação que vale é entre turnos, na mesma seção — e ela está no quadro do visual.",
+        { visual: visual("Margem do Lula (% dos válidos) por faixa de falha da digital, nos dois turnos", [
+          grafFaixas()],
+          "Cada seção do país entra na faixa da sua própria taxa de falha, nos dois turnos. Nas seções com mais de 10% de falha, o Lula já estava 3,8 pontos à frente no 1º turno e ganhou mais 4,5; nas com até 5% de falha, estava 3,9 atrás e virou 6,1. Fonte: Boletim de Urna × votação por seção, TSE.") },
         "<b>“Flávio teve 52% onde a biometria funcionou” não confere.</b> Nas " + numf(177011) + " seções em que a digital falhou em até 5% dos votos, o Flávio teve 48,87% e o Lula 51,13%. Nas 1.793 seções sem nenhuma falha, o Flávio teve 45,26%. Ele não lidera onde a falha é baixa.",
         "<b>“97% da margem do Lula veio dessas urnas” também não.</b> Nas seções com mais de 10% de falha está 36,4% da margem total do Lula (4,43 milhões de votos), e elas somam 15,7% dos válidos do país — acima do peso proporcional, mas longe de 97%. O ganho de votos do Lula ali foi 14,9% de todo o ganho dele; o do Flávio, 15,8% do ganho dele.",
         "<b>E a virada foi menor justamente ali.</b> Nas seções com falha acima de 10%, a margem do Lula subiu 4,5 pontos entre os turnos; nas com até 5% de falha, subiu 6,1. Se a urna sem digital fosse o motor da virada, o desenho seria o contrário.",
         "<b>O procedimento não tem segredo.</b> Quando a digital não é lida, o mesário confere o documento com foto e a seção libera o voto pelo teclado — a mesma cédula, o mesmo boletim impresso, o mesmo fiscal de partido ao lado. A falha cresce com a idade do eleitor e com trabalho manual, e é maior no Norte e no Nordeste.",
       ],
-      visual: [visual("Quem votou sem a digital reconhecida, por eleição (% de quem votou)", [
-        grafBio(),
-        h("div", { class: "numeros" },
-          numero("6,75%", "no 2º turno de 2026", "f"),
-          numero("8,08%", "no 2º turno de 2022", "ok"))],
-        "Fonte: Boletim de Urna do TSE, soma de todas as seções do país. O 1º turno de 2026 marcou 6,68%. A prática é antiga e a taxa vem caindo: o que o relatório chama de prova é o procedimento normal, em volume menor que o de 2022."),
-        visual("Margem do Lula (% dos válidos) por faixa de falha da digital, nos dois turnos", [
-          grafFaixas()],
-          "Cada seção do país entra na faixa da sua própria taxa de falha, nos dois turnos. Nas seções com mais de 10% de falha, o Lula já estava 3,8 pontos à frente no 1º turno e ganhou mais 4,5; nas com até 5% de falha, estava 3,9 atrás e virou 6,1. Fonte: Boletim de Urna × votação por seção, TSE.")],
     });
   }
   function mesario(d) {

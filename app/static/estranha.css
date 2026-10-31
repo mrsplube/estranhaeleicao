@@ -344,6 +344,12 @@ body:has(.arte) { position: relative; }
 .pontos.com-icone li::before { content: none; }
 .pt-ico { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--cartao-2); border: 1px solid var(--linha); font-size: 15px; line-height: 1; }
 .pontos.com-icone li > span:last-child { padding-top: 4px; }
+/* Pontos quebrados por um gráfico no meio (31/10): a lista retoma logo abaixo
+   do bloco, e o vão entre o gráfico e a lista seguinte é menor que o de cima —
+   o leitor tem de sentir que o texto continua, não que começou outra coisa. */
+.pontos + .visual { margin-top: 14px; }
+.visual + .pontos { margin-top: 14px; }
+.visual + .visual { margin-top: 14px; }
 /* cartão clicável */
 .caso { cursor: pointer; }
 .caso .revela, .caso .visual, .caso .lados, .caso .circulou { cursor: auto; }
