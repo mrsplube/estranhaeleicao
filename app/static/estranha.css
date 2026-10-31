@@ -340,7 +340,7 @@ body:has(.arte) { position: relative; }
 .serie.poly { fill: none; stroke: var(--lula); stroke-width: 2.5; }
 .eixo.marco { fill: var(--destaque); font-size: 11px; }
 .mapa-apostas img { display: block; width: 100%; height: auto; }
-.mapa-leg { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 6px 14px; margin: 10px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--texto-2); }
+.mapa-leg { display: grid; gap: 5px; margin: 12px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--texto-2); }
 .mapa-leg li::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 3px; background: #e6be55; vertical-align: -1px; }
 .mapa-leg li.outra::before { background: #a07f2e; }
 
