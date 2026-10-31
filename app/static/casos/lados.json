@@ -221,6 +221,33 @@
     "decisao": "Normal, para o 2º turno.",
     "sintese": "Compra de voto é real e cresceu ou foi mais fiscalizada. Não explica a eleição presidencial."
    }
+  },
+  "onibus": {
+   "fraude": "Sindicalistas colaram adesivos do Lula nos ônibus de Salvador, e a frota encolheu no dia da votação. Uma cidade que vota em massa no Lula ficou sem transporte e com propaganda irregular rodando.",
+   "defesa": "A propaganda foi irregular, e o atraso veio da prefeitura, que é de oposição ao PT, segurando ônibus para tirar os adesivos. Mesmo assim, o comparecimento em Salvador subiu 5,5% sobre o 1º turno, mais que no país.",
+   "juiz": {
+    "tag": "estranho",
+    "decisao": "Estranho, dos dois lados.",
+    "sintese": "Houve propaganda proibida e frota reduzida, e a PF investiga. O efeito no voto não aparece: Salvador votou mais no 2º turno que no 1º."
+   }
+  },
+  "padroeira": {
+   "fraude": "A campanha do Lula espalhou que o Flávio tiraria o título de padroeira de Nossa Senhora Aparecida e continuou no assunto depois de o TSE chamar a história de inverídica.",
+   "defesa": "A campanha não repetiu que o Flávio tinha o projeto; manteve o tema genérico, o que o TSE tratou como crítica. E a peça contrária, a capa falsa da Veja contra o Lula, também foi removida.",
+   "juiz": {
+    "tag": "estranho",
+    "decisao": "Insistiu no tema, não na autoria.",
+    "sintese": "O boato era falso e foi removido. Depois disso, a campanha seguiu explorando o assunto sem repetir a acusação direta."
+   }
+  },
+  "desinformacao": {
+   "fraude": "A Justiça Eleitoral só pune um lado: apaga o conteúdo de uma campanha e deixa a outra em paz.",
+   "defesa": "Houve remoção e multa contra as duas campanhas, inclusive confirmadas pelo plenário. Os placares que existem quase empatam.",
+   "juiz": {
+    "tag": "normal",
+    "decisao": "Os dois lados foram punidos.",
+    "sintese": "Remoções e multas atingiram as duas campanhas. A maior parte é liminar, e não há balanço oficial por lado."
+   }
   }
  }
 }

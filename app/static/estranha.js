@@ -73,11 +73,11 @@
   };
   // Um ícone por ponto da resposta, na ordem (lê melhor que um marcador igual para todos).
   var ICONES = {
-    "virada": ["🆕", "✅", "📈", "🧮"], "pesquisas": ["✅", "📏", "🎲", "🗳️"],
-    "secoes-10": ["❌", "🔁", "🏘️", "⚖️"], "curva": ["📅", "🧾", "🕒", "📐", "🔀", "🧮", "✂️"],
-    "biometria": ["🕔", "📉", "🧮", "🔒", "📄"], "mesario": ["🪪", "🕔", "🚨", "💬"],
+    "virada": ["🆕", "✅", "📈", "🗺️", "🧮"], "pesquisas": ["✅", "📏", "🎲", "🗳️"],
+    "secoes-10": ["❌", "🔁", "🏘️", "⚖️"], "curva": ["📅", "🕒", "📐", "🔀", "🧮", "✂️"],
+    "biometria": ["🕔", "📉", "🧮", "🔒", "📄", "📈", "🖐️"], "mesario": ["🪪", "🕔", "🚨", "💬"],
     "sala-cofre": ["🔒", "❓", "🧾"], "caminhonete": ["🎥", "📤", "🧾"],
-    "silva-jardim": ["➖", "🔀", "🔎", "🗺️", "🔁"], "soma": ["⏱️", "✅"], "consulta": ["📅", "⏳", "🪦"],
+    "silva-jardim": ["➖", "🔀", "🔎", "🗺️", "🏖️", "🔁"], "soma": ["⏱️", "✅"], "consulta": ["📅", "⏳", "🚫", "🪦"],
     "mesma-secao": ["🚫", "🔍", "📉"], "zonas": ["📍", "📱", "🗺️"], "cedula": ["🗳️", "🔢", "⚖️"],
     "eleitores": ["✅", "🚚", "🏠"], "prorrogacao": ["⏰", "🌧️", "📉", "🕰️"], "desfile": ["💰", "🛑", "⚖️"],
     "pacote": ["📆", "📲", "⚖️", "🗳️", "🚫"], "exercito": ["📣", "🔍", "🔁"], "universidades": ["🎓", "📜", "📚", "❔"],
@@ -85,6 +85,7 @@
     "padroeira": ["📜", "⛪", "🗣️", "📣", "🔁"],
     "desinformacao": ["⚖️", "🔁", "⏳", "🚫", "🧮"],
     "maquina-celular": ["📲", "✅", "⚖️", "🎓", "🗳️"],
+    "onibus": ["🏷️", "🚌", "⏰", "🗳️"],
   };
   var V = null;   // casos_videos.json
   var LADOS = null;   // static/casos/lados.json: quem acusa, quem defende e a decisão de cada caso
@@ -255,13 +256,15 @@
       id: "silva-jardim", titulo: "Cidades onde o Flávio parou", tag: "normal",
       alegacao: "Em Araruama (RJ), o Flávio ganhou 11 votos entre os turnos e o Lula 5.581. Em Silva Jardim, 1 contra " + num(t2.lula - t1.lula) + ". A chance disso seria de 1 em 10⁴⁶⁸.",
       fontes: [{ rot: "Silva Jardim, no X", url: "https://x.com/lucascrvg_20/status/2115159021606891820" },
-               { rot: "Campos, no Instagram", url: "https://www.instagram.com/reel/DfGXIePNOby/" }],
+               { rot: "Campos, no Instagram", url: "https://www.instagram.com/reel/DfGXIePNOby/" },
+               { rot: "Região dos Lagos, no Instagram", url: "https://www.instagram.com/p/DfD8_8tkeBX/" }],
       veredito: "O número confere. A conta, não.",
       pontos: [
         "<b>“+1” é saldo, não o voto que ele recebeu.</b> " + num(t1.comp - t2.comp) + " pessoas a menos votaram no 2º turno. Ganhar 200 e perder 199 dá +1.",
         "<b>Os votos do Lula vieram da terceira via.</b> Eram " + num(terc) + " votos, " + num(cury + caiado) + " deles de Cury e Caiado. Com os " + num(bn1) + " brancos e nulos do 1º turno, a conta fecha sem nenhum eleitor do Flávio virar Lula.",
         "<b>Em Campos dos Goytacazes não há “voto do além”.</b> Os 1.386 votos que o vídeo não acha são os " + num(-V.dados.cidades["CAMPOS DOS GOYTACAZES"].f2 + V.dados.cidades["CAMPOS DOS GOYTACAZES"].f1) + " que o Flávio perdeu lá.",
         "<b>Não é exceção.</b> O Flávio ganhou 0 voto ou perdeu em " + num(x.flavio_ganho_ate_zero) + " cidades; em " + num(x.quase_tudo_lula_com_flavio_60) + " delas, ele tinha vencido com 60% ou mais. Em 2022, o Bolsonaro estava no mesmo lugar em " + num(d.regua_2022.municipios.f_ganho_ate_zero) + ".",
+        "<b>As seis cidades da Região dos Lagos também conferem com o TSE</b>, de Cabo Frio a Arraial do Cabo. Em todas, o que o Lula ganhou é menos do que havia de terceira via e branco/nulo no 1º turno (em Cabo Frio, 9.169 contra 14.195). Multiplicar a chance das seis como se fossem sorteios separados não vale: são cidades vizinhas, com o mesmo eleitorado e a mesma campanha.",
         "<b>Quem cresceu mais mudou de candidato.</b> Nas seis cidades do quadro, em 2022 o Bolsonaro ganhou mais votos que o Lula entre os turnos. Em 2026, o Lula ganhou mais que o Flávio.",
       ],
       visual: visual("Municípios parecidos, onde o Flávio venceu com 60% ou mais: 2022 e 2026", cidades,
@@ -450,18 +453,17 @@
       veredito: "É de 2022. As quedas existem, mas são regiões chegando",
       pontos: [
         "<b>O vídeo é de 2022, não desta eleição.</b> Ele fala do Bolsonaro e diz que ele “teria ganhado as eleições com 60 a 65% dos votos”; sobre 2026, só que “estamos sendo roubados novamente”. Quem pôs o número no Flávio foi a legenda do perfil que repostou o vídeo em 28/10.",
-        "<b>As “472 urnas” dele.</b> Ele diz ter baixado do site do TSE “essas mesmas 472 urnas” e simulado outras ordens de envio. O 2º turno de 2022 teve " + num(n.secoes) + " seções, e cada seção é uma urna — o número dele tem essa ordem de grandeza, mas ele diz 472, não 472 mil. Juntar as duas coisas é conclusão nossa, não afirmação dele.",
         "<b>As quedas existem — e cada uma tem hora e lugar.</b> A urna conta os votos e manda o resultado para o TSE; os resultados chegam por região, não sorteados, e rápido: no trecho do vídeo, quase 180 urnas por segundo. A maior queda é às " + q.hora.slice(0, 5) + ", quando as 400 urnas seguintes deram " + pc(q.bolsonaro_no_lote, 1) + " ao Bolsonaro contra os 51,7% acumulados até ali. Não é o voto que muda: é a leva de urnas que chega, e a maior parte dela era de " + q.lugares.join(", ") + ".",
-        "<b>O eixo dele, lido nos quadros, vai de 0,515 a 0,518</b> — 0,3 ponto de altura, com uma linha de grade a cada 0,1. Nessa janela o dado oficial é quase uma reta: a fatia acumulada do Bolsonaro varia " + ppNum(amp).replace(" ponto percentual", " ponto") + " no mesmo trecho. Já o traço do vídeo, medido nos quadros, anda cerca de 0,17 ponto — seis vezes mais. Tentei reproduzir o serrilhado dele com os boletins do TSE, em várias janelas e escalas, na ordem de chegada e em ordens sorteadas, e não fecha: o desenho do vídeo não é a fatia acumulada do Bolsonaro naquele trecho. Não sei dizer de onde ele tirou aquele traço.",
-        "<b>Não houve “uma inversão só”.</b> Somando na ordem do arquivo do TSE, quem está à frente muda 6 vezes. As três primeiras são com a contagem minúscula (9,9 mil votos às 05:40, 93 mil às 14:33, 296 mil às 17:06). As outras três caem no mesmo segundo, 18h43, quando a diferença entre os dois era de 13, 176 e 26 votos em 80 milhões — empate técnico virando a cada lote de urnas, não algoritmo.",
-        "<b>A comparação dele é com a coisa errada.</b> Em " + t22.voltas + " ordens sorteadas com as mesmas seções, a liderança troca " + t22.trocas_mediana + " vezes em média, mas todas antes de " + pc(t22.ultima_troca_max, 1) + " contado, quando o acumulado nem chega a 1 milhão de votos. Ordem sorteada troca cedo e muitas vezes; ordem por região pode trocar tarde. As duas coisas são compatíveis — e é por isso que “quantas inversões” não diz nada sobre fraude.",
+        "<b>O gráfico dele não é o dado do TSE.</b> No trecho que ele amplia, o eixo vai de 51,5% a 51,8%. Ali, o dado oficial varia " + ppNum(amp).replace(" ponto percentual", " ponto") + " e sai quase reto; o traço do vídeo sobe e desce uns 0,17 ponto, seis vezes mais. Refazendo a conta com os boletins, em várias ordens, o serrote dele não aparece.",
+        "<b>Não houve “uma inversão só”.</b> Na ordem do arquivo do TSE, a liderança muda 6 vezes: três com poucos votos contados e três às 18h43, quando a diferença era de 13 a 176 votos em 80 milhões. É empate virando a cada lote de urnas.",
+        "<b>Sorteio e apuração real não se comparam.</b> Em ordem sorteada, a liderança troca em média " + t22.trocas_mediana + " vezes, todas antes de " + pc(t22.ultima_troca_max, 1) + " contado. Na apuração real, as urnas chegam por região, e a virada pode vir tarde. Contar inversões não diz nada sobre fraude.",
         "<b>Recortar e colar fabrica qualquer vencedor.</b> Juntar só os trechos em que o Bolsonaro sobe dá " + pc(r.bolsonaro_so_subidas, 1) + " a ele; juntar só os que caem dá " + pc(r.lula_so_quedas, 1) + " ao Lula. O recorte escolhe o vencedor.",
       ],
       visual: [visual("O eixo do gráfico dele (0,515 a 0,518) com o dado do TSE na mesma janela", [
         grafZoom(n),
         h("div", { class: "numeros" },
-          numero("0,3", "ponto de altura no eixo do vídeo", "ok"),
-          numero(ppNum(amp).replace(" ponto percentual", ""), "ponto de variação no dado do TSE", "falso"),
+          numero("0,3", "ponto de altura no eixo do vídeo", "falso"),
+          numero(ppNum(amp).replace(" ponto percentual", ""), "ponto de variação no dado do TSE", "ok"),
           numero("18h43", "quando a liderança virou — com 80 milhões de votos contados"))],
         "A linha azul é o dado do TSE — a fatia acumulada do Bolsonaro — desenhada no eixo do gráfico do vídeo. Ela sai quase reta: no mesmo trecho, o dado oficial varia 0,028 ponto, e o eixo do vídeo tem 0,3 ponto de altura. O serrilhado que ele aponta não aparece aí."),
         visual("A apuração de 2022 refeita com os boletins, na ordem de chegada", [
@@ -486,6 +488,7 @@
         "<b>É inédito.</b> De 1989 a 2022 houve 7 segundos turnos para presidente, e em todos eles quem liderou o 1º turno ganhou o 2º. Em 2026, pela primeira vez, quem estava atrás virou.",
         "<b>Os números conferem:</b> o Lula ganhou " + mi(dl) + " votos a mais que no 1º turno, e o Flávio, " + mi(df) + ". De cada 4 votos que apareceram no 2º turno, 3 foram para o Lula.",
         "<b>Onde já era forte, cresceu menos em %.</b> No Piauí, onde teve 71% dos votos válidos no 1º turno, o Lula ganhou 8,6% mais votos no 2º; em Santa Catarina, onde teve 25%, ganhou 26%. Em número de votos, porém, o ganho foi parecido: o equivalente a 6,1% dos válidos do 1º turno no Piauí e a 6,5% em Santa Catarina.",
+        "<b>A virada foi espalhada.</b> Em 211 cidades o Flávio venceu o 1º turno e o Lula, o 2º; o contrário aconteceu em uma só, Uirapuru (GO). Três de cada quatro ficam no Sudeste e no Sul.",
         "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/simulacao/cenarios'>5 jeitos de a conta fechar</a>.",
       ],
       visual: visual(null, h("div", { class: "numeros" },
@@ -509,7 +512,7 @@
         svg.appendChild(s("text", { x: mE - 6, y: Y(v) + 4, "text-anchor": "end", class: "eixo", text: v + "%" }));
       });
       var hora = function (h_, m) { var d0 = new Date(t0 * 1000); d0.setHours(h_, m || 0, 0, 0); return d0.getTime() / 1000; };
-      [[17, 3, "prorrogação"], [19, 10, "apuração"]].forEach(function (m) {
+      [[17, 3, "prorrogação"], [19, 0, "apuração"]].forEach(function (m) {
         var x = X(hora(m[0], m[1]));
         svg.appendChild(s("line", { x1: x, x2: x, y1: mT, y2: H - mB, class: "ref" }));
         svg.appendChild(s("text", { x: x + 4, y: mT + 12, class: "eixo marco", text: m[2] }));
@@ -538,7 +541,7 @@
       visual: [visual(null, h("div", { class: "numeros" },
         numero("49%", "Lula na véspera (Datafolha)", "l"), numero("51,79%", "Lula no resultado", "l"), numero("80%", "chance do Flávio na Polymarket", "f"))),
         visual("Chance do Lula na Polymarket, no dia da eleição", grafPoly(),
-          "Às 17h03 a votação foi prorrogada; às 19h10 saíram os primeiros números da apuração. A virada do gráfico é a apuração chegando, não a prorrogação."),
+          "Às 17h03 a votação foi prorrogada; às 17h06 saiu a primeira parcial (0,25% das seções, com o Lula na frente), e o TSE parou a contagem até as 19h. A subida das 17h é essa parcial; a virada, depois das 19h, é a apuração voltando."),
         visual("Onde o favorito das apostas já perdeu", h("div", { class: "mapa-apostas" },
           h("img", { src: "/static/casos/mapa-apostas.svg" + (VERSAO ? "?v=" + encodeURIComponent(VERSAO) : ""), alt: "Mapa: Brasil, Venezuela e Polônia destacados", loading: "lazy" }),
           h("ul", { class: "mapa-leg" },
@@ -593,6 +596,7 @@
     return caso({
       id: "biometria", titulo: "8,6 milhões sem digital", tag: "falsa",
       alegacao: "Um relatório divulgado nos EUA diz que 8,6 milhões votaram sem biometria depois das 17h. Tirando esses votos, o Flávio teria ganhado.",
+      fontes: [L("vídeo de @hendelsmx (“toda a vantagem do Lula” nas urnas sem biometria)", "https://www.instagram.com/reel/DfIYypgOuoH/")],
       checagem: [fonte("tse_17h"), fonte("nucleo")],
       veredito: "Mistura dois números, e o maior deles é menor que em 2022",
       pontos: [
@@ -601,6 +605,8 @@
         "<b>Depois das 17h foram 34.393 votos</b> no país, segundo o TSE: 0,03% do total. É esse o número da prorrogação, não 8,6 milhões.",
         "<b>Tirar 8,6 milhões só do Lula</b> supõe que todos votaram nele. O voto é secreto.",
         "<b>O relatório não tem autor.</b> A Justiça Eleitoral o chamou de apócrifo.",
+        "<b>Se o voto sem digital tivesse feito a virada, ele teria crescido no 2º turno.</b> Cresceu " + num(8632488 - 8342249) + " (de 8,34 milhões para 8,63 milhões). Mesmo que todos fossem votos inventados para o Lula, seriam " + pc(100 * (8632488 - 8342249) / (V.dados.nacional.lula2 - V.dados.nacional.flavio2), 1) + " da diferença final.",
+        "<b>A falha da digital é de quem vota ali, não do turno.</b> Em cada estado a taxa quase não mudou entre os turnos: no Piauí, 8,7% e 9,0%; em São Paulo, 6,0% nos dois. A falha costuma ser maior entre idosos e quem faz trabalho manual, que gastam a digital. E a relação entre mais falha e mais voto no Lula já existia no 1º turno, na mesma medida.",
       ],
       visual: visual("Quem votou sem a digital reconhecida, por eleição (% de quem votou)", [
         grafBio(),
@@ -654,7 +660,8 @@
     return caso({
       id: "consulta", titulo: "A consulta que sumiu", tag: "normal",
       alegacao: "O TSE tirou do ar a consulta de quem votou, depois que muita gente foi ver se mortos votaram.",
-      fontes: [{ rot: "vídeo de @rubensdettoni", url: "https://www.instagram.com/reel/DfGFl7UNHr1/" }],
+      fontes: [{ rot: "vídeo de @rubensdettoni", url: "https://www.instagram.com/reel/DfGFl7UNHr1/" },
+               { rot: "o advogado Daniel Lima sobre “impedido de votar”", url: "https://www.instagram.com/reel/DfIiM5wytn6/" }],
       checagem: [fonte("tse_certidao"), fonte("tre_df_certidao"), fonte("faltou_tse"),
         L("TSE, hipóteses de cancelamento do título", "https://www.tse.jus.br/servicos-eleitorais/titulo-e-local-de-votacao/titulo-eleitoral"),
         L("TRE-PR, título em caso de óbito", "https://www.tre-pr.jus.br/comunicacao/noticias/2021/Abril/justica-eleitoral-explica-o-que-fazer-com-o-titulo-eleitoral-em-caso-de-obito")],
@@ -662,6 +669,7 @@
       pontos: [
         "<b>A suspensão é real.</b> De 26/10 a 2/11 o TSE processa os dados da votação e fecha o Cadastro Eleitoral; a consulta à situação do título e a certidão de quitação só voltam na terça, 3/11. Não é improviso: o calendário aprovado em fevereiro já previa essa pausa, como nos pleitos de 2018, 2020, 2022 e 2024.",
         "<b>“Ausente”, na consulta de agora, ainda não é resultado.</b> A lista mostra a situação de cada eleitor, mas nesses dias o TSE ainda está processando os registros de quem votou, faltou ou justificou. Por isso, “ausente” ali significa que o dado ainda não foi atualizado: não significa que a pessoa faltou nem que alguém votou no lugar dela. O próprio TSE avisa que, durante a suspensão, a mensagem na tela não permite concluir se alguém compareceu às urnas.",
+        "<b>“Impedido de votar”, no e-Título, também não é fraude.</b> A tela aparece quando o título está cancelado (por exemplo, por três turnos seguidos sem votar nem justificar) ou suspenso (como na condenação criminal). É a situação do eleitor no cadastro, que vale antes de ele chegar à seção.",
         "<b>Quem morreu não tem título para ser usado.</b> O falecimento é uma das causas de cancelamento: o cartório de registro civil informa o óbito à Justiça Eleitoral, e o cartório da zona cancela a inscrição. Sem inscrição, o nome não entra no caderno de votação (a lista de quem vota na seção) nem na urna — então não há título para alguém usar no lugar dele. A conferência é pela consulta do TSE, que mostra a situação da inscrição: cancelada, quando o óbito já chegou ao Cadastro Eleitoral.",
       ],
       visual: visual("A consulta, dia a dia", [
@@ -687,7 +695,7 @@
       veredito: "Promessa sem prova. E a soma das urnas não deixa espaço.",
       pontos: [
         "<b>Não havia fiscal do PL na sala-cofre para ser tirado.</b> Ela não é sala de visita nem de trabalho no dia da eleição: é uma câmara fechada, que só se abre para a manutenção dos equipamentos. Fiscais de partido acompanham a <i>sala de totalização</i>, outra sala, a poucos metros. Lá os dois fiscais do PL estiveram, com registro de presença.",
-        "<b>Nenhuma prova foi mostrada.</b> O vídeo promete revelar os “comandos” depois; até agora, nada.",
+        "<b>Nenhuma prova foi mostrada.</b> O vídeo, de 29/10, diz que a informação “caso seja comprovada” mostraria os comandos, e que “ainda não sabemos do que se trata”.",
         "<b>O que sai da sala-cofre tem que bater com o papel.</b> Cada urna imprime o boletim de urna — o resultado daquela seção, em papel — antes de transmitir, e uma via fica com os fiscais. As " + num(d.mesma_secao.secoes_nos_dois_turnos) + " seções batem voto a voto com o total oficial.",
       ],
       visual: visual("Duas salas, e o papel que decide", [
@@ -782,6 +790,36 @@
           numero("34.393", "votos depois das 17h"), numero(mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2), "de diferença no fim", "l"))]),
     });
   }
+  // ── os ônibus de Salvador (31/10/2026) ─────────────────────────────────
+  // Dois lados no mesmo episódio: adesivos do Lula colados nos ônibus por
+  // sindicalistas, e a prefeitura segurando a frota para tirá-los. O que se pode
+  // medir é o comparecimento da cidade (secoes_2026, soma por município).
+  function onibus() {
+    return caso({
+      id: "onibus", titulo: "Os ônibus de Salvador", tag: "estranho", icone: "🚌",
+      alegacao: "Sindicalistas da CTB adesivaram os ônibus de Salvador para o Lula no dia do 2º turno, segundo um áudio atribuído ao presidente do Sindicato dos Rodoviários. Do outro lado, a prefeitura segurou ônibus nas garagens e deixou eleitor sem transporte.",
+      checagem: [L("Bahia Notícias", "https://www.bahianoticias.com.br/noticia/323016-pablo-souza-diz-que-prefeitura-vai-pedir-prisao-de-sindicalistas-envolvidos-em-adesivaco-de-onibus-no-2-turno"), L("SBT News", "https://sbtnews.sbt.com.br/noticia/politica/retirar-adesivos-atrasou-onibus-diz-prefeito-de-salvador-1"), L("Muita Informação (TRE-BA)", "https://muitainformacao.com.br/politica/tre-ba-revoga-prisao-de-pablo-souza-e-manda-investigar-reducao-de-mais-de-50-da-frota-de-onibus/"), L("nota do sindicato", "https://muitainformacao.com.br/eleicoes/sindicato-dos-rodoviarios-nega-envolvimento-na-retencao-de-onibus-durante-eleicoes-em-salvador/")],
+      veredito: "Os dois lados erraram. Faltou ônibus, mas não faltou eleitor.",
+      situacao: "a Polícia Federal e a Procuradoria Eleitoral apuram a redução da frota; o PL pediu a prisão dos sindicalistas. Ninguém foi julgado.",
+      pontos: [
+        "<b>Os adesivos existiram.</b> Ônibus amanheceram com propaganda do Lula, o que é proibido em transporte público. O áudio divulgado em 29/10 mostra a divisão das garagens para colar o material; o sindicato nega ter retido ônibus.",
+        "<b>A frota caiu.</b> Para tirar os adesivos, a prefeitura (Bruno Reis, União Brasil) segurou ônibus nas garagens. Às 13h15 o TRE-BA mandou liberar 100% da frota e prender o secretário de Mobilidade; a prisão foi revogada no dia seguinte, sem absolvição. A PF registrou 42% a menos numa garagem.",
+        "<b>Foi o motivo da prorrogação.</b> A falta de ônibus em Salvador, Feira de Santana e Lauro de Freitas é o que a campanha do Lula levou ao TSE às 13h22 (ver “A prorrogação de última hora”).",
+        "<b>O eleitor foi votar mesmo assim.</b> Em Salvador, votaram 5,5% mais pessoas que no 1º turno, contra 2,4% no país e mais que em qualquer outra capital. Se a falta de ônibus segurou alguém, isso não aparece no total da cidade.",
+      ],
+      visual: visual("Quanto o comparecimento subiu do 1º para o 2º turno", [
+        h("div", { class: "numeros" },
+          numero("+5,5%", "Salvador"),
+          numero("+5,1%", "Feira de Santana"),
+          numero("+2,4%", "o país todo")),
+        linhaTempo([["madrugada", "ônibus amanhecem com adesivos do Lula", ""],
+                    ["manhã", "a prefeitura segura ônibus para tirar os adesivos", ""],
+                    ["13h15", "o TRE-BA manda liberar a frota e prender o secretário de Mobilidade", ""],
+                    ["13h22", "a campanha do Lula pede ao TSE para prorrogar a votação", ""],
+                    ["26/10", "a prisão é revogada; PF e Procuradoria seguem apurando", ""]])],
+        "Comparecimento: soma das seções do TSE nos dois turnos. Salvador foi de 1,56 milhão para 1,65 milhão de votantes."),
+    });
+  }
   function desfile() {
     return caso({
       id: "desfile", titulo: "O desfile do Lula", tag: "estranho", icone: "🎭",
@@ -819,7 +857,7 @@
                     ["–24 dias", "fim da taxa das blusinhas, Lei 15.502 (10/9)", ""],
                     ["–17 dias", "Bolsa Família reajustado em 15,04% (17/9)", ""],
                     ["–9 dias", "Desenrola 3.0, R$ 15 bi, e bets proibidas (25/9)", ""],
-                    ["entre os turnos", "gasolina com corte de R$ 0,89 (9/10), Prospera MEI e Pé-de-Meia prometido (13/10)", ""],
+                    ["entre os turnos", "gasolina sem tributo federal: mais R$ 0,26, total de R$ 0,89 por litro (9/10); Prospera MEI e Pé-de-Meia prometido (13/10)", ""],
                     ["até 26/10", "diesel subsidiado; o benefício vencia um dia depois do 2º turno", ""]])],
         "A lei permite programa já previsto no orçamento; o que se discute é a data."),
     });
@@ -897,7 +935,7 @@
           h("li", null, h("b", { text: "Ufes / Ifes" }), h("span", { text: "espaços usados em campanha" })),
           h("li", null, h("b", { text: "UFS" }), h("span", { text: "cartazes retirados por ordem judicial" }))),
         h("div", { class: "numeros" },
-          numero("R$ 5–25 mil", "multa por propaganda em bem público"),
+          numero("R$ 2–8 mil", "multa por propaganda em bem público (art. 37)"),
           numero("23 e 26/10", "aulas suspensas (ida e volta) a pedido dos DCEs"))]),
     });
   }
@@ -972,8 +1010,8 @@
           "Aparecida (30/09)<br>posts de Lindbergh e Correia (13/10)<br>vídeo de Fabrício Vargas (15/10)<br>posts da Unha e Carne (20/10)",
           "3 posts no X de Flávio (08/10)<br>2 vídeos de IA do PL (13/10)<br>vídeo do INSS (15/10)"),
         linha("Remoção em liminar,<br>sem julgamento final",
-          "2 vídeos do Lula e 1 da Janja (08/10)<br>5 posts de Janones e Lindbergh (08/10)<br>20 posts de 32 perfis (21/10)",
-          "peça de rádio da “saidinha” (21/10)<br>post do PL sobre o PCC (22/10)<br>vídeo da “Tropa do Flávio” (23/10)"),
+          "2 vídeos do Lula e 1 da Janja (08/10)<br>5 posts de Janones e Lindbergh (08/10)",
+          "peça de rádio da “saidinha” (21/10)<br>20 posts do Flávio e aliados (21/10)<br>post do PL sobre o PCC (22/10)<br>vídeo da “Tropa do Flávio” (23/10)"),
         linha("Pedido negado",
           "<b>7</b>: 5 de 04/08, a “Carta aos<br>brasileiros” e “Dama de Ferro”",
           "<b>3</b>: escala 7x0, vídeo do<br>Master e “mentiroso master”"))));
@@ -989,21 +1027,23 @@
         L("TSE", "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/plenario-mantem-remocao-de-publicacao-que-associa-flavio-bolsonaro-a-operacao-da-pf"),
         L("Metrópoles", "https://www.metropoles.com/brasil/andre-mendonca-multa-campanha-de-lula-por-impulsionar-video-contra-flavio"),
         L("CNN Brasil", "https://www.cnnbrasil.com.br/eleicoes/tse-manda-remover-video-com-ia-sobre-lula-em-canal-tropa-do-flavio/"),
+        L("Times Brasil (levantamento do Globo)", "https://timesbrasil.com.br/brasil/decisao-2026-acoes-judiciais-na-disputa-pela-presidencia-da-republica-crescem-165-em-relacao-a-2022/"),
+        L("A Crítica (os 20 posts)", "https://acritica.net/eleicoes-2026/nunes-marques-suspende-20-postagens-contra-lula-apos-denuncia-de-deepfake/"),
       ],
       veredito: "Os dois lados apagaram conteúdo e pagaram multa",
-      situacao: "quase tudo é liminar, não sentença. O plenário já confirmou remoções contra os dois lados; do lado do Lula, porém, os vídeos do Lula e da Janja de 08/10 seguem sem julgamento final, e a peça da “saidinha”, de 21/10, também.",
+      situacao: "quase tudo é liminar, não sentença. O plenário já confirmou remoções contra os dois lados. Seguem sem julgamento final, por exemplo, os vídeos do Lula e da Janja (08/10) e a peça da “saidinha” do Flávio (21/10).",
       pontos: [
-        "A Justiça mandou apagar conteúdo dos dois lados. Não existe contagem oficial: o TSE mantém um repositório de decisões, mas não publica quantos conteúdos removeu de cada campanha.",
-        "Quem contou tudo chegou a placares diferentes: o levantamento independente Eleição em Foco achou, em 55 fichas até 21/10, 34 resultados favoráveis ao Flávio e 21 ao Lula; o jurídico do Lula conta 371 decisões favoráveis a ele em 584 — contas com recortes distintos.",
-        "As multas também foram dos dois lados. R$ 5 mil ao Flávio por ligar o Lula ao PCC e R$ 5 mil por impulsionar propaganda negativa; R$ 15 mil à campanha do Lula por impulsionar vídeo contra a família Bolsonaro.",
-        "A maior parte é liminar, não sentença, e algumas foram derrubadas. O plenário liberou os posts da escala 7x0 por 5 a 1, e o vídeo do Lula sobre o “tesouraço” só continua fora do ar porque o relator pediu destaque.",
-        "Os números não se somam. Uma ordem pode atingir 1.125 publicações; outra, um único post. Contar decisões e contar conteúdo dão placares diferentes.",
+        "<b>A Justiça mandou apagar conteúdo dos dois lados.</b> Não há contagem oficial: o TSE não publica quantos conteúdos removeu de cada campanha.",
+        "<b>Os placares que existem quase empatam.</b> Até o 1º turno, levantamento do Globo achou 55 decisões favoráveis ao Lula e 50 ao Flávio, em 698 ações. O jurídico do Lula diz ter 371 decisões a favor em 584, mas é a conta da própria campanha.",
+        "<b>As multas também foram dos dois lados.</b> R$ 5 mil ao Flávio por ligar o Lula ao PCC e R$ 5 mil por impulsionar propaganda negativa; R$ 15 mil à campanha do Lula por impulsionar vídeo contra a família Bolsonaro.",
+        "<b>A maior parte é liminar, e algumas caíram.</b> O plenário liberou os posts da escala 7x0 por 5 a 1, e o vídeo do Lula sobre o “tesouraço” só continua fora do ar porque o relator pediu destaque.",
+        "<b>Os números não se somam.</b> Uma ordem pode atingir 1.125 publicações; outra, um único post.",
       ],
       visual: visual("O placar, por categoria de decisão", [
         h("div", { class: "duelo" },
-          h("div", { class: "f" }, h("b", { text: "34" }), h("span", { text: "decisões favoráveis ao Flávio" })),
-          h("div", { class: "l" }, h("b", { text: "21" }), h("span", { text: "favoráveis ao Lula" }))),
-        h("p", { class: "leg", style: "margin:0 0 14px", text: "Último resultado de 55 fichas, até 21/10. Levantamento do Eleição em Foco, parcial, não é balanço do tribunal." }),
+          h("div", { class: "f" }, h("b", { text: "50" }), h("span", { text: "decisões favoráveis ao Flávio" })),
+          h("div", { class: "l" }, h("b", { text: "55" }), h("span", { text: "favoráveis ao Lula" }))),
+        h("p", { class: "leg", style: "margin:0 0 14px", text: "Até o 1º turno, em 698 ações no TSE (44% com decisão). Levantamento do Globo, não é balanço do tribunal." }),
         placar],
         "Abaixo, só as decisões que esta apuração localizou na imprensa, e não o número de posts: uma ordem pode atingir um post ou 1.125. O TSE mantém um repositório de decisões sobre desinformação, mas não publica quantos conteúdos removeu de cada campanha."),
       mais: [{
@@ -1012,13 +1052,13 @@
           linhaTempo([
             ["04/08", "Mendonça nega 5 dos 6 pedidos do PT; manda retirar só o deepfake de Lula e Jaques Wagner " + a("(Poder360)", "https://www.poder360.com.br/poder-eleicoes-2026/campanha-de-lula-vai-ao-tse-contra-flavio-e-carlos/"), ""],
             ["25/09", "Campanha do Lula: multa de R$ 15 mil por impulsionar vídeo contra a família Bolsonaro " + a("(Metrópoles)", "https://www.metropoles.com/brasil/andre-mendonca-multa-campanha-de-lula-por-impulsionar-video-contra-flavio"), ""],
-            ["28/09", "Flávio: multa de R$ 5 mil e remoção definitiva do post “defensor do PCC e do Comando Vermelho” " + a("(CNN)", "https://www.cnnbrasil.com.br/eleicoes/tse-aplica-multa-de-r-5-mil-a-flavio-por-ligar-lula-ao-pcc-e-ao-cv/"), "forte"],
+            ["28/09", "Flávio: multa de R$ 5 mil e remoção definitiva do post “defensor do PCC e do Comando Vermelho” " + a("(CNN)", "https://www.cnnbrasil.com.br/eleicoes/tse-aplica-multa-de-r-5-mil-a-flavio-por-ligar-lula-ao-pcc-e-ao-cv/"), ""],
             ["30/09", "Flávio: plenário mantém a remoção de 1.125 posts sobre Nossa Senhora Aparecida, com alcance restringido " + a("(BBC)", "https://www.bbc.com/portuguese/articles/cmvgy277qg5po"), ""],
             ["08/10", "Flávio: 3 posts no X. Lula: 2 vídeos no Instagram; Janja: 1 vídeo; Janones e Lindbergh: 5 publicações " + a("(G1)", "https://g1.globo.com/politica/eleicoes/2026/noticia/2026/10/09/tse-manda-retirar-publicacoes-de-lula-janja-e-aliados-contra-flavio-bolsonaro.ghtml"), ""],
             ["13/10", "Plenário confirma a remoção de posts de Lindbergh e Rogério Correia sobre milícia e recusa a de “Dama de Ferro” " + a("(Poder360)", "https://www.poder360.com.br/poder-justica/tse-julga-acoes-sobre-videos-que-ligam-lula-e-flavio-ao-crime/"), ""],
             ["15/10", "Flávio: plenário confirma a remoção do vídeo que liga o Lula às fraudes do INSS " + a("(CNN)", "https://www.cnnbrasil.com.br/eleicoes/tse-determina-remocao-de-video-de-flavio-que-liga-lula-a-caso-do-inss/"), ""],
             ["20/10", "Gleisi, Boulos, Lindbergh e Rogério Correia: plenário mantém a remoção dos posts sobre a Operação Unha e Carne " + a("(TSE)", "https://www.tse.jus.br/comunicacao/noticias/2026/Outubro/plenario-mantem-remocao-de-publicacao-que-associa-flavio-bolsonaro-a-operacao-da-pf"), ""],
-            ["21/10", "Flávio: peça de rádio da “saidinha” proibida; no mesmo dia, 20 posts de 32 perfis saem por ataques ao Lula " + a("(CNN)", "https://www.cnnbrasil.com.br/eleicoes/tse-manda-suspender-propaganda-que-diz-que-lula-e-a-favor-da-saidinha/"), ""],
+            ["21/10", "Flávio: peça de rádio da “saidinha” proibida; no mesmo dia, Nunes Marques suspende 20 posts do Flávio e de aliados contra o Lula, por suspeita de deepfake " + a("(CNN)", "https://www.cnnbrasil.com.br/eleicoes/tse-manda-suspender-propaganda-que-diz-que-lula-e-a-favor-da-saidinha/"), ""],
             ["22/10", "Plenário derruba a liminar e libera os posts da escala 7x0; o PL é condenado a apagar post sobre proteção ao PCC " + a("(Metrópoles)", "https://www.metropoles.com/colunas/grande-angular/tse-libera-posts-de-erika-hilton-que-associam-flavio-a-escala-7x0"), ""],
             ["23/10", "Flávio: vídeo com IA no canal “Tropa do Flávio” removido " + a("(CNN)", "https://www.cnnbrasil.com.br/eleicoes/tse-manda-remover-video-com-ia-sobre-lula-em-canal-tropa-do-flavio/"), ""],
           ]),
@@ -1163,7 +1203,7 @@
       lista.appendChild(h("div", { class: "divisa-casos" },
         h("h3", { text: "Além da urna" }),
         h("p", { text: "Denúncias que não são sobre a contagem dos votos, mas sobre a campanha: abuso de poder, desinformação e compra de voto. As ações no TSE ainda não foram julgadas no mérito — a exceção é o placar de decisões sobre desinformação, que reúne justamente liminares e as poucas sentenças." })));
-      [prorrogacao, desfile, pacote, maquinaCelular, exercito, universidades, mesaria, faccoes, padroeira, desinformacao, compra].forEach(function (f) {
+      [prorrogacao, onibus, desfile, pacote, maquinaCelular, exercito, universidades, mesaria, faccoes, padroeira, desinformacao, compra].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
 

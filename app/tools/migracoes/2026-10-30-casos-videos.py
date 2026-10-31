@@ -46,6 +46,7 @@ VIDEOS = {
     "sala-cofre": "DfFTPO0C0vC",    # @felipececilio.reserva
     "mesaria": "De7jQditGVO",       # @bialaranjeiras
     "pesquisas": "De-UdS6OWmt",     # @eusoudanielfernandes; também DfIZAFdm56K (carrossel)
+    "onibus": "DfIxqW7RfsI",        # @metropoles (o áudio da CTB, 30/10)
 }
 
 # Casos sem vídeo: foto do Wikimedia Commons (crédito em `creditos`) ou capa
