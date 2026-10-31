@@ -55,7 +55,10 @@ CAND_2024 = "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consul
 UFS = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE",
        "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO", "ZZ"]
 L1, F1, T1, BN1, C1, L2, F2, BN2, C2 = range(9)
-LAGOS = ["CABO FRIO", "ARARUAMA", "SÃO PEDRO DA ALDEIA", "ARMAÇÃO DOS BÚZIOS", "SAQUAREMA", "ARRAIAL DO CABO"]
+# nome como sai no site (a chave é a do arquivo do TSE, em maiúsculas)
+LAGOS = [("CABO FRIO", "Cabo Frio"), ("ARARUAMA", "Araruama"),
+         ("SÃO PEDRO DA ALDEIA", "São Pedro da Aldeia"), ("ARMAÇÃO DOS BÚZIOS", "Armação dos Búzios"),
+         ("SAQUAREMA", "Saquarema"), ("ARRAIAL DO CABO", "Arraial do Cabo")]
 REGIAO = {"sp": "Sudeste", "rj": "Sudeste", "mg": "Sudeste", "es": "Sudeste",
           "pr": "Sul", "sc": "Sul", "rs": "Sul",
           "go": "Centro-Oeste", "mt": "Centro-Oeste", "ms": "Centro-Oeste", "df": "Centro-Oeste",
@@ -131,12 +134,12 @@ def main() -> None:
 
     # ── 1. as seis cidades da Região dos Lagos ────────────────────────────
     lagos = []
-    for nome in LAGOS:
-        ks = {k for k, v in mun.items() if v == nome and k[0] == "rj"}
+    for chave, nome in LAGOS:
+        ks = {k for k, v in mun.items() if v == chave and k[0] == "rj"}
         idx = [i for i, c in enumerate(ch) if (c[0], c[1]) in ks]
         s = A[idx][:, :9].sum(0)
         novos = int(s[L2] - s[L1]) + int(s[F2] - s[F1])
-        lagos.append({"nm": nome.title().replace(" De ", " de ").replace(" Do ", " do ").replace(" Dos ", " dos "),
+        lagos.append({"nm": nome,
                       "l1": int(s[L1]), "l2": int(s[L2]), "f1": int(s[F1]), "f2": int(s[F2]),
                       "d_l": int(s[L2] - s[L1]), "d_f": int(s[F2] - s[F1]),
                       # quanto dos votos que apareceram no 2º turno foi para o Lula
