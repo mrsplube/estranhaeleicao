@@ -1,0 +1,84 @@
+{% extends "site.html" %}
+{# /dados — o catálogo dos conjuntos que o site publica (31/10/2026).
+
+   Existe por um motivo prático: o site promete "qualquer pessoa pode
+   conferir", e a conferência mora em JSON — mas esses arquivos só apareciam
+   citados de passagem. Quem pesquisa (jornalista, professor, aluno) precisa de
+   uma página que diga o que existe, de onde veio, quando foi gerado e o que
+   cada arquivo responde.
+
+   A lista vem de `dados_catalogo.json`, gerado por
+   `tools/migracoes/2026-10-31-dados.py`, que CONFERe cada URL contra o
+   servidor: nenhum link aqui aponta para arquivo que não existe. #}
+{% set pagina = "dados" %}
+{% block title %}Dados abertos: os arquivos que sustentam o site · estranhaeleicao.org{% endblock %}
+{% set descricao = "Os JSON que sustentam cada caso, com fonte, data de geração e o que cada arquivo responde. Baixe e refaça qualquer conta do site." %}
+{% set og_titulo = "Dados abertos: os arquivos que sustentam o site" %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/sobre.png" %}
+{% set og_imagem_alt = "Dados abertos do estranhaeleicao.org: arquivos JSON com fonte, data e descrição." %}
+{% block breadcrumb %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+      {"@type":"ListItem","position":2,"name":"Dados abertos","item":"https://estranhaeleicao.org/dados"}]},
+    {"@type":"Dataset","name":"Dados do estranhaeleicao.org sobre a eleição presidencial de 2026",
+     "description":"Resultados conferidos por seção, estimativas de transição de voto, biometria e a geografia da virada, calculados a partir dos arquivos abertos do TSE.",
+     "url":"https://estranhaeleicao.org/dados",
+     "license":"https://opensource.org/licenses/MIT",
+     "creator":{"@type":"Organization","name":"estranhaeleicao.org","url":"https://estranhaeleicao.org/"},
+     "isBasedOn":{"@type":"Dataset","name":"Resultados e Boletim de Urna das Eleições 2026","url":"https://dadosabertos.tse.jus.br"}}
+  ]}
+  </script>
+{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static/metodo.css?v={{ static_v }}">{% endblock %}
+{% block content %}
+  <header class="hero hero-curto">
+    <p class="hero-tag">dados abertos</p>
+    <h1>Os arquivos <br><span>de cada conta.</span></h1>
+    <p class="hero-sub">Cada número do site sai de um arquivo que está aqui, com a fonte e a data em que foi gerado. Baixe, abra e refaça a conta — se não bater, é erro nosso e queremos saber.</p>
+  </header>
+
+  <main class="secao metodo">
+    <section class="m-b" aria-labelledby="d-lista">
+      <h2 id="d-lista">Os conjuntos</h2>
+      <p>Todos vêm dos arquivos públicos do TSE. O site baixa, soma e publica o resultado agregado; o que está aqui é o que sobra depois da conta, não o bruto.</p>
+
+      {% if dados_catalogo %}
+      <ul class="dados-lista">
+        {% for d in dados_catalogo %}
+        <li>
+          <div class="dados-cab">
+            <a class="dados-nome" href="{{ d.url }}">{{ d.nome }}</a>
+            <span class="dados-meta">
+              {{ (d.tamanho / 1024) | round | int }} KB{% if d.registros %} · {{ d.registros }} registros{% endif %}{% if d.gerado_em %} · gerado em {{ d.gerado_em }}{% endif %}
+            </span>
+          </div>
+          <p class="dados-oque">{{ d.o_que }}</p>
+          {% if d.fonte %}<p class="dados-fonte">Fonte: <a href="{{ d.fonte }}" target="_blank" rel="noopener">{{ d.fonte }}</a></p>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>O catálogo está sendo gerado. Enquanto isso, os arquivos de cada caso estão em <a href="/apuracao/explicacao/acusacoes.json">acusacoes.json</a>.</p>
+      {% endif %}
+    </section>
+
+    <section class="m-b" aria-labelledby="d-como">
+      <h2 id="d-como">Como refazer a conta</h2>
+      <p>O código que gera cada arquivo está no <a href="https://github.com/mrsplube/estranhaeleicao" target="_blank" rel="noopener">repositório</a>, e roda com Python. O caminho mais direto:</p>
+      <ol>
+        <li>Baixe a votação por seção dos dois turnos em <a href="https://dadosabertos.tse.jus.br" target="_blank" rel="noopener">dadosabertos.tse.jus.br</a> (cerca de 1,1 GB).</li>
+        <li>Rode os geradores de <code>tools/migracoes/</code> — cada um tem no cabeçalho a conta que faz e o arquivo que grava.</li>
+        <li>Compare o resultado com o JSON publicado aqui. A conferência de comparecimento, válidos, brancos e nulos fecha com diferença zero nas 28 unidades.</li>
+      </ol>
+      <p>Se preferir só conferir sem rodar nada, o caminho mais curto é o <b>boletim de urna</b>: cada seção imprime o resultado em papel, e o QR code pode ser lido no aplicativo Boletim na Mão, do TSE. O procedimento está descrito em <a href="/metodo">método e limites</a>.</p>
+    </section>
+
+    <section class="m-b m-fim" aria-labelledby="d-licenca">
+      <h2 id="d-licenca">Licença e citação</h2>
+      <p>O código e as contas estão sob licença MIT: use, copie e corrija, inclusive comercialmente. Os dados do TSE são públicos; o que o site acrescenta é o recorte e a conferência.</p>
+      <p>Para citar em trabalho acadêmico: <b>estranhaeleicao.org</b>, “Dados abertos: os arquivos que sustentam o site”, consultado em {{ agora }}. Cada conjunto traz a data de geração no próprio arquivo, e é ela que vale para a versão que você baixou.</p>
+    </section>
+  </main>
+{% endblock %}

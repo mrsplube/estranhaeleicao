@@ -37,3 +37,14 @@
   .m-b { padding: 18px 16px; }
   .m-b p, .m-b ul, .m-b ol { font-size: 14.5px; }
 }
+
+/* ── o catálogo de dados (/dados) ──────────────────────────────────────── */
+.dados-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.dados-lista > li { padding: 12px 14px; border-radius: 12px; background: var(--cartao-2); border: 1px solid var(--linha); }
+.dados-cab { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 4px; }
+.dados-nome { font: 700 15px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--destaque); text-decoration: none; }
+.dados-nome:hover { text-decoration: underline; }
+.dados-meta { font-size: 12.5px; color: var(--texto-3); }
+.dados-oque { margin: 0; font-size: 14px; color: var(--texto-2); }
+.dados-fonte { margin: 6px 0 0; font-size: 12px; color: var(--texto-3); word-break: break-all; }
+.dados-fonte a { color: var(--texto-3); }

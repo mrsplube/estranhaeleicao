@@ -51,12 +51,22 @@ def _casos_resumo() -> list[dict]:
 
 CASOS_RESUMO = _casos_resumo()
 
+
+def _dados_catalogo() -> list[dict]:
+    """O catálogo do /dados. Mesma regra do resumo: arquivo faltando ou JSON
+    quebrado devolve lista vazia em vez de derrubar o site."""
+    try:
+        return json.loads((DATASET / "dados_catalogo.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 templates = Jinja2Templates(directory=BASE / "templates")
 templates.env.auto_reload = False
 templates.env.globals["casos_resumo"] = CASOS_RESUMO
+templates.env.globals["dados_catalogo"] = _dados_catalogo()
 
 
 # Extensões que entram no `?v=`. .svg também (um mapa ou gráfico trocado tem de
@@ -128,7 +138,7 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/metodo", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
+PUBLICO = ("/", "/sobre", "/metodo", "/dados", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 
@@ -214,7 +224,7 @@ async def porta(request: Request, call_next):
     return resposta
 
 
-PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre", "/metodo"}
+PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre", "/metodo", "/dados"}
 
 
 def _nao_encontrado(request: Request) -> Response:
@@ -273,6 +283,15 @@ async def metodo(request: Request):
     return templates.TemplateResponse(request, "metodo.html")
 
 
+@app.get("/dados", include_in_schema=False)
+async def dados(request: Request):
+    # Dados abertos (31/10/2026): o catálogo dos JSON que sustentam cada caso.
+    # A lista vem de `dados_catalogo.json`, que o gerador só grava depois de
+    # conferir cada URL contra este servidor — link quebrado não entra.
+    return templates.TemplateResponse(request, "dados.html",
+                                      {"agora": time.strftime("%d/%m/%Y")})
+
+
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon_ico():
     return FileResponse(static_dir / "favicon.ico", media_type="image/x-icon")
@@ -284,7 +303,25 @@ async def robots():
         return PlainTextResponse("User-agent: *\nDisallow: /\n")
     # O Sitemap vai com URL absoluta (é o que a norma do robots.txt pede) e o
     # resto continua liberado: o site é público e não tem área de busca.
-    return PlainTextResponse("User-agent: *\nAllow: /\n\nSitemap: https://estranhaeleicao.org/sitemap.xml\n")
+    #
+    # Crawlers de IA (31/10/2026): liberados de propósito. A página existe para
+    # responder a uma dúvida, e hoje muita gente pergunta ao ChatGPT ou ao
+    # Perplexity antes de procurar no Google — bloquear ali é escolher não ser
+    # lido. `ai-train=no` continua: o texto pode ser citado, não serve para
+    # treinar modelo.
+    return PlainTextResponse(
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Content-Signal: search=yes, ai-input=yes, ai-train=no\n\n"
+        "User-agent: GPTBot\n"
+        "Allow: /\n\n"
+        "User-agent: PerplexityBot\n"
+        "Allow: /\n\n"
+        "User-agent: ClaudeBot\n"
+        "Allow: /\n\n"
+        "User-agent: Google-Extended\n"
+        "Allow: /\n\n"
+        "Sitemap: https://estranhaeleicao.org/sitemap.xml\n")
 
 
 # As páginas que entram no sitemap, os templates que as montam e os arquivos de
@@ -299,6 +336,7 @@ SITEMAP = {
     "/simulacao/detalhe": (("base.html", "apuracao.html"), ("conta.json", "acusacoes.json")),
     "/sobre": (("site.html", "sobre.html"), ()),
     "/metodo": (("site.html", "metodo.html"), ()),
+    "/dados": (("site.html", "dados.html"), ("dados_catalogo.json",)),
 }
 
 

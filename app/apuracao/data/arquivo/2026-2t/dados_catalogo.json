@@ -1,0 +1,83 @@
+[
+ {
+  "nome": "acusacoes.json",
+  "url": "/apuracao/explicacao/acusacoes.json",
+  "o_que": "Os números de cada caso: as 106 urnas zeradas, a seção de 700 votos, a curva da apuração, a biometria e os municípios. É o insumo dos 27 casos da entrada.",
+  "gerado_em": "2026-10-29",
+  "fonte": "{'secoes': 'https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_BR.zip', 'secoes_gerado_em': '26/10/2026'}",
+  "registros": null,
+  "tamanho": 43213
+ },
+ {
+  "nome": "conta.json",
+  "url": "/apuracao/explicacao/conta.json",
+  "o_que": "A conta do 2º turno município a município: de onde vieram os votos de cada candidato da terceira via, com intervalo de confiança por candidato.",
+  "gerado_em": "2026-10-28",
+  "fonte": "",
+  "registros": 12,
+  "tamanho": 20455
+ },
+ {
+  "nome": "chute.json",
+  "url": "/apuracao/explicacao/chute.json",
+  "o_que": "O eleitorado do 1º turno em 9 grupos, com o voto de cada grupo no 2º turno segundo as pesquisas citadas. É o insumo do simulador.",
+  "gerado_em": "2026-10-31",
+  "fonte": "",
+  "registros": 10,
+  "tamanho": 28463
+ },
+ {
+  "nome": "casos_videos.json",
+  "url": "/apuracao/explicacao/casos_videos.json",
+  "o_que": "Os vídeos citados em cada caso: perfil, link, curtidas e as fontes de checagem de cada afirmação.",
+  "gerado_em": "",
+  "fonte": "",
+  "registros": null,
+  "tamanho": 8647
+ },
+ {
+  "nome": "municipios.json",
+  "url": "/apuracao/explicacao/municipios.json",
+  "o_que": "O resultado por município, com o voto de cada candidato e o nome de urna, para cruzar com o dado por seção.",
+  "gerado_em": "",
+  "fonte": "",
+  "registros": 5716,
+  "tamanho": 652308
+ },
+ {
+  "nome": "biometria.json",
+  "url": "/static/casos/biometria.json",
+  "o_que": "Quantos eleitores votaram sem a digital reconhecida, por estado e por eleição (2022 e os dois turnos de 2026). Vem do Boletim de Urna do TSE.",
+  "gerado_em": "2026-10-31",
+  "fonte": "Boletim de Urna (BU na Web), dadosabertos.tse.jus.br",
+  "registros": 112,
+  "tamanho": 20552
+ },
+ {
+  "nome": "virada.json",
+  "url": "/static/casos/virada.json",
+  "o_que": "A geografia da virada: a Região dos Lagos seção a seção, o cruzamento com a biometria e as cidades que viraram por partido do prefeito.",
+  "gerado_em": "2026-10-31",
+  "fonte": "votação por seção e Boletim de Urna do TSE (2026) e cadastro de candidatos de 2024",
+  "registros": null,
+  "tamanho": 4599
+ },
+ {
+  "nome": "polymarket.json",
+  "url": "/static/casos/polymarket.json",
+  "o_que": "A série de preços da Polymarket para a eleição brasileira, de 1º de setembro à noite do 2º turno, de 5 em 5 minutos no dia da votação.",
+  "gerado_em": "",
+  "fonte": "https://polymarket.com/event/brazil-presidential-election",
+  "registros": null,
+  "tamanho": 5072
+ },
+ {
+  "nome": "lados.json",
+  "url": "/static/casos/lados.json",
+  "o_que": "O argumento de quem acusa, a resposta de quem defende e a decisão, para cada um dos 27 casos.",
+  "gerado_em": "",
+  "fonte": "",
+  "registros": null,
+  "tamanho": 16630
+ }
+]
