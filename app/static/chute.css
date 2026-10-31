@@ -144,11 +144,25 @@
   .ops::-webkit-scrollbar { display: none; }
   .op { scroll-snap-align: start; }
   .op:hover { transform: none; }
-  /* O 3º cartão aparecia cortado sem nada indicando que a faixa rola para o
-     lado — e cartão cortado lê-se como "quebrado", não como "tem mais". A
-     máscara esmaece a borda direita; o esmaecimento some na última carta. */
-  .ops { --corte: 26px; mask-image: linear-gradient(to right, #000 calc(100% - var(--corte)), transparent); -webkit-mask-image: linear-gradient(to right, #000 calc(100% - var(--corte)), transparent); }
-  .ops.no-fim { mask-image: none; -webkit-mask-image: none; }
+  /* Três cartas, a do meio inteira e as pontas das outras duas visíveis nos
+     dois lados: é o que diz "tem mais para os lados" sem precisar de seta. Com
+     uma carta por vez (ou com a primeira encostada à esquerda) o leitor não
+     via que havia três. O padding lateral dá a "espiada" das duas pontas, e
+     `scroll-padding` faz o snap parar com a carta centrada. */
+  .ops {
+    --espiada: 7%;
+    grid-auto-columns: calc(86% - 8px);
+    padding: 2px var(--espiada) 8px;
+    scroll-padding-inline: var(--espiada);
+    margin: 0 -14px;
+  }
+  .op { scroll-snap-align: center; }
+  /* O esmaecimento marca as duas bordas enquanto houver carta adiante daquele
+     lado — é o que faz a "espiada" ler como "tem mais", não como "cortou". */
+  .ops { --corte: 14px; mask-image: linear-gradient(to right, transparent, #000 var(--corte), #000 calc(100% - var(--corte)), transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--corte), #000 calc(100% - var(--corte)), transparent); }
+  .ops.no-inicio { mask-image: linear-gradient(to right, #000 var(--corte), #000 calc(100% - var(--corte)), transparent); -webkit-mask-image: linear-gradient(to right, #000 var(--corte), #000 calc(100% - var(--corte)), transparent); }
+  .ops.no-fim { mask-image: linear-gradient(to right, transparent, #000 var(--corte), #000 calc(100% - var(--corte))); -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--corte), #000 calc(100% - var(--corte))); }
+  .ops.no-inicio.no-fim { mask-image: none; -webkit-mask-image: none; }
 }
 
 /* ── barra fixa embaixo ────────────────────────────────────────────── */
@@ -273,7 +287,9 @@ tr.ok .dif-ico { background: var(--ok); } tr.erro .dif-ico { background: var(--e
    fica preso no rodapé da caixa enquanto o resto rola. */
 .tutorial-caixa { display: flex; flex-direction: column; }
 .tutorial-caixa > * { flex: none; }
-#tutorial-ok { position: sticky; bottom: 0; margin-top: 4px; padding-top: 12px; background: linear-gradient(to bottom, transparent, var(--cartao) 24%); }
+/* O degradê do rodapé preso fica no invólucro — no botão, ele apagava o amarelo
+   do `btn-pri` e o "Entendi" virava texto escuro sobre o cartão. */
+.tutorial-pe { position: sticky; bottom: 0; margin-top: 4px; padding-top: 12px; background: linear-gradient(to bottom, transparent, var(--cartao) 24%); }
 .tutorial h2 { margin: 0 0 8px; font: 700 24px var(--titulo); }
 .tutorial p { margin: 0 0 14px; color: var(--texto-2); font-size: 15px; text-align: left; }
 .tutorial p b { color: var(--texto); }
@@ -291,6 +307,8 @@ tr.ok .dif-ico { background: var(--ok); } tr.erro .dif-ico { background: var(--e
 .tutorial-passos li { counter-increment: t; }
 .tutorial-passos li::before { content: counter(t); display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 5px; border-radius: 50%; background: var(--destaque); color: var(--fundo); font: 700 11px var(--titulo); }
 #tutorial-ok { width: 100%; }
-#tutorial-ok:disabled { opacity: .45; }
+/* Desabilitado, o botão continua amarelo e legível: só perde o brilho. Antes era
+   `opacity: .45`, que sobre o cartão escuro deixava o texto ilegível. */
+#tutorial-ok:disabled { cursor: default; opacity: 1; filter: saturate(.5) brightness(.8); color: #17130a; }
 #tutorial-ok.aceso { animation: acende .6s ease; }
 @keyframes acende { 40% { transform: scale(1.04); box-shadow: 0 0 0 6px color-mix(in srgb, var(--destaque) 30%, transparent); } }

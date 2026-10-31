@@ -304,9 +304,9 @@
     return art;
   }
 
-  // A faixa de sugestões do celular rola para o lado. Sem sinal, o cartão
-  // cortado na borda parece quebrado — então a borda esmaece enquanto houver
-  // mais para o lado, e o esmaecimento some ao chegar no fim.
+  // A faixa de sugestões do celular rola para o lado. No celular a primeira
+  // carta começa centralizada, com a ponta da anterior (se houver) e da
+  // seguinte aparecendo dos dois lados — é o sinal de que há mais cartas.
   function barraOps(ops) {
     var box = h("div", { class: "ops" }, ops);
     function marcar() {
@@ -314,9 +314,19 @@
       box.classList.toggle("no-fim", fim);
       box.classList.toggle("no-inicio", box.scrollLeft <= 4);
     }
+    function centrar() {
+      if (!window.matchMedia || !matchMedia("(max-width: 560px)").matches) return;
+      var cartas = box.children, n = cartas.length;
+      if (!n) return;
+      // A carta do MEIO começa centralizada: as pontas das vizinhas aparecem
+      // dos dois lados, e é isso que diz que a faixa rola para os dois lados.
+      var c = cartas[Math.floor((n - 1) / 2)];
+      box.scrollLeft = Math.max(0, c.offsetLeft - (box.clientWidth - c.offsetWidth) / 2);
+      marcar();
+    }
     box.addEventListener("scroll", marcar, { passive: true });
-    if (window.ResizeObserver) new ResizeObserver(marcar).observe(box);
-    setTimeout(marcar, 0);
+    if (window.ResizeObserver) new ResizeObserver(function () { centrar(); }).observe(box);
+    setTimeout(centrar, 0);
     return box;
   }
   // Na primeira visita, a primeira barra se mexe sozinha uma vez, com a mãozinha.

@@ -60,7 +60,12 @@
           <source src="/static/tutorial.mp4?v={{ static_v }}" type="video/mp4">
         </video>
         <ol class="tutorial-passos"><li>Arraste as divisas</li><li>ou toque numa sugestão</li><li>e veja se bate com o TSE</li></ol>
-        <button class="btn btn-pri" type="button" id="tutorial-ok" disabled>Entendi, quero simular</button>
+        {# O degradê fica no invólucro, não no botão: `background` no próprio
+           `#tutorial-ok` apagava o amarelo do `btn-pri` (o botão virava texto
+           escuro sobre o cartão, ilegível — 31/10). #}
+        <div class="tutorial-pe">
+          <button class="btn btn-pri" type="button" id="tutorial-ok" disabled>Entendi, quero simular</button>
+        </div>
       </div>
     </div>
     {% endif %}
