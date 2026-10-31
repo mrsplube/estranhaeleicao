@@ -61,7 +61,7 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/saude", "/favicon.ico")
+PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 
@@ -100,7 +100,15 @@ async def favicon_ico():
 async def robots():
     if MODO == "completo":
         return PlainTextResponse("User-agent: *\nDisallow: /\n")
-    return PlainTextResponse("User-agent: *\nAllow: /\n")
+    return PlainTextResponse("User-agent: *\nAllow: /\nSitemap: https://estranhaeleicao.org/sitemap.xml\n")
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+async def sitemap():
+    urls = "".join(f"<url><loc>https://estranhaeleicao.org{u}</loc></url>"
+                   for u in ("/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre"))
+    return Response('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+                    + urls + "</urlset>", media_type="application/xml")
 
 
 @app.get("/saude", include_in_schema=False)

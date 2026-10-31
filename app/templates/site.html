@@ -7,8 +7,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Estranha eleição? · 2º turno de 2026{% endblock %}</title>
+  <title>{% block title %}estranhaeleicao.org · 2º turno de 2026{% endblock %}</title>
   {% block meta %}{% endblock %}
+  {# Prévia ao compartilhar (WhatsApp, X, Facebook): a mesma imagem em todas as páginas. #}
+  <meta property="og:site_name" content="estranhaeleicao.org">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://estranhaeleicao.org{{ request.url.path }}">
+  <meta property="og:image" content="https://estranhaeleicao.org/static/og.jpg">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://estranhaeleicao.org{{ request.url.path }}">
   <meta name="theme-color" content="#0e1326">
   <link rel="icon" href="/static/favicon-64.png?v={{ static_v }}" type="image/png" sizes="64x64">
   <link rel="icon" href="/favicon.ico?v={{ static_v }}" sizes="48x48">
@@ -23,6 +32,7 @@
 <body class="{% block corpo_classe %}{% endblock %}">
   {% include "site_topo.html" %}
   {% block content %}{% endblock %}
+  {% include "site_rodape.html" %}
   {% block scripts %}{% endblock %}
 </body>
 </html>

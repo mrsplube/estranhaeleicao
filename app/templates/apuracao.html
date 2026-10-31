@@ -11,6 +11,9 @@
 {% block extra_css %}
 <meta name="description" content="Como o 2º turno de 2026 fechou em 51,79% a 48,21%: de onde vieram os 64,3 milhões de votos do Lula, o que cada candidato da terceira via fez, e um simulador para testar outros cenários.">
 <meta property="og:title" content="A conta do 2º turno de 2026">
+<meta property="og:site_name" content="estranhaeleicao.org">
+<meta property="og:image" content="https://estranhaeleicao.org/static/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:description" content="Para onde foi cada voto do 1º turno: arraste as barras e veja se o seu cenário fecha com o resultado do TSE.">
 <link rel="stylesheet" href="/static/apuracao.css?v={{ static_v }}">
 <link rel="stylesheet" href="/static/apuracao_conta.css?v={{ static_v }}">
@@ -53,6 +56,7 @@
     <p><strong>O que não é observável.</strong> O voto de uma pessoa: “o eleitor do Zema foi para o Lula” é inferência sobre o agregado, nunca sobre alguém. Fontes: resultados.tse.jus.br (resultado oficial) e dadosabertos.tse.jus.br (votação por seção dos dois turnos).</p>
   </footer>
 </div>
+{% include "site_rodape.html" %}
 {% endblock %}
 
 {% block extra_js %}
