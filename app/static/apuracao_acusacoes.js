@@ -52,8 +52,11 @@
         h("span", { class: "ap-acu-veredito " + tom, text: veredito })),
       h("div", { class: "ap-acu-corpo" }, conteudo));
   }
+  // h3, não h4: o cartão da seção já é um h2 e o h4 pulava um nível (o
+  // Seobility e o Lighthouse reclamam de hierarquia furada). O tamanho vem da
+  // classe, em apuracao_conta.css, então a troca não mexe no desenho.
   function bloco(rotulo, conteudo) {
-    return h("div", { class: "ap-acu-bloco" }, h("h4", { text: rotulo }), conteudo);
+    return h("div", { class: "ap-acu-bloco" }, h("h3", { text: rotulo }), conteudo);
   }
   function p(txt) { return h("p", { text: txt }); }
   function tabela(cab, linhas, classes) {

@@ -1,0 +1,37 @@
+{# O 404 do site (31/10/2026). Antes o middleware devolvia 15 bytes de texto
+   puro: o status estava certo (404), mas a pessoa caía numa página sem barra,
+   sem rodapé e sem saída — e o robô não achava os casos a partir dali.
+
+   O status continua 404 de verdade (main.py, `_nao_encontrado`): página de
+   erro com 200 vira conteúdo raso indexável. Por isso também o `noindex` no
+   lugar da canônica (site.html). Cópia enxuta, sem `og:image` própria: nada
+   aqui deve ser compartilhado como se fosse uma página do site. #}
+{% extends "site.html" %}
+{% set noindex = true %}
+{% set pagina = "" %}
+{% block title %}Página não encontrada · estranhaeleicao.org{% endblock %}
+{% set descricao = "O endereço não existe no estranhaeleicao.org. Os casos, a simulação e a conta do 2º turno de 2026 estão a um clique." %}
+{% set og_titulo = "Página não encontrada" %}
+{% block css %}<link rel="stylesheet" href="/static/404.css?v={{ static_v }}">{% endblock %}
+{% block content %}
+  <header class="hero hero-curto">
+    <p class="hero-tag">erro 404</p>
+    <h1>Essa página<br><span>não existe.</span></h1>
+    <p class="hero-sub">O endereço pode ter mudado de lugar, ou o link veio com um erro de digitação. O que existe no site:</p>
+    <div class="hero-acoes">
+      <a class="btn btn-pri" href="/">Ver os casos do 2º turno</a>
+      <a class="btn" href="/simulacao">Fazer a simulação</a>
+    </div>
+  </header>
+
+  <main class="secao">
+    <h2 class="secao-tit">Para onde ir</h2>
+    <ul class="quatro-oh-quatro">
+      <li><a href="/"><b>Os casos</b></a> — as teorias sobre o 2º turno de 2026, cada uma conferida no dado do TSE.</li>
+      <li><a href="/simulacao"><b>A simulação</b></a> — divida o eleitor de cada candidato e veja se a sua conta fecha.</li>
+      <li><a href="/simulacao/cenarios"><b>Os cinco cenários</b></a> — cinco jeitos extremos de a conta fechar, sem fraude.</li>
+      <li><a href="/simulacao/detalhe"><b>A conta detalhada</b></a> — de onde vieram os votos de Lula e de Flávio, por grupo de eleitor.</li>
+      <li><a href="/sobre"><b>Sobre o site</b></a> — as fontes, como os números são conferidos e o que o site não sabe.</li>
+    </ul>
+  </main>
+{% endblock %}

@@ -382,7 +382,10 @@ body:has(.arte) { position: relative; }
 
 /* ── três barras por cidade (mora / título / votou) ─────────────────── */
 .barras-cid { display: grid; gap: 14px; }
-.bc-cid h5 { margin: 0 0 6px; font: 700 14px var(--titulo); color: var(--texto); }
+/* h3 desde 31/10/2026 (era h5 e pulava níveis). Os dois seletores ficam para o
+   desenho não depender da tag: dentro do caso, o h3 grande é o .caso-tit, e a
+   classe .bc-cid-tit é que segura este em 14 px. */
+.bc-cid h5, .bc-cid .bc-cid-tit { margin: 0 0 6px; font: 700 14px var(--titulo); color: var(--texto); }
 .bc-lin { display: grid; grid-template-columns: 52px 1fr auto; gap: 8px; align-items: center; margin-bottom: 4px; }
 .bc-rot { font-size: 12px; color: var(--texto-3); }
 .bc-trilho { height: 8px; border-radius: 99px; background: var(--linha); overflow: hidden; }

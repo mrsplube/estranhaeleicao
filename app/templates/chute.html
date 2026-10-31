@@ -3,12 +3,15 @@
    (`pagina`). Quem monta é static/chute.js, a partir de
    /apuracao/explicacao/chute.json (tools/migracoes/2026-10-30-chute-2t.py).
    A conta detalhada antiga (Sankey, simulador, texto longo) está em /apuracao/detalhe. #}
-{% block title %}{% if pagina == "cenarios" %}Cinco jeitos de fechar a conta · estranhaeleicao.org{% else %}Simulação do 2º turno de 2026 · estranhaeleicao.org{% endif %}{% endblock %}
+{# O título dos cenários dizia "Cinco jeitos de fechar a conta" sem dizer de
+   QUE conta — sozinho no resultado da busca, isso não é o que ninguém procura.
+   "Do 2º turno" entra na frente (o total ainda cabe nos 580 px do Seobility). #}
+{% block title %}{% if pagina == "cenarios" %}Cinco jeitos de a conta do 2º turno fechar · estranhaeleicao.org{% else %}Simulação do 2º turno de 2026 · estranhaeleicao.org{% endif %}{% endblock %}
 {# Uma página, dois estados: cada um com a sua descrição, a sua imagem e o
    seu cartão social. Antes os dois dividiam a mesma descrição, e o
    /simulacao/cenarios descrevia o simulador em vez dos cenários. #}
 {% if pagina == "cenarios" %}
-{% set descricao = "Cinco jeitos extremos de a conta fechar, como “tudo foi para o Lula”, e todos chegando no resultado do TSE." %}
+{% set descricao = "Cinco jeitos extremos de a conta fechar, como “tudo foi para o Lula”, e todos chegando no mesmo resultado do TSE, sem precisar de fraude." %}
 {% set og_titulo = "Cinco jeitos de a conta do 2º turno fechar" %}
 {% set og_imagem = "https://estranhaeleicao.org/static/og/cenarios.png" %}
 {% set og_imagem_alt = "Cinco jeitos de a conta fechar: cenários extremos que chegam ao resultado do TSE." %}
@@ -32,13 +35,15 @@
     {% if pagina == "cenarios" %}
     <header class="hero hero-curto">
       <p class="hero-tag">depois da simulação</p>
-      <h1>Cinco jeitos de<br><span>a conta fechar</span></h1>
+      {# Espaço antes do `<br>`: sem ele o `textContent` sai "dea conta" e o
+         título lido por robô e leitor de tela perde a palavra "de". #}
+      <h1>Cinco jeitos de <br><span>a conta fechar</span></h1>
       <p class="hero-sub">Extremos de propósito, do tipo “tudo foi para o Lula”. Todos chegam no resultado exato do TSE.</p>
     </header>
     {% else %}
     <header class="hero hero-curto">
       <p class="hero-tag">simulador · 2º turno de 2026</p>
-      <h1>Simule o<br><span>2º turno</span></h1>
+      <h1>Simule o <br><span>2º turno</span></h1>
       <p class="hero-sub">Cada cartão é um grupo de eleitores do 1º turno: <b>em quem eles votaram no 2º?</b> No <b class="c-lula">Lula</b>, no <b class="c-flavio">Flávio</b> ou em <b class="c-nenhum">nenhum</b> (branco, nulo ou faltou).</p>
       <button class="btn btn-mini ver-tutorial" type="button" id="ver-tutorial">▶ Ver como funciona</button>
     </header>

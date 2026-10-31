@@ -17,7 +17,7 @@
   },
   "pesquisas": {
    "fraude": "Todas as pesquisas da véspera e o mercado de apostas apontavam o Flávio. Quando todos os termômetros erram para o mesmo lado, o problema pode estar na contagem, não nos termômetros.",
-   "defesa": "O erro foi de uns 3 pontos, pouco além da margem, e pesquisa brasileira já errou mais (2022, para o outro lado). As apostas só repetiam as pesquisas, com pouco volume e apostadores de fora do país.",
+   "defesa": "O erro foi de uns 3 pontos, pouco além da margem, e a pesquisa brasileira já errou mais (2022, para o outro lado). As apostas só repetiam as pesquisas, num mercado com 4,5% do volume da eleição americana de 2024 e dominado por apostadores de fora.",
    "juiz": {
     "tag": "estranho",
     "decisao": "Estranho, mas não é prova.",
@@ -53,11 +53,11 @@
   },
   "mesario": {
    "fraude": "Fraude de mesário existe: em Salvador uma mesária foi presa por votar no lugar de um PM. Os casos pegos são os que o eleitor descobriu; os de quem não foi votar ninguém descobre.",
-   "defesa": "Votar por outro exige o ano de nascimento, que não está no caderno, e deixa rastro: o eleitor que aparece depois, o registro de horário de cada voto, os fiscais na seção. Para mudar a eleição seriam milhões de votos, e depois das 17h entraram 34 mil no país.",
+   "defesa": "Votar por outro deixa rastro: sem a digital do eleitor o voto sai liberado sem biometria, e esses votos foram menos que em 2022 e só 3,5% acima do 1º turno. Para virar a eleição seriam milhões.",
    "juiz": {
     "tag": "falsa",
     "decisao": "Premissa falsa quanto à escala.",
-    "sintese": "Casos isolados existem e são presos. A premissa de que isso soma milhões não se sustenta nos números de horário nem no comparecimento."
+    "sintese": "Casos isolados existem e são presos. A premissa de que isso soma milhões não se sustenta: os votos liberados sem biometria são 6,75% do total, menos que em 2022."
    }
   },
   "sala-cofre": {
@@ -71,11 +71,11 @@
   },
   "caminhonete": {
    "fraude": "Urnas numa caminhonete com adesivo do PT, depois da votação. Quem garante o que fizeram com elas no caminho?",
-   "defesa": "Os votos já tinham saído: boletim impresso e afixado, dados transmitidos antes do recolhimento. A urna no caminho não tem mais como mudar o resultado publicado.",
+   "defesa": "Os votos já estavam registrados: boletim impresso e afixado na seção, e resultado numa mídia lacrada que sai da urna. A urna no caminho não muda o resultado publicado.",
    "juiz": {
     "tag": "estranho",
     "decisao": "Estranho, e irregular.",
-    "sintese": "Foi uma falha real de logística e o TRE-DF apura. Não muda votos, que já estavam transmitidos e impressos."
+    "sintese": "Foi uma falha real de logística e o TRE-DF apura. Não muda votos, que já estavam impressos no boletim de cada seção."
    }
   },
   "silva-jardim": {

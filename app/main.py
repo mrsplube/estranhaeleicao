@@ -14,6 +14,8 @@ lógica; `auth.py` e `app_visibility.py` são substitutos. O container só lê.
 """
 from __future__ import annotations
 
+import contextvars
+import os
 import time
 from pathlib import Path
 
@@ -37,44 +39,61 @@ templates = Jinja2Templates(directory=BASE / "templates")
 templates.env.auto_reload = False
 
 
-def _static_version() -> str:
-    mt = [0.0]
-    # .svg também: um mapa ou gráfico trocado tem de mudar o `?v=` (senão o
-    # Cloudflare serve a imagem velha por 4 h, ver mapa-apostas.svg em 30/10).
-    # E as capas dos casos (static/casos/*.jpg), que o estranha.js pede com ?v=.
-    for padrao in ("*.js", "*.css", "*.svg", "*/*.js", "*/*.css", "*/*.json", "*/*.svg", "*/*.jpg"):
-        mt.extend(f.stat().st_mtime for f in static_dir.glob(padrao))
-    return str(int(max(mt)))
+# Extensões que entram no `?v=`. .svg também (um mapa ou gráfico trocado tem de
+# mudar a versão, senão o Cloudflare serve a imagem velha por 4 h — ver
+# mapa-apostas.svg em 30/10) e as capas dos casos (.jpg), que o estranha.js
+# pede com `?v=`.
+_EXT_V = (".js", ".css", ".svg", ".json", ".jpg")
+# Pastas de estáticos que a versão olha. Com `scandir` em vez de `glob`, a
+# montagem da versão caiu de ~3,6 para ~0,8 ms no host (são ~75 arquivos e o
+# template pede `static_v` até 10 vezes por página).
+_DIRS_V = ("", "casos", "logos", "fotos", "og", "apuracao")
+
+
+def _versao_agora() -> str:
+    """mtime do estático mais novo, em segundos (o `?v=` das URLs)."""
+    mt = 0.0
+    for sub in _DIRS_V:
+        try:
+            with os.scandir(static_dir / sub) as it:
+                for e in it:
+                    if e.name.endswith(_EXT_V):
+                        try:
+                            m = e.stat().st_mtime
+                        except OSError:
+                            continue
+                        if m > mt:
+                            mt = m
+        except FileNotFoundError:
+            continue
+    return str(int(mt))
 
 
 # Ícone do site (30/10/2026): "ee" das iniciais, branco e amarelo no fundo escuro
 # (static/favicon.svg é a fonte; o PNG garante a mesma letra em qualquer navegador).
 FAVICON = "/static/favicon-64.png"
 
-templates.env.globals["static_v"] = _static_version()
+# `static_v` é string já na subida. Tem de ser string e não função: o Jinja não
+# chama o que acha em `{{ static_v }}`, imprime o `repr` — em 31/10 a URL saiu
+# como `?v=<function _static_v at 0x...>` (as páginas eram cacheadas com a
+# chave errada e, o pior, o mesmo valor em toda visita).
+templates.env.globals["static_v"] = _versao_agora()
 
 
-def _atualizar_versao() -> None:
-    """Recalcula a versão dos arquivos estáticos a cada página.
-
-    O código entra por volume, sem rebuild: se a versão ficasse presa no valor do
-    primeiro boot, o navegador continuaria pedindo `?v=` velho e serviria JS/CSS
-    de antes da edição (aconteceu em 30/10 com os ícones e o gráfico da Polymarket).
-    """
-    templates.env.globals["static_v"] = _static_version()
-
-
-def _static_v() -> str:
-    """Calculado a cada página, não na subida do processo.
+def _atualizar_versao() -> str:
+    """Recalcula a versão dos arquivos estáticos no começo de cada página.
 
     O código entra por volume, sem rebuild: se a versão ficasse presa no valor do
     primeiro boot, o navegador continuaria pedindo `?v=` velho e serviria JS/CSS
     de antes da edição (aconteceu em 30/10 com os ícones e o gráfico da Polymarket).
+    Uma varredura por pedido, aqui, e o template lê a string pronta — são até 10
+    `{{ static_v }}` por página, e antes cada um refazia o disco.
     """
-    return _static_version()
+    v = _versao_agora()
+    templates.env.globals["static_v"] = v
+    return v
 
 
-templates.env.globals["static_v"] = _static_v
 templates.env.globals["favicon_for_path"] = lambda path: FAVICON
 
 templates.env.globals["modo_completo"] = MODO == "completo"
@@ -137,8 +156,26 @@ async def porta(request: Request, call_next):
             return Response("login necessário", status_code=401,
                             headers={"WWW-Authenticate": 'Basic realm="apuracao"'})
     elif caminho not in PUBLICO and not caminho.startswith(PUBLICO_PREFIXOS):
-        return PlainTextResponse("não encontrado", status_code=404)
-    resposta = await call_next(request)
+        # Barra final numa página que existe: 301 para a forma canônica (o
+        # `rel="canonical"` já aponta para lá). Sem isso, /sobre/ e /sobre
+        # respondiam 404 pela mesma URL... e 200 com barras diferentes seriam
+        # duas URLs com o mesmo conteúdo aos olhos de quem rastreia.
+        # O destino é relativo de propósito: o host do pedido já é o certo (ou
+        # o domínio do site, ou o 127.0.0.1 do ensaio), e o 301 para o
+        # domínio canônico é assunto de `_destino_canonico`, logo acima.
+        if caminho.endswith("/") and caminho.rstrip("/") in PAGINAS:
+            fila = ("?" + request.url.query) if request.url.query else ""
+            return RedirectResponse(caminho.rstrip("/") + fila, status_code=301)
+        return _nao_encontrado(request)
+    # HEAD: o FastAPI, nestas rotas, responde 405 (o método de cada `@app.get`
+    # é só GET). Cabeçalho é o que o robô e o monitor de link querem; serve
+    # como GET, e o uvicorn corta o corpo sozinho em HEAD.
+    if request.method == "HEAD":
+        request.scope["method"] = "GET"
+        resposta = await call_next(request)
+        request.scope["method"] = "HEAD"
+    else:
+        resposta = await call_next(request)
     # Cache dos estáticos (31/10/2026, achado do Seobility: "a página leva
     # 0,69 s"). O `?v=` do template muda quando o arquivo muda, então o
     # navegador pode guardar: 1 h, e o ETag do Starlette resolve o resto com
@@ -158,6 +195,17 @@ async def porta(request: Request, call_next):
 
 
 PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre"}
+
+
+def _nao_encontrado(request: Request) -> Response:
+    """404 de verdade (status 404, não 200) com uma página que ajuda a sair.
+
+    Antes, o middleware devolvia um texto puro de 15 bytes: o robô via 404
+    (certo) e a pessoa via "não encontrado" sem barra, sem rodapé e sem saída.
+    A página leva `noindex` e não declara canônica: o endereço que a produziu
+    não existe.
+    """
+    return templates.TemplateResponse(request, "404.html", status_code=404)
 
 
 @app.post("/v", include_in_schema=False)
@@ -210,23 +258,30 @@ async def robots():
     return PlainTextResponse("User-agent: *\nAllow: /\n\nSitemap: https://estranhaeleicao.org/sitemap.xml\n")
 
 
-# As páginas que entram no sitemap e os templates que cada uma usa. O `lastmod`
-# sai do mtime deles, não de uma data escrita à mão: quando o texto de um caso
-# muda, a data da página muda junto — e quando nada muda, a data também não.
+# As páginas que entram no sitemap, os templates que as montam e os arquivos de
+# dados que elas leem. O `lastmod` sai do mtime deles, não de uma data escrita à
+# mão: quando o texto de um caso muda — no template da entrada ou no
+# `acusacoes.json`, que é de onde o estranha.js monta os casos —, a data da
+# página muda junto; e quando nada muda, a data também não.
+DATASET = BASE / "apuracao" / "data" / "arquivo" / "2026-2t"
 SITEMAP = {
-    "/": ("site.html", "estranha.html"),
-    "/simulacao": ("site.html", "chute.html"),
-    "/simulacao/cenarios": ("site.html", "chute.html"),
-    "/simulacao/detalhe": ("base.html", "apuracao.html"),
-    "/sobre": ("site.html", "sobre.html"),
+    "/": (("site.html", "estranha.html"), ("acusacoes.json", "casos_videos.json")),
+    "/simulacao": (("site.html", "chute.html"), ("chute.json",)),
+    "/simulacao/cenarios": (("site.html", "chute.html"), ("chute.json",)),
+    "/simulacao/detalhe": (("base.html", "apuracao.html"), ("conta.json", "acusacoes.json")),
+    "/sobre": (("site.html", "sobre.html"), ()),
 }
 
 
-def _lastmod(templates_usados: tuple[str, ...]) -> str:
+def _lastmod(templates_usados: tuple[str, ...], dados: tuple[str, ...] = ()) -> str:
     """A data do arquivo mais novo que monta a página, em AAAA-MM-DD."""
     mt = [Path(__file__).stat().st_mtime]
     for nome in templates_usados:
         caminho = BASE / "templates" / nome
+        if caminho.exists():
+            mt.append(caminho.stat().st_mtime)
+    for nome in dados:
+        caminho = DATASET / nome
         if caminho.exists():
             mt.append(caminho.stat().st_mtime)
     return time.strftime("%Y-%m-%d", time.localtime(max(mt)))
@@ -236,10 +291,10 @@ def _lastmod(templates_usados: tuple[str, ...]) -> str:
 async def sitemap():
     urls = "".join(
         f"<url><loc>https://estranhaeleicao.org{u}</loc>"
-        f"<lastmod>{_lastmod(usados)}</lastmod>"
+        f"<lastmod>{_lastmod(usados, dados)}</lastmod>"
         f"<changefreq>{'daily' if u == '/' else 'weekly'}</changefreq>"
         f"<priority>{'1.0' if u == '/' else '0.8'}</priority></url>"
-        for u, usados in SITEMAP.items())
+        for u, (usados, dados) in SITEMAP.items())
     return Response('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
                     + urls + "</urlset>", media_type="application/xml")
 

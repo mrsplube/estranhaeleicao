@@ -157,6 +157,26 @@
   "padroeira": {
    "src": "/static/casos/padroeira.jpg",
    "credito": "Neospo, CC BY 2.5"
+  },
+  "mesario": {
+   "src": "/static/casos/mesario.jpg",
+   "credito": "Mateus S. Figueiredo, CC BY-SA 4.0"
+  },
+  "pesquisas": {
+   "src": "/static/casos/pesquisas.jpg",
+   "credito": "Associação Brasileira de Jornalismo Investigativo, CC BY 2.0"
+  },
+  "onibus": {
+   "src": "/static/casos/onibus.jpg",
+   "credito": "Heylenny, CC BY-SA 4.0"
+  },
+  "eleitores": {
+   "src": "/static/casos/eleitores.jpg",
+   "credito": "Palácio do Planalto, CC BY 2.0"
+  },
+  "cedula": {
+   "src": "/static/casos/cedula.jpg",
+   "credito": "W.carter, CC BY-SA 4.0"
   }
  },
  "fontes": {

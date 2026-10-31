@@ -2,9 +2,15 @@
 {# /sobre — por que dá para confiar nas análises do site (30/10/2026). Só diz o que
    dá para verificar: de onde vêm os dados, como foram conferidos e o que o site não sabe. #}
 {% set pagina = "sobre" %}
-{% block title %}Sobre o site · estranhaeleicao.org{% endblock %}
-{% set descricao = "De onde vêm os números do site, como são conferidos e o que ele não sabe. Fontes abertas do TSE." %}
-{% set og_titulo = "Não confie em nós. Confira. · sobre o estranhaeleicao.org" %}
+{# O título dizia só "Sobre o site" (34 caracteres, 302 px): cabia folgado no
+   limite de 580 px do Seobility e não dizia a ninguém por que abrir a página.
+   Agora leva as palavras do h1 ("não confie", "confira") — a mesma ordem que
+   alguém procuraria — dentro do limite. A descrição foi de 96 para 133
+   caracteres porque a antiga terminava em "o que ele não sabe" sem dizer o
+   que fazer com isso. #}
+{% block title %}Sobre o site: não confie em nós, confira · estranhaeleicao.org{% endblock %}
+{% set descricao = "De onde vêm os números do site, como são conferidos e o que ele não consegue saber: as fontes abertas do TSE, as contas e os limites." %}
+{% set og_titulo = "Não confie em nós, confira: sobre o estranhaeleicao.org" %}
 {% set og_imagem = "https://estranhaeleicao.org/static/og/sobre.png" %}
 {% set og_imagem_alt = "Não confie em nós. Confira: fontes abertas do TSE e contas públicas." %}
 {% block breadcrumb %}
@@ -20,7 +26,7 @@
 {% block content %}
   <header class="hero hero-curto">
     <p class="hero-tag">sobre o site</p>
-    <h1>Não confie em nós.<br><span>Confira.</span></h1>
+    <h1>Não confie em nós. <br><span>Confira.</span></h1>
     <p class="hero-sub">Todo número vem de arquivo público do TSE. Qualquer um pode refazer.</p>
   </header>
 
@@ -46,7 +52,7 @@
     <p class="limite-curto"><b>O limite:</b> o voto é secreto. “O eleitor do Cury foi para o Lula” é conta sobre o grupo; os cenários são hipóteses.</p>
 
     <section class="autor" aria-labelledby="autor-tit">
-      <img class="autor-foto" src="/static/fotos/caue.jpg?v={{ static_v }}" alt="Cauê Neves" width="360" height="360">
+      <img class="autor-foto" src="/static/fotos/caue.jpg?v={{ static_v }}" alt="Retrato de Cauê Neves, autor do site" width="360" height="360" loading="lazy" decoding="async">
       <div class="autor-txt">
         <p class="caso-rot">Sobre o autor</p>
         <h2 id="autor-tit">Cauê Neves</h2>

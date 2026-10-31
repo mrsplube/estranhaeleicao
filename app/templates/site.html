@@ -3,7 +3,10 @@
    e a barra do topo. Usada pela entrada (estranha.html), pelo chute e pelos
    cenários (chute.html); a conta detalhada (apuracao.html) só pega a barra e o
    tema por cima do CSS dela (static/tema_site.css). #}
-<html lang="pt-br">
+{# `pt-BR` com maiúsculas: é a forma que o Seobility, o Lighthouse e os
+   validadores esperam (a BCP 47 é indiferente a caixa, mas a comparação de
+   ferramenta não é, e o relatório de 31/10 lia "pt-br"). #}
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +16,9 @@
      é o padrão: `default` mantém o que a página definiu e só cobre o resto.
      og:description é a mesma descrição do <meta>, para não divergirem como em
      30/10, quando só a entrada tinha descrição social. #}
-  {% set descricao = descricao | default("As 23 teorias sobre o 2º turno de 2026, cada uma com o vídeo de quem a espalhou e o que o dado do TSE mostra.") %}
+  {# O padrão repetia "23" em 31/10/2026 e o número envelhecia a cada caso novo;
+     agora descreve o site sem contagem, e as páginas seguem trocando a sua. #}
+  {% set descricao = descricao | default("As teorias sobre o 2º turno de 2026, cada uma com o vídeo de quem a espalhou e o que o dado do TSE mostra.") %}
   {% set og_titulo = og_titulo | default(self.title() | trim) %}
   {% set og_imagem = og_imagem | default("https://estranhaeleicao.org/static/og/entrada.png") %}
   {% set og_imagem_alt = og_imagem_alt | default("Arte do estranhaeleicao.org: teorias sobre fraudes na eleição, conferidas.") %}
@@ -22,12 +27,16 @@
   {% set imagem_social = og_imagem | trim %}
   {% set alt_social = og_imagem_alt | trim %}
   {% set url_canonica = "https://estranhaeleicao.org" ~ request.url.path %}
+  {# Página que não deve ser indexada (hoje só a 404): `noindex` no lugar da
+     canônica — apontar canônica para um endereço que não existe é pior que
+     não apontar. #}
+  {% set noindex = noindex | default(false) %}
   <meta name="description" content="{{ descricao_pagina }}">
-  <link rel="canonical" href="{{ url_canonica }}">
+  {% if noindex %}<meta name="robots" content="noindex, follow">{% else %}<link rel="canonical" href="{{ url_canonica }}">{% endif %}
   <meta property="og:site_name" content="estranhaeleicao.org">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:url" content="{{ url_canonica }}">
+  {% if not noindex %}<meta property="og:url" content="{{ url_canonica }}">{% endif %}
   <meta property="og:title" content="{{ titulo_social }}">
   <meta property="og:description" content="{{ descricao_pagina }}">
   <meta property="og:image" content="{{ imagem_social }}">

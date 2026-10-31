@@ -206,6 +206,9 @@
 
   // As pesquisas viram "personagens" que dão palpite; cada uma tem cor e inicial.
   var INST = { "Quaest": ["quaest", "q"], "AtlasIntel": ["atlasintel", "a"], "Datafolha": ["datafolha", "d"], "Palpite clássico": [null, "p"] };
+  // As medidas de cada logo (viewBox do SVG): sem `width`/`height` no <img>, o
+  // navegador não reserva o espaço e o cartão pula quando o logo chega (CLS).
+  var LOGO_MED = { quaest: [157, 43], atlasintel: [150, 30], datafolha: [200, 40] };
 
   function balao(g, o) {
     var b = o.bruto, t = b.lula + b.flavio + b.nenhum;
@@ -256,7 +259,8 @@
           onclick: function (ev) { if (!ev.target.closest("a")) aplicar(j); },
           onkeydown: function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); aplicar(j); } } },
         h("div", { class: "op-cab" },
-          av[0] ? h("img", { class: "op-logo op-logo-" + av[0], src: "/static/logos/" + av[0] + ".svg", alt: o.inst })
+          av[0] ? h("img", { class: "op-logo op-logo-" + av[0], src: "/static/logos/" + av[0] + ".svg", alt: o.inst,
+            width: String(LOGO_MED[av[0]][0]), height: String(LOGO_MED[av[0]][1]) })
             : h("b", { class: "op-nome", text: "🧠 " + o.inst }),
           h("span", { class: "op-marca", "aria-hidden": "true" })),
         h("span", { class: "op-quando" },
@@ -270,7 +274,9 @@
         }))
       : h("span", { class: "grupo-icone " + g.id, "aria-hidden": "true", text: g.id === "bn1" ? "✕" : g.icone || "" });
     var lista = g.lista ? h("ul", { class: "membros" }, g.lista.map(function (m) {
-      return h("li", null, h("img", { src: m.foto, alt: "", width: "96", height: "96", loading: "lazy" }),
+      // O nome do membro está no texto ao lado, então o alt repete de propósito:
+      // é ele que a busca de imagens lê (era `alt=""`, e o Seobility marcou).
+      return h("li", null, h("img", { src: m.foto, alt: m.nome, width: "96", height: "96", loading: "lazy" }),
         h("span", { class: "membro-nome" }, m.nome, h("small", { text: " " + m.partido })),
         h("span", { class: "apoio " + m.apoio.cor, text: m.apoio.txt }));
     })) : null;
@@ -458,7 +464,10 @@
     outros: "Outros 6", bn1: "Branco/nulo", abst1: "Só no 2º turno" };
 
   function avatar(g) {
-    if (g.foto) return h("img", { class: "av " + (g.apoio ? g.apoio.cor : ""), src: g.foto.src, alt: "", width: "160", height: "160", loading: "lazy" });
+    // Nos cenários a foto aparece sem o nome do lado: alt vazio seria uma
+    // imagem "de enfeite" e o rosto de quem importa viraria decoração. O nome
+    // do grupo vai no alt.
+    if (g.foto) return h("img", { class: "av " + (g.apoio ? g.apoio.cor : ""), src: g.foto.src, alt: curto(g), width: "160", height: "160", loading: "lazy" });
     return h("span", { class: "av av-ico " + g.id, "aria-hidden": "true", text: g.id === "bn1" ? "✕" : g.icone || "" });
   }
 
@@ -527,7 +536,7 @@
       CORPO.appendChild(h("article", { class: "cenario" },
         h("div", { class: "cen-topo" },
           h("span", { class: "cen-n", text: String(i + 1) }),
-          h("h3", { class: "cen-tit", text: c.titulo })),
+          h("h2", { class: "cen-tit", text: c.titulo })),
         h("p", { class: "cen-resumo", text: c.resumo }),
         h("div", { class: "cen-linhas" }, linhasCenario(c)),
         h("div", { class: "cen-pe" },

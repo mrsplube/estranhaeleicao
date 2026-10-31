@@ -706,7 +706,9 @@
 /* minmax(0, 1fr): sem ele a coluna cresce até a tabela mais larga e, no celular,
    o texto do cartão saía cortado em vez de a tabela rolar na própria caixa. */
 .ap-acu-corpo { padding: 0 16px 14px 36px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
-.ap-acu-bloco h4 { margin: 0 0 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ap-texto-2); }
+/* h3 desde 31/10/2026 (era h4 e pulava um nível). O seletor casa pelo pai, então
+   o desenho é o mesmo; se alguém voltar o h4, o estilo continua valendo. */
+.ap-acu-bloco h3, .ap-acu-bloco h4 { margin: 0 0 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ap-texto-2); }
 .ap-acu-bloco p { margin: 0 0 6px; font-size: 13.5px; line-height: 1.55; color: var(--ap-texto); }
 .ap-acu-bloco .ap-conta-lista { margin: 0; font-size: 13.5px; line-height: 1.55; }
 .ap-acu-leg { font-size: 12px !important; color: var(--ap-texto-3) !important; }

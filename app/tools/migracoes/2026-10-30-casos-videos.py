@@ -75,6 +75,18 @@ CAPAS_SEM_VIDEO = {
     "maquina-celular": ("maquina-celular.jpg", "Helar Lukats, CC BY-SA 4.0"),
     # o nicho da imagem na Basílica de Aparecida — File:Imagem NSra Basílica.JPG
     "padroeira": ("padroeira.jpg", "Neospo, CC BY 2.5"),
+    # As cinco capas de vídeo que eram só print com texto grande viraram foto
+    # (31/10), para ler melhor na miniatura de 82px do celular:
+    # mesária no terminal do mesário (Itajubá, 2016) — File:Eleição municipal 2016 em Itajubá 1.jpg
+    "mesario": ("mesario.jpg", "Mateus S. Figueiredo, CC BY-SA 4.0"),
+    # Mauro Paulino, do Datafolha, em entrevista — File:Mauro Paulino (Datafolha) (29456480008).jpg
+    "pesquisas": ("pesquisas.jpg", "Associação Brasileira de Jornalismo Investigativo, CC BY 2.0"),
+    # ônibus urbano de Salvador — File:Linha de ônibus Campo Grande em Salvador.jpg
+    "onibus": ("onibus.jpg", "Heylenny, CC BY-SA 4.0"),
+    # comitiva em Catolândia (BA), um dos 23 municípios do caso — File:21 01 2021 Parada não planejada no Município de Catolândia BA (50860674976).jpg
+    "eleitores": ("eleitores.jpg", "Palácio do Planalto, CC BY 2.0"),
+    # cédula de papel sendo depositada na urna — File:Ballot dropped into ballot box 2024 Swedish EU election at Stångenässkolan, Brastad.jpg
+    "cedula": ("cedula.jpg", "W.carter, CC BY-SA 4.0"),
 }
 
 FONTES = {
@@ -121,13 +133,15 @@ def main(pasta: Path):
     videos = {}
     for caso, rid in VIDEOS.items():
         info = json.loads((pasta / f"{rid}.info.json").read_text())
-        tem_capa = (pasta / f"{rid}.jpg").exists()
+        # Casos cuja capa é foto (CAPAS_SEM_VIDEO) mantêm a foto: a capa do reel
+        # era um print com texto grande, ilegível na miniatura.
+        tem_capa = (pasta / f"{rid}.jpg").exists() and caso not in CAPAS_SEM_VIDEO
         if tem_capa:
             capa(pasta / f"{rid}.jpg", CAPAS / f"{caso}.jpg")
         videos[caso] = {"url": info.get("webpage_url") or f"https://www.instagram.com/reel/{rid}/",
                         "perfil": info.get("channel") or info.get("uploader_id"),
                         "curtidas": info.get("like_count"), "comentarios": info.get("comment_count"),
-                        "capa": f"/static/casos/{caso}.jpg" if tem_capa else None}
+                        "capa": f"/static/casos/{caso}.jpg" if (tem_capa or caso in CAPAS_SEM_VIDEO) else None}
 
     capas = {}
     for caso, (arq, credito) in CAPAS_SEM_VIDEO.items():

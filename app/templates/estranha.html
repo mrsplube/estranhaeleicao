@@ -13,7 +13,11 @@
    caracteres. As palavras do h1 (fraudes, eleição, teorias, conferidas)
    continuam no título, na ordem em que a busca as procura. #}
 {% block title %}Fraudes na eleição: as teorias, conferidas · estranhaeleicao.org{% endblock %}
-{% set descricao = "Cada teoria de fraude do 2º turno de 2026, conferida no dado do TSE: urnas zeradas, a seção de 700 votos." %}
+{# A descrição tinha 105 caracteres e cabia no limite; ficou curta para o que
+   a página entrega hoje (biometria, prorrogação, ônibus de Salvador). A nova
+   tem 148 e ~941 px, ainda abaixo dos 1000 px do Seobility, e nomeia os casos
+   que alguém digitaria na busca. #}
+{% set descricao = "Cada teoria de fraude do 2º turno de 2026, conferida no dado do TSE: as urnas zeradas, a seção de 700 votos e o algoritmo que derrubava o Bolsonaro." %}
 {% set og_titulo = "Fraudes na eleição: as teorias, conferidas" %}
 {% set og_imagem = "https://estranhaeleicao.org/static/og/entrada.png" %}
 {% set og_imagem_alt = "Fraudes na eleição: as teorias, conferidas, ao lado do placar de 51,79% a 48,21% do 2º turno." %}
@@ -30,7 +34,11 @@
   </div>
   <header class="hero" id="topo">
     <p class="hero-tag">2º turno · 25/10/2026 · dados do TSE</p>
-    <h1>Teorias sobre<br>fraudes na eleição,<br><span>conferidas.</span></h1>
+    {# O espaço antes de cada `<br>`: o `textContent` do h1 saía "sobrefraudes" e
+       "eleição,conferidas", e o Seobility lia uma palavra só (o relatório de
+       31/10 dizia que as palavras do h1 não estavam no texto — em parte por
+       isso). No desenho nada muda: espaço no fim da linha é colapsado. #}
+    <h1>Teorias sobre <br>fraudes na eleição, <br><span>conferidas.</span></h1>
     <p class="hero-sub">As teorias e denúncias sobre o 2º turno, cada uma com o vídeo de quem a espalhou e o que os dados do TSE mostram.</p>
     <div class="placar" aria-label="Resultado: Lula 51,79%, Flávio 48,21%">
       <div class="placar-barra"><span class="l" style="--p:51.79%"></span><span class="f"></span></div>

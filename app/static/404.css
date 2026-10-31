@@ -1,0 +1,15 @@
+/* A página 404 (templates/404.html, 31/10/2026). Só o que ela não herda:
+   o resto vem de estranha.css (hero, botões, seção). Arquivo próprio para não
+   engordar o estranha.css com uma tela que 99% das visitas nunca vê. */
+
+.hero-curto { padding-top: 40px; padding-bottom: 8px; }
+
+.quatro-oh-quatro { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; max-width: 640px; }
+.quatro-oh-quatro li {
+  padding: 12px 16px; border: 1px solid var(--linha); border-radius: 12px;
+  background: linear-gradient(180deg, var(--cartao), var(--fundo-2));
+  color: var(--texto-2); font-size: 14.5px;
+}
+.quatro-oh-quatro a { color: var(--texto); text-decoration: none; }
+.quatro-oh-quatro a:hover { color: var(--destaque); text-decoration: underline; }
+.quatro-oh-quatro a:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; border-radius: 4px; }
