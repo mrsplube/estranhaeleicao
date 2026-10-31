@@ -7,20 +7,47 @@
    do 2º turno mora em /apuracao. Versão anterior: tag git pre-redesign-20261030. #}
 {% set pagina = "casos" %}
 {# SEO (31/10/2026): o Seobility mede o título e a descrição em pixels, não em
-   caracteres (limites de 580 e 1000). O título antigo — "Teorias sobre fraudes
-   na eleição, conferidas · estranhaeleicao.org" — dava 591 px e era o único
-   aviso de metadado no relatório. Este dá 570 px; a descrição, 971 px em 105
-   caracteres. As palavras do h1 (fraudes, eleição, teorias, conferidas)
-   continuam no título, na ordem em que a busca as procura. #}
-{% block title %}Fraudes na eleição: as teorias, conferidas · estranhaeleicao.org{% endblock %}
-{# A descrição tinha 105 caracteres e cabia no limite; ficou curta para o que
-   a página entrega hoje (biometria, prorrogação, ônibus de Salvador). A nova
-   tem 148 e ~941 px, ainda abaixo dos 1000 px do Seobility, e nomeia os casos
-   que alguém digitaria na busca. #}
-{% set descricao = "Cada teoria de fraude do 2º turno de 2026, conferida no dado do TSE: as urnas zeradas, a seção de 700 votos e o algoritmo que derrubava o Bolsonaro." %}
-{% set og_titulo = "Fraudes na eleição: as teorias, conferidas" %}
+   caracteres (limites de 580 e 1000). A busca que traz gente aqui não é
+   "estranhaeleicao" — é a pergunta: "as urnas foram fraudadas", "fraude na
+   eleição 2026", "106 urnas sem voto". O título põe a palavra que se digita
+   (fraude, urnas) na frente e cabe nos 580 px; a descrição nomeia os três
+   casos que mais circularam, porque é o trecho que aparece no resultado. #}
+{% block title %}Fraude nas urnas em 2026? As teorias, conferidas · estranhaeleicao.org{% endblock %}
+{# A descrição tem 148 caracteres e ~941 px, abaixo dos 1000 do Seobility, e
+   nomeia o que alguém digitaria: urnas zeradas, 8,6 milhões sem biometria,
+   virada do 2º turno. #}
+{% set descricao = "As urnas foram fraudadas em 2026? Cada teoria conferida no dado do TSE: as 106 urnas zeradas, os 8,6 milhões sem biometria e a virada do 2º turno." %}
+{% set og_titulo = "Fraude nas urnas em 2026? As teorias, conferidas" %}
 {% set og_imagem = "https://estranhaeleicao.org/static/og/entrada.png" %}
-{% set og_imagem_alt = "Fraudes na eleição: as teorias, conferidas, ao lado do placar de 51,79% a 48,21% do 2º turno." %}
+{% set og_imagem_alt = "Fraude nas urnas em 2026? As teorias, conferidas, ao lado do placar de 51,79% a 48,21% do 2º turno." %}
+{# FAQPage (31/10/2026): só agora é legítimo. Antes os casos eram montados pelo
+   navegador, e marcar perguntas que não estavam no HTML seria cloaking. Com o
+   resumo dos casos no HTML (seção "Os casos"), as perguntas são visíveis — e
+   este é o formato que devolve a resposta direto no resultado da busca, que é
+   onde a dúvida ("as urnas foram fraudadas?") é decidida. #}
+{% block breadcrumb %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"As urnas foram fraudadas nas eleições de 2026?","acceptedAnswer":{"@type":"Answer","text":"Não há registro de fraude comprovada. A conferência seção a seção fecha com o resultado oficial em comparecimento, votos válidos, brancos e nulos nas 28 unidades da federação, e cada urna imprime um boletim público na seção, que qualquer pessoa pode comparar com o publicado pelo TSE."}},
+    {"@type":"Question","name":"É verdade que 106 urnas não tiveram nenhum voto para Flávio Bolsonaro?","acceptedAnswer":{"@type":"Answer","text":"O número confere, mas não é sinal de fraude. São urnas pequenas (mediana de 165 eleitores, contra 327 no país), em 67 municípios, a maioria em aldeias, terras indígenas, quilombos e comunidades rurais. Nas que já existiam, o PT teve 98,86% em 2022 e 99,18% em 2018. Em quatro urnas foi Lula quem ficou sem voto."}},
+    {"@type":"Question","name":"Os 8,6 milhões de votos sem biometria provam fraude?","acceptedAnswer":{"@type":"Answer","text":"Não. Os 8,6 milhões existem, mas são do dia todo, não das 17h. Foram 6,75% dos votos do 2º turno, menos que os 8,08% de 2022, e só 290 mil acima do 1º turno. Depois das 17h, o TSE registrou 34.393 votos no país."}},
+    {"@type":"Question","name":"A virada do Lula no 2º turno foi possível sem fraude?","acceptedAnswer":{"@type":"Answer","text":"Sim. A abstenção caiu de 21,08% para 19,22%, os votos brancos e nulos também caíram, e de cada 4 votos novos 3 foram para o Lula. A virada é inédita desde 1989, mas a conta fecha sem nenhum voto inventado: são 5 cenários possíveis."}},
+    {"@type":"Question","name":"As pesquisas erraram de propósito?","acceptedAnswer":{"@type":"Answer","text":"Não há prova disso. O erro foi de cerca de 3 pontos, pouco além da margem de 2, e já aconteceu antes: em 2022 as pesquisas erraram para o outro lado, subestimando o Bolsonaro no 1º turno."}},
+    {"@type":"Question","name":"Dá para conferir o resultado da minha seção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Cada urna imprime cinco vias do boletim de urna ao encerrar, e uma fica afixada na porta da seção. O QR code do boletim pode ser lido no aplicativo Boletim na Mão e comparado com o resultado publicado no site do TSE."}}
+  ]}
+  </script>
+  {# ItemList: diz ao Google que esta página é uma LISTA de afirmações
+     conferidas, com a ordem em que aparecem. É o que permite ele montar o
+     carrossel de resultados e entender que cada item é um caso, não um
+     parágrafo solto. Os nomes vêm do mesmo resumo que o HTML mostra. #}
+  {% if casos_resumo %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"Teorias de fraude nas urnas de 2026, conferidas","itemListOrder":"https://schema.org/ItemListOrderDescending","numberOfItems":{{ casos_resumo|length }},"itemListElement":[
+    {% for c in casos_resumo %}{"@type":"ListItem","position":{{ loop.index }},"name":{{ c.titulo|tojson }},"url":"https://estranhaeleicao.org/#caso-{{ c.id }}"}{% if not loop.last %},{% endif %}{% endfor %}
+  ]}
+  </script>
+  {% endif %}
+{% endblock %}
 {% block content %}
   {# Arte do topo: a curva da apuração do 2º turno (redesenhada dos dados do TSE,
      static/fundo-curvas.svg) sobre a foto do app de resultados, esmaecida
@@ -39,8 +66,7 @@
        31/10 dizia que as palavras do h1 não estavam no texto — em parte por
        isso). No desenho nada muda: espaço no fim da linha é colapsado. #}
     <h1>Teorias sobre <br>fraudes na eleição, <br><span>conferidas.</span></h1>
-    <p class="hero-sub">As teorias e denúncias sobre o 2º turno, cada uma com o vídeo de quem a espalhou e o que os dados do TSE mostram.</p>
-    <div class="placar" aria-label="Resultado: Lula 51,79%, Flávio 48,21%">
+    <p class="hero-sub">As teorias e denúncias sobre o 2º turno, cada uma com o vídeo de quem a espalhou e o que os dados do TSE mostram.</p>    <div class="placar" aria-label="Resultado: Lula 51,79%, Flávio 48,21%">
       <div class="placar-barra"><span class="l" style="--p:51.79%"></span><span class="f"></span></div>
       <div class="placar-nomes"><span class="l">Lula <b>51,79%</b></span><span class="f"><b>48,21%</b> Flávio</span></div>
     </div>
@@ -54,6 +80,29 @@
     <section id="casos" class="secao">
       <h2 class="secao-tit">Os casos</h2>
       <p class="secao-sub">Quando o número confere, a gente diz que confere.</p>
+      {# Os 27 casos em texto, no HTML (31/10/2026). Antes esta página entregava
+         ~300 palavras ao robô: os cartões inteiros eram montados pelo
+         `estranha.js`. O Google executa JavaScript, mas em fila e sem prazo —
+         para uma página cujo valor É o texto, depender disso é abrir mão do
+         índice. O resumo vem de `casos_resumo.json`, gerado do próprio
+         `estranha.js` (fonte única) pelo gerador 2026-10-31-casos-resumo.
+         Fica VISÍVEL: é a lista de leitura para quem abre a página, e o cartão
+         interativo (com o vídeo e o gráfico) continua abaixo, no mesmo lugar. #}
+      {% if casos_resumo %}
+      <div class="resumo-texto">
+        <p class="resumo-nota">As {{ casos_resumo|length }} afirmações conferidas, em resumo. Clique em qualquer uma para ver o vídeo, as fontes e os gráficos.</p>
+        <ol class="lista-resumo">
+          {% for c in casos_resumo %}
+          <li><a href="#caso-{{ c.id }}">
+            <span class="lr-tag t-{{ 'falsa' if c.tag == 'falsa' else ('estranho' if c.tag == 'estranho' else 'normal') }}">{{ 'Premissa falsa' if c.tag == 'falsa' else ('Verdade e estranho' if c.tag == 'estranho' else 'Verdade, mas normal') }}</span>
+            <b>{{ c.titulo }}</b>
+            {% if c.alegacao %}<span class="lr-aleg">{{ c.alegacao }}</span>{% endif %}
+            {% if c.veredito %}<span class="lr-ver">{{ c.veredito }}</span>{% endif %}
+          </a></li>
+          {% endfor %}
+        </ol>
+      </div>
+      {% endif %}
       <div id="lista-casos" class="casos"><p class="carregando">Abrindo os casos…</p></div>
       {# A lista é montada pelo navegador, a partir de um JSON. Sem JS ela não
          existe — e é por isso que esta página NÃO leva FAQPage: o Google exige

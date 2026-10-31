@@ -10,16 +10,24 @@
    Regra desta página: cada limite é dito com o número que o sustenta, e o que
    não foi feito aparece como "não foi feito", nunca como entrelinha. #}
 {% set pagina = "metodo" %}
-{% block title %}Método e limites: o que o site faz e o que ele não faz · estranhaeleicao.org{% endblock %}
+{% block title %}Como conferir uma urna: método e limites · estranhaeleicao.org{% endblock %}
 {% set descricao = "As fontes, a conferência seção a seção, os três veredictos de cada caso, e os limites: sem teste formal de hipótese e com o TSE conferindo o TSE." %}
 {% set og_titulo = "Método e limites: o que o site faz e o que ele não faz" %}
 {% set og_imagem = "https://estranhaeleicao.org/static/og/sobre.png" %}
 {% set og_imagem_alt = "Método e limites do estranhaeleicao.org: fontes abertas do TSE e contas públicas." %}
 {% block breadcrumb %}
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
-    {"@type":"ListItem","position":2,"name":"Método e limites","item":"https://estranhaeleicao.org/metodo"}
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+      {"@type":"ListItem","position":2,"name":"Método e limites","item":"https://estranhaeleicao.org/metodo"}]},
+    {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Dá para conferir o resultado da minha seção eleitoral?","acceptedAnswer":{"@type":"Answer","text":"Dá. Ao encerrar, cada urna imprime cinco vias do boletim de urna, e uma delas é afixada na porta da seção. O boletim tem QR code, e o aplicativo Boletim na Mão, do TSE, lê esse código e mostra o resultado igual ao publicado no site do tribunal. Qualquer pessoa pode fazer isso, com o celular."}},
+    {"@type":"Question","name":"O que é o Registro Digital do Voto (RDV)?","acceptedAnswer":{"@type":"Answer","text":"É o arquivo interno da urna com os votos na ordem em que foram digitados, gravados em posições aleatórias para que não se possa ligar um voto a um eleitor. Fica lacrado com assinatura digital e é o que gera o boletim de urna."}},
+    {"@type":"Question","name":"A urna eletrônica tem conexão com a internet?","acceptedAnswer":{"@type":"Answer","text":"Não. A urna não se conecta a internet, Wi-Fi, Bluetooth nem cabo de rede, em nenhuma etapa. O resultado sai numa mídia de resultado, levada a um ponto de transmissão da Justiça Eleitoral, e só então entra numa rede privativa."}},
+    {"@type":"Question","name":"Por que a votação de 2026 foi prorrogada até as 19h?","acceptedAnswer":{"@type":"Answer","text":"O ministro Cristiano Zanin, do STF, atendeu a pedidos das duas campanhas por falta de transporte e por chuva em algumas regiões. A prorrogação valeu só para as seções que ainda estavam abertas às 17h. No total, entraram 34.393 votos depois das 17h, 0,03% do país."}},
+    {"@type":"Question","name":"Se a fraude estivesse na urna, a soma das seções não bateria?","acceptedAnswer":{"@type":"Answer","text":"Bateria, e é por isso que a conferência tem limite. Somar as seções contra o total oficial prova que a totalização não alterou o que as seções mandaram; não prova que a urna registrou o que o eleitor digitou. Para isso existe a conferência do papel: o boletim impresso na seção contra o arquivo publicado."}}
+    ]}
   ]}
   </script>
 {% endblock %}
@@ -112,15 +120,44 @@
       </ul>
     </section>
 
-    <section class="m-b" aria-labelledby="m-ia">
+    {# Perguntas frequentes (31/10/2026): a busca que traz gente aqui é a
+       dúvida, não o nome do site — "boletim de urna confere?", "o voto é
+       sigiloso?", "dá para auditar a urna?". Esta seção responde no texto e
+       linka a fonte oficial de cada resposta, que é o que dá autoridade ao
+       domínio e ajuda o leitor a conferir sozinho. Tudo o que está aqui já
+       está sustentado nas seções acima; nada novo é afirmado. #}
+    <section class="m-b" aria-labelledby="m-faq">
       <p class="m-num">07</p>
+      <h2 id="m-faq">Perguntas que chegam à busca</h2>
+
+      <h3>Dá para conferir o resultado da minha seção?</h3>
+      <p>Dá. Ao encerrar, cada urna imprime cinco vias do <b>boletim de urna</b> — uma delas é afixada na porta da seção, à vista de todos. O boletim tem QR code, e o aplicativo <a href="https://www.tse.jus.br/comunicacao/noticias/2021/Junho/boletim-de-urna-traz-o-resultado-impresso-da-secao-de-votacao" target="_blank" rel="noopener">Boletim na Mão</a>, do próprio TSE, lê esse código; o resultado sai igual ao publicado no site do TSE. Qualquer pessoa pode fazer isso, com o celular.</p>
+
+      <h3>O que é o Registro Digital do Voto (RDV)?</h3>
+      <p>É o arquivo interno da urna com os votos na ordem em que foram digitados, gravados em posições aleatórias para que não se possa ligar um voto a um eleitor. Fica lacrado com assinatura digital e é o que gera o boletim de urna. O <a href="https://www.tse.jus.br/eleicoes/processo-eleitoral-brasileiro/votacao/votacao-segura" target="_blank" rel="noopener">TSE descreve o formato e as garantias</a>; o arquivo também é publicado para conferência.</p>
+
+      <h3>A urna tem conexão com a internet?</h3>
+      <p>Não. A urna não se conecta a internet, Wi-Fi, Bluetooth nem cabo de rede, em nenhuma etapa — nem no preparo, nem na votação, nem depois. O resultado sai numa <b>mídia de resultado</b>, levada a um ponto de transmissão da Justiça Eleitoral, e só então entra numa rede privativa. A <a href="https://www.tse.jus.br/eleicoes/processo-eleitoral-brasileiro/votacao/votacao-segura" target="_blank" rel="noopener">descrição oficial do processo</a> explica cada etapa.</p>
+
+      <h3>Por que a votação de 2026 foi prorrogada até as 19h?</h3>
+      <p>Porque o ministro Cristiano Zanin, do STF, atendeu a pedidos das duas campanhas por falta de transporte e por chuva em algumas regiões. A prorrogação valeu só para as seções que ainda estavam abertas às 17h; urna já fechada não reabriu. No total, entraram <b>34.393 votos</b> depois das 17h — 0,03% do país. O caso completo está na entrada.</p>
+
+      <h3>O resultado da eleição foi diferente do que as pesquisas diziam. Isso é fraude?</h3>
+      <p>Não é, por si só. As pesquisas da véspera davam o Flávio na frente; o resultado deu Lula com 51,79%. O erro foi de cerca de 3 pontos — pouco além da margem de 2 — e erro desse tamanho aconteceu antes, para o outro lado: em 2022 as pesquisas <a href="https://g1.globo.com/politica/eleicoes/2022/pesquisa-eleitoral/noticia/2022/10/01/datafolha-votos-validos-lula-50percent-bolsonaro-36percent.ghtml" target="_blank" rel="noopener">deram 36% ao Bolsonaro no 1º turno, e ele teve 43,2%</a>. O que explica esta eleição está medido: a abstenção caiu e os votos brancos e nulos também.</p>
+
+      <h3>Se a fraude estivesse na urna, a soma das seções não bateria?</h3>
+      <p>Bateria — e é por isso que esta conferência tem limite, dito na seção acima. Somar as seções contra o total oficial prova que <b>a totalização não alterou o que as seções mandaram</b>; não prova que a urna registrou o que o eleitor digitou. Para isso existe a conferência do papel: o boletim impresso na seção contra o arquivo publicado.</p>
+    </section>
+
+    <section class="m-b" aria-labelledby="m-ia">
+      <p class="m-num">08</p>
       <h2 id="m-ia">Uso de inteligência artificial</h2>
       <p>O código, os textos e as checagens foram produzidos com assistência de modelos de linguagem (Claude e DeepSeek). Isso está dito aqui porque quem lê tem o direito de saber e de calibrar a confiança por isso.</p>
       <p>O que não é gerado por modelo: <b>os números</b>. Todas as contas rodam sobre os arquivos do TSE, por código versionado e auditável neste repositório, e qualquer pessoa pode executá-lo e comparar. Onde um modelo escreveu uma frase errada, o erro é do projeto e a correção fica no histórico. A responsabilidade editorial é do autor, não do modelo.</p>
     </section>
 
     <section class="m-b m-fim" aria-labelledby="m-erro">
-      <p class="m-num">08</p>
+      <p class="m-num">09</p>
       <h2 id="m-erro">Como apontar um erro</h2>
       <p>Correção de número, de método ou de leitura tem prioridade sobre qualquer outra coisa. Duas formas:</p>
       <ul>

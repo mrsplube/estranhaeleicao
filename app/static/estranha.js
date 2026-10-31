@@ -1409,6 +1409,11 @@
       filtro(lista);
       contador(lista);
       abrirDoLink();
+      // Os cartões chegaram: o resumo em texto cumpriu o papel (robô e quem
+      // abre sem JS). Fica recolhido, para não repetir os 27 casos duas vezes
+      // na mesma tela — mas continua no DOM, e o CSS só esconde a lista.
+      var resumo = document.querySelector(".resumo-texto");
+      if (resumo) resumo.classList.add("recolhido");
     }).catch(function () {
       lista.innerHTML = "<p class='carregando'>Não consegui abrir os casos agora. Recarregue a página.</p>";
     });

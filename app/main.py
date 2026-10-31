@@ -15,6 +15,7 @@ lógica; `auth.py` e `app_visibility.py` são substitutos. O container só lê.
 from __future__ import annotations
 
 import contextvars
+import json
 import os
 import time
 from pathlib import Path
@@ -31,12 +32,31 @@ import visitas
 
 BASE = Path(__file__).resolve().parent
 static_dir = BASE / "static"
+DATASET = BASE / "apuracao" / "data" / "arquivo" / "2026-2t"
+
+
+def _casos_resumo() -> list[dict]:
+    """Os 27 casos em texto, para o HTML da entrada (31/10/2026).
+
+    Lido na subida: o arquivo só muda quando o gerador roda, e um erro de
+    leitura (arquivo faltando, JSON quebrado) NÃO pode derrubar o site — a
+    entrada sem o resumo funciona, só perde o texto para o robô. Por isso o
+    `except` devolve lista vazia em vez de propagar.
+    """
+    try:
+        return json.loads((DATASET / "casos_resumo.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+
+
+CASOS_RESUMO = _casos_resumo()
 
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 templates = Jinja2Templates(directory=BASE / "templates")
 templates.env.auto_reload = False
+templates.env.globals["casos_resumo"] = CASOS_RESUMO
 
 
 # Extensões que entram no `?v=`. .svg também (um mapa ou gráfico trocado tem de
@@ -272,7 +292,6 @@ async def robots():
 # mão: quando o texto de um caso muda — no template da entrada ou no
 # `acusacoes.json`, que é de onde o estranha.js monta os casos —, a data da
 # página muda junto; e quando nada muda, a data também não.
-DATASET = BASE / "apuracao" / "data" / "arquivo" / "2026-2t"
 SITEMAP = {
     "/": (("site.html", "estranha.html"), ("acusacoes.json", "casos_videos.json")),
     "/simulacao": (("site.html", "chute.html"), ("chute.json",)),
