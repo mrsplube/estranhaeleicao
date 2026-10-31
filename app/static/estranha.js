@@ -840,7 +840,7 @@
       id: "consulta", titulo: "A consulta que sumiu", tag: "normal",
       alegacao: "O TSE tirou do ar a consulta de quem votou, depois que muita gente foi ver se mortos votaram.",
       fontes: [{ rot: "vídeo de @rubensdettoni", url: "https://www.instagram.com/reel/DfGFl7UNHr1/" },
-               { rot: "o advogado Daniel Lima sobre “impedido de votar”", url: "https://www.instagram.com/reel/DfIiM5wytn6/" }],
+               { rot: "o vídeo do @limadaaniel que desmente o “impedido de votar”", url: "https://www.instagram.com/reel/DfIiM5wytn6/" }],
       checagem: [fonte("tse_certidao"), fonte("tre_df_certidao"), fonte("faltou_tse"),
         L("TSE, hipóteses de cancelamento do título", "https://www.tse.jus.br/servicos-eleitorais/titulo-e-local-de-votacao/titulo-eleitoral"),
         L("TRE-PR, título em caso de óbito", "https://www.tre-pr.jus.br/comunicacao/noticias/2021/Abril/justica-eleitoral-explica-o-que-fazer-com-o-titulo-eleitoral-em-caso-de-obito")],
@@ -848,7 +848,7 @@
       pontos: [
         "<b>A suspensão é real.</b> De 26/10 a 2/11 o TSE processa os dados da votação e fecha o Cadastro Eleitoral; a consulta à situação do título e a certidão de quitação só voltam na terça, 3/11. Não é improviso: o calendário aprovado em fevereiro já previa essa pausa, como nos pleitos de 2018, 2020, 2022 e 2024.",
         "<b>“Ausente”, na consulta de agora, ainda não é resultado.</b> A lista mostra a situação de cada eleitor, mas nesses dias o TSE ainda está processando os registros de quem votou, faltou ou justificou. Por isso, “ausente” ali significa que o dado ainda não foi atualizado: não significa que a pessoa faltou nem que alguém votou no lugar dela. O próprio TSE avisa que, durante a suspensão, a mensagem na tela não permite concluir se alguém compareceu às urnas.",
-        "<b>“Impedido de votar”, no e-Título, também não é fraude.</b> A tela aparece quando o título está cancelado (por exemplo, por três turnos seguidos sem votar nem justificar) ou suspenso (como na condenação criminal). É a situação do eleitor no cadastro, que vale antes de ele chegar à seção.",
+        "<b>“Impedido de votar” também não é fraude — e o vídeo diz isso.</b> O carimbo no caderno (e a tela equivalente no e-Título) marca o eleitor cuja inscrição está suspensa ou cancelada, como na condenação criminal ou em três turnos seguidos sem votar nem justificar. É a situação do eleitor no cadastro, que vale antes de ele chegar à seção. Quem explica é o próprio vídeo do @limadaaniel: se o carimbo foi erro da seção, o cartório é chamado, confere e libera o voto. O título não acusa fraude nenhuma.",
         "<b>Quem morreu não tem título para ser usado.</b> O falecimento é uma das causas de cancelamento: o cartório de registro civil informa o óbito à Justiça Eleitoral, e o cartório da zona cancela a inscrição. Sem inscrição, o nome não entra no caderno de votação (a lista de quem vota na seção) nem na urna — então não há título para alguém usar no lugar dele. A conferência é pela consulta do TSE, que mostra a situação da inscrição: cancelada, quando o óbito já chegou ao Cadastro Eleitoral.",
       ],
       visual: visual("A consulta, dia a dia", [
