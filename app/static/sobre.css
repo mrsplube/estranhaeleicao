@@ -48,11 +48,19 @@
 .autor-txt { flex: 1; min-width: 0; }
 .autor-txt > p + p { margin-top: 10px; }
 .autor-opiniao { flex: 0 0 100%; margin-top: 2px; padding-top: 22px; border-top: 1px solid color-mix(in srgb, var(--texto-3) 25%, transparent); }
-.autor-opiniao p { margin: 0 0 14px; color: var(--texto); font: 400 18px/1.7 "Source Serif 4", Georgia, serif; opacity: .9; }
-.autor-opiniao p:last-child { margin-bottom: 0; }
+.autor-opiniao .caso-rot { margin: 0 0 8px; }
+.opiniao-texto { position: relative; max-height: 7.2em; overflow: hidden; transition: max-height .6s ease; }
+.opiniao-texto::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4.2em; background: linear-gradient(transparent, var(--cartao)); pointer-events: none; transition: opacity .4s; }
+.autor-opiniao.aberta .opiniao-texto { max-height: 2000px; }
+.autor-opiniao.aberta .opiniao-texto::after { opacity: 0; }
+.opiniao-texto p { margin: 0 0 12px; color: var(--texto-2); font-style: italic; }
+.opiniao-mais { margin-top: 8px; padding: 0; border: 0; background: none; color: var(--destaque); font: 600 14px "Inter", sans-serif; cursor: pointer; }
+.opiniao-mais:hover { text-decoration: underline; }
+.opiniao-mais:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; border-radius: 4px; }
+.opiniao-texto p:last-child { margin-bottom: 0; }
 .rede { background: color-mix(in srgb, var(--texto) 14%, var(--cartao-2)); border-color: color-mix(in srgb, var(--texto) 25%, var(--linha)); color: #fff; }
 .autor-email { font-size: 14px !important; }
 .autor-email a { color: var(--texto-2) !important; text-decoration: underline !important; text-underline-offset: 2px; }
-@media (max-width: 720px) { .autor-opiniao p { text-align: left; } .autor { align-items: center; } }
+@media (max-width: 720px) { .autor-opiniao { text-align: left; } .autor { align-items: center; } }
 .autor a.discreto { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 3px; }
 .autor a.discreto:hover { text-decoration-color: currentColor; }
