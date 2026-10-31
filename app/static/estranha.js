@@ -273,7 +273,7 @@
       veredito: "Não existe nos dados",
       pontos: [
         "<b>700 votos não cabem numa seção.</b> O máximo que o Flávio teve numa seção foi " + num(x.max_flavio[1]) + ". A seção mais cheia do país teve " + num(x.max_comparecimento[1]) + " votantes.",
-        "<b>Nenhuma seção caiu de 100 para 10</b>, entre as " + num(x.secoes_nos_dois_turnos) + " que existiram nos dois turnos.",
+        "<b>Nenhuma seção caiu de 100 para 10</b>, entre as " + num(x.secoes_nos_dois_turnos) + " que existiram nos dois turnos. Em 2022 a maior queda real na mesma seção foi de " + d.regua_2022.secoes.maior_queda_f + " votos, e nenhuma seção caiu de 100 para 10.",
         "<b>As maiores quedas reais são de uns 100 votos</b>, com o comparecimento caindo junto, em seções rurais do Acre e do Amazonas.",
       ],
       visual: visual("As maiores quedas reais, na mesma seção", linhas,
@@ -345,7 +345,7 @@
       veredito: "O número confere. Não é sinal de fraude.",
       pontos: [
         "<b>“Sem branco nem nulo” não confere.</b> Só " + V.dados.secoes_zeradas.sem_branco_nulo + " das " + V.dados.secoes_zeradas.total + " urnas não tiveram branco nem nulo; somadas, elas tiveram " + num(V.dados.secoes_zeradas.branco_nulo) + ". A conta da Mega-Sena supõe eleitor sorteado do país inteiro.",
-        "<b>Já era assim antes:</b> " + num(f1.secoes) + " no 1º turno, com o Flávio na frente; " + num(r22.t2) + " no 2º turno de 2022, com o Bolsonaro.",
+        "<b>Já era assim antes:</b> " + pc(100 * f1.secoes / x.secoes_total, 2) + " das seções no 1º turno, com o Flávio na frente, e " + pc(100 * r22.t2 / d.regua_2022.secoes.secoes, 2) + " em 2022, com o Bolsonaro. Em 2026, no 2º turno: " + pc(100 * f2.secoes / x.secoes_total, 2) + ".",
         "<b>São seções pequenas e homogêneas:</b> " + x.comparecimento_medio[0] + " votantes em média (no país, " + x.comparecimento_medio[1] + "), em aldeias, povoados e assentamentos. " + x.zeradas_em_aldeia[0] + " das " + x.zeradas_em_aldeia[1] + " zeradas ficam em aldeia indígena.",
         "<b>Não decidem nada:</b> sem elas, a vantagem do Lula cai de " + mi(x.margem) + " para " + mi(x.margem_sem_elas) + ".",
       ],
