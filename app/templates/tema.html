@@ -1,0 +1,71 @@
+{% extends "site.html" %}
+{# Página de tema (31/10/2026): responde uma pergunta só, com o texto inteiro
+   dos casos que a respondem.
+
+   Por que existe: todas as 27 conferências moravam numa URL só, e uma URL não
+   rankeia para 27 assuntos. Cada tema tem título, descrição e resposta próprios
+   — é o que uma busca como "106 urnas sem voto" procura.
+
+   ESTADO ATUAL: nenhuma página do site linka para cá (decisão de 31/10, para
+   não mexer na home). Elas entram no sitemap, então o Google as descobre e
+   pode indexar; mas sem link interno a prioridade de rastreamento é menor e
+   elas não herdam autoridade da home. Para ligar: basta acrescentar os links
+   no template que preferir — não há nada além disso. #}
+{% set pagina = "tema" %}
+{% block title %}{{ tema.titulo }} · estranhaeleicao.org{% endblock %}
+{% set descricao = tema.descricao %}
+{% set og_titulo = tema.titulo %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/entrada.png" %}
+{% set og_imagem_alt = tema.titulo %}
+{% block breadcrumb %}
+  {# FAQPage: cada caso é uma pergunta ("106 urnas sem voto é fraude?") com a
+     resposta que o site dá. O texto está visível na página — não é marcação
+     de conteúdo que só o robô vê. #}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+      {"@type":"ListItem","position":2,"name":{{ tema.titulo|tojson }},"item":"https://estranhaeleicao.org/{{ tema.slug }}"}]},
+    {"@type":"FAQPage","mainEntity":[
+      {% for c in tema.itens %}{"@type":"Question","name":{{ c.busca|tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ (c.veredito ~ " " ~ c.alegacao)|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}
+    ]}
+  ]}
+  </script>
+{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static/metodo.css?v={{ static_v }}">{% endblock %}
+{% block content %}
+  <header class="hero hero-curto">
+    <p class="hero-tag">{{ tema.tag }} · 2º turno de 2026</p>
+    <h1>{{ tema.h1 | safe }}</h1>
+    <p class="hero-sub">{{ tema.intro }}</p>
+  </header>
+
+  <main class="secao metodo">
+    <section class="m-b" aria-labelledby="t-casos">
+      <h2 id="t-casos">{{ 'O caso' if tema.itens|length == 1 else 'Os casos' }}</h2>
+      <p>Tudo abaixo foi conferido nos arquivos do TSE. Cada afirmação traz a resposta curta, a conta que a sustenta e o argumento de quem defende o sistema.</p>
+
+      <div class="tema-casos">
+        {% for c in tema.itens %}
+        <article class="tema-caso" id="{{ c.id }}">
+          <p class="tema-tag">
+            <span class="lr-tag t-{{ 'falsa' if c.tag == 'falsa' else ('estranho' if c.tag == 'estranho' else 'normal') }}">{{ 'Premissa falsa' if c.tag == 'falsa' else ('Verdade e estranho' if c.tag == 'estranho' else 'Verdade, mas normal') }}</span>
+          </p>
+          <h3>{{ c.busca }}</h3>
+          <p class="tema-alega"><b>O que se afirma:</b> {{ c.alegacao }}</p>
+          <p class="tema-ver"><b>Resposta:</b> {{ c.veredito }}</p>
+          {% if c.acusa %}<p class="tema-lado"><b>Quem acusa:</b> {{ c.acusa }}</p>{% endif %}
+          {% if c.defende %}<p class="tema-lado"><b>Quem defende:</b> {{ c.defende }}</p>{% endif %}
+          {% if c.decisao %}<p class="tema-lado"><b>Decisão:</b> {{ c.decisao }}</p>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="m-b m-fim" aria-labelledby="t-metodo">
+      <h2 id="t-metodo">De onde vem a conta</h2>
+      <p>Todos os números saem dos arquivos abertos do TSE — resultado oficial e votação por seção dos dois turnos —, e a conferência seção a seção fecha com diferença zero em comparecimento, votos válidos, brancos e nulos nas 28 unidades da federação.</p>
+      <p>O método inteiro, com os limites e o que o site <b>não</b> consegue provar, está em <a href="/metodo">método e limites</a>. Os arquivos de cada conta estão em <a href="/dados">dados abertos</a>.</p>
+    </section>
+  </main>
+{% endblock %}

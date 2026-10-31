@@ -1,0 +1,359 @@
+[
+ {
+  "slug": "fraude-nas-urnas",
+  "titulo": "As urnas foram fraudadas em 2026?",
+  "h1": "As urnas <br><span>foram fraudadas?</span>",
+  "tag": "fraude na contagem",
+  "descricao": "As teorias de fraude na urna e na apuração de 2026, cada uma conferida no dado do TSE: o gráfico da apuração, a soma que não fecha, a urna na caminhonete e as 106 urnas zeradas.",
+  "intro": "As acusações que apontam para a urna, para a transmissão ou para a soma dos votos. Cada uma tem o número que a sustenta e o que o dado do TSE mostra.",
+  "itens": [
+   {
+    "id": "secoes-10",
+    "titulo": "As 106 urnas zeradas",
+    "busca": "106 urnas sem nenhum voto para Flávio: é fraude?",
+    "tag": "normal",
+    "alegacao": "Em 106 urnas, ninguém votou no Flávio, nem branco, nem nulo: 100% Lula. Em 3.042 seções — cada seção é um local de votação, com a sua urna — ele fez no máximo 10 votos. É como ganhar 579 vezes seguidas na Mega-Sena.",
+    "veredito": "O número confere. Não é sinal de fraude.",
+    "acusa": "106 urnas sem um voto sequer para o Flávio, num país dividido ao meio. Em cada uma, todo mundo pensou igual: parece urna preenchida.",
+    "defende": "São seções pequenas (139 votantes em média), 41 em aldeias indígenas, e o padrão já existia no 1º turno e, com o Bolsonaro, em 2022. Só 29 não tiveram branco nem nulo. Sem elas, o Lula ainda vence por 4,05 mi.",
+    "decisao": "Comunidades pequenas votam em bloco, para os dois lados. O número é verdadeiro; a conclusão, não."
+   },
+   {
+    "id": "curva",
+    "titulo": "O algoritmo da apuração",
+    "busca": "O gráfico da apuração mostra fraude? O que o vídeo esconde",
+    "tag": "falsa",
+    "alegacao": "Um candidato que perdeu por 49% a 51% não podia ter uma inversão só: em ordem aleatória, a liderança teria virado várias vezes. E não pode haver tendência de subida dentro da apuração — toda vez que a curva sobe, um algoritmo a derruba. Sem essas quedas, o Bolsonaro teria ganhado com 60% a 65%.",
+    "veredito": "É de 2022. As quedas existem, mas são regiões chegando",
+    "acusa": "Com 51 a 49, a liderança deveria trocar várias vezes na apuração, e ela trocou uma vez só. As quedas do Bolsonaro vêm em degraus regulares, sinal de algoritmo.",
+    "defende": "O vídeo é de 2022. Os boletins chegam por região e fuso, não sorteados; cada queda tem hora e lugar que dá para conferir. E recortar só as subidas de um lado fabrica qualquer vencedor: o mesmo truque dá vitória ao Lula.",
+    "decisao": "A premissa de que os boletins chegam em ordem aleatória é falsa. Sem ela, os “degraus” são só regiões chegando."
+   },
+   {
+    "id": "soma",
+    "titulo": "A soma que não fecha",
+    "busca": "A soma dos estados não bate com o total do Brasil?",
+    "tag": "falsa",
+    "alegacao": "A soma dos estados não bate com o total do Brasil no site do TSE: faltam 766 mil votos.",
+    "veredito": "O print é do começo da apuração",
+    "acusa": "No site do TSE, a soma dos estados não bate com o total do Brasil: sumiram 766 mil votos.",
+    "defende": "O print foi tirado no começo da apuração, cada estado num instante diferente. No resultado final, a soma das seções bate voto a voto com o total.",
+    "decisao": "Comparar números de momentos diferentes durante a contagem sempre dá diferença. No final, fecha."
+   },
+   {
+    "id": "mesma-secao",
+    "titulo": "Os 700 votos que sumiram",
+    "busca": "Flávio fez 700 votos e depois 8 na mesma seção?",
+    "tag": "falsa",
+    "alegacao": "Flávio fez 700 votos no 1º turno e 8 ou 9 no 2º, na mesma seção.",
+    "veredito": "Não existe nos dados",
+    "acusa": "Há prints de seções em que o Flávio caiu de 700 votos para 8 entre os turnos.",
+    "defende": "Nenhuma seção do país teve o Flávio com 700 votos, e nenhuma caiu de 100 para 10. Os prints comparam local de votação inteiro com uma seção, ou outro cargo.",
+    "decisao": "O dado não existe no arquivo de nenhuma das 499 mil seções."
+   },
+   {
+    "id": "zonas",
+    "titulo": "O placar repetido",
+    "busca": "O mesmo placar em todas as zonas eleitorais: é fraude?",
+    "tag": "falsa",
+    "alegacao": "O mesmo número se repete em cada zona: Lula 32.714 e Flávio 29.764 em várias zonas de Brasília, e igual em Salvador e São Paulo. Isso não existe.",
+    "veredito": "O número é real, mas de uma zona só",
+    "acusa": "O mesmo placar aparece em várias zonas de Brasília, Salvador e São Paulo. Números idênticos não acontecem por acaso.",
+    "defende": "A tela do app travou: o nome da zona mudava, os números não. Cada placar do vídeo é de uma zona só, e no país nenhum placar se repete.",
+    "decisao": "Erro de tela, não de urna."
+   },
+   {
+    "id": "sala-cofre",
+    "titulo": "Os comandos na sala-cofre",
+    "busca": "Fiscais do PL foram expulsos da sala-cofre do TSE?",
+    "tag": "falsa",
+    "alegacao": "Um servidor da sala-cofre do TSE — a câmara fechada onde ficam guardadas as cópias dos programas que rodam nas urnas e os computadores que somam os votos — recebia ao menos oito comandos externos. E os fiscais do PL foram tirados de lá depois das 17h.",
+    "veredito": "Promessa sem prova. E a soma das urnas não deixa espaço.",
+    "acusa": "Fiscais do PL foram tirados da sala-cofre depois das 17h, e há indícios de comandos externos num servidor que deveria estar isolado.",
+    "defende": "A sala-cofre é uma câmara fechada, na Secretaria de Tecnologia da Informação do TSE, onde ficam as cópias lacradas dos programas e os computadores da totalização, e não um espaço de visitação: no dia da eleição, ninguém trabalha nela. Os fiscais do PL acompanharam a sala de totalização, a poucos metros dali, que é aberta e filmada. Sobre os comandos, nenhuma prova foi apresentada. E o servidor não muda o boletim de urna impresso em cada seção.",
+    "decisao": "Um fato desmentido e uma promessa sem prova. Se houver prova, ela precisa explicar por que os boletins em papel batem."
+   },
+   {
+    "id": "caminhonete",
+    "titulo": "A caminhonete do PT",
+    "busca": "Urnas na caminhonete com adesivo do PT: houve fraude?",
+    "tag": "estranho",
+    "alegacao": "Urnas foram levadas numa caminhonete com adesivo do PT no Distrito Federal, depois da votação.",
+    "veredito": "Aconteceu, e foi irregular. Mas não mexeu em voto.",
+    "acusa": "Urnas numa caminhonete com adesivo do PT, depois da votação. Quem garante o que fizeram com elas no caminho?",
+    "defende": "Os votos já estavam registrados: boletim impresso e afixado na seção, e resultado numa mídia lacrada que sai da urna. A urna no caminho não muda o resultado publicado.",
+    "decisao": "Foi uma falha real de logística e o TRE-DF apura. Não muda votos, que já estavam impressos no boletim de cada seção."
+   },
+   {
+    "id": "cedula",
+    "titulo": "Voto no papel",
+    "busca": "Voto em cédula de papel em 2026: existe?",
+    "tag": "normal",
+    "alegacao": "Em Pernambuco, uma seção passou a votar em cédula de papel, sem fiscalização. “Vão roubar essa eleição.”",
+    "veredito": "Existe e está na lei. É exceção.",
+    "acusa": "Uma seção em Pernambuco votou em papel, sem treinamento e sem fiscalização. Voto em papel é onde se frauda.",
+    "defende": "Cédula é o último recurso legal quando a urna e a reserva falham, e é apurada por junta com fiscais. Em Pernambuco, 80 de 22.694 urnas foram trocadas.",
+    "decisao": "Previsto em lei e raro. Uma seção não muda nada."
+   },
+   {
+    "id": "eleitores",
+    "titulo": "Mais eleitor que habitante",
+    "busca": "Cidade com mais eleitores que habitantes: é fraude?",
+    "tag": "normal",
+    "alegacao": "A Bahia tem 23 municípios com mais eleitores do que habitantes, como Catolândia e Firmino Alves.",
+    "veredito": "É verdade, e é antigo. Não é voto a mais.",
+    "acusa": "Cidades com mais eleitores que habitantes são o terreno ideal para voto fantasma.",
+    "defende": "É gente que mudou e não transferiu o título, somado à população estimada do IBGE. Em Catolândia votaram menos pessoas do que moram lá.",
+    "decisao": "O cadastro desatualizado é um problema antigo, mas não vira voto: quem não mora lá não aparece para votar."
+   }
+  ]
+ },
+ {
+  "slug": "biometria",
+  "titulo": "8,6 milhões de votos sem biometria: é fraude?",
+  "h1": "8,6 milhões <br><span>sem biometria</span>",
+  "tag": "voto sem digital",
+  "descricao": "O que são os 8,6 milhões de votos sem biometria citados pelo relatório, por que a taxa caiu em relação a 2022 e por que isso não muda o resultado.",
+  "intro": "O número que o relatório apresentou como prova de fraude, conferido seção a seção no Boletim de Urna do TSE — e comparado com 2022 e com o 1º turno.",
+  "itens": [
+   {
+    "id": "biometria",
+    "titulo": "8,6 milhões sem digital",
+    "busca": "8,6 milhões de votos sem biometria: o que aconteceu?",
+    "tag": "falsa",
+    "alegacao": "Um relatório divulgado nos EUA diz que 8,6 milhões votaram sem biometria depois das 17h. Tirando esses votos, o Flávio teria ganhado.",
+    "veredito": "Mistura dois números, e o maior deles é menor que em 2022",
+    "acusa": "8,6 milhões votaram sem digital, quase o dobro da diferença. Sem digital, a porta fica aberta para alguém votar por outro.",
+    "defende": "Os 8,6 milhões são do dia todo, de quem tem digital cadastrada mas não foi lida, e votaram com documento com foto. Depois das 17h foram 34.393 votos. E nada diz que esses votos foram para o Lula.",
+    "decisao": "O relatório trata “sem digital” como “sem identificação” e põe todos os votos num candidato. As duas premissas são falsas."
+   }
+  ]
+ },
+ {
+  "slug": "virada-do-2-turno",
+  "titulo": "A virada do Lula no 2º turno foi possível sem fraude?",
+  "h1": "A virada <br><span>do 2º turno</span>",
+  "tag": "a virada",
+  "descricao": "A virada inédita de 2026, a geografia dela e o erro das pesquisas: os números conferem e a conta fecha sem nenhum voto inventado.",
+  "intro": "Pela primeira vez desde 1989, quem perdeu o 1º turno ganhou o 2º. É raro, é estranho, e a conta fecha — aqui está como.",
+  "itens": [
+   {
+    "id": "virada",
+    "titulo": "A virada inédita",
+    "busca": "A virada do Lula no 2º turno é inédita? Foi fraude?",
+    "tag": "estranho",
+    "alegacao": "Pela primeira vez desde 1989, quem perdeu o 1º turno ganhou o 2º. O Lula levou 3 de cada 4 votos em jogo, contra as pesquisas e o mercado de apostas.",
+    "veredito": "É verdade e é raro. Mas a conta fecha.",
+    "acusa": "Nunca aconteceu em 7 segundos turnos, as pesquisas e as apostas erraram para o mesmo lado e o Lula precisou de 3 de cada 4 votos novos. Eventos raros que se somam são exatamente o que uma fraude produziria.",
+    "defende": "Raro não é impossível, e cada peça tem explicação conhecida: terceira via com eleitor mais anti-Flávio do que o apoio dos candidatos sugeria, branco/nulo e quem voltou a votar pendendo para o Lula. Pesquisas brasileiras erram por 2 a 3 pontos com frequência.",
+    "decisao": "A virada é inédita e as pesquisas erraram, e isso merece explicação. A conta fecha sem nenhum voto inventado: os 5 cenários mostram como."
+   },
+   {
+    "id": "pesquisas",
+    "titulo": "As pesquisas e as apostas",
+    "busca": "As pesquisas erraram o resultado de 2026?",
+    "tag": "estranho",
+    "alegacao": "Na véspera, Datafolha e AtlasIntel davam o Flávio na frente, e a Polymarket dava 80% de chance a ele. O Lula ganhou. A chance de a pesquisa errar tanto era de 3 em 1.000.",
+    "veredito": "Erraram, e um pouco além da margem. Já aconteceu antes.",
+    "acusa": "Todas as pesquisas da véspera e o mercado de apostas apontavam o Flávio. Quando todos os termômetros erram para o mesmo lado, o problema pode estar na contagem, não nos termômetros.",
+    "defende": "O erro foi de uns 3 pontos, pouco além da margem, e a pesquisa brasileira já errou mais (2022, para o outro lado). As apostas só repetiam as pesquisas, num mercado com 4,5% do volume da eleição americana de 2024 e dominado por apostadores de fora.",
+    "decisao": "As pesquisas erraram para o mesmo lado e merecem explicação. Mas pesquisa é estimativa: errar por 3 pontos aconteceu antes, e o resultado confere com os boletins."
+   },
+   {
+    "id": "silva-jardim",
+    "titulo": "Cidades onde o Flávio parou",
+    "busca": "Cidades onde o Flávio perdeu votos entre os turnos: a conta fecha?",
+    "tag": "normal",
+    "alegacao": "Em Araruama (RJ), o Flávio ganhou 11 votos entre os turnos e o Lula 5.581. Em Silva Jardim, 1 contra 984 . A chance disso seria de 1 em 10⁴⁶⁸.",
+    "veredito": "O número confere. A conta, não.",
+    "acusa": "O Flávio ganhou 1 voto em Silva Jardim, 11 em Araruama e perdeu 1.389 em Campos, enquanto o Lula ganhava milhares. É como se os votos tivessem sido transferidos.",
+    "defende": "“+1” é saldo: menos gente votou no 2º turno, e quem não voltou desconta. A terceira via e o branco/nulo da cidade bastam para os votos do Lula. O mesmo desenho aparece em centenas de cidades, inclusive em 2022 com o Bolsonaro.",
+    "decisao": "O número confere; ler saldo como voto recebido é o erro. A conta fecha em cada cidade."
+   }
+  ]
+ },
+ {
+  "slug": "prorrogacao",
+  "titulo": "Por que a votação foi prorrogada até as 19h?",
+  "h1": "A votação <br><span>até as 19h</span>",
+  "tag": "prorrogação",
+  "descricao": "A prorrogação determinada pelo STF no 2º turno de 2026, os 34.393 votos depois das 17h e a falta de ônibus em Salvador: o que aconteceu e o que não aconteceu.",
+  "intro": "A decisão da meia hora final virou o argumento mais repetido. Os números do que entrou depois das 17h estão medidos, e são pequenos.",
+  "itens": [
+   {
+    "id": "prorrogacao",
+    "titulo": "A prorrogação de última hora",
+    "busca": "Por que a votação foi prorrogada até as 19h?",
+    "tag": "estranho",
+    "alegacao": "A meia hora do fim, o ministro Zanin, ex-advogado do Lula, prorrogou a votação até as 19h em todo o país, a pedido da campanha do Lula.",
+    "veredito": "Aconteceu, e é estranho. Mas quase ninguém votou depois.",
+    "acusa": "A meia hora do fim, um ministro que foi advogado do Lula mudou a regra para o país todo, a pedido da campanha do Lula e contra o Ministério Público.",
+    "defende": "A campanha do Flávio também pediu prorrogação. A ordem chegou com a maioria das seções fechadas, e depois das 17h foram 34 mil votos, para uma diferença de 4,43 mi.",
+    "decisao": "Quem decidiu, quando e como foram decisões ruins para a confiança. O efeito no resultado foi desprezível."
+   },
+   {
+    "id": "onibus",
+    "titulo": "Os ônibus de Salvador",
+    "busca": "Faltou ônibus em Salvador no dia da votação?",
+    "tag": "estranho",
+    "alegacao": "Sindicalistas da CTB adesivaram os ônibus de Salvador para o Lula no dia do 2º turno, segundo um áudio atribuído ao presidente do Sindicato dos Rodoviários. Do outro lado, a prefeitura segurou ônibus nas garagens e deixou eleitor sem transporte.",
+    "veredito": "Os dois lados erraram. Faltou ônibus, mas não faltou eleitor.",
+    "acusa": "Sindicalistas colaram adesivos do Lula nos ônibus de Salvador, e a frota encolheu no dia da votação. Uma cidade que vota em massa no Lula ficou sem transporte e com propaganda irregular rodando.",
+    "defende": "A propaganda foi irregular, e o atraso veio da prefeitura, que é de oposição ao PT, segurando ônibus para tirar os adesivos. Mesmo assim, o comparecimento em Salvador subiu 5,5% sobre o 1º turno, mais que no país.",
+    "decisao": "Houve propaganda proibida e frota reduzida, e a PF investiga. O efeito no voto não aparece: Salvador votou mais no 2º turno que no 1º."
+   }
+  ]
+ },
+ {
+  "slug": "mesario",
+  "titulo": "Mesário pode votar no lugar do eleitor?",
+  "h1": "Mesário vota <br><span>no seu lugar?</span>",
+  "tag": "mesário e caderno",
+  "descricao": "O que impede um mesário de votar no lugar de outro eleitor, os casos que existiram em 2026 e por que eles não somam milhões de votos.",
+  "intro": "A acusação existe e tem caso real. O que ela não tem é escala: o caminho do voto em nome de outra pessoa deixa rastro, e o rastro está no dado.",
+  "itens": [
+   {
+    "id": "mesario",
+    "titulo": "O mesário pianista",
+    "busca": "Mesário pode votar no lugar do eleitor?",
+    "tag": "falsa",
+    "alegacao": "Com o número do título, o mesário vota pelo eleitor que faltou ou morreu. Em 500 mil seções, isso dá milhões de votos.",
+    "veredito": "Fraude isolada é crime e aparece. Milhões, não.",
+    "acusa": "Fraude de mesário existe: em Salvador uma mesária foi presa por votar no lugar de um PM. Os casos pegos são os que o eleitor descobriu; os de quem não foi votar ninguém descobre.",
+    "defende": "Votar por outro deixa rastro: sem a digital do eleitor o voto sai liberado sem biometria, e esses votos foram menos que em 2022 e só 3,5% acima do 1º turno. Para virar a eleição seriam milhões.",
+    "decisao": "Casos isolados existem e são presos. A premissa de que isso soma milhões não se sustenta: os votos liberados sem biometria são 6,75% do total, menos que em 2022."
+   },
+   {
+    "id": "mesaria",
+    "titulo": "A mesária cabo eleitoral",
+    "busca": "Mesária fazendo campanha dentro da seção: aconteceu?",
+    "tag": "estranho",
+    "alegacao": "Uma mesária pediu voto para o 13 dentro da seção, na Bahia.",
+    "veredito": "Na Bahia, não confirmado. No DF, aconteceu, e é crime.",
+    "acusa": "Mesárias pediram voto para o 13 dentro da seção.",
+    "defende": "O vídeo da Bahia não foi confirmado. No DF, a mesária detida fazia campanha para o Flávio, segundo a PM.",
+    "decisao": "Mesário fazendo campanha é crime e aconteceu. De que lado, há duas versões."
+   },
+   {
+    "id": "consulta",
+    "titulo": "A consulta que sumiu",
+    "busca": "Por que a consulta de quem votou saiu do ar?",
+    "tag": "normal",
+    "alegacao": "O TSE tirou do ar a consulta de quem votou, depois que muita gente foi ver se mortos votaram.",
+    "veredito": "Saiu do ar, sim. Estava no calendário desde fevereiro.",
+    "acusa": "Bem quando as pessoas iam conferir se mortos votaram, o TSE tirou a consulta do ar.",
+    "defende": "A pausa estava no calendário desde fevereiro e acontece em toda eleição, enquanto o TSE processa quem votou e quem faltou. Volta em 3/11.",
+    "decisao": "A coincidência de datas é do calendário, não da reação. Vale conferir de novo depois de 3/11."
+   }
+  ]
+ },
+ {
+  "slug": "campanha-e-governo",
+  "titulo": "Abuso de poder e máquina pública na eleição de 2026",
+  "h1": "Campanha <br><span>e governo</span>",
+  "tag": "abuso de poder",
+  "descricao": "As denúncias sobre o uso da máquina pública e da campanha em 2026: o pacote de medidas, as mensagens do Gov.br, o canal do Janones, as universidades e a compra de votos.",
+  "intro": "As denúncias que não são sobre a urna, e sim sobre a campanha: uso do governo, desinformação, transporte e compra de voto. Quase nada aqui tem julgamento final.",
+  "itens": [
+   {
+    "id": "pacote",
+    "titulo": "O pacote antes da eleição",
+    "busca": "O pacote de medidas do governo antes da eleição é abuso?",
+    "tag": "estranho",
+    "alegacao": "No ano da eleição, o governo despejou um pacote: gasolina e diesel com imposto cortado, Bolsa Família reajustado, Desenrola 3.0, fim da taxa das blusinhas e bets proibidas. O Novo contou 35 medidas no ano, 12 delas já dentro da campanha.",
+    "veredito": "As medidas existem. Se foram abuso, o TSE ainda vai dizer.",
+    "acusa": "Bolsa Família, combustíveis, Desenrola, blusinhas e bets concentrados nas semanas da eleição: é compra de voto com dinheiro público.",
+    "defende": "Programas sociais previstos em lei e no orçamento podem continuar em ano eleitoral. Governos de todos os partidos anunciam medidas antes de eleição.",
+    "decisao": "O calendário é suspeito e merece julgamento. Se for abuso, a pena é cassação, não recontagem: não é fraude na urna."
+   },
+   {
+    "id": "maquina-celular",
+    "titulo": "A máquina no celular",
+    "busca": "O governo usou o WhatsApp do Gov.br para pedir voto?",
+    "tag": "estranho",
+    "alegacao": "O governo usou o WhatsApp do Gov.br e o Meu INSS para falar com dezenas de milhões de pessoas às vésperas da eleição, e avisou aposentados de que votar valia como prova de vida. E não fez campanha para o jovem tirar o título, porque sabe que a maioria dos jovens é de direita.",
+    "veredito": "As mensagens existem; a queda dos jovens também. O elo entre as duas não está demonstrado.",
+    "acusa": "O governo usou a base do Gov.br, do INSS e da Receita para falar com dezenas de milhões às vésperas do voto, e o aviso de prova de vida sugere que quem não votar perde o benefício. Ao mesmo tempo, não mobilizou o jovem a tirar o título.",
+    "defende": "Votar vale como prova de vida desde 2022, por portaria do INSS, e quem não vota não perde nada. A campanha de alistamento é da Justiça Eleitoral, não do governo, e o TSE não viu nas mensagens pedido de voto nem menção a candidato.",
+    "decisao": "As mensagens e a queda do eleitorado jovem estão documentadas. Que uma coisa tenha causado a outra, ou que o governo tenha escolhido não falar com o jovem, não está demonstrado."
+   },
+   {
+    "id": "exercito",
+    "titulo": "O Exército do Lula",
+    "busca": "O canal do Janones coordenava fake news contra o Flávio?",
+    "tag": "estranho",
+    "alegacao": "Um canal de WhatsApp do deputado André Janones, com mais de 3 milhões de seguidores, coordenava fake news contra o Flávio para a campanha do Lula.",
+    "veredito": "O canal e as “missões” existem. Fake news, o TSE não conseguiu medir.",
+    "acusa": "Um canal com 3 milhões de pessoas distribuía “missões” de ataque ao Flávio, e mensagens foram apagadas antes de o TSE ler.",
+    "defende": "Os técnicos do TSE não acharam conteúdo falso no que analisaram. Mobilizar militância em rede social é legal.",
+    "decisao": "Apagar mensagens durante a análise é estranho. Não há prova de fake news, mas também não há como afastar."
+   },
+   {
+    "id": "universidades",
+    "titulo": "Universidades em campanha",
+    "busca": "Universidades públicas viraram comitê de campanha?",
+    "tag": "estranho",
+    "alegacao": "Universidades públicas, como a UFSC, viraram comitê do Lula: adesivos no campus, atos de campanha e aulas suspensas para os estudantes irem votar.",
+    "veredito": "Aconteceu em vários campi. Propaganda em prédio público é proibida.",
+    "acusa": "Universidades públicas viraram comitê do Lula, com adesivos, atos e até aulas suspensas para estudante ir votar.",
+    "defende": "Os casos são pontuais, alguns foram retirados por ordem judicial, e suspender aula para o aluno viajar e votar não é propaganda.",
+    "decisao": "Propaganda em prédio público é proibida e aconteceu. O efeito no voto não dá para medir."
+   },
+   {
+    "id": "desfile",
+    "titulo": "O desfile do Lula",
+    "busca": "O desfile da escola de samba para o Lula foi abuso?",
+    "tag": "estranho",
+    "alegacao": "A Acadêmicos de Niterói fez um desfile de Carnaval em homenagem ao Lula, com jingle e o número 13, pago com dinheiro público. O Novo pediu a cassação da chapa.",
+    "veredito": "O desfile e o dinheiro público existem. O TSE ainda não julgou.",
+    "acusa": "Dinheiro público pagou um desfile que fez propaganda do presidente-candidato em rede nacional.",
+    "defende": "As escolas recebem verba pública pelos mesmos critérios, e homenagem a político é tradição do Carnaval. O TSE não viu motivo para censurar antes.",
+    "decisao": "O fato e o dinheiro estão provados; se foi abuso, o TSE vai decidir. Não houve absolvição."
+   },
+   {
+    "id": "faccoes",
+    "titulo": "As facções votaram no Lula",
+    "busca": "O PCC e o Comando Vermelho apoiaram o Lula?",
+    "tag": "falsa",
+    "alegacao": "O PCC e o Comando Vermelho declararam apoio ao Lula e pagavam R$ 200 a moradores para votar nele.",
+    "veredito": "Não há registro do apoio nem do pagamento",
+    "acusa": "PCC e Comando Vermelho mandaram votar no Lula e pagaram por voto.",
+    "defende": "Nenhum registro foi encontrado por imprensa, Ministério Público ou checagem. O TSE mandou tirar os vídeos, com o mesmo critério usado contra posts sobre o Flávio.",
+    "decisao": "Não há registro algum."
+   },
+   {
+    "id": "desinformacao",
+    "titulo": "O que a Justiça mandou apagar",
+    "busca": "A Justiça Eleitoral mandou apagar conteúdo de quem?",
+    "tag": "normal",
+    "alegacao": "Só um lado foi condenado: a Justiça Eleitoral manda apagar conteúdo de uma campanha e deixa a outra em paz.",
+    "veredito": "Os dois lados apagaram conteúdo e pagaram multa",
+    "acusa": "A Justiça Eleitoral só pune um lado: apaga o conteúdo de uma campanha e deixa a outra em paz.",
+    "defende": "Houve remoção e multa contra as duas campanhas, inclusive confirmadas pelo plenário. Os placares que existem quase empatam.",
+    "decisao": "Remoções e multas atingiram as duas campanhas. A maior parte é liminar, e não há balanço oficial por lado."
+   },
+   {
+    "id": "compra",
+    "titulo": "Compra de votos",
+    "busca": "Houve compra de votos em massa em 2026?",
+    "tag": "normal",
+    "alegacao": "Houve compra de votos em massa, com dinheiro vivo.",
+    "veredito": "Existe, foi combatida, e não aponta para o 2º turno",
+    "acusa": "A PF apreendeu R$ 27 milhões em dinheiro vivo, seis vezes 2022. A compra de votos foi em massa.",
+    "defende": "As apreensões são de disputas locais (deputado, governador) e se concentram no Norte. Nada liga à eleição presidencial.",
+    "decisao": "Compra de voto é real e cresceu ou foi mais fiscalizada. Não explica a eleição presidencial."
+   },
+   {
+    "id": "padroeira",
+    "titulo": "A padroeira depois da correção",
+    "busca": "Lula insistiu na fake news da padroeira?",
+    "tag": "estranho",
+    "alegacao": "Depois de a GloboNews corrigir e o TSE chamar de inverídica a história de que o Flávio tiraria a padroeira do Brasil, a campanha do Lula insistiu no assunto: “eu não sei se foi fake news”.",
+    "veredito": "Insistiu no tema, não na autoria",
+    "acusa": "A campanha do Lula espalhou que o Flávio tiraria o título de padroeira de Nossa Senhora Aparecida e continuou no assunto depois de o TSE chamar a história de inverídica.",
+    "defende": "A campanha não repetiu que o Flávio tinha o projeto; manteve o tema genérico, o que o TSE tratou como crítica. E a peça contrária, a capa falsa da Veja contra o Lula, também foi removida.",
+    "decisao": "O boato era falso e foi removido. Depois disso, a campanha seguiu explorando o assunto sem repetir a acusação direta."
+   }
+  ]
+ }
+]

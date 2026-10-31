@@ -69,6 +69,18 @@ templates.env.globals["casos_resumo"] = CASOS_RESUMO
 templates.env.globals["dados_catalogo"] = _dados_catalogo()
 
 
+def _temas() -> list[dict]:
+    """Os temas do /<slug>. Arquivo faltando = lista vazia (o site segue, sem
+    as páginas de tema)."""
+    try:
+        return json.loads((DATASET / "temas.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+
+
+TEMAS = _temas()
+
+
 # Extensões que entram no `?v=`. .svg também (um mapa ou gráfico trocado tem de
 # mudar a versão, senão o Cloudflare serve a imagem velha por 4 h — ver
 # mapa-apostas.svg em 30/10) e as capas dos casos (.jpg), que o estranha.js
@@ -138,7 +150,8 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/metodo", "/dados", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
+PUBLICO = ("/", "/sobre", "/metodo", "/dados", "/fraude-nas-urnas", "/biometria",
+           "/virada-do-2-turno", "/prorrogacao", "/mesario", "/campanha-e-governo", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 
@@ -337,6 +350,9 @@ SITEMAP = {
     "/sobre": (("site.html", "sobre.html"), ()),
     "/metodo": (("site.html", "metodo.html"), ()),
     "/dados": (("site.html", "dados.html"), ("dados_catalogo.json",)),
+    # Temas (31/10/2026): entram no sitemap de propósito mesmo sem link
+    # interno — é por aqui que o Google descobre as páginas órfãs.
+    **{"/" + t["slug"]: (("site.html", "tema.html"), ("temas.json",)) for t in TEMAS},
 }
 
 
@@ -369,3 +385,15 @@ async def sitemap():
 @app.get("/saude", include_in_schema=False)
 async def saude():
     return {"ok": True}
+
+
+@app.get("/{slug}", include_in_schema=False)
+async def tema(slug: str, request: Request):
+    # Página por tema (31/10/2026). Fica no FIM do arquivo de propósito: é uma
+    # rota genérica de um segmento, e o FastAPI casa na ordem de registro —
+    # se viesse antes, capturaria /sobre, /metodo, /dados e /simulacao.
+    # Slug desconhecido cai no 404 de verdade (não no texto puro de antes).
+    for t in TEMAS:
+        if t["slug"] == slug:
+            return templates.TemplateResponse(request, "tema.html", {"tema": t})
+    return _nao_encontrado(request)

@@ -4,188 +4,215 @@
   "titulo": "Cidades onde o Flávio parou",
   "tag": "normal",
   "alegacao": "Em Araruama (RJ), o Flávio ganhou 11 votos entre os turnos e o Lula 5.581. Em Silva Jardim, 1 contra 984 . A chance disso seria de 1 em 10⁴⁶⁸.",
-  "veredito": "O número confere. A conta, não."
+  "veredito": "O número confere. A conta, não.",
+  "busca": "Cidades onde o Flávio perdeu votos entre os turnos: a conta fecha?"
  },
  {
   "id": "mesma-secao",
   "titulo": "Os 700 votos que sumiram",
   "tag": "falsa",
   "alegacao": "Flávio fez 700 votos no 1º turno e 8 ou 9 no 2º, na mesma seção.",
-  "veredito": "Não existe nos dados"
+  "veredito": "Não existe nos dados",
+  "busca": "Flávio fez 700 votos e depois 8 na mesma seção?"
  },
  {
   "id": "zonas",
   "titulo": "O placar repetido",
   "tag": "falsa",
   "alegacao": "O mesmo número se repete em cada zona: Lula 32.714 e Flávio 29.764 em várias zonas de Brasília, e igual em Salvador e São Paulo. Isso não existe.",
-  "veredito": "O número é real, mas de uma zona só"
+  "veredito": "O número é real, mas de uma zona só",
+  "busca": "O mesmo placar em todas as zonas eleitorais: é fraude?"
  },
  {
   "id": "secoes-10",
   "titulo": "As 106 urnas zeradas",
   "tag": "normal",
   "alegacao": "Em 106 urnas, ninguém votou no Flávio, nem branco, nem nulo: 100% Lula. Em 3.042 seções — cada seção é um local de votação, com a sua urna — ele fez no máximo 10 votos. É como ganhar 579 vezes seguidas na Mega-Sena.",
-  "veredito": "O número confere. Não é sinal de fraude."
+  "veredito": "O número confere. Não é sinal de fraude.",
+  "busca": "106 urnas sem nenhum voto para Flávio: é fraude?"
  },
  {
   "id": "curva",
   "titulo": "O algoritmo da apuração",
   "tag": "falsa",
   "alegacao": "Um candidato que perdeu por 49% a 51% não podia ter uma inversão só: em ordem aleatória, a liderança teria virado várias vezes. E não pode haver tendência de subida dentro da apuração — toda vez que a curva sobe, um algoritmo a derruba. Sem essas quedas, o Bolsonaro teria ganhado com 60% a 65%.",
-  "veredito": "É de 2022. As quedas existem, mas são regiões chegando"
+  "veredito": "É de 2022. As quedas existem, mas são regiões chegando",
+  "busca": "O gráfico da apuração mostra fraude? O que o vídeo esconde"
  },
  {
   "id": "virada",
   "titulo": "A virada inédita",
   "tag": "estranho",
   "alegacao": "Pela primeira vez desde 1989, quem perdeu o 1º turno ganhou o 2º. O Lula levou 3 de cada 4 votos em jogo, contra as pesquisas e o mercado de apostas.",
-  "veredito": "É verdade e é raro. Mas a conta fecha."
+  "veredito": "É verdade e é raro. Mas a conta fecha.",
+  "busca": "A virada do Lula no 2º turno é inédita? Foi fraude?"
  },
  {
   "id": "pesquisas",
   "titulo": "As pesquisas e as apostas",
   "tag": "estranho",
   "alegacao": "Na véspera, Datafolha e AtlasIntel davam o Flávio na frente, e a Polymarket dava 80% de chance a ele. O Lula ganhou. A chance de a pesquisa errar tanto era de 3 em 1.000.",
-  "veredito": "Erraram, e um pouco além da margem. Já aconteceu antes."
+  "veredito": "Erraram, e um pouco além da margem. Já aconteceu antes.",
+  "busca": "As pesquisas erraram o resultado de 2026?"
  },
  {
   "id": "biometria",
   "titulo": "8,6 milhões sem digital",
   "tag": "falsa",
   "alegacao": "Um relatório divulgado nos EUA diz que 8,6 milhões votaram sem biometria depois das 17h. Tirando esses votos, o Flávio teria ganhado.",
-  "veredito": "Mistura dois números, e o maior deles é menor que em 2022"
+  "veredito": "Mistura dois números, e o maior deles é menor que em 2022",
+  "busca": "8,6 milhões de votos sem biometria: o que aconteceu?"
  },
  {
   "id": "mesario",
   "titulo": "O mesário pianista",
   "tag": "falsa",
   "alegacao": "Com o número do título, o mesário vota pelo eleitor que faltou ou morreu. Em 500 mil seções, isso dá milhões de votos.",
-  "veredito": "Fraude isolada é crime e aparece. Milhões, não."
+  "veredito": "Fraude isolada é crime e aparece. Milhões, não.",
+  "busca": "Mesário pode votar no lugar do eleitor?"
  },
  {
   "id": "caminhonete",
   "titulo": "A caminhonete do PT",
   "tag": "estranho",
   "alegacao": "Urnas foram levadas numa caminhonete com adesivo do PT no Distrito Federal, depois da votação.",
-  "veredito": "Aconteceu, e foi irregular. Mas não mexeu em voto."
+  "veredito": "Aconteceu, e foi irregular. Mas não mexeu em voto.",
+  "busca": "Urnas na caminhonete com adesivo do PT: houve fraude?"
  },
  {
   "id": "consulta",
   "titulo": "A consulta que sumiu",
   "tag": "normal",
   "alegacao": "O TSE tirou do ar a consulta de quem votou, depois que muita gente foi ver se mortos votaram.",
-  "veredito": "Saiu do ar, sim. Estava no calendário desde fevereiro."
+  "veredito": "Saiu do ar, sim. Estava no calendário desde fevereiro.",
+  "busca": "Por que a consulta de quem votou saiu do ar?"
  },
  {
   "id": "sala-cofre",
   "titulo": "Os comandos na sala-cofre",
   "tag": "falsa",
   "alegacao": "Um servidor da sala-cofre do TSE — a câmara fechada onde ficam guardadas as cópias dos programas que rodam nas urnas e os computadores que somam os votos — recebia ao menos oito comandos externos. E os fiscais do PL foram tirados de lá depois das 17h.",
-  "veredito": "Promessa sem prova. E a soma das urnas não deixa espaço."
+  "veredito": "Promessa sem prova. E a soma das urnas não deixa espaço.",
+  "busca": "Fiscais do PL foram expulsos da sala-cofre do TSE?"
  },
  {
   "id": "soma",
   "titulo": "A soma que não fecha",
   "tag": "falsa",
   "alegacao": "A soma dos estados não bate com o total do Brasil no site do TSE: faltam 766 mil votos.",
-  "veredito": "O print é do começo da apuração"
+  "veredito": "O print é do começo da apuração",
+  "busca": "A soma dos estados não bate com o total do Brasil?"
  },
  {
   "id": "cedula",
   "titulo": "Voto no papel",
   "tag": "normal",
   "alegacao": "Em Pernambuco, uma seção passou a votar em cédula de papel, sem fiscalização. “Vão roubar essa eleição.”",
-  "veredito": "Existe e está na lei. É exceção."
+  "veredito": "Existe e está na lei. É exceção.",
+  "busca": "Voto em cédula de papel em 2026: existe?"
  },
  {
   "id": "eleitores",
   "titulo": "Mais eleitor que habitante",
   "tag": "normal",
   "alegacao": "A Bahia tem 23 municípios com mais eleitores do que habitantes, como Catolândia e Firmino Alves.",
-  "veredito": "É verdade, e é antigo. Não é voto a mais."
+  "veredito": "É verdade, e é antigo. Não é voto a mais.",
+  "busca": "Cidade com mais eleitores que habitantes: é fraude?"
  },
  {
   "id": "prorrogacao",
   "titulo": "A prorrogação de última hora",
   "tag": "estranho",
   "alegacao": "A meia hora do fim, o ministro Zanin, ex-advogado do Lula, prorrogou a votação até as 19h em todo o país, a pedido da campanha do Lula.",
-  "veredito": "Aconteceu, e é estranho. Mas quase ninguém votou depois."
+  "veredito": "Aconteceu, e é estranho. Mas quase ninguém votou depois.",
+  "busca": "Por que a votação foi prorrogada até as 19h?"
  },
  {
   "id": "onibus",
   "titulo": "Os ônibus de Salvador",
   "tag": "estranho",
   "alegacao": "Sindicalistas da CTB adesivaram os ônibus de Salvador para o Lula no dia do 2º turno, segundo um áudio atribuído ao presidente do Sindicato dos Rodoviários. Do outro lado, a prefeitura segurou ônibus nas garagens e deixou eleitor sem transporte.",
-  "veredito": "Os dois lados erraram. Faltou ônibus, mas não faltou eleitor."
+  "veredito": "Os dois lados erraram. Faltou ônibus, mas não faltou eleitor.",
+  "busca": "Faltou ônibus em Salvador no dia da votação?"
  },
  {
   "id": "desfile",
   "titulo": "O desfile do Lula",
   "tag": "estranho",
   "alegacao": "A Acadêmicos de Niterói fez um desfile de Carnaval em homenagem ao Lula, com jingle e o número 13, pago com dinheiro público. O Novo pediu a cassação da chapa.",
-  "veredito": "O desfile e o dinheiro público existem. O TSE ainda não julgou."
+  "veredito": "O desfile e o dinheiro público existem. O TSE ainda não julgou.",
+  "busca": "O desfile da escola de samba para o Lula foi abuso?"
  },
  {
   "id": "pacote",
   "titulo": "O pacote antes da eleição",
   "tag": "estranho",
   "alegacao": "No ano da eleição, o governo despejou um pacote: gasolina e diesel com imposto cortado, Bolsa Família reajustado, Desenrola 3.0, fim da taxa das blusinhas e bets proibidas. O Novo contou 35 medidas no ano, 12 delas já dentro da campanha.",
-  "veredito": "As medidas existem. Se foram abuso, o TSE ainda vai dizer."
+  "veredito": "As medidas existem. Se foram abuso, o TSE ainda vai dizer.",
+  "busca": "O pacote de medidas do governo antes da eleição é abuso?"
  },
  {
   "id": "maquina-celular",
   "titulo": "A máquina no celular",
   "tag": "estranho",
   "alegacao": "O governo usou o WhatsApp do Gov.br e o Meu INSS para falar com dezenas de milhões de pessoas às vésperas da eleição, e avisou aposentados de que votar valia como prova de vida. E não fez campanha para o jovem tirar o título, porque sabe que a maioria dos jovens é de direita.",
-  "veredito": "As mensagens existem; a queda dos jovens também. O elo entre as duas não está demonstrado."
+  "veredito": "As mensagens existem; a queda dos jovens também. O elo entre as duas não está demonstrado.",
+  "busca": "O governo usou o WhatsApp do Gov.br para pedir voto?"
  },
  {
   "id": "exercito",
   "titulo": "O Exército do Lula",
   "tag": "estranho",
   "alegacao": "Um canal de WhatsApp do deputado André Janones, com mais de 3 milhões de seguidores, coordenava fake news contra o Flávio para a campanha do Lula.",
-  "veredito": "O canal e as “missões” existem. Fake news, o TSE não conseguiu medir."
+  "veredito": "O canal e as “missões” existem. Fake news, o TSE não conseguiu medir.",
+  "busca": "O canal do Janones coordenava fake news contra o Flávio?"
  },
  {
   "id": "universidades",
   "titulo": "Universidades em campanha",
   "tag": "estranho",
   "alegacao": "Universidades públicas, como a UFSC, viraram comitê do Lula: adesivos no campus, atos de campanha e aulas suspensas para os estudantes irem votar.",
-  "veredito": "Aconteceu em vários campi. Propaganda em prédio público é proibida."
+  "veredito": "Aconteceu em vários campi. Propaganda em prédio público é proibida.",
+  "busca": "Universidades públicas viraram comitê de campanha?"
  },
  {
   "id": "mesaria",
   "titulo": "A mesária cabo eleitoral",
   "tag": "estranho",
   "alegacao": "Uma mesária pediu voto para o 13 dentro da seção, na Bahia.",
-  "veredito": "Na Bahia, não confirmado. No DF, aconteceu, e é crime."
+  "veredito": "Na Bahia, não confirmado. No DF, aconteceu, e é crime.",
+  "busca": "Mesária fazendo campanha dentro da seção: aconteceu?"
  },
  {
   "id": "faccoes",
   "titulo": "As facções votaram no Lula",
   "tag": "falsa",
   "alegacao": "O PCC e o Comando Vermelho declararam apoio ao Lula e pagavam R$ 200 a moradores para votar nele.",
-  "veredito": "Não há registro do apoio nem do pagamento"
+  "veredito": "Não há registro do apoio nem do pagamento",
+  "busca": "O PCC e o Comando Vermelho apoiaram o Lula?"
  },
  {
   "id": "desinformacao",
   "titulo": "O que a Justiça mandou apagar",
   "tag": "normal",
   "alegacao": "Só um lado foi condenado: a Justiça Eleitoral manda apagar conteúdo de uma campanha e deixa a outra em paz.",
-  "veredito": "Os dois lados apagaram conteúdo e pagaram multa"
+  "veredito": "Os dois lados apagaram conteúdo e pagaram multa",
+  "busca": "A Justiça Eleitoral mandou apagar conteúdo de quem?"
  },
  {
   "id": "compra",
   "titulo": "Compra de votos",
   "tag": "normal",
   "alegacao": "Houve compra de votos em massa, com dinheiro vivo.",
-  "veredito": "Existe, foi combatida, e não aponta para o 2º turno"
+  "veredito": "Existe, foi combatida, e não aponta para o 2º turno",
+  "busca": "Houve compra de votos em massa em 2026?"
  },
  {
   "id": "padroeira",
   "titulo": "A padroeira depois da correção",
   "tag": "estranho",
   "alegacao": "Depois de a GloboNews corrigir e o TSE chamar de inverídica a história de que o Flávio tiraria a padroeira do Brasil, a campanha do Lula insistiu no assunto: “eu não sei se foi fake news”.",
-  "veredito": "Insistiu no tema, não na autoria"
+  "veredito": "Insistiu no tema, não na autoria",
+  "busca": "Lula insistiu na fake news da padroeira?"
  }
 ]

@@ -486,3 +486,6 @@ body:has(.arte) { position: relative; }
 .resumo-texto.recolhido .lista-resumo { display: none; }
 .resumo-texto.recolhido .resumo-nota { margin: 0; font-size: 13px; }
 .resumo-texto.recolhido .resumo-nota::before { content: "A lista em texto foi recolhida. "; }
+/* O subtítulo pesquisável da lista em texto (31/10/2026): a frase que a pessoa
+   digita no Google, abaixo do título do cartão e acima da alegação. */
+.lista-resumo .lr-busca { display: block; margin-top: 2px; font-size: 13.5px; color: var(--destaque); font-weight: 600; }
