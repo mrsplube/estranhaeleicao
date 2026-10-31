@@ -79,6 +79,10 @@
       "aria-label": "Ver o vídeo de @" + v.perfil + " no Instagram" }, dentro)
       : h("div", { class: "capa sem-video" }, dentro);
   }
+  // Contagem anônima (visitas.py): qual caso foi aberto. Sem cookie, sem IP guardado.
+  function sinal(e, a) {
+    try { navigator.sendBeacon("/v", new Blob([JSON.stringify({ e: e, a: a })], { type: "application/json" })); } catch (x) { /* sem beacon */ }
+  }
   function link(f) {
     return f.url ? h("a", { href: f.url, target: "_blank", rel: "noopener nofollow", text: f.rot }) : h("span", { text: f.rot });
   }
@@ -107,7 +111,7 @@
       if (!aberto && art.getBoundingClientRect().top < 0) art.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     var ver = h("button", { class: "btn btn-mini caso-abrir", type: "button", "aria-expanded": "false", "aria-controls": "rev-" + o.id,
-      text: "Ver a resposta", onclick: function () { alternar(true); } });
+      text: "Ver a resposta", onclick: function () { alternar(true); sinal("caso", o.id); } });
     function recolher(onde) {
       return h("button", { class: "recolher " + onde, type: "button", title: "Recolher a resposta", "aria-label": "Recolher a resposta",
         onclick: function () { alternar(false); } }, h("i", { "aria-hidden": "true" }));

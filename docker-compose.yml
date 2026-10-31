@@ -10,6 +10,8 @@ x-base: &base
   read_only: true
   volumes:
     - ./app:/app:ro
+    # contagem de visitas (app/visitas.py): o público grava, o arquivo lê
+    - ./dados:/dados
   # o SQLite ordena consultas grandes em arquivo temporário
   tmpfs:
     - /tmp:size=64m
@@ -21,9 +23,10 @@ services:
     container_name: estranhaeleicao
     environment:
       SITE_MODO: publico
-    command: ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "3030"]
-    cpus: 1.0
-    mem_limit: 512m
+      TZ: America/Sao_Paulo
+    command: ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "3030", "--workers", "3"]
+    cpus: 2.0
+    mem_limit: 768m
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:3030/saude', timeout=5)"]
       interval: 60s
@@ -37,6 +40,7 @@ services:
     env_file: arquivo.env
     environment:
       SITE_MODO: completo
+      TZ: America/Sao_Paulo
     command: ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "3031"]
     cpus: 1.0
     mem_limit: 768m

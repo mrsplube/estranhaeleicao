@@ -11,3 +11,4 @@ app/politicos/data/eleicoes.db
 app/politicos/politicos.db
 # credencial do arquivo privado
 arquivo.env
+dados/

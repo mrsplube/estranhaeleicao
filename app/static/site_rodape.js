@@ -6,6 +6,7 @@
   document.querySelectorAll(".pe-compartilhar").forEach(function (b) {
     var rot = b.textContent;
     b.addEventListener("click", function () {
+      try { navigator.sendBeacon("/v", new Blob([JSON.stringify({ e: "compartilhar", a: location.pathname })], { type: "application/json" })); } catch (x) { /* sem beacon */ }
       if (navigator.share) { navigator.share({ title: "estranhaeleicao.org", text: TXT, url: URL }).catch(function () {}); return; }
       var feito = function () { b.textContent = "Link copiado ✓"; setTimeout(function () { b.textContent = rot; }, 2200); };
       if (navigator.clipboard) navigator.clipboard.writeText(URL).then(feito, function () { prompt("Copie o link:", URL); });

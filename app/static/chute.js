@@ -417,7 +417,8 @@
   function mostrarResultado(rolar) {
     if (!R || !painel.contains(R.ver)) montarPainel();
     painel.hidden = false;
-    if (rolar) { atualizarPainel(); painel.scrollIntoView({ behavior: calmo ? "auto" : "smooth", block: "start" }); return; }
+    if (rolar) { try { navigator.sendBeacon("/v", new Blob([JSON.stringify({ e: "resultado", a: PAGINA })], { type: "application/json" })); } catch (x) { /* sem beacon */ }
+      atualizarPainel(); painel.scrollIntoView({ behavior: calmo ? "auto" : "smooth", block: "start" }); return; }
     // Arrastando: no máximo uma atualização por quadro.
     if (agendado) return;
     agendado = true;

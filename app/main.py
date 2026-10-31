@@ -23,7 +23,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from apuracao import router as apuracao
-from auth import MODO, current_user
+from auth import MODO, current_user, get_real_ip
+import visitas
 
 BASE = Path(__file__).resolve().parent
 static_dir = BASE / "static"
@@ -61,7 +62,7 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico")
+PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 
@@ -75,7 +76,40 @@ async def porta(request: Request, call_next):
                             headers={"WWW-Authenticate": 'Basic realm="apuracao"'})
     elif caminho not in PUBLICO and not caminho.startswith(PUBLICO_PREFIXOS):
         return PlainTextResponse("não encontrado", status_code=404)
-    return await call_next(request)
+    resposta = await call_next(request)
+    # Página vista (só as páginas, não os arquivos; ver visitas.py).
+    if MODO != "completo" and request.method == "GET" and caminho in PAGINAS and resposta.status_code == 200:
+        try:
+            visitas.anotar(caminho, get_real_ip(request), request.headers.get("user-agent", ""), request.headers.get("referer", ""))
+        except Exception:
+            pass
+    return resposta
+
+
+PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre"}
+
+
+@app.post("/v", include_in_schema=False)
+async def evento(request: Request):
+    """Evento anônimo do navegador (sendBeacon): {"e": "caso", "a": "biometria"}."""
+    if MODO != "completo":
+        try:
+            d = await request.json()
+            visitas.evento(str(d.get("e", "")), str(d.get("a", "")), get_real_ip(request), request.headers.get("user-agent", ""))
+        except Exception:
+            pass
+    return Response(status_code=204)
+
+
+@app.get("/visitas", include_in_schema=False)
+async def ver_visitas(request: Request):
+    if MODO != "completo":
+        return PlainTextResponse("não encontrado", status_code=404)
+    estilo = ("body{font:15px system-ui;margin:24px;background:#0e1326;color:#e4e6f0}table{border-collapse:collapse;margin-bottom:24px}"
+              "td,th{padding:5px 12px;border-bottom:1px solid #2d385e;text-align:left}th{color:#e6be55}h2{font-size:17px}")
+    return Response(f"<!doctype html><meta charset=utf-8><meta name=viewport content='width=device-width'><title>Visitas</title>"
+                    f"<style>{estilo}</style><h1>estranhaeleicao.org · últimos 14 dias</h1>{visitas.resumo_html()}",
+                    media_type="text/html")
 
 
 @app.get("/", include_in_schema=False)
