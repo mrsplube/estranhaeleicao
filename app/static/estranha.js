@@ -50,6 +50,10 @@
     c = c === undefined ? 1 : c;
     return x.toLocaleString("pt-BR", { minimumFractionDigits: c, maximumFractionDigits: c }) + "%";
   }
+  // Pontos percentuais com 3 casas (a diferença entre 51,6% e 51,8% é 0,2 pp).
+  function pp(x) {
+    return x.toLocaleString("pt-BR", { minimumFractionDigits: 3, maximumFractionDigits: 3 }) + " pp";
+  }
   function sinal(x) { return (x > 0 ? "+" : x < 0 ? "−" : "") + num(Math.abs(x)); }
   function mi(x) { return (x / 1e6).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " mi"; }
   function pedir(arquivo) {
@@ -355,6 +359,34 @@
   }
 
   // ── caso 5: o "algoritmo" da curva ─────────────────────────────────────
+  // O vídeo mostra dois gráficos de um notebook (Colab/plotly): a noite de 2022
+  // e um zoom com o eixo de 0,516 a 0,518. O zoom é o que ele lê como "o
+  // algoritmo agindo". Aqui: o mesmo recorte (as seções 70.000 a 75.000, ~17h40)
+  // redesenhado do arquivo do TSE, para a pessoa ver se o desenho dele aparece.
+  function grafZoom(n) {
+    var z = n.janela.zoom.filter(function (p) { return p[0] >= 70000 && p[0] <= 75000; });
+    var W = 420, H = 210, mE = 46, mD = 10, mT = 12, mB = 26;
+    var x0 = z[0][0], x1 = z[z.length - 1][0];
+    // A MESMA escala do gráfico do vídeo (0,516 a 0,518). É o ponto do caso: na
+    // escala dele o gráfico sobe e desce; no dado oficial, a linha fica reta.
+    var lo = 0.516, hi = 0.518;
+    var X = function (x) { return mE + (W - mE - mD) * (x - x0) / (x1 - x0); };
+    var Y = function (v) { return mT + (H - mT - mB) * (hi - v) / (hi - lo); };
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, class: "grafico", role: "img",
+      "aria-label": "Fatia do Bolsonaro nas seções 70.000 a 75.000 de 2022, na mesma escala do gráfico do vídeo: a linha fica reta, variando 0,03 ponto percentual" });
+    [0.516, 0.517, 0.518].forEach(function (v) {
+      svg.appendChild(s("line", { x1: mE, x2: W - mD, y1: Y(v), y2: Y(v), class: "grade" }));
+      svg.appendChild(s("text", { x: mE - 6, y: Y(v) + 4, "text-anchor": "end", class: "eixo", text: v.toFixed(3).replace(".", ",") }));
+    });
+    [70000, 72500, 75000].forEach(function (x) {
+      svg.appendChild(s("text", { x: X(x), y: H - 8, "text-anchor": "middle", class: "eixo", text: (x / 1000) + "k" }));
+    });
+    svg.appendChild(s("text", { x: W - mD, y: mT + 10, "text-anchor": "end", class: "eixo nota", text: "escala do vídeo" }));
+    svg.appendChild(s("path", { class: "serie bolso", d: z.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1); }).join(" ") }));
+    return svg;
+  }
+  function min100(z) { return Math.min.apply(null, z.map(function (p) { return p[1]; })); }
+  function max100(z) { return Math.max.apply(null, z.map(function (p) { return p[1]; })); }
   function grafCurva(n) {
     var W = 420, H = 220, mE = 36, mD = 8, mT = 10, mB = 24, y0 = 46, y1 = 56;
     var X = function (v) { return mE + (W - mE - mD) * v / 100; };
@@ -376,22 +408,32 @@
   }
   function curva(d) {
     var n = d.regua_2022.noite, r = n.recorte[0], t22 = d.regua_2022.trocas, q = n.quedas[0];
+    var z = n.janela.zoom.filter(function (p) { return p[0] >= 70000 && p[0] <= 75000; });
+    var amp = 100 * (max100(z) - min100(z));
     return caso({
       id: "curva", titulo: "O algoritmo da apuração", tag: "falsa",
       alegacao: "Um algoritmo derrubava o Bolsonaro de tempos em tempos durante a apuração; sem ele, teria de 60% a 65%. E com 51 a 49, a liderança deveria ter trocado várias vezes.",
       fontes: [{ rot: "Aliados Brasil", url: "https://www.aliadosbrasiloficial.com.br/noticia/professor-de-matematica-aponta-supostos-padroes-algoritmicos-na-apuracao-e-estima-que-flavio-bolsonaro-teria-vencido-com-65-dos-votos" }],
-      veredito: "É de 2022 e não se sustenta",
+      veredito: "É de 2022, e o gráfico dele não é o do TSE",
       pontos: [
         "<b>O vídeo é sobre 2022.</b> As “472 urnas” são as " + num(n.secoes) + " seções do 2º turno de 2022. A legenda de 2026 trocou Bolsonaro por Flávio.",
+        "<b>O zoom dele não é o dado oficial.</b> Entre as seções 70.000 e 75.000, o gráfico do vídeo anda de 51,6% a 51,8% (0,2 ponto). No arquivo do TSE, essa mesma faixa varia " + pp(amp) + ". Ele está lendo ruído de 3ª decimal como “algoritmo”.",
         "<b>Cada “queda” tem hora e lugar:</b> os boletins chegam por região. A maior foi às " + q.hora.slice(0, 5) + ", com boletins de " + q.lugares.join(", ") + ".",
         "<b>Recortar e colar fabrica qualquer vencedor.</b> Juntar só as subidas dá " + pc(r.bolsonaro_so_subidas, 1) + " ao Bolsonaro. O mesmo recorte dá " + pc(r.lula_so_quedas, 1) + " ao Lula.",
       ],
-      visual: visual("A apuração de 2022 refeita com os boletins, na ordem de chegada", [
-        grafCurva(n),
-        h("div", { class: "duelo" },
-          h("div", { class: "f" }, h("b", { text: pc(r.bolsonaro_so_subidas, 1) }), h("span", { text: "Bolsonaro, juntando só as subidas dele" })),
-          h("div", { class: "l" }, h("b", { text: pc(r.lula_so_quedas, 1) }), h("span", { text: "Lula, juntando só as quedas do Bolsonaro" })))],
-        "Fatia do Bolsonaro (eixo vertical) conforme a apuração avançava (horizontal). Ela sobe e desce conforme a região que chega; em ordem sorteada, a liderança troca em média " + t22.trocas_mediana + " vezes."),
+      visual: [visual("O recorte do vídeo (seções 70.000 a 75.000), redesenhado do arquivo do TSE", [
+        grafZoom(n),
+        h("div", { class: "numeros" },
+          numero("0,2 pp", "amplitude no gráfico do vídeo", "falso"),
+          numero(pp(amp), "amplitude no dado do TSE", "ok"),
+          numero("6", "trocas de liderança na noite de 2022"))],
+        "Mesmo eixo e mesmo recorte do gráfico que ele mostra no notebook. No dado oficial não há degrau nem queda repetida: a linha serpenteia dentro de centésimos de ponto, e a liderança troca 6 vezes na noite toda."),
+        visual("A apuração de 2022 refeita com os boletins, na ordem de chegada", [
+          grafCurva(n),
+          h("div", { class: "duelo" },
+            h("div", { class: "f" }, h("b", { text: pc(r.bolsonaro_so_subidas, 1) }), h("span", { text: "Bolsonaro, juntando só as subidas dele" })),
+            h("div", { class: "l" }, h("b", { text: pc(r.lula_so_quedas, 1) }), h("span", { text: "Lula, juntando só as quedas do Bolsonaro" })))],
+          "Fatia do Bolsonaro (eixo vertical) conforme a apuração avançava (horizontal). Ela sobe e desce conforme a região que chega; em ordem sorteada, a liderança troca em média " + t22.trocas_mediana + " vezes.")],
     });
   }
 
