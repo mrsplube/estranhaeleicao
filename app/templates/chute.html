@@ -23,12 +23,24 @@
       <p class="hero-tag">simulador · 2º turno de 2026</p>
       <h1>Simule o<br><span>2º turno</span></h1>
       <p class="hero-sub">Cada cartão é um grupo de eleitores do 1º turno: <b>em quem eles votaram no 2º?</b> No <b class="c-lula">Lula</b>, no <b class="c-flavio">Flávio</b> ou em <b class="c-nenhum">nenhum</b> (branco, nulo ou faltou).</p>
-      <ol class="passos">
-        <li><b>Arraste as divisas</b> da barra.</li>
-        <li>Ou <b>toque numa sugestão</b> de pesquisa.</li>
-        <li><b>Veja se bate</b> com o TSE.</li>
-      </ol>
+      <button class="btn btn-mini ver-tutorial" type="button" id="ver-tutorial">▶ Ver como funciona</button>
     </header>
+    {% endif %}
+    {% if pagina != "cenarios" %}
+    {# Abertura na 1ª visita: o vídeo de uso (gravado por script, static/tutorial.*)
+       e o objetivo; o botão acende depois de alguns segundos. #}
+    <div class="tutorial" id="tutorial" hidden role="dialog" aria-modal="true" aria-labelledby="tutorial-tit">
+      <div class="tutorial-caixa">
+        <h2 id="tutorial-tit">Antes de começar</h2>
+        <p>Você vai dividir os eleitores de cada candidato do 1º turno entre Lula, Flávio e nenhum. O objetivo: descobrir se, para a conta fechar, você precisa ser <b>generoso demais com o Lula</b>, ou se ele teve <b>mesmo</b> tantos votos.</p>
+        <video src="/static/tutorial.mp4?v={{ static_v }}" poster="/static/tutorial.jpg?v={{ static_v }}" autoplay muted loop playsinline width="360" height="648" aria-label="Demonstração: arrastar as divisas, tocar numa sugestão e conferir com o TSE">
+          <source src="/static/tutorial.webm?v={{ static_v }}" type="video/webm">
+          <source src="/static/tutorial.mp4?v={{ static_v }}" type="video/mp4">
+        </video>
+        <ol class="tutorial-passos"><li>Arraste as divisas</li><li>ou toque numa sugestão</li><li>e veja se bate com o TSE</li></ol>
+        <button class="btn btn-pri" type="button" id="tutorial-ok" disabled>Entendi, quero simular</button>
+      </div>
+    </div>
     {% endif %}
     <main class="secao" id="chute-corpo"><p class="carregando">Abrindo…</p></main>
   </div>

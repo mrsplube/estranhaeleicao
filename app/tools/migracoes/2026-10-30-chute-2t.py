@@ -89,7 +89,7 @@ OPINIOES = {
 FOTO = {"lula1": "lula", "flavio1": "flavio", "cury": "cury", "renan": "renan", "caiado": "caiado", "zema": "zema"}
 APOIO = {"lula1": ("finalista", "lula"), "flavio1": ("finalista", "flavio"), "cury": ("apoiou o Flávio", "flavio"),
          "renan": ("liberou os eleitores", "neutro"), "caiado": ("apoiou o Flávio", "flavio"), "zema": ("apoiou o Flávio", "flavio")}
-ICONE = {"outros": "👥", "bn1": "🗳️", "abst1": "🗳️", "fora2": "🏠"}
+ICONE = {"outros": "👥", "bn1": "🗳️", "abst1": "🏠", "fora2": "🏠"}
 APOIOS_OUTROS = {"nome": "Terra, 13/10/2026", "url": "https://www.terra.com.br/noticias/brasil/politica/eleicoes-2026-pco-orienta-voto-nulo-no-2-turno-da-eleicao-presidencial,6ee240a310a2fcc3dc76f9e5b34db831libdjuze.html"}
 # Os 6 de "outros": nome na urna (conta.json) → como mostrar, foto (TSE, CC BY 4.0) e posição no 2º turno.
 OUTROS = {

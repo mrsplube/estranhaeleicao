@@ -10,7 +10,7 @@
 .pilar b { color: var(--texto); }
 .limite-curto { margin: 14px 0 0; padding: 12px 16px; border-radius: 12px; border: 1px dashed var(--linha); font-size: 14px; color: var(--texto-3); }
 .limite-curto b { color: var(--texto-2); }
-.autor { display: flex; align-items: center; gap: 22px; margin: 34px 0 10px; padding: 22px; border-radius: var(--raio); border: 1px solid var(--linha); background: linear-gradient(135deg, color-mix(in srgb, var(--destaque) 10%, var(--cartao)), var(--cartao)); }
+.autor { display: flex; align-items: flex-start; gap: 22px; margin: 34px 0 10px; padding: 22px; border-radius: var(--raio); border: 1px solid var(--linha); background: linear-gradient(135deg, color-mix(in srgb, var(--destaque) 10%, var(--cartao)), var(--cartao)); }
 .autor-foto { flex: none; width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--destaque); }
 .autor h2 { margin: 2px 0 6px; font: 700 26px/1.1 var(--titulo); }
 .autor-txt p { margin: 0; color: var(--texto-2); }
@@ -45,11 +45,14 @@
 .lado-j { grid-column: 1 / -1; border-color: color-mix(in srgb, var(--destaque) 45%, var(--linha)) !important; }
 .lado-j b { color: var(--destaque); }
 @media (max-width: 560px) { .lados-grade { grid-template-columns: 1fr; } }
-.autor-filiacao { margin-top: 10px !important; padding: 8px 12px; border-radius: 10px; background: var(--cartao-2); font-size: 14px; }
-.autor-filiacao b { color: var(--texto); }
-.opiniao { margin: 26px 0 10px; padding: 22px; border-radius: var(--raio); border: 1px solid var(--linha); background: var(--cartao); }
-.opiniao h2 { margin: 2px 0 8px; font: 700 clamp(20px, 3.4vw, 26px)/1.2 var(--titulo); }
-.opiniao p { margin: 0 0 12px; color: var(--texto-2); }
-.opiniao p b { color: var(--texto); }
-.opiniao p:last-child { margin-bottom: 0; }
-.opiniao-aviso { padding: 8px 12px; border-left: 3px solid var(--destaque); background: var(--cartao-2); border-radius: 8px; font-size: 13.5px; }
+.autor-txt { min-width: 0; }
+.autor-txt > p + p { margin-top: 10px; }
+.autor-opiniao { margin-top: 22px; padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--texto-3) 25%, transparent); }
+.autor-opiniao p { margin: 0 0 14px; color: var(--texto-2); line-height: 1.7; }
+.autor-opiniao p:last-child { margin-bottom: 0; }
+.rede { background: color-mix(in srgb, var(--texto) 14%, var(--cartao-2)); border-color: color-mix(in srgb, var(--texto) 25%, var(--linha)); color: #fff; }
+.autor-email { font-size: 14px !important; }
+.autor-email a { color: var(--texto-2) !important; text-decoration: underline !important; text-underline-offset: 2px; }
+@media (max-width: 720px) { .autor-opiniao p { text-align: left; } .autor { align-items: center; } }
+.autor a.discreto { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 3px; }
+.autor a.discreto:hover { text-decoration-color: currentColor; }

@@ -163,7 +163,8 @@ a.fonte::after { content: "↗"; font-size: 11px; opacity: .7; }
 .rolagem { overflow-x: auto; }
 
 /* números grandes */
-.numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.visual > .numeros:last-child, .visual > .numeros:has(+ .leg) { margin-bottom: 0; }
 .numero { padding: 12px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); }
 .numero b { display: block; font: 700 26px/1.1 var(--titulo); }
 .numero span { font-size: 13px; color: var(--texto-2); }
@@ -189,7 +190,7 @@ a.fonte::after { content: "↗"; font-size: 11px; opacity: .7; }
 .legenda span::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 3px; vertical-align: -1px; background: var(--c); }
 
 /* duelo (recorte) */
-.duelo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.duelo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .duelo > div { padding: 14px; border-radius: 12px; text-align: center; background: var(--cartao); border: 1px solid var(--linha); }
 .duelo b { display: block; font: 700 34px/1 var(--titulo); }
 .duelo .f b { color: var(--flavio); }

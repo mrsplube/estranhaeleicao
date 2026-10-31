@@ -207,7 +207,7 @@ tr.ok .dif-ico { background: var(--ok); } tr.erro .dif-ico { background: var(--e
 .cen-topo { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 .cen-n { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--destaque); color: var(--fundo); font: 700 14px var(--titulo); }
 .cen-tit { margin: 0; font: 700 clamp(18px, 3vw, 22px)/1.2 var(--titulo); letter-spacing: -.01em; }
-.cen-resumo { margin: 0 0 10px 38px; color: var(--texto-2); font-size: 14px; }
+.cen-resumo { margin: 8px 0 10px 38px; color: var(--texto-2); font-size: 14px; }
 .cen-leg { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: -6px 0 14px; font-size: 12.5px; color: var(--texto-3); }
 .cen-leg span { display: inline-flex; align-items: center; gap: 5px; }
 .cen-leg i { width: 10px; height: 10px; border-radius: 3px; }
@@ -247,11 +247,6 @@ tr.ok .dif-ico { background: var(--ok); } tr.erro .dif-ico { background: var(--e
   .barra-fixa .btn { padding: 10px 14px; font-size: 14px; }
 }
 
-/* os três passos, no topo da página */
-.passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; counter-reset: p; }
-.passos li { position: relative; padding: 12px 14px 12px 50px; border-radius: 14px; background: var(--cartao); border: 1px solid var(--linha); font-size: 14px; color: var(--texto-2); counter-increment: p; }
-.passos li::before { content: counter(p); position: absolute; left: 12px; top: 12px; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--destaque); color: var(--fundo); font: 700 15px var(--titulo); }
-.passos b { color: var(--texto); }
 .grupo-icone.bn1 { color: #fff; font: 700 34px/1 var(--titulo); }
 @media (max-width: 560px) { .grupo-icone.bn1 { font-size: 24px; } }
 
@@ -259,3 +254,22 @@ tr.ok .dif-ico { background: var(--ok); } tr.erro .dif-ico { background: var(--e
 .nota-fixa { margin: -4px 0 14px; padding: 10px 12px; border-radius: 12px; background: var(--cartao-2); border: 1px dashed var(--linha); font-size: 13.5px; color: var(--texto-2); }
 .nota-fixa b { color: var(--texto); }
 .veredito-res .vr-ico, tr .dif-ico { color: var(--fundo); }
+.lado.perde .lado-tag { visibility: hidden; }
+
+/* abertura com o vídeo */
+.ver-tutorial { margin-top: 16px; }
+.sem-rolagem { overflow: hidden; }
+.tutorial { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 16px; background: rgba(5, 7, 15, .78); backdrop-filter: blur(6px); animation: entra .3s ease; }
+.tutorial[hidden] { display: none; }
+.tutorial-caixa { width: min(440px, 100%); max-height: 100%; overflow: auto; padding: 20px; border-radius: var(--raio); background: var(--cartao); border: 1px solid var(--linha); box-shadow: var(--sombra); text-align: center; }
+.tutorial h2 { margin: 0 0 8px; font: 700 24px var(--titulo); }
+.tutorial p { margin: 0 0 14px; color: var(--texto-2); font-size: 15px; text-align: left; }
+.tutorial p b { color: var(--texto); }
+.tutorial video { display: block; width: auto; max-width: 100%; max-height: 46vh; margin: 0 auto 12px; border-radius: 14px; border: 1px solid var(--linha); background: var(--fundo); }
+.tutorial-passos { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 16px; padding: 0; list-style: none; counter-reset: t; font-size: 13px; color: var(--texto-2); }
+.tutorial-passos li { counter-increment: t; }
+.tutorial-passos li::before { content: counter(t); display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 5px; border-radius: 50%; background: var(--destaque); color: var(--fundo); font: 700 11px var(--titulo); }
+#tutorial-ok { width: 100%; }
+#tutorial-ok:disabled { opacity: .45; }
+#tutorial-ok.aceso { animation: acende .6s ease; }
+@keyframes acende { 40% { transform: scale(1.04); box-shadow: 0 0 0 6px color-mix(in srgb, var(--destaque) 30%, transparent); } }

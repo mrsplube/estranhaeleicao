@@ -338,66 +338,90 @@
   // fecha em 100%, acertar os dois em votos acerta também os válidos.
   var TOLERA = 400000;
 
-  function linhaVotos(nome, cls, seu, tse) {
-    var x = seu - tse, ok = Math.abs(x) < TOLERA;
-    return h("tr", { class: cls + (ok ? " ok" : " erro") },
-      h("th", { scope: "row", text: nome }),
-      h("td", { text: mi(seu) }),
-      h("td", { text: mi(tse) }),
-      h("td", { class: "dif" }, h("span", { class: "dif-ico", "aria-hidden": "true", text: ok ? "✓" : "✕" }),
-        Math.abs(x) < 50000 ? "exato" : (x > 0 ? "+" : "−") + mi(Math.abs(x))));
-  }
-
-  function mostrarResultado(rolar) {
-    var S = conta(est.fatia), P = d.pesquisa.resultado;
-    var dl = S.lula - d.tse.lula, df = S.flavio - d.tse.flavio;
-    var bate = Math.abs(dl) < TOLERA && Math.abs(df) < TOLERA;
-    var ganha = S.pct >= 50 ? "lula" : "flavio", certoVencedor = (d.tse.pct_lula >= 50) === (ganha === "lula");
-    var faltam = visiveis().filter(function (g) { return !est.mexido[g.id]; });
-    function lado(k, nome, pct) {
-      var v = k === ganha;
-      return h("div", { class: "lado " + k + (v ? " ganha" : " perde") },
+  // O painel é montado uma vez; mexer nas barras depois só atualiza os números
+  // (antes ele era refeito a cada movimento da divisa, e travava).
+  var R = null, agendado = false;
+  function montarPainel() {
+    function lado(k, nome) {
+      var el = h("div", { class: "lado " + k },
         h("img", { src: "/static/fotos/" + k + ".jpg", alt: nome, width: "160", height: "160" }),
         h("span", { class: "lado-nome", text: nome }),
-        h("b", { class: "lado-pct", text: pc(pct, 2) }),
-        v ? h("span", { class: "lado-tag", text: "venceria" }) : null);
+        h("b", { class: "lado-pct" }),
+        h("span", { class: "lado-tag", text: "venceria" }));
+      return el;
     }
-    // Frase curta: quanto faltou ou sobrou para cada um, em votos.
-    function erro1(nome, x) {
-      return Math.abs(x) < TOLERA ? null : (x < 0 ? "faltaram " : "sobraram ") + mi(Math.abs(x)) + " para o " + nome;
+    function linha(nome, cls) {
+      var tr = h("tr", { class: cls }, h("th", { scope: "row", text: nome }), h("td"), h("td"),
+        h("td", { class: "dif" }, h("span", { class: "dif-ico", "aria-hidden": "true" }), h("span", { class: "dif-num" })));
+      return tr;
     }
-    var dica = bate ? "Lula e Flávio a menos de 400 mil votos do oficial." :
-      [erro1("Lula", dl), erro1("Flávio", df)].filter(Boolean).join(" e ")
-        .replace(/^(faltaram|sobraram) (.*) e \1 /, "$1 $2 e ")
-        .replace(/^./, function (c) { return c.toUpperCase(); }) + "." +
-      (certoVencedor ? "" : " Na vida real, o Lula venceu.");
-    painel.hidden = false;
+    R = { lula: lado("lula", "Lula"), flavio: lado("flavio", "Flávio"), barra: h("span", { class: "lula" }),
+      ver: h("div", { class: "veredito-res" }), verIco: h("span", { class: "vr-ico", "aria-hidden": "true" }),
+      verTit: h("b"), verTxt: h("span"), tl: linha("Lula", "lula"), tf: linha("Flávio", "flavio"), nota: h("p", { class: "res-nota" }) };
+    anexar(R.ver, [R.verIco, h("div", null, R.verTit, R.verTxt)]);
     painel.textContent = "";
     anexar(painel, [
       h("p", { class: "caso-rot", text: "Na sua simulação" }),
-      h("div", { class: "duelo-res" }, lado("lula", "Lula", S.pct), h("span", { class: "duelo-x", text: "×" }), lado("flavio", "Flávio", 100 - S.pct)),
+      h("div", { class: "duelo-res" }, R.lula, h("span", { class: "duelo-x", text: "×" }), R.flavio),
       h("div", { class: "placar-sim" },
-        h("div", { class: "comp-barra" }, h("span", { class: "lula", style: "width:" + S.pct + "%" }), h("span", { class: "flavio" })),
+        h("div", { class: "comp-barra" }, R.barra, h("span", { class: "flavio" })),
         h("span", { class: "marca-tse", style: "left:" + d.tse.pct_lula + "%" }, h("small", { text: "TSE " + pc(d.tse.pct_lula, 2) }))),
-      h("div", { class: "veredito-res " + (bate ? "ok" : "nao") },
-        h("span", { class: "vr-ico", "aria-hidden": "true", text: bate ? "✓" : "✕" }),
-        h("div", null,
-          h("b", { text: bate ? "Bateu com o TSE" : "Não bateu com o TSE" }),
-          h("span", { text: dica }))),
+      R.ver,
       h("table", { class: "tab-votos" },
         h("thead", null, h("tr", null, h("th", { text: "" }), h("th", { text: "Seu chute" }), h("th", { text: "TSE" }), h("th", { text: "Diferença" }))),
-        h("tbody", null, linhaVotos("Lula", "lula", S.lula, d.tse.lula), linhaVotos("Flávio", "flavio", S.flavio, d.tse.flavio))),
-      h("p", { class: "res-nota", html: "Só com a pesquisa: <b>Lula " + pc(P.pct_lula, 1) + "</b>, faltando " + mi(d.tse.lula - P.lula) + " para ele." +
-        (faltam.length ? " " + faltam.length + (faltam.length > 1 ? " grupos sem mexer." : " grupo sem mexer.") : "") }),
+        h("tbody", null, R.tl, R.tf)),
+      R.nota,
       h("div", { class: "hero-acoes" },
         h("a", { class: "btn btn-pri", href: "/simulacao/cenarios", text: "Ver 5 jeitos de a conta fechar →" }),
         h("button", { class: "btn", type: "button", text: "Recomeçar", onclick: function () {
           est = { fatia: {}, mexido: {}, dica: {} };
           d.grupos.forEach(function (g) { est.fatia[g.id] = partida(g); });
-          gravar(); montarChute(); window.scrollTo({ top: 0, behavior: calmo ? "auto" : "smooth" });
+          R = null; gravar(); montarChute(); window.scrollTo({ top: 0, behavior: calmo ? "auto" : "smooth" });
         } })),
     ]);
-    if (rolar) painel.scrollIntoView({ behavior: calmo ? "auto" : "smooth", block: "start" });
+  }
+
+  function atualizarPainel() {
+    var S = conta(est.fatia), P = d.pesquisa.resultado;
+    var dl = S.lula - d.tse.lula, df = S.flavio - d.tse.flavio;
+    var bate = Math.abs(dl) < TOLERA && Math.abs(df) < TOLERA;
+    var ganha = S.pct >= 50 ? "lula" : "flavio", certoVencedor = (d.tse.pct_lula >= 50) === (ganha === "lula");
+    var faltam = visiveis().filter(function (g) { return !est.mexido[g.id]; });
+    ["lula", "flavio"].forEach(function (k) {
+      R[k].classList.toggle("ganha", k === ganha); R[k].classList.toggle("perde", k !== ganha);
+      R[k].querySelector(".lado-pct").textContent = pc(k === "lula" ? S.pct : 100 - S.pct, 2);
+    });
+    R.barra.style.width = S.pct + "%";
+    function erro1(nome, x) {
+      return Math.abs(x) < TOLERA ? null : (x < 0 ? "faltaram " : "sobraram ") + mi(Math.abs(x)) + " para o " + nome;
+    }
+    R.ver.className = "veredito-res " + (bate ? "ok" : "nao");
+    R.verIco.textContent = bate ? "✓" : "✕";
+    R.verTit.textContent = bate ? "Bateu com o TSE" : "Não bateu com o TSE";
+    R.verTxt.textContent = bate ? "Lula e Flávio a menos de 400 mil votos do oficial." :
+      [erro1("Lula", dl), erro1("Flávio", df)].filter(Boolean).join(" e ")
+        .replace(/^(faltaram|sobraram) (.*) e \1 /, "$1 $2 e ")
+        .replace(/^./, function (c) { return c.toUpperCase(); }) + "." +
+      (certoVencedor ? "" : " Na vida real, o Lula venceu.");
+    [[R.tl, S.lula, d.tse.lula], [R.tf, S.flavio, d.tse.flavio]].forEach(function (x) {
+      var tr = x[0], dif = x[1] - x[2], ok = Math.abs(dif) < TOLERA, td = tr.querySelectorAll("td");
+      tr.classList.toggle("ok", ok); tr.classList.toggle("erro", !ok);
+      td[0].textContent = mi(x[1]); td[1].textContent = mi(x[2]);
+      td[2].querySelector(".dif-ico").textContent = ok ? "✓" : "✕";
+      td[2].querySelector(".dif-num").textContent = Math.abs(dif) < 50000 ? "exato" : (dif > 0 ? "+" : "−") + mi(Math.abs(dif));
+    });
+    R.nota.innerHTML = "Só com a pesquisa: <b>Lula " + pc(P.pct_lula, 1) + "</b>, faltando " + mi(d.tse.lula - P.lula) + " para ele." +
+      (faltam.length ? " " + faltam.length + (faltam.length > 1 ? " grupos sem mexer." : " grupo sem mexer.") : "");
+  }
+
+  function mostrarResultado(rolar) {
+    if (!R || !painel.contains(R.ver)) montarPainel();
+    painel.hidden = false;
+    if (rolar) { atualizarPainel(); painel.scrollIntoView({ behavior: calmo ? "auto" : "smooth", block: "start" }); return; }
+    // Arrastando: no máximo uma atualização por quadro.
+    if (agendado) return;
+    agendado = true;
+    requestAnimationFrame(function () { agendado = false; atualizarPainel(); });
   }
 
   function montarChute() {
@@ -410,6 +434,7 @@
       CORPO.appendChild(cartao(g, i));
     });
     painel = h("section", { class: "painel-resultado", id: "resultado", hidden: true });
+    R = null;
     CORPO.appendChild(painel);
     rodapeConta = h("span", { class: "rodape-conta" });
     var fixo = h("div", { class: "barra-fixa" },
@@ -419,7 +444,7 @@
     CORPO.appendChild(fixo);
     pintarRodape();
     if (location.hash === "#resultado") mostrarResultado(true);
-    else demonstrar();
+    else { var ja = false; try { ja = localStorage.getItem(TUT) === "1"; } catch (e) { ja = true; } if (ja) demonstrar(); else tutorial(false); }
   }
 
   // ── a página dos cenários ──────────────────────────────────────────────
@@ -519,6 +544,32 @@
         "a terceira via, o branco/nulo e quem só votou no 2º turno foram mais para o Lula que a pesquisa previa. O real fica <b>entre os cenários 1, 2 e 3</b>." }),
       h("a", { class: "btn btn-fantasma", href: "/simulacao/detalhe", text: "Estimativa por município →" })));
   }
+
+  // ── abertura com o vídeo de uso (1ª visita, ou "Ver como funciona") ─────
+  var TUT = "estranha-tutorial";
+  function tutorial(forcar) {
+    var cx = document.getElementById("tutorial"), ok = document.getElementById("tutorial-ok");
+    if (!cx) return;
+    var visto = false; try { visto = localStorage.getItem(TUT) === "1"; } catch (e) { /* sem storage */ }
+    if (visto && !forcar) return;
+    cx.hidden = false; document.body.classList.add("sem-rolagem");
+    var v = cx.querySelector("video"); if (v) { v.currentTime = 0; v.play().catch(function () {}); }
+    var falta = forcar ? 0 : 6;
+    function tic() {
+      ok.disabled = falta > 0;
+      ok.textContent = falta > 0 ? "Entendi, quero simular (" + falta + ")" : "Entendi, quero simular";
+      ok.classList.toggle("aceso", falta <= 0);
+      if (falta-- > 0) setTimeout(tic, 1000);
+    }
+    tic();
+    ok.onclick = function () {
+      cx.hidden = true; document.body.classList.remove("sem-rolagem");
+      try { localStorage.setItem(TUT, "1"); } catch (e) { /* sem storage */ }
+      demonstrar();
+    };
+  }
+  var verTut = document.getElementById("ver-tutorial");
+  if (verTut) verTut.addEventListener("click", function () { tutorial(true); });
 
   // ── início ─────────────────────────────────────────────────────────────
   fetch("/apuracao/explicacao/chute.json" + (VERSAO ? "?v=" + encodeURIComponent(VERSAO) : ""))
