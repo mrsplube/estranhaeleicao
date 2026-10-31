@@ -68,15 +68,13 @@ CAPAS_SEM_VIDEO = {
     "faccoes": ("faccoes.jpg", "Porto Neto, CC BY-SA 4.0"),
     # cédulas de real apreendidas — File:Dinheiro encontrado.jpg
     "compra": ("compra.jpg", "Mendes Lima / Dourados Agora, CC BY-SA 4.0"),
-    # o contencioso de desinformação dos dois lados (31/10): balança desenhada,
-    # um prato de cada campanha, sem foto e sem rosto.
-    "desinformacao": ("desinformacao.png", None),
-    # a máquina no celular (31/10): as duas acusações num caso só, e o número
-    # que mede a escala (as notificações do contrato do Serpro).
-    "maquina-celular": ("maquina-celular.png", None),
-    # a padroeira depois da correção (31/10): só o número ("2 dias" entre a
-    # correção da GloboNews e a fala de Lula), sem foto de santa nem de pessoa.
-    "padroeira": ("padroeira.png", None),
+    # As três capas desenhadas com texto (31/10) também viraram foto, sem rosto:
+    # sede do TSE — File:Sede do Tribunal Superior Eleitoral, em Brasília.jpg
+    "desinformacao": ("desinformacao.jpg", "Alexandresena, CC BY-SA 4.0"),
+    # mãos digitando no WhatsApp — File:Whatsapp texting.jpg
+    "maquina-celular": ("maquina-celular.jpg", "Helar Lukats, CC BY-SA 4.0"),
+    # o nicho da imagem na Basílica de Aparecida — File:Imagem NSra Basílica.JPG
+    "padroeira": ("padroeira.jpg", "Neospo, CC BY 2.5"),
 }
 
 FONTES = {

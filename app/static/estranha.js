@@ -95,6 +95,8 @@
   }
   function capa(o, v) {
     var foto = (v && v.capa) || (V && V.capas && V.capas[o.id] && V.capas[o.id].src);
+    // Com ?v=, a capa trocada não fica presa no cache do navegador nem do Cloudflare.
+    if (foto && VERSAO) foto += "?v=" + encodeURIComponent(VERSAO);
     var dentro = [foto ? h("img", { src: foto, alt: "", loading: "lazy", width: "360", height: "480" })
       : h("span", { class: "capa-ico", "aria-hidden": "true", text: o.icone || "▶" }),
       v ? h("span", { class: "capa-play", "aria-hidden": "true" }) : null];

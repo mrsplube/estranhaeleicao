@@ -41,7 +41,8 @@ def _static_version() -> str:
     mt = [0.0]
     # .svg também: um mapa ou gráfico trocado tem de mudar o `?v=` (senão o
     # Cloudflare serve a imagem velha por 4 h, ver mapa-apostas.svg em 30/10).
-    for padrao in ("*.js", "*.css", "*.svg", "*/*.js", "*/*.css", "*/*.json", "*/*.svg"):
+    # E as capas dos casos (static/casos/*.jpg), que o estranha.js pede com ?v=.
+    for padrao in ("*.js", "*.css", "*.svg", "*/*.js", "*/*.css", "*/*.json", "*/*.svg", "*/*.jpg"):
         mt.extend(f.stat().st_mtime for f in static_dir.glob(padrao))
     return str(int(max(mt)))
 

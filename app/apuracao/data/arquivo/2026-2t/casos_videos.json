@@ -148,15 +148,15 @@
   },
   "desinformacao": {
    "src": "/static/casos/desinformacao.jpg",
-   "credito": null
+   "credito": "Alexandresena, CC BY-SA 4.0"
   },
   "maquina-celular": {
    "src": "/static/casos/maquina-celular.jpg",
-   "credito": null
+   "credito": "Helar Lukats, CC BY-SA 4.0"
   },
   "padroeira": {
    "src": "/static/casos/padroeira.jpg",
-   "credito": null
+   "credito": "Neospo, CC BY 2.5"
   }
  },
  "fontes": {
