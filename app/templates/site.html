@@ -18,6 +18,14 @@
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://estranhaeleicao.org{{ request.url.path }}">
+  {# Dados estruturados: o Google entende o site como um veículo de checagem
+     (Organization + WebSite) em vez de um blog qualquer. #}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://estranhaeleicao.org/#org","name":"estranhaeleicao.org","url":"https://estranhaeleicao.org/","logo":"https://estranhaeleicao.org/static/favicon-64.png","founder":{"@type":"Person","name":"Cauê Neves","url":"https://estranhaeleicao.org/sobre"}},
+    {"@type":"WebSite","@id":"https://estranhaeleicao.org/#site","url":"https://estranhaeleicao.org/","name":"estranhaeleicao.org","inLanguage":"pt-BR","publisher":{"@id":"https://estranhaeleicao.org/#org"}}
+  ]}
+  </script>
   <meta name="theme-color" content="#0e1326">
   <link rel="icon" href="/static/favicon-64.png?v={{ static_v }}" type="image/png" sizes="64x64">
   <link rel="icon" href="/favicon.ico?v={{ static_v }}" sizes="48x48">

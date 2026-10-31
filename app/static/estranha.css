@@ -306,7 +306,7 @@ body:has(.arte) { position: relative; }
   padding: 4px 12px 2px; border: 3px solid var(--destaque); border-radius: 8px;
   outline: 1.5px solid var(--destaque); outline-offset: 3px;
   font: 700 22px/1 var(--titulo); letter-spacing: .12em; text-transform: uppercase; color: var(--destaque);
-  transform: rotate(-11deg); opacity: .95; text-shadow: 0 0 1px var(--destaque);
+  transform: rotate(11deg); opacity: .95; text-shadow: 0 0 1px var(--destaque);
   /* tinta gasta: uma máscara de ruído come pedaços do carimbo */
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='60'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='60'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
@@ -315,7 +315,7 @@ body:has(.arte) { position: relative; }
 }
 .caso.respondido .carimbo { right: 62px; }
 .caso.visivel .carimbo { animation: carimbar .5s cubic-bezier(.2, 1.6, .4, 1) .15s both; }
-@keyframes carimbar { from { transform: rotate(-11deg) scale(1.8); opacity: 0; } }
+@keyframes carimbar { from { transform: rotate(11deg) scale(1.8); opacity: 0; } }
 .caso:has(.carimbo) .caso-tit { padding-right: 150px; }
 @media (max-width: 560px) {
   .carimbo { top: 10px; right: 10px; font-size: 15px; padding: 3px 8px 1px; border-width: 2px; outline-offset: 2px; }
@@ -326,3 +326,73 @@ body:has(.arte) { position: relative; }
   .tag { white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) { .caso.visivel .carimbo { animation: none; } }
+
+/* pontos com ícone */
+.pontos.com-icone { gap: 8px; }
+.pontos.com-icone li { display: flex; gap: 12px; align-items: flex-start; padding: 0; }
+.pontos.com-icone li::before { content: none; }
+.pt-ico { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--cartao-2); border: 1px solid var(--linha); font-size: 15px; line-height: 1; }
+.pontos.com-icone li > span:last-child { padding-top: 4px; }
+/* cartão clicável */
+.caso { cursor: pointer; }
+.caso .revela, .caso .visual, .caso .lados, .caso .circulou { cursor: auto; }
+/* gráfico da Polymarket e mapa */
+.serie.poly { fill: none; stroke: var(--lula); stroke-width: 2.5; }
+.eixo.marco { fill: var(--destaque); font-size: 11px; }
+.mapa-apostas img { display: block; width: 100%; height: auto; }
+.mapa-leg { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 6px 14px; margin: 10px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--texto-2); }
+.mapa-leg li::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 3px; background: #e6be55; vertical-align: -1px; }
+.mapa-leg li.outra::before { background: #a07f2e; }
+
+/* ── fluxo em etapas (o caminho de uma coisa) ───────────────────────── */
+.fluxo { display: grid; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; counter-reset: etapa; }
+.fluxo li { position: relative; display: grid; grid-template-columns: 26px 1fr; column-gap: 10px; align-items: baseline;
+  padding: 10px 12px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); }
+.fluxo li i { grid-row: 1 / span 2; align-self: center; display: grid; place-items: center; width: 26px; height: 26px;
+  border-radius: 50%; background: color-mix(in srgb, var(--destaque) 18%, transparent); color: var(--destaque);
+  font: 700 13px var(--titulo); font-style: normal; }
+.fluxo li b { font-size: 14px; color: var(--texto); }
+.fluxo li span { font-size: 13.5px; line-height: 1.45; color: var(--texto-2); }
+/* a seta entre uma etapa e a seguinte */
+.fluxo li + li::before { content: ""; position: absolute; left: 24px; top: -9px; width: 2px; height: 8px;
+  background: color-mix(in srgb, var(--destaque) 45%, transparent); }
+@media (min-width: 620px) {
+  .fluxo { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
+  .fluxo li + li::before { left: -9px; top: 50%; width: 8px; height: 2px; transform: translateY(-50%); }
+}
+
+/* ── linha do tempo curta ───────────────────────────────────────────── */
+.tempo { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.tempo li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 9px 0 9px 0; border-left: 2px solid var(--linha); padding-left: 14px; position: relative; }
+.tempo li::before { content: ""; position: absolute; left: -6px; top: 15px; width: 10px; height: 10px; border-radius: 50%; background: var(--texto-3); }
+.tempo li.forte::before { background: var(--destaque); box-shadow: 0 0 0 4px color-mix(in srgb, var(--destaque) 22%, transparent); }
+.tempo li.forte { border-left-color: color-mix(in srgb, var(--destaque) 55%, var(--linha)); }
+.tempo time { font: 700 13px var(--titulo); color: var(--texto-3); font-variant-numeric: tabular-nums; }
+.tempo li.forte time { color: var(--destaque); }
+.tempo li span { font-size: 14px; line-height: 1.45; color: var(--texto-2); }
+.tempo li span b { color: var(--texto); }
+
+/* ── três barras por cidade (mora / título / votou) ─────────────────── */
+.barras-cid { display: grid; gap: 14px; }
+.bc-cid h5 { margin: 0 0 6px; font: 700 14px var(--titulo); color: var(--texto); }
+.bc-lin { display: grid; grid-template-columns: 52px 1fr auto; gap: 8px; align-items: center; margin-bottom: 4px; }
+.bc-rot { font-size: 12px; color: var(--texto-3); }
+.bc-trilho { height: 8px; border-radius: 99px; background: var(--linha); overflow: hidden; }
+.bc-trilho i { display: block; height: 100%; border-radius: 99px; }
+.bc-trilho .hab { background: color-mix(in srgb, var(--texto-3) 55%, transparent); }
+.bc-trilho .ele { background: var(--flavio); }
+.bc-trilho .vot { background: var(--destaque); }
+.bc-lin b { font: 700 13px var(--titulo); font-variant-numeric: tabular-nums; color: var(--texto-2); min-width: 46px; text-align: right; }
+
+/* ── barras de dois anos (dinheiro apreendido) ──────────────────────── */
+.barras-ano { display: grid; gap: 8px; }
+.ba-lin { display: grid; grid-template-columns: 46px 1fr auto; gap: 10px; align-items: center; }
+.ba-rot { font: 700 13px var(--titulo); color: var(--texto-3); }
+.ba-trilho { height: 14px; border-radius: 99px; background: var(--linha); overflow: hidden; }
+.ba-trilho i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, color-mix(in srgb, var(--parcial) 55%, transparent), var(--parcial)); }
+.ba-lin b { font: 700 14px var(--titulo); color: var(--texto); font-variant-numeric: tabular-nums; }
+/* onde apareceu (lista curta de lugares) */
+.onde { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
+.onde li { padding: 10px 12px; border-radius: 12px; background: var(--cartao); border: 1px solid var(--linha); }
+.onde li b { display: block; font: 700 14px var(--titulo); color: var(--destaque); }
+.onde li span { font-size: 13px; color: var(--texto-2); }

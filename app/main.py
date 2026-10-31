@@ -48,6 +48,29 @@ def _static_version() -> str:
 FAVICON = "/static/favicon-64.png"
 
 templates.env.globals["static_v"] = _static_version()
+
+
+def _atualizar_versao() -> None:
+    """Recalcula a versão dos arquivos estáticos a cada página.
+
+    O código entra por volume, sem rebuild: se a versão ficasse presa no valor do
+    primeiro boot, o navegador continuaria pedindo `?v=` velho e serviria JS/CSS
+    de antes da edição (aconteceu em 30/10 com os ícones e o gráfico da Polymarket).
+    """
+    templates.env.globals["static_v"] = _static_version()
+
+
+def _static_v() -> str:
+    """Calculado a cada página, não na subida do processo.
+
+    O código entra por volume, sem rebuild: se a versão ficasse presa no valor do
+    primeiro boot, o navegador continuaria pedindo `?v=` velho e serviria JS/CSS
+    de antes da edição (aconteceu em 30/10 com os ícones e o gráfico da Polymarket).
+    """
+    return _static_version()
+
+
+templates.env.globals["static_v"] = _static_v
 templates.env.globals["favicon_for_path"] = lambda path: FAVICON
 
 templates.env.globals["modo_completo"] = MODO == "completo"
@@ -69,6 +92,8 @@ PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 @app.middleware("http")
 async def porta(request: Request, call_next):
     caminho = request.url.path
+    # `?v=` novo em cada resposta: o código muda sem rebuild (ver _atualizar_versao).
+    _atualizar_versao()
     if MODO == "completo":
         # Arquivo privado: tudo atrás do login (menos o healthcheck).
         if caminho != "/saude" and not current_user(request):

@@ -101,8 +101,11 @@ class _Freio:
         return True
 
 
-_freio_dados = _Freio(por_minuto=120)
-_freio_pagina = _Freio(por_minuto=30)
+_freio_dados = _Freio(por_minuto=240)
+# 30 páginas por minuto era pouco: no Brasil muita gente sai pelo mesmo IP de
+# operadora (CGNAT) e por Wi-Fi dividido, e um link no WhatsApp leva dezenas ao
+# mesmo tempo. 120/min ainda impede varredura, sem derrubar quem lê.
+_freio_pagina = _Freio(por_minuto=120)
 
 
 def _porta(request: Request, freio: _Freio, json_: bool) -> None:

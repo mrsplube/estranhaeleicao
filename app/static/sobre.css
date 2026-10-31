@@ -49,13 +49,28 @@
 .autor-txt > p + p { margin-top: 10px; }
 .autor-opiniao { flex: 0 0 100%; margin-top: 2px; padding-top: 22px; border-top: 1px solid color-mix(in srgb, var(--texto-3) 25%, transparent); }
 .autor-opiniao .caso-rot { margin: 0 0 8px; color: var(--texto); }
-.opiniao-texto { position: relative; max-height: 7.4em; overflow: hidden; transition: max-height .6s ease;
-  -webkit-mask-image: linear-gradient(#000 45%, transparent); mask-image: linear-gradient(#000 45%, transparent); }
-.autor-opiniao.aberta .opiniao-texto { max-height: 2000px; -webkit-mask-image: none; mask-image: none; }
-.opiniao-texto p { margin: 0 0 12px; color: var(--texto-2); font-style: italic; }
-.opiniao-mais { margin-top: 4px; padding: 0; border: 0; background: none; color: var(--destaque); font: 600 14px "Inter", sans-serif; cursor: pointer; }
-.opiniao-mais:hover { text-decoration: underline; }
-.opiniao-mais:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; border-radius: 4px; }
+/* Recolhida: quatro linhas cheias e a quinta se apagando no meio — o fade pega só
+   a última linha, sem cortar o texto no meio de uma palavra. */
+.opiniao-texto { position: relative; max-height: calc(4.5 * 1.65em); overflow: hidden; transition: max-height .55s cubic-bezier(.3, .8, .2, 1); }
+.opiniao-texto::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.6em; pointer-events: none;
+  background: linear-gradient(180deg, transparent, var(--cartao) 78%);
+  transition: opacity .35s ease;
+}
+.autor-opiniao.aberta .opiniao-texto { max-height: 2000px; }
+.autor-opiniao.aberta .opiniao-texto::after { opacity: 0; }
+.opiniao-texto p { margin: 0 0 12px; color: var(--texto-2); font-style: italic; line-height: 1.65; }
+.opiniao-mais {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; padding: 6px 12px;
+  border: 1px solid color-mix(in srgb, var(--destaque) 40%, var(--linha)); border-radius: 99px;
+  background: color-mix(in srgb, var(--destaque) 10%, transparent);
+  color: var(--destaque); font: 600 13.5px "Inter", sans-serif; cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.opiniao-mais::after { content: "↓"; font-size: 12px; transition: transform .3s; }
+.autor-opiniao.aberta .opiniao-mais::after { transform: rotate(180deg); }
+.opiniao-mais:hover { background: color-mix(in srgb, var(--destaque) 20%, transparent); border-color: var(--destaque); }
+.opiniao-mais:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; }
 .opiniao-texto p:last-child { margin-bottom: 0; }
 .rede { background: color-mix(in srgb, var(--texto) 14%, var(--cartao-2)); border-color: color-mix(in srgb, var(--texto) 25%, var(--linha)); color: #fff; }
 .autor-email { font-size: 14px !important; }

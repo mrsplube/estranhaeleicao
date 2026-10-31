@@ -64,6 +64,18 @@
     falsa: { rot: "Premissa falsa", cls: "falso" },
     normal: { rot: "Verdade, mas normal", cls: "ok" },
   };
+  // Um ícone por ponto da resposta, na ordem (lê melhor que um marcador igual para todos).
+  var ICONES = {
+    "virada": ["🆕", "✅", "📈", "🧮"], "pesquisas": ["✅", "📏", "🎲", "🗳️"],
+    "secoes-10": ["❌", "🔁", "🏘️", "⚖️"], "curva": ["📅", "🕒", "✂️"],
+    "biometria": ["🕔", "☝️", "🔒", "📄"], "mesario": ["🪪", "🕔", "🚨", "💬"],
+    "sala-cofre": ["❓", "👀", "🧾"], "caminhonete": ["🎥", "📤", "🧾"],
+    "silva-jardim": ["➖", "🔀", "🔎", "🗺️"], "soma": ["⏱️", "✅"], "consulta": ["📅", "🔁", "⏳", "🪦"],
+    "mesma-secao": ["🚫", "🔍", "📉"], "zonas": ["📍", "📱", "🗺️"], "cedula": ["🗳️", "🔢", "⚖️"],
+    "eleitores": ["✅", "🚚", "🏠"], "prorrogacao": ["⏰", "🌧️", "📉"], "desfile": ["💰", "🛑", "⚖️"],
+    "pacote": ["📆", "📲", "⚖️", "🗳️"], "exercito": ["📣", "🔍", "🔁"], "universidades": ["🎓", "📜", "📚", "❔"],
+    "mesaria": ["❓", "🚔", "⚖️"], "faccoes": ["🔍", "🗑️", "⚖️"], "compra": ["💵", "📍", "🔎"],
+  };
   var V = null;   // casos_videos.json
   var LADOS = null;   // static/casos/lados.json: quem acusa, quem defende e a decisão de cada caso
   function mil(x) {
@@ -110,6 +122,14 @@
       ver.setAttribute("aria-expanded", String(aberto));
       if (!aberto && art.getBoundingClientRect().top < 0) art.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    // O cartão inteiro abre e fecha a resposta, menos onde o clique já faz outra coisa.
+    art.addEventListener("click", function (ev) {
+      if (ev.target.closest("a, button, summary, details, input, svg, .capa, .lados, .visual, .circulou")) return;
+      if (window.getSelection && String(window.getSelection()).length) return;
+      var abrir = !art.classList.contains("respondido");
+      alternar(abrir);
+      if (abrir) sinal("caso", o.id);
+    });
     var ver = h("button", { class: "btn btn-mini caso-abrir", type: "button", "aria-expanded": "false", "aria-controls": "rev-" + o.id,
       text: "Ver a resposta", onclick: function () { alternar(true); sinal("caso", o.id); } });
     function recolher(onde) {
@@ -132,7 +152,10 @@
       h("div", { class: "revela", id: "rev-" + o.id }, h("div", {},
         h("span", { class: "veredito " + t.cls, text: o.veredito }),
         o.situacao ? h("p", { class: "situacao", html: "<b>Situação:</b> " + o.situacao }) : null,
-        h("ul", { class: "pontos" }, o.pontos.map(function (p) { return h("li", { html: p }); })),
+        h("ul", { class: "pontos com-icone" }, o.pontos.map(function (p, i) {
+          var ic = (ICONES[o.id] || [])[i];
+          return h("li", null, h("span", { class: "pt-ico", "aria-hidden": "true", text: ic || "•" }), h("span", { html: p }));
+        })),
         o.visual || null,
         dois(o.id),
         (o.mais || []).map(function (m) {
@@ -149,6 +172,42 @@
   }
   function p(html) { return h("p", { html: html }); }
   function numero(valor, rot, classe) { return h("div", { class: "numero " + (classe || "") }, h("b", { text: valor }), h("span", { text: rot })); }
+  // O caminho de uma coisa (o voto, a urna) em 3 ou 4 etapas com seta entre elas.
+  function fluxo(itens) {
+    return h("ol", { class: "fluxo" }, itens.map(function (t, i) {
+      return h("li", null, h("i", { "aria-hidden": "true", text: i + 1 }), h("b", { text: t[0] }), h("span", { text: t[1] }));
+    }));
+  }
+  // Barras simples de dois valores (compara duas eleições).
+  function barrasAno(itens) {
+    var max = Math.max.apply(null, itens.map(function (x) { return x[1]; }));
+    return h("div", { class: "barras-ano" }, itens.map(function (x) {
+      return h("div", { class: "ba-lin" }, h("span", { class: "ba-rot", text: x[0] }),
+        h("div", { class: "ba-trilho" }, h("i", { style: "width:" + (100 * x[1] / max) + "%" })),
+        h("b", { text: "R$ " + x[1].toLocaleString("pt-BR", { minimumFractionDigits: 1 }) + " mi" }));
+    }));
+  }
+  // Três barras por cidade: quem mora, quem tem título e quem votou (2º turno).
+  function barrasCidades(itens) {
+    var max = Math.max.apply(null, [].concat.apply([], itens.map(function (x) { return [x[1] || 0, x[2], x[3]]; })));
+    return h("div", { class: "barras-cid" }, itens.map(function (x) {
+      var lin = function (valor, cls, rot) {
+        return h("div", { class: "bc-lin" },
+          h("span", { class: "bc-rot", text: rot }),
+          h("div", { class: "bc-trilho" }, h("i", { class: cls, style: "width:" + (100 * valor / max) + "%" })),
+          h("b", { text: num(valor) }));
+      };
+      return h("div", { class: "bc-cid" }, h("h5", { text: x[0] }),
+        x[1] ? lin(x[1], "hab", "Mora") : null,
+        lin(x[2], "ele", "Título"), lin(x[3], "vot", "Votou"));
+    }));
+  }
+  // Linha do tempo curta: a data à esquerda e o fato à direita.
+  function linhaTempo(itens) {
+    return h("ol", { class: "tempo" }, itens.map(function (t) {
+      return h("li", { class: t[2] || "" }, h("time", { text: t[0] }), h("span", { html: t[1] }));
+    }));
+  }
 
   // ── caso 1: Silva Jardim ───────────────────────────────────────────────
   function silvaJardim(d) {
@@ -282,7 +341,6 @@
       veredito: "O número confere. Não é sinal de fraude.",
       pontos: [
         "<b>“Sem branco nem nulo” não confere.</b> Só " + V.dados.secoes_zeradas.sem_branco_nulo + " das " + V.dados.secoes_zeradas.total + " urnas não tiveram branco nem nulo; somadas, elas tiveram " + num(V.dados.secoes_zeradas.branco_nulo) + ". A conta da Mega-Sena supõe eleitor sorteado do país inteiro.",
-        "<b>Os números batem com o TSE:</b> " + num(f2.secoes) + " seções, " + num(f2.outro_somou) + " votos do Lula nelas, " + f2.zeradas + " com o Flávio zerado.",
         "<b>Já era assim antes:</b> " + num(f1.secoes) + " no 1º turno, com o Flávio na frente; " + num(r22.t2) + " no 2º turno de 2022, com o Bolsonaro.",
         "<b>São seções pequenas e homogêneas:</b> " + x.comparecimento_medio[0] + " votantes em média (no país, " + x.comparecimento_medio[1] + "), em aldeias, povoados e assentamentos. " + x.zeradas_em_aldeia[0] + " das " + x.zeradas_em_aldeia[1] + " zeradas ficam em aldeia indígena.",
         "<b>Não decidem nada:</b> sem elas, a vantagem do Lula cai de " + mi(x.margem) + " para " + mi(x.margem_sem_elas) + ".",
@@ -357,6 +415,35 @@
         numero(pc(100 * dl / (dl + df), 0), "dos votos novos foram para o Lula"))),
     });
   }
+  // Gráfico de linha da chance do Lula na Polymarket em 25/10 (static/casos/polymarket.json).
+  var POLY = null;
+  function grafPoly() {
+    var box = h("div", { class: "graf-poly" }, h("p", { class: "carregando", text: "…" }));
+    var desenhar = function (d) {
+      var pts = d.dia.filter(function (p) { var hr = new Date(p[0] * 1000).getHours(); return hr >= 12 && hr < 22; });
+      var W = 420, H = 200, mE = 34, mB = 22, mT = 10, mD = 8;
+      var t0 = pts[0][0], t1 = pts[pts.length - 1][0];
+      var X = function (t) { return mE + (W - mE - mD) * (t - t0) / (t1 - t0); };
+      var Y = function (v) { return mT + (H - mT - mB) * (1 - v / 100); };
+      var svg = s("svg", { viewBox: "0 0 " + W + " " + H, class: "grafico", role: "img", "aria-label": "Chance do Lula na Polymarket em 25 de outubro: cerca de 20% até as 17h, 35% às 18h e acima de 80% depois das 19h" });
+      [0, 50, 100].forEach(function (v) {
+        svg.appendChild(s("line", { x1: mE, x2: W - mD, y1: Y(v), y2: Y(v), class: "grade" }));
+        svg.appendChild(s("text", { x: mE - 6, y: Y(v) + 4, "text-anchor": "end", class: "eixo", text: v + "%" }));
+      });
+      var hora = function (h_, m) { var d0 = new Date(t0 * 1000); d0.setHours(h_, m || 0, 0, 0); return d0.getTime() / 1000; };
+      [[17, 3, "prorrogação"], [19, 10, "apuração"]].forEach(function (m) {
+        var x = X(hora(m[0], m[1]));
+        svg.appendChild(s("line", { x1: x, x2: x, y1: mT, y2: H - mB, class: "ref" }));
+        svg.appendChild(s("text", { x: x + 4, y: mT + 12, class: "eixo marco", text: m[2] }));
+      });
+      [12, 14, 16, 18, 20].forEach(function (hr) { svg.appendChild(s("text", { x: X(hora(hr)), y: H - 6, "text-anchor": "middle", class: "eixo", text: hr + "h" })); });
+      svg.appendChild(s("path", { class: "serie poly", d: pts.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1); }).join(" ") }));
+      box.textContent = ""; box.appendChild(svg);
+    };
+    (POLY ? Promise.resolve(POLY) : fetch("/static/casos/polymarket.json" + (VERSAO ? "?v=" + encodeURIComponent(VERSAO) : "")).then(function (r) { return r.json(); }))
+      .then(function (d) { POLY = d; desenhar(d); }).catch(function () { box.textContent = ""; });
+    return box;
+  }
   function pesquisas() {
     return caso({
       id: "pesquisas", titulo: "As pesquisas e as apostas", tag: "estranho",
@@ -370,8 +457,17 @@
         "<b>As apostas seguiram as pesquisas.</b> A Polymarket está proibida no Brasil desde abril; quem apostava era quase todo de fora, com pouco volume. 20% não é zero: a Betfair deu 83% à Hillary em 2016.",
         "<b>Onde a pesquisa erra:</b> quem decide no fim, quem volta a votar e para onde vai a terceira via. Foi exatamente o que decidiu esta eleição.",
       ],
-      visual: visual(null, h("div", { class: "numeros" },
+      visual: [visual(null, h("div", { class: "numeros" },
         numero("49%", "Lula na véspera (Datafolha)", "l"), numero("51,79%", "Lula no resultado", "l"), numero("80%", "chance do Flávio na Polymarket", "f"))),
+        visual("Chance do Lula na Polymarket, no dia da eleição", grafPoly(),
+          "Às 17h03 a votação foi prorrogada; às 19h10 saíram os primeiros números da apuração. A virada do gráfico é a apuração chegando, não a prorrogação."),
+        visual("Onde o favorito das apostas já perdeu", h("div", { class: "mapa-apostas" },
+          h("img", { src: "/static/casos/mapa-apostas.svg", alt: "Mapa: Brasil, Venezuela, Polônia e Estados Unidos destacados", loading: "lazy" }),
+          h("ul", { class: "mapa-leg" },
+            h("li", { html: "<b>Brasil 2026</b> · Flávio ~80% na Polymarket" }),
+            h("li", { html: "<b>Polônia 2025</b> · Trzaskowski ~64% na Polymarket" }),
+            h("li", { html: "<b>Venezuela 2024</b> · Maduro ~87% na Polymarket" }),
+            h("li", { class: "outra", html: "<b>EUA 2016</b> · Hillary 83% na Betfair" }))))],
     });
   }
   function biometria() {
@@ -390,7 +486,7 @@
         numero("34.393", "votos depois das 17h (TSE)"), numero(mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2), "de vantagem do Lula", "l"))),
     });
   }
-  function mesario() {
+  function mesario(d) {
     return caso({
       id: "mesario", titulo: "O mesário pianista", tag: "falsa",
       alegacao: "Com o número do título, o mesário vota pelo eleitor que faltou ou morreu. Em 500 mil seções, isso dá milhões de votos.",
@@ -402,9 +498,16 @@
         "<b>Quando acontece, aparece:</b> em Salvador, no 1º turno, uma mesária foi presa suspeita de votar no lugar de um PM, que chegou depois. Há relatos parecidos no interior de SP.",
         "<b>“O site diz que eu faltei”</b> foi um erro de mensagem do TSE, já corrigido.",
       ],
+      visual: visual("Onde o voto de outra pessoa entraria", [
+        fluxo([["Caderno", "o mesário vê o nome de quem faltou"], ["Documento", "sem digital, a mesa pede foto e o ano de nascimento"], ["Urna", "cada voto entra no boletim que a seção imprime"]]),
+        h("div", { class: "numeros" },
+          numero("34.393", "votos depois das 17h no país (TSE)", "l"),
+          numero(num(d.mesma_secao.secoes_nos_dois_turnos), "seções para fazer isso"),
+          numero("1", "caso confirmado, em Salvador"))],
+        "Um voto a mais por seção daria 500 mil; a diferença foi de " + mi(d.nacional.margem) + "."),
     });
   }
-  function caminhonete() {
+  function caminhonete(d) {
     return caso({
       id: "caminhonete", titulo: "A caminhonete do PT", tag: "estranho", icone: "🚚",
       alegacao: "Urnas foram levadas numa caminhonete com adesivo do PT no Distrito Federal, depois da votação.",
@@ -415,6 +518,12 @@
         "<b>Os votos já tinham saído:</b> boletim impresso e dados transmitidos ao TSE antes do recolhimento.",
         "<b>Dá para conferir:</b> o boletim impresso é público. Se a urna fosse mexida, o resultado não bateria com o papel.",
       ],
+      visual: visual("O que acontece antes de a urna entrar na caminhonete", [
+        fluxo([["Fecha", "17h: a urna encerra e imprime o boletim"], ["Transmite", "os votos vão ao TSE antes de sair da seção"], ["Recolhe", "só então a urna é levada, sob escolta"]]),
+        h("div", { class: "numeros" },
+          numero("0", "votos que dependem do transporte", "ok"),
+          numero(num(d.mesma_secao.secoes_nos_dois_turnos), "boletins para comparar"))],
+        "Irregular foi o adesivo de partido no veículo; o TRE-DF abriu apuração por isso."),
     });
   }
   function consulta() {
@@ -430,9 +539,15 @@
         "<b>“Ausente” agora não é resultado:</b> o dado ainda não foi processado.",
         "<b>Morto não vota:</b> o cartório cancela o título, e o nome sai do caderno da seção.",
       ],
+      visual: visual("A consulta, dia a dia", [
+        linhaTempo([["fev.", "o calendário eleitoral já previa a suspensão", ""],
+                    ["26/10", "a consulta sai do ar, no dia seguinte à eleição", "forte"],
+                    ["2/11", "último dia sem consulta", ""],
+                    ["3/11", "volta ao ar, com os dados processados", ""]])],
+        "Nos mesmos dias, o TSE processa quem votou, quem faltou e quem justificou."),
     });
   }
-  function salaCofre() {
+  function salaCofre(d) {
     return caso({
       id: "sala-cofre", titulo: "Os comandos na sala-cofre", tag: "falsa",
       alegacao: "Um servidor da sala-cofre do TSE recebia ao menos oito comandos externos. E os fiscais do PL foram tirados da sala depois das 17h.",
@@ -442,8 +557,13 @@
       pontos: [
         "<b>Nenhuma prova foi mostrada.</b> O vídeo promete revelar os “comandos” depois; até agora, nada.",
         "<b>Os fiscais não foram tirados:</b> a sala-cofre nunca foi aberta a visitas. Fiscais do PL acompanharam a sala de totalização, que é filmada.",
-        "<b>Mexer no servidor não muda o papel.</b> Cada urna imprime o boletim antes de transmitir. A soma das 499.205 seções bate voto a voto com o total oficial.",
+        "<b>Mexer no servidor não muda o papel.</b> Cada urna imprime o boletim antes de transmitir. A soma das " + num(d.mesma_secao.secoes_nos_dois_turnos) + " seções bate voto a voto com o total oficial.",
       ],
+      visual: visual("Por que o servidor não decide o resultado", [
+        fluxo([["Urna", "imprime o boletim, em papel, antes de transmitir"], ["Boletim", "fica com os fiscais de cada partido na seção"], ["Total", "só vale se bater com a soma dos papéis"]]),
+        h("div", { class: "numeros" },
+          numero(num(d.mesma_secao.secoes_nos_dois_turnos), "boletins impressos"),
+          numero("0", "divergência com o total oficial", "ok"))]),
     });
   }
   function soma() {
@@ -471,6 +591,11 @@
         "<b>Foi raro:</b> 80 de 22.694 urnas trocadas em Pernambuco (TRE-PE).",
         "<b>Não decide nada:</b> uma seção tem uns " + num(V.dados.nacional.comp2 / 499205) + " votantes; a diferença foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
       ],
+      visual: visual("O que acontece quando a urna falha", [
+        fluxo([["Urna", "trava ou não liga"], ["Reserva", "a seção usa a urna reserva"], ["Cédula", "sem reserva, vota no papel, com fiscais"], ["Junta", "os papéis são apurados à parte"]]),
+        h("div", { class: "numeros" },
+          numero("80", "urnas trocadas em Pernambuco"),
+          numero("22.694", "urnas no estado"))]),
     });
   }
   function eleitores() {
@@ -485,6 +610,9 @@
         "<b>É gente que mudou e não transferiu o título.</b> E a população do IBGE é estimada.",
         "<b>Vota menos gente do que mora:</b> Catolândia tem 3.567 habitantes e 4.189 eleitores; votaram " + num(c["CATOLÂNDIA"].c2) + " no 2º turno. Em Firmino Alves, " + num(c["FIRMINO ALVES"].c2) + ".",
       ],
+      visual: visual("Quem votou de fato (2º turno)", [barrasCidades([["Catolândia", 3567, 4189, c["CATOLÂNDIA"].c2], ["Firmino Alves", null, 4960, c["FIRMINO ALVES"].c2]]),
+        h("p", { class: "leg", text: "Cinza: habitantes (IBGE). Azul: eleitores com título. Amarelo: quem compareceu." })],
+        "O título fica no município de origem: quem mudou e não transferiu continua votando lá."),
     });
   }
 
@@ -504,6 +632,13 @@
         "<b>O Flávio também pediu</b>, em cidades com chuva no Sul e Sudeste.",
         "<b>Mudou pouco:</b> a maioria das seções já tinha fechado. Depois das 17h foram 34.393 votos; a diferença foi de " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + ".",
       ],
+      visual: visual("As três horas finais do dia 25", [
+        linhaTempo([["16h32", "a coligação do Lula pede prorrogação (ônibus na BA e em SP)", ""],
+                    ["17h03", "Zanin prorroga até as 19h, para o país todo. O MP Eleitoral era contra", "forte"],
+                    ["17h–19h", "entram <b>34.393 votos</b>, 0,03% do total", ""],
+                    ["19h10", "saem os primeiros números da apuração", ""]]),
+        h("div", { class: "numeros" },
+          numero("34.393", "votos depois das 17h"), numero(mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2), "de diferença no fim", "l"))]),
     });
   }
   function desfile() {
@@ -518,6 +653,10 @@
         "<b>O TSE não proibiu antes</b> (seria censura prévia), mas pode punir depois.",
         "<b>Se provado o abuso:</b> de multa até cassação e 8 anos de inelegibilidade. A escola foi rebaixada.",
       ],
+      visual: visual("O dinheiro público no desfile", [
+        h("div", { class: "numeros" }, numero("R$ 7,5–9,65 mi", "dinheiro público (Prefeitura, Embratur e outros)", "f")),
+        fluxo([["Antes", "o TSE não proíbe: seria censura prévia"], ["Depois", "o TSE pode punir o abuso"], ["Se provado", "multa, cassação e 8 anos inelegível"]])],
+        "Ação do Novo aceita, na fase de provas. Não houve absolvição."),
     });
   }
   function pacote() {
@@ -533,6 +672,12 @@
         "<b>A lei proíbe usar o governo para candidato</b>, mas permite programa já previsto no orçamento. A defesa diz que é o caso; a acusação, que a data foi escolhida pela campanha.",
         "<b>Não é fraude na urna:</b> a pena por abuso é cassação, não recontagem.",
       ],
+      visual: visual("As medidas, contadas para trás a partir do 1º turno", [
+        linhaTempo([["–17 dias", "Bolsa Família ampliado, às vésperas do 1º turno", ""],
+                    ["–9 dias", "Desenrola 3.0 (R$ 15 bi) e fim das bets", "forte"],
+                    ["–9 dias", "mensagens do Gov.br no WhatsApp de dezenas de milhões", ""],
+                    ["até 26/10", "diesel subsidiado", ""]])],
+        "A lei permite programa já previsto no orçamento; o que se discute é a data."),
     });
   }
   function exercito() {
@@ -546,6 +691,12 @@
         "<b>Os técnicos do TSE não acharam conteúdo falso</b>, mas 81 mensagens foram apagadas antes de serem lidas. Disseram que não dá para afirmar.",
         "<b>Suspenso e liberado:</b> o presidente do TSE tirou do ar; o corregedor devolveu até o plenário decidir.",
       ],
+      visual: visual("O que os técnicos do TSE conseguiram ler", [
+        h("div", { class: "numeros" },
+          numero("3 mi+", "seguidores do canal", "f"),
+          numero("81", "mensagens apagadas antes da leitura", "falso"),
+          numero("—", "conteúdo falso identificado")),
+        fluxo([["Canal", "dava “missões” de compartilhamento"], ["Leitura", "81 mensagens já tinham sido apagadas"], ["Conclusão", "não dá para afirmar que houve fake news"]])]),
     });
   }
   function universidades() {
@@ -561,9 +712,18 @@
         "<b>Aulas suspensas</b> em 23 e 26/10 (UFPB, UFS, UFSC, Unesp e outras), a pedido dos DCEs, para os alunos viajarem para votar. Sem ação na Justiça.",
         "<b>Mudou o resultado?</b> Não dá para medir: o voto é secreto.",
       ],
+      visual: visual("Onde apareceu e o que a Justiça fez", [
+        h("ul", { class: "onde" },
+          h("li", null, h("b", { text: "UFSC" }), h("span", { text: "adesivos no campus" })),
+          h("li", null, h("b", { text: "UFPI" }), h("span", { text: "ato político" })),
+          h("li", null, h("b", { text: "Ufes / Ifes" }), h("span", { text: "espaços usados em campanha" })),
+          h("li", null, h("b", { text: "UFS" }), h("span", { text: "cartazes retirados por ordem judicial" }))),
+        h("div", { class: "numeros" },
+          numero("R$ 5–25 mil", "multa por propaganda em bem público"),
+          numero("23 e 26/10", "aulas suspensas a pedido dos DCEs"))]),
     });
   }
-  function mesaria() {
+  function mesaria(d) {
     return caso({
       id: "mesaria", titulo: "A mesária cabo eleitoral", tag: "estranho",
       alegacao: "Uma mesária pediu voto para o 13 dentro da seção, na Bahia.",
@@ -574,6 +734,11 @@
         "<b>No DF, uma mesária foi detida</b> no 2º turno, no Gama, por fazer campanha na seção. A primeira notícia dizia que era para o Lula; a PM disse depois que era para o Flávio.",
         "<b>É crime e é pego:</b> a presidente da seção chamou o juiz e a polícia. Um caso numa seção não muda um resultado com " + mi(V.dados.nacional.lula2 - V.dados.nacional.flavio2) + " de diferença.",
       ],
+      visual: visual("Os dois vídeos", [
+        h("div", { class: "duelo" },
+          h("div", { class: "f" }, h("b", { text: "Bahia" }), h("span", { text: "não confirmado por veículo nem pelo TRE-BA" })),
+          h("div", { class: "l" }, h("b", { text: "DF" }), h("span", { text: "detida no Gama; a PM depois disse que era para o Flávio" }))),
+        h("div", { class: "numeros" }, numero("1", "seção afetada"), numero(num(d.mesma_secao.secoes_nos_dois_turnos), "seções no país"))]),
     });
   }
   function faccoes() {
@@ -587,6 +752,11 @@
         "<b>O TSE mandou tirar</b> os vídeos do “R$ 200 do PCC” e posts do Flávio ligando o Lula às facções.",
         "<b>Mesma regra para os dois:</b> posts que ligavam o Flávio ao crime também caíram.",
       ],
+      visual: visual("Quem procurou o comunicado e o que achou", [
+        h("div", { class: "numeros" },
+          numero("0", "comunicados de facção encontrados", "ok"),
+          numero("10 mil", "de multa do TSE por vídeo de “R$ 200 do PCC”", "falso")),
+        fluxo([["Aos Fatos", "procurou os comunicados: não existem"], ["MP-SP", "uma fonte do MP desmentiu"], ["MP-RJ", "não tem informação sobre apoio"]])]),
     });
   }
   function compra() {
@@ -600,6 +770,9 @@
         "<b>É crime local:</b> TO, RR, PA, AM e AP, em disputas de deputado e governador. Nada liga à campanha presidencial.",
         "<b>Mais apreensão pode ser mais fiscalização.</b> Não explica a virada do 2º turno.",
       ],
+      visual: visual("Dinheiro apreendido na eleição", [barrasAno([["2022", 4.6], ["2026", 27]]),
+        h("p", { class: "leg", text: "R$ milhões em espécie apreendidos pela PF até o 1º turno, e 47 presos em flagrante em 11 ações." })],
+        "TO, RR, PA, AM e AP, em disputas de deputado e governador. Nada liga à campanha presidencial."),
     });
   }
 
@@ -646,7 +819,7 @@
       var d = r[0];
       V = r[1]; LADOS = r[2];
       lista.textContent = "";
-      [virada, pesquisas, secoesAte10, curva, biometria, mesario, salaCofre, caminhonete, silvaJardim, soma, consulta, mesmaSecao, zonas, cedula, eleitores].forEach(function (f) {
+      [virada, pesquisas, caminhonete, secoesAte10, silvaJardim, consulta, cedula, eleitores, curva, biometria, mesario, salaCofre, soma, mesmaSecao, zonas].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.appendChild(h("div", { class: "divisa-casos" },
