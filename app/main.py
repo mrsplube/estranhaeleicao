@@ -108,7 +108,7 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
+PUBLICO = ("/", "/sobre", "/metodo", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
 
@@ -194,7 +194,7 @@ async def porta(request: Request, call_next):
     return resposta
 
 
-PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre"}
+PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre", "/metodo"}
 
 
 def _nao_encontrado(request: Request) -> Response:
@@ -244,6 +244,15 @@ async def sobre(request: Request):
     return templates.TemplateResponse(request, "sobre.html")
 
 
+@app.get("/metodo", include_in_schema=False)
+async def metodo(request: Request):
+    # Método e limites (31/10/2026): o que está feito, o que não está e o que o
+    # dado não permite concluir — a página que um leitor acadêmico procura antes
+    # de dar crédito. Fica separada do /sobre porque quem quer o método quer a
+    # página inteira, sem rolar a opinião do autor antes.
+    return templates.TemplateResponse(request, "metodo.html")
+
+
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon_ico():
     return FileResponse(static_dir / "favicon.ico", media_type="image/x-icon")
@@ -270,6 +279,7 @@ SITEMAP = {
     "/simulacao/cenarios": (("site.html", "chute.html"), ("chute.json",)),
     "/simulacao/detalhe": (("base.html", "apuracao.html"), ("conta.json", "acusacoes.json")),
     "/sobre": (("site.html", "sobre.html"), ()),
+    "/metodo": (("site.html", "metodo.html"), ()),
 }
 
 

@@ -587,8 +587,13 @@
   // turnos. É a resposta ao "97% da margem veio das urnas sem biometria".
   function grafFaixas() {
     return geoBloco(function (d, box) {
-      var f = d.biometria.faixas;
-      var W = 420, H = 250, mE = 34, mD = 6, mT = 12, mB = 58;
+      var CURTO = { "sem falha": "nenhuma", "até 5%": "até 5%", "5 a 10%": "5–10%",
+                    "10 a 20%": "10–20%", "acima de 20%": "> 20%" };
+      var f = d.biometria.faixas.map(function (x) {
+        return { faixa: x.faixa, curto: CURTO[x.faixa] || x.faixa, secoes: x.secoes,
+                 margem_1t: x.margem_1t, margem_2t: x.margem_2t };
+      });
+      var W = 420, H = 250, mE = 44, mD = 8, mT = 22, mB = 58;
       var lo = Math.min(0, Math.min.apply(null, f.map(function (x) { return Math.min(x.margem_1t, x.margem_2t); })));
       var hi = Math.max.apply(null, f.map(function (x) { return Math.max(x.margem_1t, x.margem_2t); }));
       var topo = Math.ceil(hi / 5) * 5, base = Math.floor(lo / 5) * 5;
@@ -609,8 +614,11 @@
           r.appendChild(s("title", { text: b[2] + ", falha " + x.faixa + ": " + pc(b[0], 2) + " (" + numf(x.secoes) + " seções)" }));
           svg.appendChild(r);
         });
-        svg.appendChild(s("text", { x: x0 + lb, y: H - mB + 15, "text-anchor": "middle", class: "eixo", text: x.faixa }));
-        svg.appendChild(s("text", { x: x0 + lb, y: H - mB + 30, "text-anchor": "middle", class: "eixo fraco", text: numf(x.secoes) + " seções" }));
+        // Os rótulos encostam na borda nos dois extremos: o texto é curto e
+        // desliza para dentro do quadro em vez de sair dele.
+        var cx = Math.max(mE + 22, Math.min(W - mD - 26, x0 + lb));
+        svg.appendChild(s("text", { x: cx, y: H - mB + 15, "text-anchor": "middle", class: "eixo", text: x.curto }));
+        svg.appendChild(s("text", { x: cx, y: H - mB + 30, "text-anchor": "middle", class: "eixo fraco", text: numf(x.secoes) + " seções" }));
       });
       box.textContent = "";
       box.appendChild(svg);
@@ -647,7 +655,7 @@
         "<b>Onde já era forte, cresceu menos em %.</b> No Piauí, onde teve 71% dos votos válidos no 1º turno, o Lula ganhou 8,6% mais votos no 2º; em Santa Catarina, onde teve 25%, ganhou 26%. Em número de votos, porém, o ganho foi parecido: o equivalente a 6,1% dos válidos do 1º turno no Piauí e a 6,5% em Santa Catarina.",
         "<b>A virada foi espalhada.</b> Em 211 cidades o Flávio venceu o 1º turno e o Lula, o 2º; o contrário aconteceu em uma só, Uirapuru (GO). Três de cada quatro ficam no Sudeste e no Sul.",
         "<b>A geografia explica mais que a urna.</b> Dos 5.571 municípios do país, o Lula ganhou mais votos que o Flávio entre os turnos em 5.228 (93,8%) — inclusive nos 92 do Rio e em todos os de prefeito do PL. Não há mancha: é o país inteiro.",
-        "<b>E não seguiu o palanque do prefeito.</b> Onde o prefeito é do PL ou foi eleito por coligação com o PL, o Lula virou em 75 das 1.115 cidades em que o Flávio tinha ganhado o 1º turno (6,7%). Nas de prefeito do PT, em 5 de 42 (11,9%). O padrão do voto presidencial não acompanhou o municipal.",
+        "<b>E não seguiu o palanque do prefeito.</b> Nas cidades de prefeito filiado ao PL em que o Flávio ganhou o 1º turno, o Lula virou em 16 de 413 (3,9%) — menos que nas de prefeito do PSDB (17 de 164, 10,4%) e do PSD (39 de 489, 8,0%). O voto presidencial não acompanhou o municipal.",
         "<b>Raro não é impossível.</b> Basta a terceira via, o branco/nulo e quem voltou a votar penderem para o Lula. <a href='/simulacao/cenarios'>5 jeitos de a conta fechar</a>.",
       ],
       visual: [visual(null, h("div", { class: "numeros" },
@@ -655,7 +663,7 @@
         numero(pc(100 * dl / (dl + df), 0), "dos votos novos foram para o Lula"))),
         visual("A virada por partido do prefeito eleito em 2024 (cidades em que o Flávio ganhou o 1º turno)", [
           tabelaPrefeitos()],
-          "Recálculo do levantamento que a Metrópoles publicou em 26/10 (“70 cidades de prefeito do PL”). Com o critério da reportagem — prefeito filiado ao PL ou eleito por coligação que inclui o PL — são 75, não 70; as 4 cidades de prefeito do PT em que o Lula virou são 5. A diferença é de critério e de data do cadastro, não de dado.")],
+          "Recálculo do levantamento que a Metrópoles publicou em 26/10 (“70 cidades de prefeito do PL”, 41 no Sudeste e 17 no Sul). Com o critério da reportagem — prefeito filiado ao PL ou eleito por coligação que inclui o PL — saem 75 cidades, 44 no Sudeste e 18 no Sul; as do PT em que o Lula virou são 5, não 4. A diferença é de critério e de data de cadastro, não de dado: a reportagem chegou ao mesmo desenho.")],
     });
   }
   // Gráfico de linha da chance do Lula na Polymarket em 25/10 (static/casos/polymarket.json).

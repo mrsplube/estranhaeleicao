@@ -193,6 +193,7 @@ a.fonte::after { content: "↗"; font-size: 11px; opacity: .7; }
 .grafico .barra-a { fill: color-mix(in srgb, var(--texto-3) 70%, transparent); }
 .grafico .barra-b { fill: color-mix(in srgb, var(--flavio) 45%, transparent); }
 .grafico .barra-c { fill: var(--flavio); }
+.grafico .barra-l { fill: var(--lula); }
 .grafico .desenha { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); }
 .caso.respondido .grafico .desenha { animation: desenha 2.2s ease forwards .3s; }
 @keyframes desenha { to { stroke-dashoffset: 0; } }

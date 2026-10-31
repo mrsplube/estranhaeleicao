@@ -1,0 +1,39 @@
+/* /metodo (templates/metodo.html). Peças comuns vêm de estranha.css. */
+.hero-curto { padding-top: 40px; padding-bottom: 8px; }
+.metodo { display: grid; gap: 14px; }
+.m-b { padding: 22px 24px; border-radius: var(--raio); border: 1px solid var(--linha); background: linear-gradient(180deg, var(--cartao), var(--fundo-2)); box-shadow: var(--sombra); }
+.m-num { margin: 0 0 4px; color: var(--destaque); font: 700 12px var(--titulo); letter-spacing: .14em; }
+.m-b h2 { margin: 0 0 12px; font: 700 clamp(22px, 3.6vw, 28px)/1.15 var(--titulo); letter-spacing: -.02em; }
+.m-b h3 { margin: 20px 0 6px; font: 700 17px/1.25 var(--titulo); color: var(--texto); }
+.m-b h3:first-of-type { margin-top: 14px; }
+.m-b p { margin: 0 0 12px; color: var(--texto-2); font-size: 15px; line-height: 1.62; }
+.m-b p:last-child { margin-bottom: 0; }
+.m-b b { color: var(--texto); }
+.m-b a { color: var(--destaque); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--destaque) 40%, transparent); }
+.m-b a:hover { border-bottom-color: var(--destaque); }
+.m-b ul, .m-b ol { margin: 0 0 12px; padding-left: 20px; color: var(--texto-2); font-size: 15px; line-height: 1.62; }
+.m-b li { margin-bottom: 7px; }
+.m-b li:last-child { margin-bottom: 0; }
+.m-b code { padding: 1px 6px; border-radius: 5px; background: var(--cartao-2); border: 1px solid var(--linha); color: var(--texto); font: 13px ui-monospace, "SF Mono", Menlo, monospace; }
+/* O resultado da conferência em destaque: é o número que autoriza o resto. */
+.m-ok { margin: 0 0 14px; padding: 14px 16px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--ok) 45%, var(--linha)); background: color-mix(in srgb, var(--ok) 10%, transparent); }
+.m-ok p { margin: 0; color: var(--texto); }
+/* O que não fecha: borda de aviso, mas o texto não é alarmista. */
+.m-aviso { padding: 14px 16px; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--parcial) 55%, var(--linha)); background: color-mix(in srgb, var(--parcial) 8%, transparent); }
+.m-aviso b { color: var(--texto); }
+.m-papeis { display: grid; gap: 10px; margin: 0 0 16px; }
+.m-papeis > div { padding: 12px 14px; border-radius: 12px; background: var(--cartao-2); border: 1px solid var(--linha); }
+.m-papeis dt { margin-bottom: 3px; font: 700 13px var(--titulo); letter-spacing: .06em; text-transform: uppercase; color: var(--destaque); }
+.m-papeis dd { margin: 0; font-size: 14.5px; color: var(--texto-2); line-height: 1.55; }
+.m-tags { list-style: none; padding-left: 0 !important; }
+.m-tags li { padding: 11px 14px; border-radius: 12px; background: var(--cartao-2); border: 1px solid var(--linha); font-size: 14.5px; }
+.m-tag { display: inline-block; margin-right: 8px; padding: 3px 9px; border-radius: 99px; font: 700 11.5px var(--titulo); letter-spacing: .04em; text-transform: uppercase; vertical-align: 1px; }
+.t-falsa { background: color-mix(in srgb, var(--falso) 22%, transparent); color: var(--texto); border: 1px solid color-mix(in srgb, var(--falso) 55%, transparent); }
+.t-normal { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--texto); border: 1px solid color-mix(in srgb, var(--ok) 50%, transparent); }
+.t-estranho { background: color-mix(in srgb, var(--parcial) 20%, transparent); color: var(--texto); border: 1px solid color-mix(in srgb, var(--parcial) 55%, transparent); }
+.m-refs { font-size: 14.5px; }
+.m-ia p + p, .m-fim p + p { margin-top: 12px; }
+@media (max-width: 640px) {
+  .m-b { padding: 18px 16px; }
+  .m-b p, .m-b ul, .m-b ol { font-size: 14.5px; }
+}

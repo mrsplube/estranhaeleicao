@@ -1,0 +1,256 @@
+{
+ "fonte": "votação por seção e Boletim de Urna do TSE (2026) e cadastro de candidatos de 2024",
+ "gerado_em": "2026-10-31T11:57:59",
+ "lagos": {
+  "cidades": [
+   {
+    "nm": "Cabo Frio",
+    "l1": 39944,
+    "l2": 49113,
+    "f1": 83213,
+    "f2": 83555,
+    "d_l": 9169,
+    "d_f": 342,
+    "pct_lula_novos": 96.4,
+    "terceira_mais_bn": 14195,
+    "comp1": 137352,
+    "comp2": 136812,
+    "secoes": 530
+   },
+   {
+    "nm": "Araruama",
+    "l1": 23451,
+    "l2": 29032,
+    "f1": 53415,
+    "f2": 53426,
+    "d_l": 5581,
+    "d_f": 11,
+    "pct_lula_novos": 99.8,
+    "terceira_mais_bn": 9165,
+    "comp1": 86031,
+    "comp2": 85207,
+    "secoes": 325
+   },
+   {
+    "nm": "São Pedro Da Aldeia",
+    "l1": 14421,
+    "l2": 18025,
+    "f1": 38306,
+    "f2": 38739,
+    "d_l": 3604,
+    "d_f": 433,
+    "pct_lula_novos": 89.27,
+    "terceira_mais_bn": 5776,
+    "comp1": 58503,
+    "comp2": 58474,
+    "secoes": 244
+   },
+   {
+    "nm": "Armação dos Búzios",
+    "l1": 8225,
+    "l2": 10206,
+    "f1": 17294,
+    "f2": 17368,
+    "d_l": 1981,
+    "d_f": 74,
+    "pct_lula_novos": 96.4,
+    "terceira_mais_bn": 2651,
+    "comp1": 28170,
+    "comp2": 28271,
+    "secoes": 111
+   },
+   {
+    "nm": "Saquarema",
+    "l1": 20288,
+    "l2": 25684,
+    "f1": 44175,
+    "f2": 44444,
+    "d_l": 5396,
+    "d_f": 269,
+    "pct_lula_novos": 95.25,
+    "terceira_mais_bn": 7518,
+    "comp1": 71981,
+    "comp2": 72443,
+    "secoes": 283
+   },
+   {
+    "nm": "Arraial do Cabo",
+    "l1": 8652,
+    "l2": 10102,
+    "f1": 15959,
+    "f2": 16122,
+    "d_l": 1450,
+    "d_f": 163,
+    "pct_lula_novos": 89.89,
+    "terceira_mais_bn": 2741,
+    "comp1": 27352,
+    "comp2": 26902,
+    "secoes": 111
+   }
+  ],
+  "pct_lula_novos_pais": 73.6
+ },
+ "biometria": {
+  "secoes": 499205,
+  "faixas": [
+   {
+    "faixa": "sem falha",
+    "secoes": 1793,
+    "lula_pct": 54.74,
+    "flavio_pct": 45.26,
+    "margem_1t": 6.34,
+    "margem_2t": 9.49
+   },
+   {
+    "faixa": "até 5%",
+    "secoes": 175218,
+    "lula_pct": 51.13,
+    "flavio_pct": 48.87,
+    "margem_1t": -3.85,
+    "margem_2t": 2.26
+   },
+   {
+    "faixa": "5 a 10%",
+    "secoes": 237829,
+    "lula_pct": 51.49,
+    "flavio_pct": 48.51,
+    "margem_1t": -2.61,
+    "margem_2t": 2.97
+   },
+   {
+    "faixa": "10 a 20%",
+    "secoes": 80331,
+    "lula_pct": 53.96,
+    "flavio_pct": 46.04,
+    "margem_1t": 3.35,
+    "margem_2t": 7.92
+   },
+   {
+    "faixa": "acima de 20%",
+    "secoes": 4034,
+    "lula_pct": 58.23,
+    "flavio_pct": 41.77,
+    "margem_1t": 13.49,
+    "margem_2t": 16.47
+   }
+  ],
+  "falha_alta": {
+   "secoes": 84365,
+   "pct_validos": 15.69,
+   "pct_margem": 36.38,
+   "pct_ganho_lula": 14.89,
+   "variacao_pp": 4.5
+  },
+  "falha_baixa": {
+   "secoes": 177011,
+   "variacao_pp": 6.09
+  }
+ },
+ "prefeitos": {
+  "municipios": 5571,
+  "com_prefeito_2024": 5555,
+  "flavio_1t": 2906,
+  "viraram_lula": 211,
+  "viraram_flavio": 1,
+  "pct_viraram": 7.26,
+  "por_partido": [
+   {
+    "partido": "PSD",
+    "cidades": 889,
+    "flavio_1t": 489,
+    "viraram": 39,
+    "pct": 7.98
+   },
+   {
+    "partido": "MDB",
+    "cidades": 861,
+    "flavio_1t": 453,
+    "viraram": 27,
+    "pct": 5.96
+   },
+   {
+    "partido": "PP",
+    "cidades": 748,
+    "flavio_1t": 439,
+    "viraram": 28,
+    "pct": 6.38
+   },
+   {
+    "partido": "UNIÃO",
+    "cidades": 591,
+    "flavio_1t": 326,
+    "viraram": 17,
+    "pct": 5.21
+   },
+   {
+    "partido": "PL",
+    "cidades": 517,
+    "flavio_1t": 413,
+    "viraram": 16,
+    "pct": 3.87
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "cidades": 435,
+    "flavio_1t": 206,
+    "viraram": 15,
+    "pct": 7.28
+   },
+   {
+    "partido": "PSB",
+    "cidades": 312,
+    "flavio_1t": 66,
+    "viraram": 5,
+    "pct": 7.58
+   },
+   {
+    "partido": "PSDB",
+    "cidades": 273,
+    "flavio_1t": 164,
+    "viraram": 17,
+    "pct": 10.37
+   }
+  ],
+  "pl": {
+   "cidades": 1569,
+   "flavio_1t": 1115,
+   "lula_1t": 454,
+   "viraram_lula": 75,
+   "viraram_flavio": 0,
+   "pct_viraram": 6.73,
+   "flavio_pct_1t": 71.06,
+   "flavio_pct_2t": 66.28,
+   "lula_pct_1t": 28.94,
+   "lula_pct_2t": 33.72,
+   "regioes": {
+    "Sudeste": 44,
+    "Norte": 3,
+    "Sul": 18,
+    "Nordeste": 4,
+    "Centro-Oeste": 6
+   }
+  },
+  "pt": {
+   "cidades": 1114,
+   "flavio_1t": 275,
+   "lula_1t": 839,
+   "viraram_lula": 30,
+   "viraram_flavio": 1,
+   "pct_viraram": 10.91,
+   "flavio_pct_1t": 24.69,
+   "flavio_pct_2t": 22.08,
+   "lula_pct_1t": 75.31,
+   "lula_pct_2t": 77.92,
+   "regioes": {
+    "Sudeste": 15,
+    "Sul": 6,
+    "Centro-Oeste": 2,
+    "Nordeste": 3,
+    "Norte": 4
+   }
+  },
+  "empate": [
+   "MARQUINHO/PR"
+  ]
+ }
+}

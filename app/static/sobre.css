@@ -72,6 +72,11 @@
 .opiniao-mais:hover { background: color-mix(in srgb, var(--destaque) 20%, transparent); border-color: var(--destaque); }
 .opiniao-mais:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; }
 .opiniao-texto p:last-child { margin-bottom: 0; }
+/* A nota de enquadramento (31/10/2026): a opinião do autor não pode ser lida
+   como veredito da conferência. Fica em itálico sem ser opinião, com o link
+   para o método; não é recolhida junto, porque é ela que dá o enquadramento. */
+.opiniao-texto .opiniao-nota { font-style: normal; font-size: 13.5px; color: var(--texto-3); border-left: 2px solid color-mix(in srgb, var(--destaque) 40%, transparent); padding-left: 12px; margin-bottom: 14px; }
+.opiniao-texto .opiniao-nota a.discreto { color: var(--texto-2); }
 .rede { background: color-mix(in srgb, var(--texto) 14%, var(--cartao-2)); border-color: color-mix(in srgb, var(--texto) 25%, var(--linha)); color: #fff; }
 .autor-email { font-size: 14px !important; }
 .autor-email a { color: var(--texto-2) !important; text-decoration: underline !important; text-underline-offset: 2px; }
