@@ -314,6 +314,14 @@ async def explicacao_casos_videos(request: Request):
     return _servir(request, ARQUIVO / "casos_videos.json")
 
 
+@router.get("/explicacao/reconciliacao.json")
+async def explicacao_reconciliacao(request: Request):
+    """Boletim de Urna × votação por seção × detalhe × total oficial, seção a
+    seção (~15 KB). Gerado por `tools/migracoes/2026-11-01-reconciliacao.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "reconciliacao.json")
+
+
 @router.get("/explicacao/acusacoes.json")
 async def explicacao_acusacoes(request: Request):
     """As acusações que circularam depois do 2º turno, conferidas no dado (~22 KB).

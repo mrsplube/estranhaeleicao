@@ -14,13 +14,35 @@
   "tamanho": 43213
  },
  {
+  "nome": "reconciliacao.json",
+  "url": "/apuracao/explicacao/reconciliacao.json",
+  "o_que": "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento.",
+  "gerado_em": "2026-11-01",
+  "fontes": [
+   {
+    "texto": "https://dadosabertos.tse.jus.br/dataset/resultados-2026-boletim-de-urna",
+    "url": "https://dadosabertos.tse.jus.br/dataset/resultados-2026-boletim-de-urna"
+   },
+   {
+    "texto": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_BR.zip",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_BR.zip"
+   },
+   {
+    "texto": "https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_secao/detalhe_votacao_secao_2026.zip",
+    "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_secao/detalhe_votacao_secao_2026.zip"
+   }
+  ],
+  "registros": null,
+  "tamanho": 15097
+ },
+ {
   "nome": "conta.json",
   "url": "/apuracao/explicacao/conta.json",
   "o_que": "A conta do 2º turno município a município: de onde vieram os votos de cada candidato da terceira via, com intervalo de confiança por candidato.",
   "gerado_em": "2026-10-28",
   "fontes": [],
   "registros": 12,
-  "tamanho": 20455
+  "tamanho": 20534
  },
  {
   "nome": "chute.json",

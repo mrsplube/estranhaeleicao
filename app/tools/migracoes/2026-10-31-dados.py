@@ -30,6 +30,8 @@ DESTINO = ARQUIVO / "dados_catalogo.json"
 CATALOGO = [
     ("acusacoes.json", "/apuracao/explicacao/acusacoes.json",
      "Os números de cada caso: as 106 urnas zeradas, a seção de 700 votos, a curva da apuração, a biometria e os municípios. É o insumo dos 27 casos da entrada."),
+    ("reconciliacao.json", "/apuracao/explicacao/reconciliacao.json",
+     "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento."),
     ("conta.json", "/apuracao/explicacao/conta.json",
      "A conta do 2º turno município a município: de onde vieram os votos de cada candidato da terceira via, com intervalo de confiança por candidato."),
     ("chute.json", "/apuracao/explicacao/chute.json",
