@@ -68,6 +68,32 @@ def _conta(d: dict) -> int | None:
     return None
 
 
+def _fontes(fonte) -> list[dict]:
+    """A fonte de cada arquivo como lista de {texto, url}.
+
+    `fonte` aparece de três jeitos nos JSON: texto ("Boletim de Urna..."),
+    dicionário ({"secoes": URL, "secoes_gerado_em": data}) ou nulo. Antes isto
+    era `str(fonte)`, e o dicionário saía impresso como link em /dados. Agora só
+    vira link o que é URL; datas e rótulos ficam como texto.
+    """
+    if not fonte:
+        return []
+    if isinstance(fonte, str):
+        itens = [fonte]
+    elif isinstance(fonte, dict):
+        itens = [v for k, v in fonte.items() if isinstance(v, str) and not k.endswith("gerado_em")]
+    else:
+        return []
+    saida = []
+    for v in itens:
+        url = v if v.startswith("http") else None
+        # "resultados.tse.jus.br/oficial/..." é URL sem esquema.
+        if url is None and " " not in v and v.split("/")[0].endswith(".jus.br"):
+            url = "https://" + v
+        saida.append({"texto": v, "url": url})
+    return saida
+
+
 def montar(verificar: bool = True) -> list[dict]:
     saida = []
     vistos = set()
@@ -102,7 +128,7 @@ def montar(verificar: bool = True) -> list[dict]:
             "url": url,
             "o_que": descricao,
             "gerado_em": str(meta.get("gerado_em") or "")[:10],
-            "fonte": str(meta.get("fonte") or ""),
+            "fontes": _fontes(meta.get("fonte")),
             "registros": _conta(d) if isinstance(d, dict) else len(d),
             "tamanho": caminho.stat().st_size,
         })

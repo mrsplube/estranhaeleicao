@@ -19,7 +19,8 @@ do Flavio no 1º turno e:
 - `c` (0–1) — fração do eleitorado do Flavio que migrou para o Lula.
 
 Ajuste por mínimos quadrados ponderados (peso = tamanho do município), com cada
-parâmetro preso ao intervalo [0, 1] e resolvido por L-BFGS-B. É um ajuste
+parâmetro preso ao intervalo [0, 1] e resolvido EXATAMENTE por BVLS
+(`scipy.optimize.lsq_linear`, mínimos quadrados com limites). É um ajuste
 restrito, no espírito da inferência ecológica, mas **não** é o modelo de King
 (1997) nem uma solução por simplex: os limites aqui são por parâmetro, um a um,
 e não uma restrição de que as linhas de uma tabela somem 1. A diferença importa
@@ -30,8 +31,26 @@ para quem for replicar: não há aqui a estrutura de bounds/prior do King.
 O modelo **prevê bem o total** (RMSE fora da amostra melhor que o modelo
 agregado de 2 pools), mas isso NÃO quer dizer que cada `λ_j` esteja bem
 estimado. Medido aqui: a largura média do IC de 95% (bootstrap por município) é
-~0,78 — isto é, em 78% da faixa possível. Para 6 dos 10 candidatos o intervalo
+~0,65 — dois terços da faixa possível. Para 5 dos 10 candidatos o intervalo
 é o próprio [0, 1]: **o dado não decide**.
+
+## Correção de 01/11/2026
+
+Até 31/10 o ajuste era feito por L-BFGS-B partindo de λ = 0,5, e o IC vinha de
+40 subamostras de tamanho n/2 sorteadas com reposição. Dois problemas:
+
+1. **O otimizador parava antes do mínimo.** O problema é convexo (quadrático
+   com limites por caixa), então tem um único mínimo — mas o L-BFGS-B com
+   `ftol=1e-9` parava com soma de quadrados ~6% acima dele, e os λ dos
+   candidatos pequenos ficavam perto do ponto de partida (os "~0,82" que o site
+   mostrava eram isso, não estimativa). O BVLS resolve o problema exato; por ser
+   convexo, não precisa de múltiplos pontos de partida.
+2. **40 réplicas de n/2 não dão IC de 95%.** O percentil 2,5% de 40 valores é
+   o 2º menor, e meia amostra alarga o intervalo sem correção de escala. Agora
+   são 1.000 réplicas n-de-n (reamostragem de municípios com reposição), ~17 s.
+
+Ressalva que continua valendo: com parâmetro na borda (0 ou 1) o bootstrap
+percentil não tem garantia de cobertura (Andrews, 2000). Por isso `na_borda`.
 
 Por isso a saída nunca é um número solto. Cada candidato vem com:
 
@@ -58,7 +77,7 @@ import json
 from pathlib import Path
 
 PISO_MUNICIPIO = 300        # votos válidos no 1º turno para o município entrar
-VOLTAS_BOOTSTRAP = 40       # subamostras (half-samples com warm start): ~70 s no Pi
+VOLTAS_BOOTSTRAP = 1000     # réplicas n-de-n por município: ~17 s no caue
 LARGURA_IDENTIFICADO = 0.5  # acima disso o dado não decide
 
 
@@ -79,28 +98,20 @@ def _matrizes(dados: dict):
     return terc, muns, X, novos, f1, y
 
 
-def _ajustar(A, y, peso, k, x0=None):
-    """Mínimos quadrados com os k+2 parâmetros presos em [0, 1]."""
-    import numpy as np
-    from scipy.optimize import minimize
-    Aw = A * peso[:, None]
-    yw = y * peso
+def _ajustar(A, y, peso):
+    """Mínimos quadrados ponderados com todos os parâmetros presos em [0, 1].
 
-    def alvo(p):
-        r = Aw @ p - yw
-        return float(r @ r)
-
-    inicio = x0 if x0 is not None else np.r_[np.full(k, 0.5), 1.0, 0.0]
-    r = minimize(alvo, inicio, bounds=[(0, 1)] * (k + 2), method="L-BFGS-B",
-                 options={"maxiter": 400, "ftol": 1e-9})
-    return r.x
+    Solução exata (BVLS): o problema é convexo, então não há mínimo local.
+    """
+    from scipy.optimize import lsq_linear
+    return lsq_linear(A * peso[:, None], y * peso, bounds=(0, 1), method="bvls").x
 
 
 def calcular(base: Path) -> dict:
     """Roda o modelo e devolve estimativa + IC de cada candidato (e a troca)."""
     try:
         import numpy as np
-        from scipy.optimize import minimize  # noqa: F401
+        from scipy.optimize import lsq_linear  # noqa: F401
     except ImportError:
         return {"ok": False, "motivo": "sem numpy/scipy no ambiente"}
     dados = _dados(base)
@@ -111,14 +122,14 @@ def calcular(base: Path) -> dict:
 
     A = np.column_stack([X, novos, -f1])
     peso = np.sqrt(f1 + novos + 1)      # município grande pesa mais
-    base_est = _ajustar(A, y, peso, k)
+    base_est = _ajustar(A, y, peso)
 
-    # Bootstrap por subamostra (half-samples) com warm start: 40 voltas em ~70 s.
+    # Bootstrap n-de-n: sorteia municípios com reposição, refaz o ajuste exato.
     rng = np.random.default_rng(7)
     amostras = []
     for _ in range(VOLTAS_BOOTSTRAP):
-        idx = rng.integers(0, len(y), len(y) // 2)
-        amostras.append(_ajustar(A[idx], y[idx], peso[idx], k, base_est))
+        idx = rng.integers(0, len(y), len(y))
+        amostras.append(_ajustar(A[idx], y[idx], peso[idx]))
     am = np.array(amostras)
     if len(am) < 10:
         return {"ok": False, "motivo": "bootstrap não convergiu"}
@@ -127,7 +138,7 @@ def calcular(base: Path) -> dict:
     partidos = {c["n"]: c["p"] for c in dados.get("candidatos_1t") or []}
     candidatos = []
     for j, n in enumerate(terc):
-        lo, hi = np.percentile(am[:, j], [2.5, 97.5])
+        lo, hi = np.clip(np.percentile(am[:, j], [2.5, 97.5]), 0, 1) + 0.0  # sem "-0.0"
         largura = float(hi - lo)
         votos = float(X[:, j].sum())
         est = float(base_est[j])
@@ -153,7 +164,8 @@ def calcular(base: Path) -> dict:
     larguras = [c["largura"] for c in candidatos]
     return {
         "ok": True,
-        "metodo": "mínimos quadrados por município, com cada parâmetro preso em [0, 1]",
+        "metodo": "mínimos quadrados ponderados por município, cada parâmetro preso em [0, 1] (BVLS, solução exata)",
+        "bootstrap": {"replicas": VOLTAS_BOOTSTRAP, "tipo": "n-de-n por município, percentil 2,5–97,5"},
         "municipios": len(muns),
         "candidatos": candidatos,
         "novos_lula": round(float(base_est[k]), 4),
@@ -248,7 +260,7 @@ def cenario_inicial(dados: dict) -> dict:
 
 
 def gerar(base: Path) -> dict:
-    """Grava `transicao.json` — usado pelo Sankey. Roda na migração (~70 s)."""
+    """Grava `transicao.json` — usado pelo Sankey. Roda na migração (~20 s)."""
     r = calcular(base)
     destino = base / "transicao.json"
     tmp = destino.with_suffix(".tmp")

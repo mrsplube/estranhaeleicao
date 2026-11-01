@@ -25,7 +25,7 @@
     {"@type":"Dataset","name":"Dados do estranhaeleicao.org sobre a eleição presidencial de 2026",
      "description":"Resultados conferidos por seção, estimativas de transição de voto, biometria e a geografia da virada, calculados a partir dos arquivos abertos do TSE.",
      "url":"https://estranhaeleicao.org/dados",
-     "license":"https://opensource.org/licenses/MIT",
+     "license":"https://creativecommons.org/licenses/by/4.0/",
      "creator":{"@type":"Organization","name":"estranhaeleicao.org","url":"https://estranhaeleicao.org/"},
      "isBasedOn":{"@type":"Dataset","name":"Resultados e Boletim de Urna das Eleições 2026","url":"https://dadosabertos.tse.jus.br"}}
   ]}
@@ -55,7 +55,7 @@
             </span>
           </div>
           <p class="dados-oque">{{ d.o_que }}</p>
-          {% if d.fonte %}<p class="dados-fonte">Fonte: <a href="{{ d.fonte }}" target="_blank" rel="noopener">{{ d.fonte }}</a></p>{% endif %}
+          {% if d.fontes %}<p class="dados-fonte">Fonte: {% for f in d.fontes %}{% if f.url %}<a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.texto }}</a>{% else %}{{ f.texto }}{% endif %}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
         </li>
         {% endfor %}
       </ul>
@@ -77,7 +77,7 @@
 
     <section class="m-b m-fim" aria-labelledby="d-licenca">
       <h2 id="d-licenca">Licença e citação</h2>
-      <p>O código e as contas estão sob licença MIT: use, copie e corrija, inclusive comercialmente. Os dados do TSE são públicos; o que o site acrescenta é o recorte e a conferência.</p>
+      <p>São duas licenças. O <b>código</b> está sob <a href="https://github.com/mrsplube/estranhaeleicao/blob/main/LICENSE" target="_blank" rel="noopener">MIT</a>. Os <b>dados derivados</b> (os JSON desta página) estão sob <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" target="_blank" rel="noopener">CC BY 4.0</a>: use e redistribua, citando a fonte. Os dados brutos são do TSE e públicos; o que o site acrescenta é o recorte e a conferência.</p>
       <p>Para citar em trabalho acadêmico: <b>estranhaeleicao.org</b>, “Dados abertos: os arquivos que sustentam o site”, consultado em {{ agora }}. Cada conjunto traz a data de geração no próprio arquivo, e é ela que vale para a versão que você baixou.</p>
     </section>
   </main>

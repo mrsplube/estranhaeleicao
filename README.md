@@ -42,7 +42,8 @@ Ou com Docker: `docker compose up estranhaeleicao`.
 
 ## Licença
 
-Código sob a licença MIT (ver `LICENSE`). Dados: TSE, públicos. Fotos dos candidatos:
+Código sob a licença MIT (ver `LICENSE`). Dados derivados (os JSON publicados em
+`/dados`): CC BY 4.0. Dados brutos: TSE, públicos. Fotos dos candidatos:
 Wikimedia Commons (TSE, CC BY 4.0; Ricardo Stuckert/PR, CC BY 2.0). Ícones: Font Awesome
 Free (CC BY 4.0). Os logos dos institutos de pesquisa pertencem a eles.
 
