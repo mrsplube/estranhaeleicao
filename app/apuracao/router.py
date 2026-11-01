@@ -322,6 +322,14 @@ async def explicacao_analise(request: Request):
     return _servir(request, ARQUIVO / "analise.json")
 
 
+@router.get("/explicacao/c1.json")
+async def explicacao_c1(request: Request):
+    """Teste C1 do pré-registro (seções quase zeradas), com o multiverso (~25 KB).
+    Gerado por `tools/migracoes/2026-11-01-c1-secoes-zeradas.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "c1.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a

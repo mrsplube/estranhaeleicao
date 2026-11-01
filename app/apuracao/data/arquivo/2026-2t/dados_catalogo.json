@@ -20,7 +20,16 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 5276
+  "tamanho": 5666
+ },
+ {
+  "nome": "c1.json",
+  "url": "/apuracao/explicacao/c1.json",
+  "o_que": "Teste C1 do pré-registro: seções com o Flávio até 10 votos contra o esperado pelo 1º turno da mesma seção, com 2022 de referência e as 54 especificações do multiverso.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 12636
  },
  {
   "nome": "reconciliacao.json",

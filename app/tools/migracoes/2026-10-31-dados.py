@@ -32,6 +32,8 @@ CATALOGO = [
      "Os números de cada caso: as 106 urnas zeradas, a seção de 700 votos, a curva da apuração, a biometria e os municípios. É o insumo dos 27 casos da entrada."),
     ("analise.json", "/apuracao/explicacao/analise.json",
      "O plano dos testes estatísticos das acusações (pré-registrado em 01/11/2026) e o resultado de cada teste, conforme rodam."),
+    ("c1.json", "/apuracao/explicacao/c1.json",
+     "Teste C1 do pré-registro: seções com o Flávio até 10 votos contra o esperado pelo 1º turno da mesma seção, com 2022 de referência e as 54 especificações do multiverso."),
     ("reconciliacao.json", "/apuracao/explicacao/reconciliacao.json",
      "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento."),
     ("conta.json", "/apuracao/explicacao/conta.json",

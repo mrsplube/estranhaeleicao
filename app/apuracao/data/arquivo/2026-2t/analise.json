@@ -35,8 +35,10 @@
    "pergunta": "Há mais seções com o Flávio até 10 votos do que o 1º turno de cada seção prevê?",
    "estatistica": "Número de seções com o 22 até 10 votos, contra 10.000 simulações de um modelo beta-binomial que parte do 1º turno da mesma seção.",
    "referencia": "O mesmo número para o Lula em 2026 e para os dois lados em 2022.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Compatível com 2022. Há 3.029 seções com o Flávio até 10 votos, 2,7 vezes o que o 1º turno de cada seção prevê (p < 0,001). Mas o mesmo modelo dá 3,1 vezes para o Bolsonaro em 2022: ele subestima seções quase zeradas nos dois anos, e 2026 fica abaixo da referência. Mesma decisão em 50 de 54 especificações.",
+   "decisao": "compatível",
+   "dados": "/apuracao/explicacao/c1.json"
   },
   {
    "id": "C2",

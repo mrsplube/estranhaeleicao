@@ -234,7 +234,7 @@ entram aqui, com o resultado antes e depois.
 
 | Data | Teste | Mudança | Motivo |
 |---|---|---|---|
-| — | — | — | — |
+| 01/11/2026 | C1 | Esclarecimento de implementação, sem mudança de regra: o ρ̂ por momentos saiu **negativo** (subdispersão) em 26 das 27 UFs, porque o 1º turno da mesma seção prevê o 2º melhor que uma binomial. A beta-binomial não representa subdispersão; ρ̂ foi truncado em 10⁻⁶ (≈ binomial), o limite do espaço de parâmetros. | Registrado depois de calcular O e E e **antes** de calcular qualquer p-valor. O/E da especificação principal já visto nesse momento: 22/2026 = 2,67; 13/2026 = 1,61; 22/2022 = 3,05; 13/2022 = 1,21. |
 
 ## 10. Referências
 
