@@ -354,6 +354,14 @@ async def explicacao_c4(request: Request):
     return _servir(request, ARQUIVO / "c4.json")
 
 
+@router.get("/explicacao/c5.json")
+async def explicacao_c5(request: Request):
+    """Teste C5 do pré-registro (voto sem biometria), com o multiverso.
+    Gerado por `tools/migracoes/2026-11-01-c5-biometria.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "c5.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a

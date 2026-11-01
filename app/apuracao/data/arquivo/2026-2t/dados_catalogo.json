@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 7887
+  "tamanho": 8320
  },
  {
   "nome": "c1.json",
@@ -57,6 +57,15 @@
   "fontes": [],
   "registros": null,
   "tamanho": 3587
+ },
+ {
+  "nome": "c5.json",
+  "url": "/apuracao/explicacao/c5.json",
+  "o_que": "Teste C5 do pré-registro: taxa de eleitores sem biometria × mudança da seção do 1º para o 2º turno, dentro do município, com 2022 e o multiverso.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 3619
  },
  {
   "nome": "reconciliacao.json",

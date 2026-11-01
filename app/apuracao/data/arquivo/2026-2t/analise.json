@@ -83,8 +83,10 @@
    "pergunta": "Onde mais gente votou sem a digital reconhecida, o Lula ganhou mais do que no 1º turno?",
    "estatistica": "Regressão da mudança da seção sobre a taxa de eleitores sem biometria, com efeito fixo de município e erro agrupado por zona.",
    "referencia": "2º turno de 2022.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Compatível com 2022. Dentro do mesmo município, a cada 10 pontos a mais de eleitores sem biometria, a seção mudou 0,57 ponto percentual a menos para o Lula do 1º para o 2º turno em 2026, o contrário do que a alegação prevê. Em 2022 eram 0,31 ponto a mais. Diferença 2026 − 2022: IC de −0,93 a −0,82 ponto. Mesma decisão em 12 de 12 especificações.",
+   "decisao": "compatível",
+   "dados": "/apuracao/explicacao/c5.json"
   },
   {
    "id": "C6",
