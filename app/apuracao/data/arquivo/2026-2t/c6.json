@@ -1,0 +1,198 @@
+{
+ "gerado_em": "2026-11-01T16:53:55",
+ "preregistro": "docs/preregistro/README.md (preregistro-v1), seção 4, C6; esclarecimentos de 01/11 na seção 9",
+ "principal": {
+  "especificacao": {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "grupo": "municipio"
+  },
+  "series": {
+   "2026": {
+    "grupos": 5241,
+    "m6": 3.8075,
+    "p25": 2.2724,
+    "p75": 6.2419
+   },
+   "2022": {
+    "grupos": 5169,
+    "m6": 3.9564,
+    "p25": 2.3068,
+    "p75": 6.6214
+   }
+  },
+  "razao": 0.9624,
+  "razao_ic": [
+   0.931,
+   0.9933
+  ],
+  "p_c6": 0.018,
+  "dentro_da_faixa": true,
+  "fora_da_referencia": false
+ },
+ "decisao": "compatível",
+ "governador": {
+  "grupos": 447,
+  "m6": 2.3449
+ },
+ "multiverso": [
+  {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "grupo": "municipio",
+   "m6_2026": 3.8075,
+   "m6_2022": 3.9564,
+   "razao": 0.9624,
+   "razao_ic": [
+    0.931,
+    0.9933
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "grupo": "municipio",
+   "m6_2026": 3.8075,
+   "m6_2022": 3.9564,
+   "razao": 0.9624,
+   "razao_ic": [
+    0.931,
+    0.9933
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "grupo": "municipio",
+   "m6_2026": 3.8065,
+   "m6_2022": 3.9604,
+   "razao": 0.9611,
+   "razao_ic": [
+    0.9308,
+    0.993
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "grupo": "municipio",
+   "m6_2026": 3.8065,
+   "m6_2022": 3.9604,
+   "razao": 0.9611,
+   "razao_ic": [
+    0.9308,
+    0.993
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "grupo": "municipio",
+   "m6_2026": 3.7763,
+   "m6_2022": 3.9142,
+   "razao": 0.9648,
+   "razao_ic": [
+    0.9348,
+    0.9977
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "grupo": "municipio",
+   "m6_2026": 3.7763,
+   "m6_2022": 3.9142,
+   "razao": 0.9648,
+   "razao_ic": [
+    0.9348,
+    0.9977
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "grupo": "zona",
+   "m6_2026": 5.1517,
+   "m6_2022": 5.4465,
+   "razao": 0.9459,
+   "razao_ic": [
+    0.8978,
+    1.0023
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "grupo": "zona",
+   "m6_2026": 5.1517,
+   "m6_2022": 5.4465,
+   "razao": 0.9459,
+   "razao_ic": [
+    0.898,
+    1.0023
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "grupo": "zona",
+   "m6_2026": 5.1517,
+   "m6_2022": 5.4465,
+   "razao": 0.9459,
+   "razao_ic": [
+    0.898,
+    1.0023
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "grupo": "zona",
+   "m6_2026": 5.1517,
+   "m6_2022": 5.4465,
+   "razao": 0.9459,
+   "razao_ic": [
+    0.898,
+    1.0023
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "grupo": "zona",
+   "m6_2026": 5.1399,
+   "m6_2022": 5.4186,
+   "razao": 0.9486,
+   "razao_ic": [
+    0.9002,
+    1.0003
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "grupo": "zona",
+   "m6_2026": 5.1399,
+   "m6_2022": 5.4186,
+   "razao": 0.9486,
+   "razao_ic": [
+    0.9,
+    1.0003
+   ],
+   "fora_da_referencia": false
+  }
+ ],
+ "multiverso_mesma_decisao": "12/12",
+ "robusto": true
+}

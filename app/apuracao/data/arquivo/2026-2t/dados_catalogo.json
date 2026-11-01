@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 8320
+  "tamanho": 8809
  },
  {
   "nome": "c1.json",
@@ -66,6 +66,15 @@
   "fontes": [],
   "registros": null,
   "tamanho": 3619
+ },
+ {
+  "nome": "c6.json",
+  "url": "/apuracao/explicacao/c6.json",
+  "o_que": "Teste C6 do pré-registro: dispersão do voto entre as seções de cada município contra a binomial, 2026 × 2022, com governador 2026 e o multiverso.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 3438
  },
  {
   "nome": "reconciliacao.json",

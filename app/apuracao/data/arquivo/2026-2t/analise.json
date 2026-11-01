@@ -95,8 +95,10 @@
    "pergunta": "As seções da mesma cidade são mais parecidas, ou mais diferentes, entre si do que em 2022?",
    "estatistica": "Dispersão do voto entre seções de cada município contra a binomial, com faixa de equivalência de 0,8 a 1,25 vez a de 2022.",
    "referencia": "2º turno de 2022; governador 2026 lado a lado.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Compatível com 2022. As seções de um mesmo município variam 3,81 vezes o que uma binomial daria em 2026 (mediana de 5.241 municípios), contra 3,96 em 2022. A razão é 0,96 (IC de 0,93 a 0,99); a faixa de equivalência é de 0,8 a 1,25. O intervalo fica inteiro dentro da faixa: a dispersão de 2026 é equivalente à de 2022. No governador de 2026, nas mesmas urnas: 2,34. Mesma decisão em 12 de 12 especificações.",
+   "decisao": "compatível",
+   "dados": "/apuracao/explicacao/c6.json"
   },
   {
    "id": "P1",

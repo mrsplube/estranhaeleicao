@@ -362,6 +362,14 @@ async def explicacao_c5(request: Request):
     return _servir(request, ARQUIVO / "c5.json")
 
 
+@router.get("/explicacao/c6.json")
+async def explicacao_c6(request: Request):
+    """Teste C6 do pré-registro (dispersão entre seções do município), com o multiverso.
+    Gerado por `tools/migracoes/2026-11-01-c6-dispersao.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "c6.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a
