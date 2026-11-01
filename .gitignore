@@ -12,3 +12,5 @@ app/politicos/politicos.db
 # credencial do arquivo privado
 arquivo.env
 dados/
+p1.log
+p1-v0.log
