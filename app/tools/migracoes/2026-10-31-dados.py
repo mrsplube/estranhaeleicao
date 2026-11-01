@@ -36,6 +36,8 @@ CATALOGO = [
      "Teste C1 do pré-registro: seções com o Flávio até 10 votos contra o esperado pelo 1º turno da mesma seção, com 2022 de referência e as 54 especificações do multiverso."),
     ("c2.json", "/apuracao/explicacao/c2.json",
      "Teste C2 do pré-registro: municípios cujo 2º turno foge do previsto pelo 1º, com correção de Benjamini–Hochberg, 2022 de referência e as 24 especificações do multiverso."),
+    ("c3.json", "/apuracao/explicacao/c3.json",
+     "Teste C3 do pré-registro: o modelo de Klimek et al. (2012) para enchimento de urna e a inclinação de Myagkov et al. (2009), em 2026, 2022 e no governador de 2026, com o multiverso."),
     ("reconciliacao.json", "/apuracao/explicacao/reconciliacao.json",
      "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento."),
     ("conta.json", "/apuracao/explicacao/conta.json",

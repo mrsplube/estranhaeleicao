@@ -59,8 +59,10 @@
    "pergunta": "Há sinal de votos acrescentados onde ninguém votou?",
    "estatistica": "Modelo de mistura de Klimek et al. (2012) sobre comparecimento e voto por seção, com a inclinação de Myagkov et al. (2009) como segunda leitura.",
    "referencia": "2º turno de 2022; governador 2026 lado a lado.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Compatível com 2022. O modelo de Klimek atribui à fraude incremental 14,73% das seções em 2026 (IC 0,00% a 25,15%) e 59,62% em 2022 (IC 26,90% a 60,71%); à fraude extrema, 0,00% e 0,00%. No governador de 2026, nas mesmas urnas: 71,27% e 0,01%. A fraude extrema, que é a marca do enchimento de urna, fica perto de zero nos três. O IC de 2026 inclui zero e fica abaixo de 2022. Os valores altos de 2022 e do governador vêm do menor σx da grade, que não se distingue de ruído: o modelo usa esse componente para cobrir o que o modelo limpo, simples demais para o Brasil, não explica. Por isso a decisão é pela comparação, não pelo valor bruto. A inclinação de Myagkov fica em 0,39 (2022: 0,37), longe do 1 que o enchimento produziria. Mesma decisão em 12 de 12 especificações.",
+   "decisao": "compatível",
+   "dados": "/apuracao/explicacao/c3.json"
   },
   {
    "id": "C4",

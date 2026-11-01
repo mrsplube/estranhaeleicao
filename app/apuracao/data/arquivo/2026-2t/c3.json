@@ -1,0 +1,345 @@
+{
+ "gerado_em": "2026-11-01T14:02:01",
+ "preregistro": "docs/preregistro/README.md (preregistro-v1), seção 4, C3; detalhes de 01/11 na seção 9",
+ "principal": {
+  "especificacao": {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "bins": 100,
+   "bootstrap": 1000
+  },
+  "series": {
+   "2026": {
+    "secoes": 497897,
+    "f_i": 0.14726,
+    "f_e": 1e-05,
+    "f_i_ic": [
+     0.0,
+     0.25151
+    ],
+    "f_e_ic": [
+     0.0,
+     0.00063
+    ],
+    "sigma_x": 0.025,
+    "limpo": {
+     "t": [
+      0.8153,
+      0.0507
+     ],
+     "v": [
+      0.502,
+      0.1819
+     ]
+    },
+    "erro": 6.109654554394216e-05,
+    "inclinacao_municipio": [
+     0.3876,
+     0.0236
+    ],
+    "inclinacao_zona": [
+     0.3738,
+     0.0091
+    ]
+   },
+   "2022": {
+    "secoes": 471010,
+    "f_i": 0.59621,
+    "f_e": 1e-05,
+    "f_i_ic": [
+     0.26895,
+     0.60713
+    ],
+    "f_e_ic": [
+     0.0,
+     0.00011
+    ],
+    "sigma_x": 0.025,
+    "limpo": {
+     "t": [
+      0.8022,
+      0.0573
+     ],
+     "v": [
+      0.4902,
+      0.183
+     ]
+    },
+    "erro": 5.542360285204578e-05,
+    "inclinacao_municipio": [
+     0.3659,
+     0.0283
+    ],
+    "inclinacao_zona": [
+     0.366,
+     0.0079
+    ]
+   },
+   "governador_2026": {
+    "secoes": 39739,
+    "f_i": 0.71269,
+    "f_e": 0.00012,
+    "f_i_ic": [
+     0.51523,
+     1.0
+    ],
+    "f_e_ic": [
+     0.0,
+     0.00045
+    ],
+    "sigma_x": 0.05,
+    "inclinacao_municipio": [
+     0.6175,
+     0.0387
+    ]
+   }
+  },
+  "diferenca_2026_2022": {
+   "f_i_ic": [
+    -0.52621,
+    -0.07575
+   ],
+   "f_e_ic": [
+    -0.0001,
+    0.00061
+   ]
+  },
+  "p_c3": 0.001,
+  "ic_2026_exclui_zero": false,
+  "acima_de_2022": false,
+  "fora_da_referencia": false
+ },
+ "decisao": "compatível",
+ "multiverso": [
+  {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "bins": 100,
+   "bootstrap": 200,
+   "f_i_2026": 0.14726,
+   "f_i_2022": 0.59621,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 1e-05,
+   "dif_f_i_ic": [
+    -0.48815,
+    -0.06985
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00017
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "bins": 50,
+   "bootstrap": 200,
+   "f_i_2026": 0.0,
+   "f_i_2022": 0.30134,
+   "f_e_2026": 0.00014,
+   "f_e_2022": 3e-05,
+   "dif_f_i_ic": [
+    -0.79563,
+    -0.20737
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00107
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "bins": 100,
+   "bootstrap": 200,
+   "f_i_2026": 0.14746,
+   "f_i_2022": 0.59633,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 1e-05,
+   "dif_f_i_ic": [
+    -0.50986,
+    -0.08107
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00051
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "bins": 50,
+   "bootstrap": 200,
+   "f_i_2026": 0.0,
+   "f_i_2022": 0.30141,
+   "f_e_2026": 0.00014,
+   "f_e_2022": 3e-05,
+   "dif_f_i_ic": [
+    -0.7959,
+    -0.20745
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00107
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "bins": 100,
+   "bootstrap": 200,
+   "f_i_2026": 0.13986,
+   "f_i_2022": 0.33981,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 3e-05,
+   "dif_f_i_ic": [
+    -0.54557,
+    -0.06587
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00052
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "bins": 50,
+   "bootstrap": 200,
+   "f_i_2026": 0.0,
+   "f_i_2022": 0.5757,
+   "f_e_2026": 0.00013,
+   "f_e_2022": 2e-05,
+   "dif_f_i_ic": [
+    -0.7403,
+    -0.19207
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00107
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "bins": 100,
+   "bootstrap": 200,
+   "f_i_2026": 0.13992,
+   "f_i_2022": 0.33985,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 3e-05,
+   "dif_f_i_ic": [
+    -0.55116,
+    -0.08821
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00052
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "bins": 50,
+   "bootstrap": 200,
+   "f_i_2026": 0.0,
+   "f_i_2022": 0.57583,
+   "f_e_2026": 0.00013,
+   "f_e_2022": 2e-05,
+   "dif_f_i_ic": [
+    -0.75335,
+    -0.19214
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00107
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "bins": 100,
+   "bootstrap": 200,
+   "f_i_2026": 0.12788,
+   "f_i_2022": 0.35391,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 3e-05,
+   "dif_f_i_ic": [
+    -0.504,
+    -0.095
+   ],
+   "dif_f_e_ic": [
+    -0.0001,
+    0.00049
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "bins": 50,
+   "bootstrap": 200,
+   "f_i_2026": 0.0,
+   "f_i_2022": 0.31139,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 2e-05,
+   "dif_f_i_ic": [
+    -0.72327,
+    -0.18416
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00101
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "bins": 100,
+   "bootstrap": 200,
+   "f_i_2026": 0.12798,
+   "f_i_2022": 0.34473,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 3e-05,
+   "dif_f_i_ic": [
+    -0.50057,
+    -0.0932
+   ],
+   "dif_f_e_ic": [
+    -0.0001,
+    0.00049
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "bins": 50,
+   "bootstrap": 200,
+   "f_i_2026": 0.0,
+   "f_i_2022": 0.30113,
+   "f_e_2026": 1e-05,
+   "f_e_2022": 2e-05,
+   "dif_f_i_ic": [
+    -0.72675,
+    -0.18421
+   ],
+   "dif_f_e_ic": [
+    -0.00011,
+    0.00101
+   ],
+   "fora_da_referencia": false
+  }
+ ],
+ "multiverso_mesma_decisao": "12/12",
+ "robusto": true
+}

@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 6078
+  "tamanho": 6938
  },
  {
   "nome": "c1.json",
@@ -39,6 +39,15 @@
   "fontes": [],
   "registros": null,
   "tamanho": 11857
+ },
+ {
+  "nome": "c3.json",
+  "url": "/apuracao/explicacao/c3.json",
+  "o_que": "Teste C3 do pré-registro: o modelo de Klimek et al. (2012) para enchimento de urna e a inclinação de Myagkov et al. (2009), em 2026, 2022 e no governador de 2026, com o multiverso.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 5659
  },
  {
   "nome": "reconciliacao.json",

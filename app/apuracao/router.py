@@ -338,6 +338,14 @@ async def explicacao_c2(request: Request):
     return _servir(request, ARQUIVO / "c2.json")
 
 
+@router.get("/explicacao/c3.json")
+async def explicacao_c3(request: Request):
+    """Teste C3 do pré-registro (comparecimento × voto, Klimek e Myagkov).
+    Gerado por `tools/migracoes/2026-11-01-c3-impressao-digital.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "c3.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a
