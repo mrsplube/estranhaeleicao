@@ -78,7 +78,7 @@
             <div><dt>Contra</dt><dd>{{ t.referencia }}</dd></div>
           </dl>
           {% if t.resultado %}<div class="{{ 'm-ok' if t.decisao == 'compatível' else 'm-aviso' }}"><p>{{ t.resultado }}</p></div>{% endif %}
-          {% if t.caso or t.dados %}<p class="a-nota">{% if t.caso %}O caso na entrada: <a href="/#caso-{{ t.caso }}">ver o caso</a>.{% endif %}{% if t.dados %} Todas as contas, com as 54 especificações: <a href="{{ t.dados }}">dados</a>.{% endif %}</p>{% endif %}
+          {% if t.caso or t.dados %}<p class="a-nota">{% if t.caso %}O caso na entrada: <a href="/#caso-{{ t.caso }}">ver o caso</a>.{% endif %}{% if t.dados %} Todas as contas, com todas as especificações: <a href="{{ t.dados }}">dados</a>.{% endif %}</p>{% endif %}
         </article>
       {% endfor %}
       </div>

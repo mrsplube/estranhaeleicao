@@ -47,8 +47,10 @@
    "pergunta": "Há mais municípios que viraram além do esperado do que em 2022? E eles pendem para um lado?",
    "estatistica": "Resíduo de cada município contra o modelo do 1º turno, com correção de Benjamini–Hochberg sobre os 5.570 municípios.",
    "referencia": "O mesmo modelo no 2º turno de 2022.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Compatível com 2022. 45 de 5.571 municípios ficam fora do que o 1º turno prevê (Benjamini–Hochberg, q = 0,05), contra 59 de 5.570 em 2022. Dos de 2026, 30 pendem para o Lula e 15 para o Flávio; em 2022 eram 39 e 20. Silva Jardim, o município da alegação, fica em 2.228º de 5.571 (z = 0,63). Mesma decisão em 24 de 24 especificações.",
+   "decisao": "compatível",
+   "dados": "/apuracao/explicacao/c2.json"
   },
   {
    "id": "C3",

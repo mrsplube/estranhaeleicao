@@ -330,6 +330,14 @@ async def explicacao_c1(request: Request):
     return _servir(request, ARQUIVO / "c1.json")
 
 
+@router.get("/explicacao/c2.json")
+async def explicacao_c2(request: Request):
+    """Teste C2 do pré-registro (municípios fora do padrão), com o multiverso.
+    Gerado por `tools/migracoes/2026-11-01-c2-municipios.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "c2.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a

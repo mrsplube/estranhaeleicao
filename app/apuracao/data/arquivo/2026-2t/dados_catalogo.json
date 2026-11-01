@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 5666
+  "tamanho": 6078
  },
  {
   "nome": "c1.json",
@@ -30,6 +30,15 @@
   "fontes": [],
   "registros": null,
   "tamanho": 12636
+ },
+ {
+  "nome": "c2.json",
+  "url": "/apuracao/explicacao/c2.json",
+  "o_que": "Teste C2 do pré-registro: municípios cujo 2º turno foge do previsto pelo 1º, com correção de Benjamini–Hochberg, 2022 de referência e as 24 especificações do multiverso.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 11857
  },
  {
   "nome": "reconciliacao.json",

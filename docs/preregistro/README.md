@@ -235,6 +235,7 @@ entram aqui, com o resultado antes e depois.
 | Data | Teste | Mudança | Motivo |
 |---|---|---|---|
 | 01/11/2026 | C1 | Esclarecimento de implementação, sem mudança de regra: o ρ̂ por momentos saiu **negativo** (subdispersão) em 26 das 27 UFs, porque o 1º turno da mesma seção prevê o 2º melhor que uma binomial. A beta-binomial não representa subdispersão; ρ̂ foi truncado em 10⁻⁶ (≈ binomial), o limite do espaço de parâmetros. | Registrado depois de calcular O e E e **antes** de calcular qualquer p-valor. O/E da especificação principal já visto nesse momento: 22/2026 = 2,67; 13/2026 = 1,61; 22/2022 = 3,05; 13/2022 = 1,21. |
+| 01/11/2026 | C2 | Três esclarecimentos, escritos **antes de rodar o C2**: (1) a regra tem dois componentes; o p do C2 que entra no Benjamini–Hochberg entre testes é `min(1, 2·min(p_proporção, p_Fisher))` (Bonferroni dentro do teste). (2) O vencedor de 2022 também foi o 13, então "a favor do vencedor em 2022" = a favor do 13 em 2022. (3) Efeito fixo de município não existe com o município como unidade; no multiverso do C2 a alternativa ao efeito fixo de UF (principal) é **sem** efeito fixo. As outras variações (piso 0/50/100, com e sem RED, q = 0,05/0,10) valem como escritas. | O plano não definia um p único para um teste com regra dupla, nem a variação de efeito fixo para um teste municipal. Nenhum número do C2 foi calculado antes deste registro. |
 
 ## 10. Referências
 

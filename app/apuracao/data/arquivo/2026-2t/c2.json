@@ -1,0 +1,654 @@
+{
+ "gerado_em": "2026-11-01T13:04:50",
+ "preregistro": "docs/preregistro/README.md (preregistro-v1), seção 4, C2; esclarecimentos de 01/11 na seção 9",
+ "principal": {
+  "especificacao": {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 0,
+   "sem_red": false
+  },
+  "2026": {
+   "municipios": 5571,
+   "phi": 8.55,
+   "significativos": 45,
+   "a_favor_13": 30,
+   "a_favor_22": 15,
+   "proporcao": 0.00808
+  },
+  "2022": {
+   "municipios": 5570,
+   "phi": 11.25,
+   "significativos": 59,
+   "a_favor_13": 39,
+   "a_favor_22": 20,
+   "proporcao": 0.01059
+  },
+  "razao_proporcoes": 0.763,
+  "p_proporcao": 0.916235,
+  "d2_2026": 0.667,
+  "d2_2022": 0.661,
+  "p_fisher": 0.560358,
+  "p_c2": 1.0,
+  "fora_da_referencia": false
+ },
+ "decisao": "compatível",
+ "municipios_2026": [
+  {
+   "uf": "sp",
+   "municipio": "SÃO PAULO",
+   "z": -9.97,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "SALVADOR",
+   "z": 8.29,
+   "significativo": true
+  },
+  {
+   "uf": "rj",
+   "municipio": "RIO DE JANEIRO",
+   "z": -7.37,
+   "significativo": true
+  },
+  {
+   "uf": "al",
+   "municipio": "BELO MONTE",
+   "z": -6.25,
+   "significativo": true
+  },
+  {
+   "uf": "rj",
+   "municipio": "CAMPOS DOS GOYTACAZES",
+   "z": 6.16,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "RECIFE",
+   "z": -6.1,
+   "significativo": true
+  },
+  {
+   "uf": "rj",
+   "municipio": "NITERÓI",
+   "z": -5.88,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "CARNAUBEIRA DA PENHA",
+   "z": 5.71,
+   "significativo": true
+  },
+  {
+   "uf": "am",
+   "municipio": "BARREIRINHA",
+   "z": 5.6,
+   "significativo": true
+  },
+  {
+   "uf": "pi",
+   "municipio": "SANTO ANTÔNIO DE LISBOA",
+   "z": -5.49,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "CANDEIAS",
+   "z": 5.06,
+   "significativo": true
+  },
+  {
+   "uf": "ro",
+   "municipio": "PORTO VELHO",
+   "z": 4.88,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "PARNAMIRIM",
+   "z": 4.85,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "CAETÉS",
+   "z": 4.83,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "SÃO SEBASTIÃO DO PASSÉ",
+   "z": 4.8,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "BUÍQUE",
+   "z": 4.71,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "INAJÁ",
+   "z": 4.65,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "MONTE SANTO",
+   "z": 4.53,
+   "significativo": true
+  },
+  {
+   "uf": "rs",
+   "municipio": "FLORES DA CUNHA",
+   "z": -4.43,
+   "significativo": true
+  },
+  {
+   "uf": "go",
+   "municipio": "GOIÂNIA",
+   "z": -4.35,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "CALDEIRÃO GRANDE",
+   "z": -4.31,
+   "significativo": true
+  },
+  {
+   "uf": "sp",
+   "municipio": "SÃO BERNARDO DO CAMPO",
+   "z": -4.3,
+   "significativo": true
+  },
+  {
+   "uf": "pi",
+   "municipio": "TERESINA",
+   "z": -4.27,
+   "significativo": true
+  },
+  {
+   "uf": "ce",
+   "municipio": "CRATEÚS",
+   "z": -4.2,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "IBIMIRIM",
+   "z": 4.17,
+   "significativo": true
+  },
+  {
+   "uf": "pa",
+   "municipio": "PARAUAPEBAS",
+   "z": 4.15,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "SANTO AMARO",
+   "z": 4.09,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "BODOCÓ",
+   "z": 4.08,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "LUÍS EDUARDO MAGALHÃES",
+   "z": 3.93,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "OURICURI",
+   "z": 3.91,
+   "significativo": true
+  },
+  {
+   "uf": "ba",
+   "municipio": "SÃO FRANCISCO DO CONDE",
+   "z": 3.91,
+   "significativo": true
+  },
+  {
+   "uf": "sc",
+   "municipio": "SÃO JOSÉ",
+   "z": 3.88,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "TERRA NOVA",
+   "z": 3.88,
+   "significativo": true
+  },
+  {
+   "uf": "ce",
+   "municipio": "CRATO",
+   "z": 3.8,
+   "significativo": true
+  },
+  {
+   "uf": "ma",
+   "municipio": "SÃO JOÃO BATISTA",
+   "z": 3.8,
+   "significativo": true
+  },
+  {
+   "uf": "go",
+   "municipio": "ANÁPOLIS",
+   "z": -3.77,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "FLORESTA",
+   "z": 3.71,
+   "significativo": true
+  },
+  {
+   "uf": "sc",
+   "municipio": "PALHOÇA",
+   "z": 3.71,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "CUSTÓDIA",
+   "z": 3.7,
+   "significativo": true
+  },
+  {
+   "uf": "sc",
+   "municipio": "TIMBÓ",
+   "z": -3.67,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "SERRITA",
+   "z": 3.66,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "SERTÂNIA",
+   "z": 3.65,
+   "significativo": true
+  },
+  {
+   "uf": "ma",
+   "municipio": "SÃO LUÍS",
+   "z": -3.61,
+   "significativo": true
+  },
+  {
+   "uf": "rj",
+   "municipio": "BELFORD ROXO",
+   "z": 3.58,
+   "significativo": true
+  },
+  {
+   "uf": "pe",
+   "municipio": "MANARI",
+   "z": 3.57,
+   "significativo": true
+  }
+ ],
+ "silva_jardim": {
+  "z": 0.63,
+  "posicao": 2228,
+  "de": 5571,
+  "significativo": false
+ },
+ "multiverso": [
+  {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "sig_2026": 45,
+   "sig_2022": 59,
+   "razao": 0.763,
+   "p_prop": 0.916235,
+   "d2_2026": 0.667,
+   "d2_2022": 0.661,
+   "p_fisher": 0.560358,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "sig_2026": 45,
+   "sig_2022": 59,
+   "razao": 0.763,
+   "p_prop": 0.916235,
+   "d2_2026": 0.667,
+   "d2_2022": 0.661,
+   "p_fisher": 0.560358,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "sig_2026": 45,
+   "sig_2022": 58,
+   "razao": 0.776,
+   "p_prop": 0.901093,
+   "d2_2026": 0.667,
+   "d2_2022": 0.655,
+   "p_fisher": 0.535971,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "sig_2026": 45,
+   "sig_2022": 58,
+   "razao": 0.776,
+   "p_prop": 0.901093,
+   "d2_2026": 0.667,
+   "d2_2022": 0.655,
+   "p_fisher": 0.535971,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "sig_2026": 45,
+   "sig_2022": 56,
+   "razao": 0.803,
+   "p_prop": 0.86443,
+   "d2_2026": 0.667,
+   "d2_2022": 0.679,
+   "p_fisher": 0.633901,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.05,
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "sig_2026": 45,
+   "sig_2022": 56,
+   "razao": 0.803,
+   "p_prop": 0.86443,
+   "d2_2026": 0.667,
+   "d2_2022": 0.679,
+   "p_fisher": 0.633901,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.1,
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "sig_2026": 56,
+   "sig_2022": 78,
+   "razao": 0.718,
+   "p_prop": 0.972132,
+   "d2_2026": 0.696,
+   "d2_2022": 0.718,
+   "p_fisher": 0.679511,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.1,
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "sig_2026": 56,
+   "sig_2022": 78,
+   "razao": 0.718,
+   "p_prop": 0.972132,
+   "d2_2026": 0.696,
+   "d2_2022": 0.718,
+   "p_fisher": 0.679511,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.1,
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "sig_2026": 56,
+   "sig_2022": 79,
+   "razao": 0.709,
+   "p_prop": 0.976852,
+   "d2_2026": 0.696,
+   "d2_2022": 0.722,
+   "p_fisher": 0.695882,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.1,
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "sig_2026": 56,
+   "sig_2022": 79,
+   "razao": 0.709,
+   "p_prop": 0.976852,
+   "d2_2026": 0.696,
+   "d2_2022": 0.722,
+   "p_fisher": 0.695882,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.1,
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "sig_2026": 54,
+   "sig_2022": 75,
+   "razao": 0.72,
+   "p_prop": 0.968612,
+   "d2_2026": 0.685,
+   "d2_2022": 0.707,
+   "p_fisher": 0.676983,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "uf",
+   "q": 0.1,
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "sig_2026": 54,
+   "sig_2022": 75,
+   "razao": 0.72,
+   "p_prop": 0.968612,
+   "d2_2026": 0.685,
+   "d2_2022": 0.707,
+   "p_fisher": 0.676983,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.05,
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "sig_2026": 45,
+   "sig_2022": 35,
+   "razao": 1.285,
+   "p_prop": 0.131088,
+   "d2_2026": 0.622,
+   "d2_2022": 0.771,
+   "p_fisher": 0.953902,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.05,
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "sig_2026": 45,
+   "sig_2022": 35,
+   "razao": 1.285,
+   "p_prop": 0.131088,
+   "d2_2026": 0.622,
+   "d2_2022": 0.771,
+   "p_fisher": 0.953902,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.05,
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "sig_2026": 45,
+   "sig_2022": 35,
+   "razao": 1.285,
+   "p_prop": 0.131088,
+   "d2_2026": 0.622,
+   "d2_2022": 0.771,
+   "p_fisher": 0.953902,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.05,
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "sig_2026": 45,
+   "sig_2022": 35,
+   "razao": 1.285,
+   "p_prop": 0.131088,
+   "d2_2026": 0.622,
+   "d2_2022": 0.771,
+   "p_fisher": 0.953902,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.05,
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "sig_2026": 45,
+   "sig_2022": 36,
+   "razao": 1.25,
+   "p_prop": 0.157968,
+   "d2_2026": 0.622,
+   "d2_2022": 0.778,
+   "p_fisher": 0.960958,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.05,
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "sig_2026": 45,
+   "sig_2022": 36,
+   "razao": 1.25,
+   "p_prop": 0.157968,
+   "d2_2026": 0.622,
+   "d2_2022": 0.778,
+   "p_fisher": 0.960958,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.1,
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "sig_2026": 61,
+   "sig_2022": 61,
+   "razao": 1.0,
+   "p_prop": 0.500398,
+   "d2_2026": 0.623,
+   "d2_2022": 0.754,
+   "p_fisher": 0.961105,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.1,
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "sig_2026": 61,
+   "sig_2022": 61,
+   "razao": 1.0,
+   "p_prop": 0.500398,
+   "d2_2026": 0.623,
+   "d2_2022": 0.754,
+   "p_fisher": 0.961105,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.1,
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "sig_2026": 61,
+   "sig_2022": 61,
+   "razao": 1.0,
+   "p_prop": 0.500398,
+   "d2_2026": 0.623,
+   "d2_2022": 0.754,
+   "p_fisher": 0.961105,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.1,
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "sig_2026": 61,
+   "sig_2022": 61,
+   "razao": 1.0,
+   "p_prop": 0.500398,
+   "d2_2026": 0.623,
+   "d2_2022": 0.754,
+   "p_fisher": 0.961105,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.1,
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "sig_2026": 61,
+   "sig_2022": 61,
+   "razao": 1.0,
+   "p_prop": 0.500398,
+   "d2_2026": 0.623,
+   "d2_2022": 0.754,
+   "p_fisher": 0.961105,
+   "fora_da_referencia": false
+  },
+  {
+   "efeito_fixo": "nenhum",
+   "q": 0.1,
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "sig_2026": 61,
+   "sig_2022": 61,
+   "razao": 1.0,
+   "p_prop": 0.500398,
+   "d2_2026": 0.623,
+   "d2_2022": 0.754,
+   "p_fisher": 0.961105,
+   "fora_da_referencia": false
+  }
+ ],
+ "multiverso_mesma_decisao": "24/24",
+ "robusto": true
+}

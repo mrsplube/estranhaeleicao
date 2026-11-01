@@ -34,6 +34,8 @@ CATALOGO = [
      "O plano dos testes estatísticos das acusações (pré-registrado em 01/11/2026) e o resultado de cada teste, conforme rodam."),
     ("c1.json", "/apuracao/explicacao/c1.json",
      "Teste C1 do pré-registro: seções com o Flávio até 10 votos contra o esperado pelo 1º turno da mesma seção, com 2022 de referência e as 54 especificações do multiverso."),
+    ("c2.json", "/apuracao/explicacao/c2.json",
+     "Teste C2 do pré-registro: municípios cujo 2º turno foge do previsto pelo 1º, com correção de Benjamini–Hochberg, 2022 de referência e as 24 especificações do multiverso."),
     ("reconciliacao.json", "/apuracao/explicacao/reconciliacao.json",
      "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento."),
     ("conta.json", "/apuracao/explicacao/conta.json",
