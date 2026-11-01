@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 6938
+  "tamanho": 7887
  },
  {
   "nome": "c1.json",
@@ -48,6 +48,15 @@
   "fontes": [],
   "registros": null,
   "tamanho": 5659
+ },
+ {
+  "nome": "c4.json",
+  "url": "/apuracao/explicacao/c4.json",
+  "o_que": "Teste C4 do pré-registro: hora de chegada do boletim × mudança da seção do 1º para o 2º turno, dentro do município, contra 2.000 permutações, com 2022, governador 2026 e o multiverso.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 3587
  },
  {
   "nome": "reconciliacao.json",

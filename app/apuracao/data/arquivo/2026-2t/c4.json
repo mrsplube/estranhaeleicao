@@ -1,0 +1,203 @@
+{
+ "gerado_em": "2026-11-01T14:46:11",
+ "preregistro": "docs/preregistro/README.md (preregistro-v1), seção 4, C4; esclarecimentos de 01/11 na seção 9",
+ "principal": {
+  "especificacao": {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "grupo": "municipio"
+  },
+  "series": {
+   "2026": {
+    "secoes": 497897,
+    "grupos": 5241,
+    "r4": 0.001,
+    "nulo_p2_5": -0.0027,
+    "nulo_p97_5": 0.0028,
+    "p": 0.26637
+   },
+   "2022": {
+    "secoes": 471010,
+    "grupos": 5169,
+    "r4": -0.0435,
+    "nulo_p2_5": -0.003,
+    "nulo_p97_5": 0.0029,
+    "p": 1.0
+   }
+  },
+  "diferenca_ic": [
+   0.0318,
+   0.0576
+  ],
+  "p_c4": 0.26637,
+  "acima_de_2022": true,
+  "fora_da_referencia": false
+ },
+ "decisao": "compatível",
+ "governador": {
+  "secoes": 39739,
+  "municipios": 447,
+  "r4": 0.0286,
+  "p": 0.0005
+ },
+ "multiverso": [
+  {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "grupo": "municipio",
+   "r4_2026": 0.001,
+   "r4_2022": -0.0435,
+   "p": 0.26637,
+   "diferenca_ic": [
+    0.0318,
+    0.0576
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "grupo": "municipio",
+   "r4_2026": 0.001,
+   "r4_2022": -0.0435,
+   "p": 0.25687,
+   "diferenca_ic": [
+    0.0318,
+    0.0576
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "grupo": "municipio",
+   "r4_2026": 0.001,
+   "r4_2022": -0.0437,
+   "p": 0.22089,
+   "diferenca_ic": [
+    0.0307,
+    0.0584
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "grupo": "municipio",
+   "r4_2026": 0.001,
+   "r4_2022": -0.0437,
+   "p": 0.24338,
+   "diferenca_ic": [
+    0.0308,
+    0.0584
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "grupo": "municipio",
+   "r4_2026": 0.0015,
+   "r4_2022": -0.044,
+   "p": 0.14893,
+   "diferenca_ic": [
+    0.0321,
+    0.0592
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "grupo": "municipio",
+   "r4_2026": 0.0015,
+   "r4_2022": -0.0441,
+   "p": 0.15892,
+   "diferenca_ic": [
+    0.0321,
+    0.0592
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": false,
+   "grupo": "zona",
+   "r4_2026": 0.0023,
+   "r4_2022": -0.042,
+   "p": 0.05147,
+   "diferenca_ic": [
+    0.0362,
+    0.0519
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 0,
+   "sem_red": true,
+   "grupo": "zona",
+   "r4_2026": 0.0023,
+   "r4_2022": -0.042,
+   "p": 0.05797,
+   "diferenca_ic": [
+    0.0362,
+    0.0519
+   ],
+   "fora_da_referencia": false
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": false,
+   "grupo": "zona",
+   "r4_2026": 0.0024,
+   "r4_2022": -0.0422,
+   "p": 0.04648,
+   "diferenca_ic": [
+    0.0365,
+    0.0523
+   ],
+   "fora_da_referencia": true
+  },
+  {
+   "piso_comparecimento": 50,
+   "sem_red": true,
+   "grupo": "zona",
+   "r4_2026": 0.0024,
+   "r4_2022": -0.0422,
+   "p": 0.04548,
+   "diferenca_ic": [
+    0.0365,
+    0.0522
+   ],
+   "fora_da_referencia": true
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": false,
+   "grupo": "zona",
+   "r4_2026": 0.0029,
+   "r4_2022": -0.0424,
+   "p": 0.02549,
+   "diferenca_ic": [
+    0.0374,
+    0.0531
+   ],
+   "fora_da_referencia": true
+  },
+  {
+   "piso_comparecimento": 100,
+   "sem_red": true,
+   "grupo": "zona",
+   "r4_2026": 0.0029,
+   "r4_2022": -0.0424,
+   "p": 0.02499,
+   "diferenca_ic": [
+    0.0373,
+    0.053
+   ],
+   "fora_da_referencia": true
+  }
+ ],
+ "multiverso_mesma_decisao": "8/12",
+ "robusto": false
+}

@@ -71,8 +71,10 @@
    "pergunta": "Dentro da mesma cidade, os boletins que chegaram tarde mudaram mais para o Lula do que os que chegaram cedo?",
    "estatistica": "Correlação entre a hora de recebimento do boletim e a mudança da seção do 1º para o 2º turno, contra 2.000 permutações da hora dentro do município.",
    "referencia": "2º turno de 2022; governador 2026 lado a lado.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Depende da especificação. Dentro do mesmo município, a correlação entre a hora em que o boletim chegou e a mudança da seção do 1º para o 2º turno é 0,001 em 2026 (p = 0,27), contra −0,043 em 2022. Na especificação principal não há nada. Mas em 4 de 12 especificações (zona no lugar do município, com piso de comparecimento) a correlação sobe para 0,002 a 0,003, fica abaixo de p = 0,05 e acima de 2022. Pela regra pré-registrada, resultado que muda em mais de 20% das especificações não autoriza conclusão, nem para um lado nem para o outro. O tamanho é mínimo nos dois casos: uma correlação de 0,003 quer dizer que a hora de chegada não explica quase nada da mudança. No governador de 2026, nas mesmas urnas e sem acusação, a mesma correlação é 0,029 (p = 0,0005), maior que a do presidente. Mesma decisão da principal em 8 de 12 especificações.",
+   "decisao": "frágil",
+   "dados": "/apuracao/explicacao/c4.json"
   },
   {
    "id": "C5",
