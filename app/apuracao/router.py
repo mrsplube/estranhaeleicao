@@ -314,6 +314,14 @@ async def explicacao_casos_videos(request: Request):
     return _servir(request, ARQUIVO / "casos_videos.json")
 
 
+@router.get("/explicacao/analise.json")
+async def explicacao_analise(request: Request):
+    """O plano dos testes estatísticos e o resultado de cada um (~8 KB).
+    Pré-registro em `docs/preregistro/`; cada teste grava o seu resultado aqui."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "analise.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a

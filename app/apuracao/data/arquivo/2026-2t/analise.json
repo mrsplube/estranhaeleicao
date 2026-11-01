@@ -1,0 +1,109 @@
+{
+ "atualizado_em": "2026-11-01",
+ "preregistro": {
+  "versao": 1,
+  "data": "2026-11-01",
+  "tag": "preregistro-v1",
+  "url": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/README.md",
+  "insumos": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/insumos.sha256"
+ },
+ "feito": [
+  {
+   "id": "R0",
+   "titulo": "Reconciliação de 100% das seções",
+   "pergunta": "O que cada urna registrou no boletim é o que entrou no total oficial?",
+   "resultado": "Sim, em 499.205 de 499.205 seções. Boletim de Urna, votação por seção e detalhe dão o mesmo número para Lula, Flávio, brancos e nulos, e a soma é igual ao total oficial. Os 28 hashes SHA-512 conferem.",
+   "numero": "0 divergências",
+   "detalhe": "Limite superior de 95%: 6 seções divergentes por milhão (Clopper-Pearson). Compara o TSE com o TSE: não diz se o boletim registra o voto digitado.",
+   "dados": "/apuracao/explicacao/reconciliacao.json"
+  },
+  {
+   "id": "R1",
+   "titulo": "Transição de votos da terceira via, recalculada",
+   "pergunta": "Dá para saber para onde foi o voto de cada candidato da terceira via?",
+   "resultado": "Para 2 de 10 candidatos (Cury e Caiado). Para os outros o intervalo de 95% é largo demais. A troca direta do Flávio para o Lula fica entre 0% e 1,4%.",
+   "numero": "2 de 10",
+   "detalhe": "Ajuste exato (BVLS) e 1.000 reamostragens de municípios. Até 31/10 o site mostrava 0,78 de largura média e 6 de 10 intervalos inúteis, por um otimizador que parava antes do mínimo.",
+   "dados": "/apuracao/explicacao/conta.json"
+  }
+ ],
+ "testes": [
+  {
+   "id": "C1",
+   "caso": "secoes-10",
+   "titulo": "Seções quase zeradas para o Flávio",
+   "pergunta": "Há mais seções com o Flávio até 10 votos do que o 1º turno de cada seção prevê?",
+   "estatistica": "Número de seções com o 22 até 10 votos, contra 10.000 simulações de um modelo beta-binomial que parte do 1º turno da mesma seção.",
+   "referencia": "O mesmo número para o Lula em 2026 e para os dois lados em 2022.",
+   "status": "registrado",
+   "resultado": null
+  },
+  {
+   "id": "C2",
+   "caso": "silva-jardim",
+   "titulo": "Municípios fora do padrão",
+   "pergunta": "Há mais municípios que viraram além do esperado do que em 2022? E eles pendem para um lado?",
+   "estatistica": "Resíduo de cada município contra o modelo do 1º turno, com correção de Benjamini–Hochberg sobre os 5.570 municípios.",
+   "referencia": "O mesmo modelo no 2º turno de 2022.",
+   "status": "registrado",
+   "resultado": null
+  },
+  {
+   "id": "C3",
+   "caso": null,
+   "titulo": "Comparecimento × voto (enchimento de urna)",
+   "pergunta": "Há sinal de votos acrescentados onde ninguém votou?",
+   "estatistica": "Modelo de mistura de Klimek et al. (2012) sobre comparecimento e voto por seção, com a inclinação de Myagkov et al. (2009) como segunda leitura.",
+   "referencia": "2º turno de 2022; governador 2026 lado a lado.",
+   "status": "registrado",
+   "resultado": null
+  },
+  {
+   "id": "C4",
+   "caso": "curva",
+   "titulo": "Ordem de chegada dos boletins",
+   "pergunta": "Dentro da mesma cidade, os boletins que chegaram tarde mudaram mais para o Lula do que os que chegaram cedo?",
+   "estatistica": "Correlação entre a hora de recebimento do boletim e a mudança da seção do 1º para o 2º turno, contra 2.000 permutações da hora dentro do município.",
+   "referencia": "2º turno de 2022; governador 2026 lado a lado.",
+   "status": "registrado",
+   "resultado": null
+  },
+  {
+   "id": "C5",
+   "caso": "biometria",
+   "titulo": "Voto sem biometria",
+   "pergunta": "Onde mais gente votou sem a digital reconhecida, o Lula ganhou mais do que no 1º turno?",
+   "estatistica": "Regressão da mudança da seção sobre a taxa de eleitores sem biometria, com efeito fixo de município e erro agrupado por zona.",
+   "referencia": "2º turno de 2022.",
+   "status": "registrado",
+   "resultado": null
+  },
+  {
+   "id": "C6",
+   "caso": null,
+   "titulo": "Seções do mesmo município",
+   "pergunta": "As seções da mesma cidade são mais parecidas, ou mais diferentes, entre si do que em 2022?",
+   "estatistica": "Dispersão do voto entre seções de cada município contra a binomial, com faixa de equivalência de 0,8 a 1,25 vez a de 2022.",
+   "referencia": "2º turno de 2022; governador 2026 lado a lado.",
+   "status": "registrado",
+   "resultado": null
+  },
+  {
+   "id": "P1",
+   "caso": null,
+   "titulo": "Poder: que fraude estes testes pegariam",
+   "pergunta": "Se houvesse fraude de um dado tamanho e formato, os seis testes acima a encontrariam?",
+   "estatistica": "Fraude plantada nos dados (enchimento e troca, concentrada e difusa, de 0,1% a 3,57% dos votos), 200 réplicas por cenário.",
+   "referencia": "Os dados de 2022 e de 2026.",
+   "status": "registrado",
+   "resultado": null
+  }
+ ],
+ "exploratorio": [
+  "Testes de dígitos (Benford e último dígito), que a literatura mostra não separarem fraude de eleição limpa",
+  "eforensics (Mebane), com a sensibilidade a votos perdidos",
+  "Picos em percentuais redondos (Rozenas, 2017)",
+  "Erro das pesquisas contra a série histórica brasileira",
+  "Curva nacional da apuração na ordem real de chegada dos boletins"
+ ]
+}

@@ -59,3 +59,23 @@
 .tema-caso b { color: var(--texto); }
 .tema-ver { color: var(--texto) !important; }
 @media (max-width: 480px) { .tema-caso { padding: 14px; } .tema-caso h3 { font-size: 17px; } }
+
+/* ── análise estatística (/analise) ────────────────────────────────────── */
+.a-lista { display: grid; gap: 12px; }
+.a-item { padding: 14px 16px; border-radius: 12px; background: var(--cartao-2); border: 1px solid var(--linha); }
+.a-feito { border-color: color-mix(in srgb, var(--ok) 40%, var(--linha)); }
+.a-cab { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 6px; }
+.a-cab h3 { margin: 0 !important; flex: 1 1 200px; font: 700 17px/1.3 var(--titulo); color: var(--texto); }
+.a-id { font: 700 12px ui-monospace, "SF Mono", Menlo, monospace; color: var(--destaque); letter-spacing: .06em; }
+.a-num { font: 700 14px var(--titulo); color: var(--ok); white-space: nowrap; }
+.a-st { padding: 2px 9px; border-radius: 99px; font: 700 11px var(--titulo); letter-spacing: .05em; text-transform: uppercase; color: var(--texto-3); border: 1px solid var(--linha); white-space: nowrap; }
+.a-st-feito { color: var(--texto); border-color: color-mix(in srgb, var(--ok) 55%, transparent); background: color-mix(in srgb, var(--ok) 15%, transparent); }
+.a-st-rodando { color: var(--texto); border-color: color-mix(in srgb, var(--parcial) 55%, transparent); }
+.m-b .a-perg { margin-bottom: 8px; color: var(--texto); font-weight: 600; font-size: 15px; }
+.a-dl { display: grid; gap: 6px; margin: 0 0 8px; }
+.a-dl > div { display: grid; grid-template-columns: 64px 1fr; gap: 8px; }
+.a-dl dt { font: 700 11.5px var(--titulo); letter-spacing: .06em; text-transform: uppercase; color: var(--texto-3); padding-top: 3px; }
+.a-dl dd { margin: 0; font-size: 14px; color: var(--texto-2); line-height: 1.55; }
+.m-b .a-nota { font-size: 13px; color: var(--texto-3); }
+.a-item .m-ok { margin: 4px 0 8px; }
+@media (max-width: 640px) { .a-dl > div { grid-template-columns: 1fr; gap: 2px; } }

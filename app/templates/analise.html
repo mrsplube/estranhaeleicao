@@ -1,0 +1,107 @@
+{% extends "site.html" %}
+{# /analise — os testes estatísticos das acusações numéricas (01/11/2026).
+
+   Existe porque o /metodo dizia "não há teste formal de hipótese", e é isso
+   que um leitor de estatística cobra primeiro. Os testes foram registrados
+   antes de rodar (docs/preregistro/README.md, tag preregistro-v1); esta
+   página mostra o plano e vai recebendo o resultado de cada um.
+
+   Tudo sai de `analise.json`: quando um teste rodar, o script dele grava
+   `status: "feito"` e o `resultado`, e a página muda sem mexer no template. #}
+{% set pagina = "analise" %}
+{% block title %}Análise estatística: os testes das acusações · estranhaeleicao.org{% endblock %}
+{% set descricao = "Os testes estatísticos das acusações numéricas de fraude em 2026, registrados antes de rodar: o que cada um mede, contra que referência e o que já tem resultado." %}
+{% set og_titulo = "Análise estatística: os testes registrados antes de rodar" %}
+{% set og_imagem = "https://estranhaeleicao.org/static/og/sobre.png" %}
+{% set og_imagem_alt = "Análise estatística do estranhaeleicao.org: testes pré-registrados das acusações de fraude." %}
+{% block breadcrumb %}
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Início","item":"https://estranhaeleicao.org/"},
+    {"@type":"ListItem","position":2,"name":"Análise estatística","item":"https://estranhaeleicao.org/analise"}]}
+  </script>
+{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static/metodo.css?v={{ static_v }}">{% endblock %}
+{% block content %}
+  <header class="hero hero-curto">
+    <p class="hero-tag">análise estatística</p>
+    <h1>Os testes foram escritos <br><span>antes de rodar.</span></h1>
+    <p class="hero-sub">Cada acusação numérica vira um teste com regra fixa: o que medir, contra o quê e a partir de que número o resultado conta como fora do normal. A regra foi publicada antes do resultado.</p>
+  </header>
+
+  <main class="secao metodo">
+  {% set a = analise %}
+  {% if a %}
+    <section class="m-b" aria-labelledby="a-plano">
+      <p class="m-num">01</p>
+      <h2 id="a-plano">O plano</h2>
+      <p>Com uma eleição só, nenhum teste responde "houve fraude?". O que dá para responder é outra coisa: <b>o padrão de 2026 é raro, comparado com o 2º turno de 2022?</b> E, se houvesse fraude de um certo tamanho, <b>estes testes a encontrariam?</b></p>
+      <p>As duas respostas valem só porque a regra foi fixada antes. Com 499 mil seções, sempre aparece alguma coisa estranha por acaso. Quem escolhe o teste depois de ver o dado consegue mostrar o que quiser.</p>
+      <ul>
+        <li><b>Referência:</b> o 2º turno de 2022, mesmo sistema e mesmo desenho. O governador de 2026 (mesmas urnas, mesmo dia) aparece ao lado.</li>
+        <li><b>"Fora do normal" exige duas coisas:</b> significância depois da correção para seis testes (Benjamini–Hochberg) e afastamento de 2022 na direção alegada.</li>
+        <li><b>Todas as variações são publicadas</b>, não só a melhor.</li>
+        <li><b>Mudanças no plano</b> ficam registradas, com data e motivo.</li>
+      </ul>
+      <p>O pré-registro completo, com as fórmulas, está no <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">repositório</a>, com o SHA-256 de cada <a href="{{ a.preregistro.insumos }}" target="_blank" rel="noopener">arquivo de entrada</a>. Versão {{ a.preregistro.versao }}, de {{ a.preregistro.data[8:10] }}/{{ a.preregistro.data[5:7] }}/{{ a.preregistro.data[:4] }} (tag <code>{{ a.preregistro.tag }}</code>).</p>
+    </section>
+
+    <section class="m-b" aria-labelledby="a-feito">
+      <p class="m-num">02</p>
+      <h2 id="a-feito">Já feito</h2>
+      <div class="a-lista">
+      {% for f in a.feito %}
+        <article class="a-item a-feito">
+          <div class="a-cab"><span class="a-id">{{ f.id }}</span><h3>{{ f.titulo }}</h3><span class="a-num">{{ f.numero }}</span></div>
+          <p class="a-perg">{{ f.pergunta }}</p>
+          <p>{{ f.resultado }}</p>
+          <p class="a-nota">{{ f.detalhe }} <a href="{{ f.dados }}">Dados</a>.</p>
+        </article>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="m-b" aria-labelledby="a-testes">
+      <p class="m-num">03</p>
+      <h2 id="a-testes">Os testes registrados</h2>
+      <p>Cada um sai de uma acusação que circulou. O resultado aparece aqui quando o teste roda, qualquer que seja.</p>
+      <div class="a-lista">
+      {% for t in a.testes %}
+        <article class="a-item" id="teste-{{ t.id | lower }}">
+          <div class="a-cab">
+            <span class="a-id">{{ t.id }}</span><h3>{{ t.titulo }}</h3>
+            {% if t.status == "feito" %}<span class="a-st a-st-feito">resultado</span>{% elif t.status == "rodando" %}<span class="a-st a-st-rodando">rodando</span>{% else %}<span class="a-st">registrado</span>{% endif %}
+          </div>
+          <p class="a-perg">{{ t.pergunta }}</p>
+          <dl class="a-dl">
+            <div><dt>Mede</dt><dd>{{ t.estatistica }}</dd></div>
+            <div><dt>Contra</dt><dd>{{ t.referencia }}</dd></div>
+          </dl>
+          {% if t.resultado %}<div class="m-ok"><p>{{ t.resultado }}</p></div>{% endif %}
+          {% if t.caso %}<p class="a-nota">O caso na entrada: <a href="/#caso-{{ t.caso }}">ver o caso</a>.</p>{% endif %}
+        </article>
+      {% endfor %}
+      </div>
+    </section>
+
+    <section class="m-b" aria-labelledby="a-limite">
+      <p class="m-num">04</p>
+      <h2 id="a-limite">O que nenhum destes testes enxerga</h2>
+      <p>Uma troca pequena e igual em todas as urnas, por exemplo 2% dos votos do Flávio virando Lula em todas as seções, não deixa marca na distribuição. Ela é idêntica a uma mudança real de opinião. <b>Só o voto conferido pelo eleitor pega esse tipo de fraude</b>, e o Brasil não tem voto impresso.</p>
+      <p>Por isso o teste P1 existe. Ele planta fraudes de vários tamanhos e formatos nos dados e mede quais os testes encontram. A conclusão vai dizer quais fraudes estão descartadas e quais estes dados não alcançam.</p>
+    </section>
+
+    <section class="m-b m-fim" aria-labelledby="a-expl">
+      <p class="m-num">05</p>
+      <h2 id="a-expl">Também vai sair, sem valor de prova</h2>
+      <ul>
+      {% for e in a.exploratorio %}<li>{{ e }}.</li>{% endfor %}
+      </ul>
+      <p>Estes entram como descrição, sem regra de decisão. A explicação de por que cada um não decide nada está no pré-registro.</p>
+      <p class="a-nota">Atualizado em {{ a.atualizado_em[8:10] }}/{{ a.atualizado_em[5:7] }}/{{ a.atualizado_em[:4] }}. O método geral e os limites do site estão em <a href="/metodo">método e limites</a>.</p>
+    </section>
+  {% else %}
+    <section class="m-b"><p>O plano dos testes está sendo publicado. Enquanto isso, ele está no <a href="https://github.com/mrsplube/estranhaeleicao/tree/main/docs/preregistro" target="_blank" rel="noopener">repositório</a>.</p></section>
+  {% endif %}
+  </main>
+{% endblock %}

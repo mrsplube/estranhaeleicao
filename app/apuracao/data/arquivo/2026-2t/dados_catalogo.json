@@ -14,6 +14,15 @@
   "tamanho": 43213
  },
  {
+  "nome": "analise.json",
+  "url": "/apuracao/explicacao/analise.json",
+  "o_que": "O plano dos testes estatísticos das acusações (pré-registrado em 01/11/2026) e o resultado de cada teste, conforme rodam.",
+  "gerado_em": "",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 5276
+ },
+ {
   "nome": "reconciliacao.json",
   "url": "/apuracao/explicacao/reconciliacao.json",
   "o_que": "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento.",

@@ -155,7 +155,7 @@ if MODO == "completo":
     app.include_router(resultados.router)
 
 # O que o modo público serve: a página do 2º turno e os dados que ela pede.
-PUBLICO = ("/", "/sobre", "/metodo", "/dados", "/fraude-nas-urnas", "/biometria",
+PUBLICO = ("/", "/sobre", "/metodo", "/analise", "/dados", "/fraude-nas-urnas", "/biometria",
            "/virada-do-2-turno", "/prorrogacao", "/mesario", "/campanha-e-governo", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/apuracao", "/apuracao/cenarios", "/apuracao/detalhe", "/robots.txt", "/sitemap.xml", "/saude", "/favicon.ico", "/v")
 PUBLICO_PREFIXOS = ("/apuracao/explicacao/", "/static/")
 
@@ -242,7 +242,7 @@ async def porta(request: Request, call_next):
     return resposta
 
 
-PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre", "/metodo", "/dados"}
+PAGINAS = {"/", "/simulacao", "/simulacao/cenarios", "/simulacao/detalhe", "/sobre", "/metodo", "/analise", "/dados"}
 
 
 def _nao_encontrado(request: Request) -> Response:
@@ -301,6 +301,22 @@ async def metodo(request: Request):
     return templates.TemplateResponse(request, "metodo.html")
 
 
+def _analise() -> dict | None:
+    """O plano e os resultados do /analise. Lido a cada visita (são ~8 KB):
+    quando um teste roda, o script grava o resultado e a página muda sem restart."""
+    try:
+        return json.loads((DATASET / "analise.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+@app.get("/analise", include_in_schema=False)
+async def analise(request: Request):
+    # Análise estatística (01/11/2026): os testes das acusações numéricas,
+    # registrados antes de rodar (docs/preregistro/), e o resultado de cada um.
+    return templates.TemplateResponse(request, "analise.html", {"analise": _analise()})
+
+
 @app.get("/dados", include_in_schema=False)
 async def dados(request: Request):
     # Dados abertos (31/10/2026): o catálogo dos JSON que sustentam cada caso.
@@ -354,6 +370,7 @@ SITEMAP = {
     "/simulacao/detalhe": (("base.html", "apuracao.html"), ("conta.json", "acusacoes.json")),
     "/sobre": (("site.html", "sobre.html"), ()),
     "/metodo": (("site.html", "metodo.html"), ()),
+    "/analise": (("site.html", "analise.html"), ("analise.json",)),
     "/dados": (("site.html", "dados.html"), ("dados_catalogo.json",)),
     # Temas (31/10/2026): entram no sitemap de propósito mesmo sem link
     # interno — é por aqui que o Google descobre as páginas órfãs.
