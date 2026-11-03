@@ -340,5 +340,6 @@
    "E o que nenhum teste estatístico vê: uma troca pequena e igual em todas as urnas, que é idêntica a uma mudança real de opinião. Essa só se exclui conferindo o voto com o eleitor, e o Brasil não tem voto impresso.",
    "Isto não prova que não houve fraude. Mostra que, nos formatos que deixam rastro, uma fraude capaz de mudar o resultado está descartada ao nível de 5%. O formato que não deixa rastro continua fora do alcance de qualquer análise de dados."
   ]
- }
+ },
+ "relatorio": "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf"
 }

@@ -37,6 +37,7 @@
       <p class="m-num">conclusão</p>
       <h2 id="a-concl">{{ a.conclusao.titulo }}</h2>
       {% for p in a.conclusao.paragrafos %}<p>{{ p }}</p>{% endfor %}
+      {% if a.relatorio %}<p><b>Relatório técnico em PDF</b>, com o método, as tabelas e as referências: <a href="{{ a.relatorio }}">baixar</a>.</p>{% endif %}
       <p class="a-nota">Cada teste, com as contas, está abaixo. As mudanças no plano depois do registro, com data e motivo, estão na seção 9 do <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">pré-registro</a>.</p>
     </section>
     {% endif %}
