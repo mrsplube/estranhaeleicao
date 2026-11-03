@@ -167,8 +167,8 @@ do registro no OSF, que só ele pode fazer.
 |---|---|---|
 | Parecer v1, adendo v2, tag `preregistro-v2` | feito | `dd4f720` (público) |
 | Downloads da classe + hashes | feito | `e8355ed` (público) |
-| 1. Tabela padrão por disputa | em andamento | |
-| 2. Governador | — | |
+| 1. Tabela padrão por disputa | feito (presidente 2010–2026) | aceite: pres-2022 e pres-2026 batem com secoes_*.pkl, diferença 0 em todas as colunas; hora só 2018+, biometria só 2022/2026 (2014/2018 pelo BU: pendente) |
+| 2. Governador | em andamento | |
 | 3. Testes generalizados | — | |
 | 4. Calibração | — | |
 | 5. Testes em todas as disputas | — | |

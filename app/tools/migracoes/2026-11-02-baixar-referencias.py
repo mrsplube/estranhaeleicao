@@ -9,7 +9,8 @@ calcula o hash: grava em `apuracao/cache/ref/` e acrescenta cada arquivo a
 
 Arquivos: votação por seção (BR) e detalhe da votação por seção de 2010, 2014,
 2018 e 2022 (o detalhe de 2022 dá os aptos por seção do mesmo jeito que nos
-outros anos) e o Boletim de Urna do 2º turno de 2014 e 2018.
+outros anos), o Boletim de Urna do 2º turno de 2014 e 2018 e a votação por
+seção por UF das disputas de governador em 2º turno (lista em GOVERNADOR).
 """
 from __future__ import annotations
 
@@ -27,6 +28,16 @@ API = "https://dadosabertos.tse.jus.br/api/3/action/package_show?id=resultados-{
 UA = {"User-Agent": "estranhaeleicao/1.0"}
 
 
+# Disputas de governador em 2º turno com ≥ 2.000 seções (v2.md, seção 2), tiradas do
+# detalhe da votação por seção (cargo 3, turno 2) em 03/11/2026.
+GOVERNADOR = {
+    2010: ("AL", "DF", "GO", "PA", "PB", "PI", "RO"),
+    2014: ("AM", "CE", "DF", "GO", "MS", "PA", "PB", "RJ", "RN", "RO", "RS"),
+    2018: ("AM", "DF", "MG", "MS", "PA", "RJ", "RN", "RO", "RS", "SC", "SE", "SP"),
+    2022: ("AL", "AM", "BA", "ES", "MS", "PB", "PE", "RO", "RS", "SC", "SE", "SP"),
+}
+
+
 def _lista() -> list[tuple[str, str]]:
     """(caminho relativo em ref/, url)."""
     saida = []
@@ -34,6 +45,9 @@ def _lista() -> list[tuple[str, str]]:
         saida.append((f"{ano}/votacao_secao_{ano}_BR.zip", f"{CDN}/votacao_secao/votacao_secao_{ano}_BR.zip"))
     for ano in (2010, 2014, 2018, 2022):
         saida.append((f"{ano}/detalhe_votacao_secao_{ano}.zip", f"{CDN}/detalhe_votacao_secao/detalhe_votacao_secao_{ano}.zip"))
+    for ano, ufs in GOVERNADOR.items():
+        for uf in ufs:
+            saida.append((f"{ano}/uf/votacao_secao_{ano}_{uf}.zip", f"{CDN}/votacao_secao/votacao_secao_{ano}_{uf}.zip"))
     for ano in (2014, 2018):
         pacote = json.load(urllib.request.urlopen(urllib.request.Request(API.format(ano=ano), headers=UA), timeout=60))
         for r in pacote["result"]["resources"]:
