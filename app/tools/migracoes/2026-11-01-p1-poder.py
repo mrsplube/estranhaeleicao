@@ -300,6 +300,50 @@ def gravar(resultado: dict) -> None:
                        encoding="utf-8")
 
 
+def _pct(x, casas=1):
+    return c1._br(100 * x, casas) + "%"
+
+
+def gravar_analise(resultado: dict) -> None:
+    """Item P1 de `analise.json`: a tabela da base 2026 e a leitura de cada cenário.
+
+    A conclusão usa a base de 2026: é sobre 2026 que a pergunta é feita. A base
+    de 2022 vai junto como sensibilidade, com o aviso de que ali a referência é
+    o próprio dado (o limiar fica colado nele e qualquer empurrão passa).
+    """
+    a = json.loads(ANALISE.read_text(encoding="utf-8"))
+    cen = [c for c in resultado["cenarios"] if c["base"] == 2026]
+    linhas = []
+    for desenho in DESENHOS:
+        for fracao in FRACOES:
+            cel = []
+            for tamanho in TAMANHOS:
+                c = next(x for x in cen if x["desenho"] == desenho and x["fracao_secoes"] == fracao
+                         and x["tamanho"] == tamanho)
+                taxa = c["deteccao"]["qualquer"]
+                classe = {"descartado": "d", "não descartado": "n", "não cabe": "x"}[c["leitura"]]
+                cel.append({"leitura": c["leitura"], "taxa": _pct(taxa, 0), "classe": classe})
+            linhas.append({"rotulo": f"{desenho.capitalize()} em {c1._br(100 * fracao, 1).replace(',0', '')}% das seções",
+                           "celulas": cel})
+    texto = ("Sem fraude plantada, nenhum teste dispara. Com fraude plantada nos dados de 2026, a tabela mostra a "
+             "taxa de detecção e a leitura de cada cenário. \"Descartado\": detectado em pelo menos 95% das "
+             "réplicas, então, como nada disparou no dado real, esse cenário fica descartado ao nível de 5%. "
+             "\"Não cabe\": as seções sorteadas não têm eleitores ausentes (enchimento) ou votos do Flávio (troca) "
+             "suficientes para receber a fraude inteira; a taxa é a da fraude parcial que coube.")
+    for t in a["testes"]:
+        if t["id"] == "P1":
+            t.update({"status": "feito", "decisao": "poder", "resultado": texto,
+                      "tabela": {"colunas": [f"{c1._br(100 * x, 2).rstrip('0').rstrip(',')}% dos votos" for x in TAMANHOS],
+                                 "linhas": linhas},
+                      "nota": ("Na base de 2022 (fraude plantada em 2022, comparada com 2022 real) os testes pegam bem "
+                               "mais, até 0,1% dos votos. Não é poder de verdade: ali a referência é o próprio dado, o "
+                               "limiar fica colado nele e qualquer empurrão na direção alegada passa. Os números estão "
+                               "nos dados."),
+                      "dados": "/apuracao/explicacao/p1.json"})
+    a["atualizado_em"] = resultado["gerado_em"][:10]
+    ANALISE.write_text(json.dumps(a, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def main() -> int:
     ref = _ref()
     validar = "--validar" in sys.argv
@@ -330,6 +374,8 @@ def main() -> int:
                           f"{c['leitura']:15} qualquer {c['deteccao']['qualquer']:.2f} ({c['replicas']} réplicas, "
                           f"{(datetime.now() - t0).seconds}s) {c['deteccao']}", flush=True)
     gravar(resultado)
+    if not validar:
+        gravar_analise(resultado)
     print(f"→ {DESTINO.relative_to(RAIZ)}")
     return 0
 

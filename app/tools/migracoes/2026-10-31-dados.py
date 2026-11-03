@@ -44,6 +44,8 @@ CATALOGO = [
      "Teste C5 do pré-registro: taxa de eleitores sem biometria × mudança da seção do 1º para o 2º turno, dentro do município, com 2022 e o multiverso."),
     ("c6.json", "/apuracao/explicacao/c6.json",
      "Teste C6 do pré-registro: dispersão do voto entre as seções de cada município contra a binomial, 2026 × 2022, com governador 2026 e o multiverso."),
+    ("p1.json", "/apuracao/explicacao/p1.json",
+     "P1 do pré-registro: fraude plantada (enchimento e troca, de 0,1% a 3,57% dos votos, em 0,1% a 20% das seções) nos dados de 2026 e de 2022, e a taxa com que os seis testes a detectam."),
     ("reconciliacao.json", "/apuracao/explicacao/reconciliacao.json",
      "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento."),
     ("conta.json", "/apuracao/explicacao/conta.json",

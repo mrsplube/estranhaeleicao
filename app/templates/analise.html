@@ -32,6 +32,14 @@
   <main class="secao metodo">
   {% set a = analise %}
   {% if a %}
+    {% if a.conclusao %}
+    <section class="m-b a-concl" aria-labelledby="a-concl">
+      <p class="m-num">conclusão</p>
+      <h2 id="a-concl">{{ a.conclusao.titulo }}</h2>
+      {% for p in a.conclusao.paragrafos %}<p>{{ p }}</p>{% endfor %}
+      <p class="a-nota">Cada teste, com as contas, está abaixo. As mudanças no plano depois do registro, com data e motivo, estão na seção 9 do <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">pré-registro</a>.</p>
+    </section>
+    {% endif %}
     <section class="m-b" aria-labelledby="a-plano">
       <p class="m-num">01</p>
       <h2 id="a-plano">O plano</h2>
@@ -77,7 +85,14 @@
             <div><dt>Mede</dt><dd>{{ t.estatistica }}</dd></div>
             <div><dt>Contra</dt><dd>{{ t.referencia }}</dd></div>
           </dl>
-          {% if t.resultado %}<div class="{{ 'm-ok' if t.decisao == 'compatível' else 'm-aviso' }}"><p>{{ t.resultado }}</p></div>{% endif %}
+          {% if t.tabela %}
+          <p>{{ t.resultado }}</p>
+          <div class="a-tab-rolo"><table class="a-tab">
+            <thead><tr><th></th>{% for c in t.tabela.colunas %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+            <tbody>{% for l in t.tabela.linhas %}<tr><th>{{ l.rotulo }}</th>{% for c in l.celulas %}<td class="a-c-{{ c.classe }}"><b>{{ c.leitura }}</b><span>{{ c.taxa }}</span></td>{% endfor %}</tr>{% endfor %}</tbody>
+          </table></div>
+          {% if t.nota %}<p class="a-nota">{{ t.nota }}</p>{% endif %}
+          {% elif t.resultado %}<div class="{{ 'm-ok' if t.decisao in ('compatível', 'equivalente') else 'm-aviso' }}"><p>{{ t.resultado }}</p></div>{% endif %}
           {% if t.caso or t.dados %}<p class="a-nota">{% if t.caso %}O caso na entrada: <a href="/#caso-{{ t.caso }}">ver o caso</a>.{% endif %}{% if t.dados %} Todas as contas, com todas as especificações: <a href="{{ t.dados }}">dados</a>.{% endif %}</p>{% endif %}
         </article>
       {% endfor %}
@@ -88,7 +103,7 @@
       <p class="m-num">04</p>
       <h2 id="a-limite">O que nenhum destes testes enxerga</h2>
       <p>Uma troca pequena e igual em todas as urnas, por exemplo 2% dos votos do Flávio virando Lula em todas as seções, não deixa marca na distribuição. Ela é idêntica a uma mudança real de opinião. <b>Só o voto conferido pelo eleitor pega esse tipo de fraude</b>, e o Brasil não tem voto impresso.</p>
-      <p>Por isso o teste P1 existe. Ele planta fraudes de vários tamanhos e formatos nos dados e mede quais os testes encontram. A conclusão vai dizer quais fraudes estão descartadas e quais estes dados não alcançam.</p>
+      <p>Por isso o teste P1 existe. Ele planta fraudes de vários tamanhos e formatos nos dados e mede quais os testes encontram. O resultado está na conclusão, no topo da página.</p>
     </section>
 
     <section class="m-b m-fim" aria-labelledby="a-expl">

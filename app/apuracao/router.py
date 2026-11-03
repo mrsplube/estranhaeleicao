@@ -370,6 +370,14 @@ async def explicacao_c6(request: Request):
     return _servir(request, ARQUIVO / "c6.json")
 
 
+@router.get("/explicacao/p1.json")
+async def explicacao_p1(request: Request):
+    """P1 do pré-registro (poder com fraude plantada): os 64 cenários.
+    Gerado por `tools/migracoes/2026-11-01-p1-poder.py`."""
+    _porta(request, _freio_dados, json_=True)
+    return _servir(request, ARQUIVO / "p1.json")
+
+
 @router.get("/explicacao/reconciliacao.json")
 async def explicacao_reconciliacao(request: Request):
     """Boletim de Urna × votação por seção × detalhe × total oficial, seção a

@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 8809
+  "tamanho": 15242
  },
  {
   "nome": "c1.json",
@@ -75,6 +75,15 @@
   "fontes": [],
   "registros": null,
   "tamanho": 3438
+ },
+ {
+  "nome": "p1.json",
+  "url": "/apuracao/explicacao/p1.json",
+  "o_que": "P1 do pré-registro: fraude plantada (enchimento e troca, de 0,1% a 3,57% dos votos, em 0,1% a 20% das seções) nos dados de 2026 e de 2022, e a taxa com que os seis testes a detectam.",
+  "gerado_em": "2026-11-01",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 27410
  },
  {
   "nome": "reconciliacao.json",

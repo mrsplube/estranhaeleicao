@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-01",
+ "atualizado_em": "2026-11-02",
  "preregistro": {
   "versao": 1,
   "data": "2026-11-01",
@@ -107,8 +107,221 @@
    "pergunta": "Se houvesse fraude de um dado tamanho e formato, os seis testes acima a encontrariam?",
    "estatistica": "Fraude plantada nos dados (enchimento e troca, concentrada e difusa, de 0,1% a 3,57% dos votos), 200 réplicas por cenário.",
    "referencia": "Os dados de 2022 e de 2026.",
-   "status": "registrado",
-   "resultado": null
+   "status": "feito",
+   "resultado": "Sem fraude plantada, nenhum teste dispara. Com fraude plantada nos dados de 2026, a tabela mostra a taxa de detecção e a leitura de cada cenário. \"Descartado\": detectado em pelo menos 95% das réplicas, então, como nada disparou no dado real, esse cenário fica descartado ao nível de 5%. \"Não cabe\": as seções sorteadas não têm eleitores ausentes (enchimento) ou votos do Flávio (troca) suficientes para receber a fraude inteira; a taxa é a da fraude parcial que coube.",
+   "decisao": "poder",
+   "tabela": {
+    "colunas": [
+     "0,1% dos votos",
+     "0,5% dos votos",
+     "1% dos votos",
+     "3,57% dos votos"
+    ],
+    "linhas": [
+     {
+      "rotulo": "Enchimento em 0,1% das seções",
+      "celulas": [
+       {
+        "leitura": "não cabe",
+        "taxa": "0%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "0%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "0%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "0%",
+        "classe": "x"
+       }
+      ]
+     },
+     {
+      "rotulo": "Enchimento em 1% das seções",
+      "celulas": [
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "57%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "65%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "52%",
+        "classe": "x"
+       }
+      ]
+     },
+     {
+      "rotulo": "Enchimento em 5% das seções",
+      "celulas": [
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       }
+      ]
+     },
+     {
+      "rotulo": "Enchimento em 20% das seções",
+      "celulas": [
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       }
+      ]
+     },
+     {
+      "rotulo": "Troca em 0,1% das seções",
+      "celulas": [
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       }
+      ]
+     },
+     {
+      "rotulo": "Troca em 1% das seções",
+      "celulas": [
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       }
+      ]
+     },
+     {
+      "rotulo": "Troca em 5% das seções",
+      "celulas": [
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       },
+       {
+        "leitura": "não cabe",
+        "taxa": "100%",
+        "classe": "x"
+       }
+      ]
+     },
+     {
+      "rotulo": "Troca em 20% das seções",
+      "celulas": [
+       {
+        "leitura": "não descartado",
+        "taxa": "0%",
+        "classe": "n"
+       },
+       {
+        "leitura": "não descartado",
+        "taxa": "5%",
+        "classe": "n"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       },
+       {
+        "leitura": "descartado",
+        "taxa": "100%",
+        "classe": "d"
+       }
+      ]
+     }
+    ]
+   },
+   "nota": "Na base de 2022 (fraude plantada em 2022, comparada com 2022 real) os testes pegam bem mais, até 0,1% dos votos. Não é poder de verdade: ali a referência é o próprio dado, o limiar fica colado nele e qualquer empurrão na direção alegada passa. Os números estão nos dados.",
+   "dados": "/apuracao/explicacao/p1.json"
   }
  ],
  "exploratorio": [
@@ -117,5 +330,15 @@
   "Picos em percentuais redondos (Rozenas, 2017)",
   "Erro das pesquisas contra a série histórica brasileira",
   "Curva nacional da apuração na ordem real de chegada dos boletins"
- ]
+ ],
+ "conclusao": {
+  "titulo": "O que os testes dizem",
+  "paragrafos": [
+   "Cinco dos seis padrões alegados são compatíveis com o 2º turno de 2022, e um deles (a dispersão entre seções) é estatisticamente equivalente. O sexto, a ordem de chegada dos boletins, depende da especificação: na principal não há nada, em 4 de 12 aparece uma correlação mínima, e a regra registrada não permite concluir nem para um lado nem para o outro.",
+   "Fraude grande o bastante para virar a eleição deixa marca nestes dados. Para virar, seria preciso trocar 1,8% dos votos do Flávio para o Lula, ou acrescentar 3,57% de votos falsos. Trocar 1% já foi detectado em todos os formatos testados. Acrescentar 3,57% foi detectado espalhado em 20% das seções e concentrado em 5%. Concentrado em 1% das seções ou menos, não cabe: exigiria mais votos que eleitores aptos.",
+   "O que passa sem ser visto: fraude pequena (0,1% dos votos, 124 mil) em qualquer formato; votos falsos espalhados por 20% das seções até 1% do total (1,2 milhão); e troca espalhada de 0,5% (620 mil). Nenhuma delas mudaria o resultado: a margem foi de 4,43 milhões.",
+   "E o que nenhum teste estatístico vê: uma troca pequena e igual em todas as urnas, que é idêntica a uma mudança real de opinião. Essa só se exclui conferindo o voto com o eleitor, e o Brasil não tem voto impresso.",
+   "Isto não prova que não houve fraude. Mostra que, nos formatos que deixam rastro, uma fraude capaz de mudar o resultado está descartada ao nível de 5%. O formato que não deixa rastro continua fora do alcance de qualquer análise de dados."
+  ]
+ }
 }
