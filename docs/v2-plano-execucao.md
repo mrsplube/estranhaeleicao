@@ -168,9 +168,9 @@ do registro no OSF, que só ele pode fazer.
 | Parecer v1, adendo v2, tag `preregistro-v2` | feito | `dd4f720` (público) |
 | Downloads da classe + hashes | feito | `e8355ed` (público) |
 | 1. Tabela padrão por disputa | feito (presidente 2010–2026) | aceite: pres-2022 e pres-2026 batem com secoes_*.pkl, diferença 0 em todas as colunas; hora só 2018+, biometria só 2022/2026 (2014/2018 pelo BU: pendente) |
-| 2. Governador | em andamento | |
-| 3. Testes generalizados | — | |
-| 4. Calibração | — | |
+| 2. Governador | em andamento | 42 disputas + 6 de 2026 baixadas, hash publicado (`d98345d`); tabelas `gov-*` sendo montadas em segundo plano (log `v2-tabelas.log`). Conferir: 48 linhas no log, sem Traceback. Decisões da Etapa 3 já registradas na seção 8 do v2.md (`c1795ed`) |
+| 3. Testes generalizados | feito | `2026-11-03-v2-testes.py`; aceite em pres-2022 com `--nivel1` (`v2/pres-2022-nivel1.json`): C1 3,054, C2 59/39, C3 0,5962, C6 3,956 iguais à v1; C4 −0,0437 (v1 −0,0435, hora por local); C5 β igual, erro maior (agrupado por município). Uma disputa presidencial leva ~16 min (C3 6 min, C4 9 min) |
+| 4. Calibração | próximo | insumos gravados por `v2-testes` em `apuracao/cache/v2/{id}-calib.pkl` (p previsto, E por seção, observado; z municipais) |
 | 5. Testes em todas as disputas | — | |
 | 6. Meta-análise e leitura | — | |
 | 7. Poder v2 | — | |
