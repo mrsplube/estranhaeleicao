@@ -167,8 +167,7 @@ def montar() -> list:
             "boletins tardios favoráveis ao vencedor, voto sem biometria. Este relatório faz três coisas. "
             f"(1) Cruza seção a seção os três arquivos públicos do TSE para o 2º turno (Boletim de Urna, votação "
             f"por seção e detalhe da votação) e o total oficial: <b>0 divergências em {br(rec['secoes']['comparadas'], 0)} "
-            f"seções</b>, limite superior de 95% de {br(rec['limite_superior_95']['proporcao'] * 1e6, 0)} seções "
-            "divergentes por milhão. (2) Testa seis padrões alegados contra o 2º turno de 2022, com hipóteses, "
+            f"seções</b>, todas conferidas. (2) Testa seis padrões alegados contra o 2º turno de 2022, com hipóteses, "
             "estatísticas e regras de decisão registradas antes de rodar e correção de Benjamini–Hochberg. Cinco "
             "são compatíveis com 2022 (um deles estatisticamente equivalente); um depende da especificação. "
             "(3) Mede o poder dos testes plantando fraude nos dados: troca de 1% dos votos é detectada em todos os "
@@ -229,9 +228,8 @@ def montar() -> list:
                                ("Nulos", "nulos"), ("Comparecimento", "comp"))],
                  [4 * cm, 4 * cm, 4 * cm, 4 * cm]),
           P("Tabela 2. Totais do 2º turno: oficial e soma seção a seção. Diferença zero em todas as linhas.", "legenda"),
-          P(f"Com 0 divergências em {br(rec['secoes']['comparadas'], 0)} seções, o limite superior unilateral de 95% "
-            f"(Clopper-Pearson) para a fração de seções divergentes é {br(rec['limite_superior_95']['proporcao'] * 1e6, 1)} "
-            f"por milhão. No Brasil, nenhuma seção votou em cédula no 2º turno: {red} tiveram o boletim gerado pelo "
+          P(f"Como todas as seções foram conferidas, o resultado é um censo e não tem margem de erro: "
+            f"{rec['censo']['secoes_divergentes']} de {br(rec['censo']['secoes_conferidas'], 0)}. No Brasil, nenhuma seção votou em cédula no 2º turno: {red} tiveram o boletim gerado pelo "
             f"recuperador de dados (RED) depois de falha da urna e as demais vieram da urna eletrônica; as "
             f"{orig.get('Sistema de apuração', 0)} seções processadas pelo Sistema de Apuração estão no exterior. "
             "Nenhuma seção foi anulada."),

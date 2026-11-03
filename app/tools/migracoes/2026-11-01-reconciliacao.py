@@ -172,15 +172,6 @@ def ler_detalhe() -> dict:
     return s
 
 
-def _limite_superior(divergentes: int, n: int) -> float:
-    """Limite superior unilateral de 95% para a proporção (Clopper-Pearson).
-
-    Com 0 divergências, é a "regra de três": ≈ 3/n.
-    """
-    from scipy.stats import beta
-    return 1.0 if divergentes >= n else float(beta.ppf(0.95, divergentes + 1, n - divergentes))
-
-
 def main() -> int:
     print("Boletins de Urna (BU) do 2º turno…", flush=True)
     bus = boletins()
@@ -280,11 +271,15 @@ def main() -> int:
                          "n_sem_bu_sem_voto": len(sem_voto),
                          "divergentes": len(div_det), "exemplos": div_det[:50]},
         "total": total,
-        "limite_superior_95": {
-            "secoes_divergentes": divergentes, "n": n,
-            "proporcao": _limite_superior(divergentes, n),
-            "leitura": "Com 95% de confiança, a fração de seções em que o boletim e a totalização "
-                       "discordam é no máximo este valor (Clopper-Pearson unilateral).",
+        # Censo, não amostra: todas as seções foram conferidas, então a proporção de
+        # divergentes é conhecida, não estimada. Até 02/11 havia aqui um limite de
+        # Clopper-Pearson ("6 por milhão"), que responde a uma pergunta de amostragem
+        # que não existe (parecer do relatório v1, crítica 5).
+        "censo": {
+            "secoes_divergentes": divergentes, "secoes_conferidas": n,
+            "leitura": "Todas as seções foram conferidas: a proporção de divergentes é exatamente "
+                       "secoes_divergentes / secoes_conferidas, sem incerteza amostral. O limite é de "
+                       "outra natureza: os três arquivos saem do TSE.",
         },
         "por_uf": dict(sorted(por_uf.items())),
         "origem_do_voto": dict(origem.most_common()),
@@ -304,7 +299,7 @@ def main() -> int:
     print(f"BU × detalhe: {len(div_det)} divergentes, {len(so_bu_det)} só no BU, {len(so_det)} só no detalhe com voto, {len(sem_voto)} sem BU e sem voto")
     for c, t in total.items():
         print(f"  {c:8} oficial {t['oficial']:>12,}  BU {t['bu']:>12,}  votação {t['votacao_secao'] if t['votacao_secao'] is not None else '—':>12}  {'ok' if t['bate'] else 'DIFERE'}")
-    print(f"limite superior 95%: {r['limite_superior_95']['proporcao']:.2e} ({divergentes}/{n})")
+    print(f"censo: {divergentes} divergentes em {n:,} seções conferidas")
     print(f"origem: {dict(origem)}")
     print(f"fora da urna, só no Brasil: {dict(fora_urna_br)}")
     print(f"anulada: {dict(anulada)} · instalada: {dict(instalada)}")

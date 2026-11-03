@@ -5,7 +5,9 @@
   "data": "2026-11-01",
   "tag": "preregistro-v1",
   "url": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/README.md",
-  "insumos": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/insumos.sha256"
+  "insumos": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/insumos.sha256",
+  "v2": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/v2.md",
+  "parecer": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/relatorio/parecer-relatorio-v1.pdf"
  },
  "feito": [
   {
@@ -14,7 +16,7 @@
    "pergunta": "O que cada urna registrou no boletim é o que entrou no total oficial?",
    "resultado": "Sim, em 499.205 de 499.205 seções. Boletim de Urna, votação por seção e detalhe dão o mesmo número para Lula, Flávio, brancos e nulos, e a soma é igual ao total oficial. Os 28 hashes SHA-512 conferem.",
    "numero": "0 divergências",
-   "detalhe": "Limite superior de 95%: 6 seções divergentes por milhão (Clopper-Pearson). Compara o TSE com o TSE: não diz se o boletim registra o voto digitado.",
+   "detalhe": "Todas as seções foram conferidas, então não há margem de erro: é um censo. O limite é outro: compara o TSE com o TSE e não diz se o boletim registra o voto digitado.",
    "dados": "/apuracao/explicacao/reconciliacao.json"
   },
   {
@@ -335,10 +337,10 @@
   "titulo": "O que os testes dizem",
   "paragrafos": [
    "Cinco dos seis padrões alegados são compatíveis com o 2º turno de 2022, e um deles (a dispersão entre seções) é estatisticamente equivalente. O sexto, a ordem de chegada dos boletins, depende da especificação: na principal não há nada, em 4 de 12 aparece uma correlação mínima, e a regra registrada não permite concluir nem para um lado nem para o outro.",
-   "Fraude grande o bastante para virar a eleição deixa marca nestes dados. Para virar, seria preciso trocar 1,8% dos votos do Flávio para o Lula, ou acrescentar 3,57% de votos falsos. Trocar 1% já foi detectado em todos os formatos testados. Acrescentar 3,57% foi detectado espalhado em 20% das seções e concentrado em 5%. Concentrado em 1% das seções ou menos, não cabe: exigiria mais votos que eleitores aptos.",
+   "Nos formatos testados, fraude grande o bastante para virar a eleição deixaria marca nestes dados. Para virar, seria preciso trocar 1,8% dos votos do Flávio para o Lula, ou acrescentar 3,57% de votos falsos. Trocar 1% já foi detectado em todos os formatos testados. Acrescentar 3,57% foi detectado espalhado em 20% das seções e concentrado em 5%. Concentrado em 1% das seções ou menos, não cabe: exigiria mais votos que eleitores aptos.",
    "O que passa sem ser visto: fraude pequena (0,1% dos votos, 124 mil) em qualquer formato; votos falsos espalhados por 20% das seções até 1% do total (1,2 milhão); e troca espalhada de 0,5% (620 mil). Nenhuma delas mudaria o resultado: a margem foi de 4,43 milhões.",
    "E o que nenhum teste estatístico vê: uma troca pequena e igual em todas as urnas, que é idêntica a uma mudança real de opinião. Essa só se exclui conferindo o voto com o eleitor, e o Brasil não tem voto impresso.",
-   "Isto não prova que não houve fraude. Mostra que, nos formatos que deixam rastro, uma fraude capaz de mudar o resultado está descartada ao nível de 5%. O formato que não deixa rastro continua fora do alcance de qualquer análise de dados."
+   "Isto não prova que não houve fraude. Mostra que, nos formatos testados e supondo que o dado de referência seja limpo, uma fraude capaz de mudar o resultado teria sido detectada com probabilidade de pelo menos 95%. A comparação é com uma eleição só (2022); a versão 2 da análise amplia a referência. O formato que não deixa rastro continua fora do alcance de qualquer análise de dados."
   ]
  },
  "relatorio": "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf"

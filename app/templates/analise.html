@@ -53,6 +53,7 @@
         <li><b>Mudanças no plano</b> ficam registradas, com data e motivo.</li>
       </ul>
       <p>O pré-registro completo, com as fórmulas, está no <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">repositório</a>, com o SHA-256 de cada <a href="{{ a.preregistro.insumos }}" target="_blank" rel="noopener">arquivo de entrada</a>. Versão {{ a.preregistro.versao }}, de {{ a.preregistro.data[8:10] }}/{{ a.preregistro.data[5:7] }}/{{ a.preregistro.data[:4] }} (tag <code>{{ a.preregistro.tag }}</code>).</p>
+      {% if a.preregistro.v2 %}<p><b>Versão 2 em andamento.</b> Uma revisão crítica do relatório (<a href="{{ a.preregistro.parecer }}" target="_blank" rel="noopener">parecer</a>) mostrou que comparar com uma eleição só é pouco. O <a href="{{ a.preregistro.v2 }}" target="_blank" rel="noopener">adendo v2</a>, registrado antes de abrir os dados novos, amplia a referência para os segundos turnos de 2010 a 2022 (presidente e governador), troca "compatível" por testes de equivalência e refaz o poder com fraude estratégica. Os resultados abaixo ainda são os da versão 1.</p>{% endif %}
     </section>
 
     <section class="m-b" aria-labelledby="a-feito">

@@ -258,11 +258,10 @@
    "bate": true
   }
  },
- "limite_superior_95": {
+ "censo": {
   "secoes_divergentes": 0,
-  "n": 499205,
-  "proporcao": 6.000988140880152e-06,
-  "leitura": "Com 95% de confiança, a fração de seções em que o boletim e a totalização discordam é no máximo este valor (Clopper-Pearson unilateral)."
+  "secoes_conferidas": 499205,
+  "leitura": "Todas as seções foram conferidas: a proporção de divergentes é exatamente secoes_divergentes / secoes_conferidas, sem incerteza amostral. O limite é de outra natureza: os três arquivos saem do TSE."
  },
  "por_uf": {
   "AC": {
