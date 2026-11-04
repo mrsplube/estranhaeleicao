@@ -71,7 +71,7 @@ def _boot_razao(num, den, cl, rng, voltas=BOOT):
     r = np.empty(voltas)
     for b in range(voltas):
         i = rng.integers(0, g, g)
-        r[b] = np.log(max(n[i].sum(), 1e-9) / max(d[i].sum(), 1e-9))
+        r[b] = np.log((n[i].sum() + 0.5) / (d[i].sum() + 0.5))   # continuidade (v2.md §8, 04/11)
     return float(np.std(r, ddof=1))
 
 
@@ -111,7 +111,7 @@ def teste_c1(d: Disputa, nivel1=False):
             E_secao[idx] += P / SIM_C1
             sims[s] = (rng.random(P.size) < P).sum()
     O, E = int(obs.sum()), float(E_secao.sum())
-    return {"T": O / E, "logT": float(np.log(O / E)), "se": _boot_razao(obs.astype(float), E_secao, d.cluster, rng),
+    return {"T": O / E, "logT": float(np.log((O + 0.5) / (E + 0.5))), "se": _boot_razao(obs.astype(float), E_secao, d.cluster, rng),
             "O": O, "E": round(E, 2), "p_sim": float((1 + (sims >= O).sum()) / (1 + SIM_C1)),
             "sigma2_local": round(sigma2, 5), "rho_mediana": float(np.median(rho)),
             "calib": {"p": p, "E_secao": E_secao, "obs": obs}}
@@ -142,8 +142,8 @@ def teste_c2(d: Disputa):
         i = rng.integers(0, nm, nm)
         props[b] = sig[i].mean()
         fracs[b] = (sig[i] & (z[i] > 0)).sum() / max(sig[i].sum(), 1)
-    lp = np.log(np.maximum(props, 0.5 / nm))
-    return {"T": prop, "logT": float(np.log(max(prop, 0.5 / nm))), "se": float(np.std(lp, ddof=1)),
+    lp = np.log((props * nm + 0.5) / (nm + 0.5))                  # continuidade (v2.md §8, 04/11)
+    return {"T": prop, "logT": float(np.log((k + 0.5) / (nm + 0.5))), "se": float(np.std(lp, ddof=1)),
             "municipios": nm, "significativos": k, "a_favor_vencedor": favor,
             "D2": favor / k if k else None, "se_D2": float(np.std(fracs, ddof=1)) if k else None, "phi": phi,
             "calib": {"z": z}}
