@@ -163,7 +163,7 @@ do registro no OSF, que só ele pode fazer.
 
 ## 5. Estado das etapas
 
-**Em 04/11 ~9h10 foi lançada a cadeia `tools/v2-cadeia.sh` (log `v2-cadeia.log`)**: espera os 48 governadores, depois roda calibração → leitura → validação do poder → poder nas 4 bases. Ela não commita. Quem retomar: (1) conferir `v2-cadeia.log` e os logs de cada etapa; (2) commitar `v2/gov-*.json`, `calibracao.json`, `leitura.json`, `poder-*.json`; (3) conferir a validação (diferença de detecção leve × completa < 10 pontos nos 4 cenários — se não, o poder leve não vale e é preciso registrar e refazer); (4) só então ler `leitura.json`, atualizar `analise.json` e publicar.
+**Em 04/11 ~9h15 foi lançada também `tools/v2-cadeia-2.sh` (log `v2-cadeia-2.log`), que roda o multiverso depois da primeira cadeia.** **Em 04/11 ~9h10 foi lançada a cadeia `tools/v2-cadeia.sh` (log `v2-cadeia.log`)**: espera os 48 governadores, depois roda calibração → leitura → validação do poder → poder nas 4 bases. Ela não commita. Quem retomar: (1) conferir `v2-cadeia.log` e os logs de cada etapa; (2) commitar `v2/gov-*.json`, `calibracao.json`, `leitura.json`, `poder-*.json`; (3) conferir a validação (diferença de detecção leve × completa < 10 pontos nos 4 cenários — se não, o poder leve não vale e é preciso registrar e refazer); (4) só então ler `leitura.json`, atualizar `analise.json` e publicar.
 
 
 | Etapa | Estado | Commit / observação |
@@ -177,6 +177,6 @@ do registro no OSF, que só ele pode fazer.
 | 5. Testes em todas as disputas | em andamento | 5 presidenciais feitas e commitadas (C1 em dois níveis leva 2–3 h cada); 48 de governador rodando em 2 processos (`v2-testes-gov-a.log`, `-b.log`). Falta depois: multiverso (só 2026 + 4 presidenciais, v2.md §8) — o C1 de dois níveis é lento demais; registrar desvio antes (sugestão: multiverso do C1 com `--nivel1`) |
 | 6. Meta-análise e leitura | código pronto (`2026-11-05-v2-leitura.py`) | roda depois da calibração; depois atualizar `analise.json` e a página |
 | 7. Poder v2 | código pronto (`2026-11-05-v2-poder.py`) | desvio da grade e dos modos registrado (04/11). Roda sozinho pela cadeia `tools/v2-cadeia.sh` |
-| 8. Apêndice de inferência ecológica | — | |
-| 9. Relatório v2 | — | |
+| 8. Apêndice de inferência ecológica | feito | `2026-11-05-v2-limites.py` → `v2/limites.json`. 2026: H1 [0; 0,92], H1+H2 [0,15; 0,92] |
+| 9. Relatório v2 | gerador pronto (`2026-11-05-v2-paper-pdf.py`) | lê os JSON da v2 e escreve "Pendente" onde faltar; rodar quando a cadeia terminar, revisar página a página, publicar em `static/relatorio/estranhaeleicao-paper-v2.pdf` e trocar o link da `/analise` |
 | 10. Fechamento | — | |

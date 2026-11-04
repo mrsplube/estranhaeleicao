@@ -1,0 +1,119 @@
+{
+ "preregistro": "docs/preregistro/v2.md §7",
+ "hipoteses": {
+  "H1": "quem votou no vencedor no 1º turno votou nele de novo",
+  "H2": "ninguém trocou o perdedor pelo vencedor"
+ },
+ "disputas": [
+  {
+   "disputa": "pres-2026",
+   "municipios": 5571,
+   "votos_terceira_via": 9287152,
+   "municipios_onde_vencedor_perdeu_votos": 79,
+   "H1": {
+    "nacional": [
+     0.0,
+     0.9184144934851933
+    ],
+    "largura_mediana": 1.0,
+    "municipios_com_intervalo_estreito": 337
+   },
+   "H1_H2": {
+    "nacional": [
+     0.153680159428854,
+     0.9184144934851933
+    ],
+    "largura_mediana": 0.8578199052132701,
+    "municipios_com_intervalo_estreito": 743
+   }
+  },
+  {
+   "disputa": "pres-2022",
+   "municipios": 5570,
+   "votos_terceira_via": 9864826,
+   "municipios_onde_vencedor_perdeu_votos": 982,
+   "H1": {
+    "nacional": [
+     0.0,
+     0.32248323487915553
+    ],
+    "largura_mediana": 0.2542106942770016,
+    "municipios_com_intervalo_estreito": 4627
+   },
+   "H1_H2": {
+    "nacional": [
+     0.0053311634690769,
+     0.32248323487915553
+    ],
+    "largura_mediana": 0.2532900432900433,
+    "municipios_com_intervalo_estreito": 4650
+   }
+  },
+  {
+   "disputa": "pres-2018",
+   "municipios": 5570,
+   "votos_terceira_via": 26372190,
+   "municipios_onde_vencedor_perdeu_votos": 125,
+   "H1": {
+    "nacional": [
+     0.00011049518451065307,
+     0.32273076297417846
+    ],
+    "largura_mediana": 0.32062020460358054,
+    "municipios_com_intervalo_estreito": 4769
+   },
+   "H1_H2": {
+    "nacional": [
+     0.040098717626408736,
+     0.32273076297417846
+    ],
+    "largura_mediana": 0.2914744009023673,
+    "municipios_com_intervalo_estreito": 5295
+   }
+  },
+  {
+   "disputa": "pres-2014",
+   "municipios": 5570,
+   "votos_terceira_via": 25816250,
+   "municipios_onde_vencedor_perdeu_votos": 578,
+   "H1": {
+    "nacional": [
+     0.022291463709872655,
+     0.4386050646395197
+    ],
+    "largura_mediana": 0.39270618090465065,
+    "municipios_com_intervalo_estreito": 3696
+   },
+   "H1_H2": {
+    "nacional": [
+     0.09021271485982667,
+     0.4386050646395197
+    ],
+    "largura_mediana": 0.3621445648877709,
+    "municipios_com_intervalo_estreito": 3979
+   }
+  },
+  {
+   "disputa": "pres-2010",
+   "municipios": 5594,
+   "votos_terceira_via": 20787012,
+   "municipios_onde_vencedor_perdeu_votos": 983,
+   "H1": {
+    "nacional": [
+     0.0024063583549189275,
+     0.3922798043316663
+    ],
+    "largura_mediana": 0.3469912436631773,
+    "municipios_com_intervalo_estreito": 3813
+   },
+   "H1_H2": {
+    "nacional": [
+     0.07985149573204653,
+     0.3922798043316663
+    ],
+    "largura_mediana": 0.32912636823845054,
+    "municipios_com_intervalo_estreito": 3923
+   }
+  }
+ ]
+}
