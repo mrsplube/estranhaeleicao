@@ -163,6 +163,9 @@ do registro no OSF, que só ele pode fazer.
 
 ## 5. Estado das etapas
 
+**Em 04/11 ~9h10 foi lançada a cadeia `tools/v2-cadeia.sh` (log `v2-cadeia.log`)**: espera os 48 governadores, depois roda calibração → leitura → validação do poder → poder nas 4 bases. Ela não commita. Quem retomar: (1) conferir `v2-cadeia.log` e os logs de cada etapa; (2) commitar `v2/gov-*.json`, `calibracao.json`, `leitura.json`, `poder-*.json`; (3) conferir a validação (diferença de detecção leve × completa < 10 pontos nos 4 cenários — se não, o poder leve não vale e é preciso registrar e refazer); (4) só então ler `leitura.json`, atualizar `analise.json` e publicar.
+
+
 | Etapa | Estado | Commit / observação |
 |---|---|---|
 | Parecer v1, adendo v2, tag `preregistro-v2` | feito | `dd4f720` (público) |
@@ -173,7 +176,7 @@ do registro no OSF, que só ele pode fazer.
 | 4. Calibração | código pronto (`2026-11-04-v2-calibracao.py`), roda depois da Etapa 5 | estatísticas de forma, ver desvio de 04/11 no `v2.md`; insumos gravados por `v2-testes` em `apuracao/cache/v2/{id}-calib.pkl` (p previsto, E por seção, observado; z municipais) |
 | 5. Testes em todas as disputas | em andamento | 5 presidenciais feitas e commitadas (C1 em dois níveis leva 2–3 h cada); 48 de governador rodando em 2 processos (`v2-testes-gov-a.log`, `-b.log`). Falta depois: multiverso (só 2026 + 4 presidenciais, v2.md §8) — o C1 de dois níveis é lento demais; registrar desvio antes (sugestão: multiverso do C1 com `--nivel1`) |
 | 6. Meta-análise e leitura | código pronto (`2026-11-05-v2-leitura.py`) | roda depois da calibração; depois atualizar `analise.json` e a página |
-| 7. Poder v2 | — | |
+| 7. Poder v2 | código pronto (`2026-11-05-v2-poder.py`) | desvio da grade e dos modos registrado (04/11). Roda sozinho pela cadeia `tools/v2-cadeia.sh` |
 | 8. Apêndice de inferência ecológica | — | |
 | 9. Relatório v2 | — | |
 | 10. Fechamento | — | |
