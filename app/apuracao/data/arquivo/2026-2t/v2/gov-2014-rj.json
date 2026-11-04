@@ -1,0 +1,63 @@
+{
+ "id": "gov-2014-rj",
+ "cargo": "governador",
+ "ano": 2014,
+ "vencedor": "15",
+ "perdedor": "10",
+ "secoes": 32675,
+ "municipios": 92,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T10:50:22",
+ "C1": {
+  "T": 1.1702770911036362,
+  "logT": 0.1542576865513031,
+  "se": 0.24255328558555705,
+  "O": 28,
+  "E": 23.93,
+  "p_sim": 0.2037962037962038,
+  "sigma2_local": 0.01842,
+  "rho_mediana": 0.00619243800153387,
+  "segundos": 2351
+ },
+ "C2": {
+  "T": 0.0,
+  "logT": -5.220355825078324,
+  "se": 0.0,
+  "municipios": 92,
+  "significativos": 0,
+  "a_favor_vencedor": 0,
+  "D2": null,
+  "se_D2": null,
+  "phi": 165.79587181949944,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.34386945339712727,
+  "f_e": 0.0,
+  "se_f_i": 0.17680013230010028,
+  "se_f_e": 9.18594524918885e-05,
+  "sigma_x": 0.025,
+  "erro_ajuste": 0.00011254988695770201,
+  "myagkov": 0.1128,
+  "myagkov_se": 0.0751,
+  "secoes": 32675,
+  "segundos": 395
+ },
+ "C4": {
+  "T": null,
+  "motivo": "sem hora de recebimento",
+  "segundos": 0
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 4.143053541836813,
+  "logT": 1.4214330864577662,
+  "se": 0.05689720307530842,
+  "grupos": 92,
+  "segundos": 0
+ }
+}

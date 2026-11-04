@@ -1,0 +1,63 @@
+{
+ "id": "gov-2010-ro",
+ "cargo": "governador",
+ "ano": 2010,
+ "vencedor": "15",
+ "perdedor": "23",
+ "secoes": 3373,
+ "municipios": 52,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T09:40:37",
+ "C1": {
+  "T": 1.182951607552097,
+  "logT": 0.16248400084010042,
+  "se": 0.09483297194804945,
+  "O": 16,
+  "E": 13.53,
+  "p_sim": 0.057942057942057944,
+  "sigma2_local": 0.02121,
+  "rho_mediana": 0.005925495469060796,
+  "segundos": 174
+ },
+ "C2": {
+  "T": 0.019230769230769232,
+  "logT": -3.5553480614894135,
+  "se": 0.7100668423027988,
+  "municipios": 52,
+  "significativos": 1,
+  "a_favor_vencedor": 1,
+  "D2": 1.0,
+  "se_D2": 0.4825026516080599,
+  "phi": 60.06958752245518,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.25017693759074994,
+  "f_e": 0.0,
+  "se_f_i": 0.24385801313496525,
+  "se_f_e": 0.0011557221913101254,
+  "sigma_x": 0.2,
+  "erro_ajuste": 0.0005108920698516599,
+  "myagkov": 0.7608,
+  "myagkov_se": 0.0979,
+  "secoes": 3373,
+  "segundos": 397
+ },
+ "C4": {
+  "T": null,
+  "motivo": "sem hora de recebimento",
+  "segundos": 0
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 2.905185323055342,
+  "logT": 1.0664971827803966,
+  "se": 0.07453600759739866,
+  "grupos": 50,
+  "segundos": 0
+ }
+}

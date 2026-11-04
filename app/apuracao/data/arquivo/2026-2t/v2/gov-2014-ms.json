@@ -1,0 +1,63 @@
+{
+ "id": "gov-2014-ms",
+ "cargo": "governador",
+ "ano": 2014,
+ "vencedor": "45",
+ "perdedor": "13",
+ "secoes": 5564,
+ "municipios": 79,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T10:02:32",
+ "C1": {
+  "T": 1.1514106368843697,
+  "logT": 0.11958835137198208,
+  "se": 0.4462655808534507,
+  "O": 3,
+  "E": 2.61,
+  "p_sim": 0.5594405594405595,
+  "sigma2_local": 0.01708,
+  "rho_mediana": 0.004163120291644696,
+  "segundos": 147
+ },
+ "C2": {
+  "T": 0.012658227848101266,
+  "logT": -3.970291913552122,
+  "se": 0.691645719499852,
+  "municipios": 79,
+  "significativos": 1,
+  "a_favor_vencedor": 0,
+  "D2": 0.0,
+  "se_D2": 0.0,
+  "phi": 42.44116032693652,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.3528166418248318,
+  "f_e": 0.0003436065123148826,
+  "se_f_i": 0.16521413737811638,
+  "se_f_e": 0.0007316311697566117,
+  "sigma_x": 0.15,
+  "erro_ajuste": 0.00029900867057847656,
+  "myagkov": 0.614,
+  "myagkov_se": 0.1126,
+  "secoes": 5564,
+  "segundos": 411
+ },
+ "C4": {
+  "T": null,
+  "motivo": "sem hora de recebimento",
+  "segundos": 0
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 4.175800235273298,
+  "logT": 1.4293060130552262,
+  "se": 0.12715911087688045,
+  "grupos": 77,
+  "segundos": 0
+ }
+}

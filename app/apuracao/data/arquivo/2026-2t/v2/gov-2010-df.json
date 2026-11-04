@@ -1,0 +1,56 @@
+{
+ "id": "gov-2010-df",
+ "cargo": "governador",
+ "ano": 2010,
+ "vencedor": "13",
+ "perdedor": "20",
+ "secoes": 5197,
+ "municipios": 1,
+ "unidade_reamostragem": "zona",
+ "gerado_em": "2026-11-04T09:05:28",
+ "C1": {
+  "T": 2.5706729721716295,
+  "logT": 0.7833088328519733,
+  "se": 0.37395353042672946,
+  "O": 4,
+  "E": 1.56,
+  "p_sim": 0.02197802197802198,
+  "sigma2_local": 0.00183,
+  "rho_mediana": 1e-06,
+  "segundos": 114
+ },
+ "C2": {
+  "T": null,
+  "motivo": "só 1 municípios",
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.3895330174445012,
+  "f_e": 0.0005222612141486954,
+  "se_f_i": 0.23342337643250738,
+  "se_f_e": 0.0008752584183126467,
+  "sigma_x": 0.05,
+  "erro_ajuste": 0.00041389293558220146,
+  "myagkov": 0.6094,
+  "myagkov_se": 0.0,
+  "secoes": 5197,
+  "segundos": 362
+ },
+ "C4": {
+  "T": null,
+  "motivo": "sem hora de recebimento",
+  "segundos": 0
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 16.165893145415644,
+  "logT": 2.782903661455318,
+  "se": 4.443114211273408e-16,
+  "grupos": 1,
+  "segundos": 0
+ }
+}

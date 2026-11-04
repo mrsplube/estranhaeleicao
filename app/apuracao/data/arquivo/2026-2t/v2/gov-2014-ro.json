@@ -1,0 +1,63 @@
+{
+ "id": "gov-2014-ro",
+ "cargo": "governador",
+ "ano": 2014,
+ "vencedor": "15",
+ "perdedor": "45",
+ "secoes": 3629,
+ "municipios": 52,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T11:36:09",
+ "C1": {
+  "T": 1.5186791597222375,
+  "logT": 0.3909080496833545,
+  "se": 0.6869766512970417,
+  "O": 9,
+  "E": 5.93,
+  "p_sim": 0.06793206793206794,
+  "sigma2_local": 0.01978,
+  "rho_mediana": 0.0071310329645914335,
+  "segundos": 268
+ },
+ "C2": {
+  "T": 0.0,
+  "logT": -4.653960350157523,
+  "se": 0.0,
+  "municipios": 52,
+  "significativos": 0,
+  "a_favor_vencedor": 0,
+  "D2": null,
+  "se_D2": null,
+  "phi": 72.59696847280803,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.27435479061169005,
+  "f_e": 0.0,
+  "se_f_i": 0.2592741658548479,
+  "se_f_e": 0.0008978260617487672,
+  "sigma_x": 0.15,
+  "erro_ajuste": 0.0004964456914052043,
+  "myagkov": 0.6355,
+  "myagkov_se": 0.0376,
+  "secoes": 3629,
+  "segundos": 312
+ },
+ "C4": {
+  "T": null,
+  "motivo": "sem hora de recebimento",
+  "segundos": 0
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 2.215311784786107,
+  "logT": 0.7953931542170336,
+  "se": 0.13025510439429996,
+  "grupos": 50,
+  "segundos": 0
+ }
+}

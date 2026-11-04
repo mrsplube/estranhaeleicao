@@ -1,0 +1,63 @@
+{
+ "id": "gov-2010-pa",
+ "cargo": "governador",
+ "ano": 2010,
+ "vencedor": "45",
+ "perdedor": "13",
+ "secoes": 14578,
+ "municipios": 144,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T09:13:24",
+ "C1": {
+  "T": 1.4432401526217955,
+  "logT": 0.36304383831917986,
+  "se": 0.11670068958003893,
+  "O": 57,
+  "E": 39.49,
+  "p_sim": 0.000999000999000999,
+  "sigma2_local": 0.01488,
+  "rho_mediana": 0.006649810482942872,
+  "segundos": 507
+ },
+ "C2": {
+  "T": 0.006944444444444444,
+  "logT": -4.567814399444322,
+  "se": 0.6992176586040818,
+  "municipios": 144,
+  "significativos": 1,
+  "a_favor_vencedor": 1,
+  "D2": 1.0,
+  "se_D2": 0.48462238790511825,
+  "phi": 98.0516492241588,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.40506792681973264,
+  "f_e": 4.703377893978192e-05,
+  "se_f_i": 0.15559348138860404,
+  "se_f_e": 0.000263749208147487,
+  "sigma_x": 0.1,
+  "erro_ajuste": 0.00012054710255037657,
+  "myagkov": 0.4601,
+  "myagkov_se": 0.0379,
+  "secoes": 14578,
+  "segundos": 417
+ },
+ "C4": {
+  "T": null,
+  "motivo": "sem hora de recebimento",
+  "segundos": 0
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 6.92448841858891,
+  "logT": 1.935064174772543,
+  "se": 0.07534149162879047,
+  "grupos": 144,
+  "segundos": 0
+ }
+}

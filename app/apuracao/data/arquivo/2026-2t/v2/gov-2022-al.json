@@ -1,0 +1,66 @@
+{
+ "id": "gov-2022-al",
+ "cargo": "governador",
+ "ano": 2022,
+ "vencedor": "15",
+ "perdedor": "44",
+ "secoes": 6626,
+ "municipios": 102,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T14:13:36",
+ "C1": {
+  "T": 0.26623202052359807,
+  "logT": -1.212652164068512,
+  "se": 0.5559160955178212,
+  "O": 3,
+  "E": 11.27,
+  "p_sim": 0.999000999000999,
+  "sigma2_local": 0.08359,
+  "rho_mediana": 0.02344964105179149,
+  "segundos": 191
+ },
+ "C2": {
+  "T": 0.0,
+  "logT": -5.3230099791384085,
+  "se": 1.777245684509363e-15,
+  "municipios": 102,
+  "significativos": 0,
+  "a_favor_vencedor": 0,
+  "D2": null,
+  "se_D2": null,
+  "phi": 344.5103224680187,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.8815737445723069,
+  "f_e": 0.0,
+  "se_f_i": 0.2720712610837223,
+  "se_f_e": 0.00020613942490225359,
+  "sigma_x": 0.025,
+  "erro_ajuste": 0.0005540939351912999,
+  "myagkov": 0.4741,
+  "myagkov_se": 0.0214,
+  "secoes": 6626,
+  "segundos": 242
+ },
+ "C4": {
+  "T": -0.026010119549078992,
+  "se": 0.026816665110360034,
+  "p_perm": 0.9230384807596201,
+  "nulo_sd": 0.018188055578367373,
+  "municipios": 101,
+  "segundos": 2
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 1.6693651247285974,
+  "logT": 0.5124433893145186,
+  "se": 0.06230746594730016,
+  "grupos": 101,
+  "segundos": 0
+ }
+}

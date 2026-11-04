@@ -1,0 +1,66 @@
+{
+ "id": "gov-2018-rj",
+ "cargo": "governador",
+ "ano": 2018,
+ "vencedor": "20",
+ "perdedor": "25",
+ "secoes": 33901,
+ "municipios": 92,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T11:39:28",
+ "C1": {
+  "T": 0.47286918033557124,
+  "logT": -0.7371533352171986,
+  "se": 0.1988107081121729,
+  "O": 22,
+  "E": 46.52,
+  "p_sim": 1.0,
+  "sigma2_local": 0.06471,
+  "rho_mediana": 0.02238534748368162,
+  "segundos": 2156
+ },
+ "C2": {
+  "T": 0.0,
+  "logT": -5.220355825078324,
+  "se": 0.0,
+  "municipios": 92,
+  "significativos": 0,
+  "a_favor_vencedor": 0,
+  "D2": null,
+  "se_D2": null,
+  "phi": 1031.6750089749785,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.29454528954242815,
+  "f_e": 0.0,
+  "se_f_i": 0.09504066378921983,
+  "se_f_e": 9.124681265747221e-05,
+  "sigma_x": 0.15,
+  "erro_ajuste": 0.00011568616770133153,
+  "myagkov": 0.803,
+  "myagkov_se": 0.0269,
+  "secoes": 33901,
+  "segundos": 324
+ },
+ "C4": {
+  "T": 0.11673764802405283,
+  "se": 0.04831616299417445,
+  "p_perm": 0.0004997501249375312,
+  "nulo_sd": 0.01437625348504184,
+  "municipios": 92,
+  "segundos": 23
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 2.514452707860979,
+  "logT": 0.9220551686824748,
+  "se": 0.06149331325601427,
+  "grupos": 92,
+  "segundos": 0
+ }
+}

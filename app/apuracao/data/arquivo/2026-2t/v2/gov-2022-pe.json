@@ -1,0 +1,66 @@
+{
+ "id": "gov-2022-pe",
+ "cargo": "governador",
+ "ano": 2022,
+ "vencedor": "45",
+ "perdedor": "77",
+ "secoes": 20572,
+ "municipios": 185,
+ "unidade_reamostragem": "município",
+ "gerado_em": "2026-11-04T15:00:46",
+ "C1": {
+  "T": 0.5075733363453688,
+  "logT": -0.6447346844239675,
+  "se": 0.2761468960141069,
+  "O": 7,
+  "E": 13.79,
+  "p_sim": 0.989010989010989,
+  "sigma2_local": 0.08627,
+  "rho_mediana": 0.02568045850624947,
+  "segundos": 998
+ },
+ "C2": {
+  "T": 0.0,
+  "logT": -5.916202062607435,
+  "se": 8.886228422546815e-16,
+  "municipios": 185,
+  "significativos": 0,
+  "a_favor_vencedor": 0,
+  "D2": null,
+  "se_D2": null,
+  "phi": 546.1885095244584,
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.6991289911486064,
+  "f_e": 0.0,
+  "se_f_i": 0.18784786611240353,
+  "se_f_e": 0.00042307232108681976,
+  "sigma_x": 0.15,
+  "erro_ajuste": 0.0002948314259986222,
+  "myagkov": 0.6676,
+  "myagkov_se": 0.057,
+  "secoes": 20572,
+  "segundos": 413
+ },
+ "C4": {
+  "T": 0.0056662286647126865,
+  "se": 0.03159547591765517,
+  "p_perm": 0.36881559220389803,
+  "nulo_sd": 0.015742353236238675,
+  "municipios": 184,
+  "segundos": 11
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 3.5525402852689054,
+  "logT": 1.267662920901994,
+  "se": 0.03908131130023251,
+  "grupos": 184,
+  "segundos": 0
+ }
+}

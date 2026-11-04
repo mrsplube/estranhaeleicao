@@ -1,0 +1,59 @@
+{
+ "id": "gov-2026-df",
+ "cargo": "governador",
+ "ano": 2026,
+ "vencedor": "11",
+ "perdedor": "13",
+ "secoes": 6969,
+ "municipios": 1,
+ "unidade_reamostragem": "zona",
+ "gerado_em": "2026-11-04T15:57:56",
+ "C1": {
+  "T": 1.1550889408583915,
+  "logT": 0.1136308878764372,
+  "se": 0.09644523695158391,
+  "O": 2,
+  "E": 1.73,
+  "p_sim": 0.7002997002997003,
+  "sigma2_local": 0.00162,
+  "rho_mediana": 1e-06,
+  "segundos": 166
+ },
+ "C2": {
+  "T": null,
+  "motivo": "só 1 municípios",
+  "segundos": 0
+ },
+ "C3": {
+  "f_i": 0.17951656883159306,
+  "f_e": 0.0009950859396481199,
+  "se_f_i": 0.16010947787906887,
+  "se_f_e": 0.0008643981541877441,
+  "sigma_x": 0.075,
+  "erro_ajuste": 0.00017309313775291796,
+  "myagkov": 0.555,
+  "myagkov_se": 0.0,
+  "secoes": 6969,
+  "segundos": 293
+ },
+ "C4": {
+  "T": 0.025242993232505465,
+  "se": 1.041354893267205e-17,
+  "p_perm": 0.2028985507246377,
+  "nulo_sd": 0.0306404978113907,
+  "municipios": 1,
+  "segundos": 2
+ },
+ "C5": {
+  "T": null,
+  "motivo": "sem biometria por seção",
+  "segundos": 0
+ },
+ "C6": {
+  "T": 4.181944570935411,
+  "logT": 1.4307763467185588,
+  "se": 2.221557105636704e-16,
+  "grupos": 1,
+  "segundos": 0
+ }
+}

@@ -35,22 +35,44 @@ SAIDA = RAIZ / "apuracao/data/arquivo/2026-2t/v2"
 
 
 def inclinacao_calibracao(prob, obs) -> float | None:
-    """Inclinação b de logit P(obs) = a + b·logit(prob), por IRLS."""
+    """Inclinação b de logit P(obs) = a + b·logit(prob), por Newton com busca em linha.
+
+    Até 04/11 o Newton não tinha controle de passo e divergiu em 14 disputas
+    (inclinações de 10¹¹ a 10¹³; ver v2.md §8). Agora o passo só é aceito se a
+    verossimilhança aumenta; sem convergir em 100 voltas, ou com |b| > 20
+    (separação), a inclinação fica sem dado.
+    """
     ok = (prob > 1e-8) & (prob < 1 - 1e-8)
     if ok.sum() < 100 or obs[ok].sum() < 5:
         return None
     x = logit(prob[ok])
     y = obs[ok].astype(float)
     X = np.column_stack([np.ones_like(x), x])
+
+    def loglik(b):
+        eta = X @ b
+        return float((y * eta - np.logaddexp(0, eta)).sum())
+
     beta = np.array([0.0, 1.0])
-    for _ in range(50):
+    ll = loglik(beta)
+    for _ in range(100):
         p = expit(X @ beta)
         w = p * (1 - p)
         passo = np.linalg.solve(X.T @ (X * w[:, None]) + 1e-9 * np.eye(2), X.T @ (y - p))
-        beta += passo
-        if np.abs(passo).max() < 1e-8:
-            break
-    return float(beta[1])
+        t = 1.0
+        while t > 1e-6:
+            novo = beta + t * passo
+            ll_novo = loglik(novo)
+            if ll_novo >= ll - 1e-12:
+                break
+            t /= 2
+        else:
+            return None
+        if abs(ll_novo - ll) < 1e-9 * max(1.0, abs(ll)):
+            beta = novo
+            return float(beta[1]) if abs(beta[1]) <= 20 else None
+        beta, ll = novo, ll_novo
+    return None
 
 
 def _intervalo(valores):
