@@ -1,0 +1,139 @@
+{
+ "base": "pres-2022",
+ "gerado_em": "2026-11-05T01:08:43",
+ "preregistro": "docs/preregistro/v2.md §6; desvios de 04/11 (§8)",
+ "sem_fraude": {
+  "C1": false,
+  "C2": false,
+  "C3": false,
+  "C4": false,
+  "C6": false,
+  "qualquer": false
+ },
+ "cenarios": [
+  {
+   "modo": "troca",
+   "desenho": "aleatorio",
+   "fracao": 0.05,
+   "tamanho": 0.01,
+   "replicas": 20,
+   "votos_alvo": 1182542,
+   "votos_plantados_media": 1129876,
+   "cabe": true,
+   "deteccao": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "deteccao_ic": [
+    0.0,
+    0.168
+   ],
+   "completa": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "diferenca_qualquer": 0.0
+  },
+  {
+   "modo": "troca",
+   "desenho": "aleatorio",
+   "fracao": 0.2,
+   "tamanho": 0.01,
+   "replicas": 20,
+   "votos_alvo": 1182542,
+   "votos_plantados_media": 1176986,
+   "cabe": true,
+   "deteccao": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "deteccao_ic": [
+    0.0,
+    0.168
+   ],
+   "completa": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "diferenca_qualquer": 0.0
+  },
+  {
+   "modo": "enchimento",
+   "desenho": "aleatorio",
+   "fracao": 0.05,
+   "tamanho": 0.01,
+   "replicas": 20,
+   "votos_alvo": 1182542,
+   "votos_plantados_media": 1121233,
+   "cabe": true,
+   "deteccao": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "deteccao_ic": [
+    0.0,
+    0.168
+   ],
+   "completa": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "diferenca_qualquer": 0.0
+  },
+  {
+   "modo": "enchimento",
+   "desenho": "aleatorio",
+   "fracao": 0.2,
+   "tamanho": 0.01,
+   "replicas": 20,
+   "votos_alvo": 1182542,
+   "votos_plantados_media": 1181114,
+   "cabe": true,
+   "deteccao": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "deteccao_ic": [
+    0.0,
+    0.168
+   ],
+   "completa": {
+    "C1": 0.0,
+    "C2": 0.0,
+    "C3": 0.0,
+    "C4": 0.0,
+    "C6": 0.0,
+    "qualquer": 0.0
+   },
+   "diferenca_qualquer": 0.0
+  }
+ ]
+}

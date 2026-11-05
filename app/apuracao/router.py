@@ -366,7 +366,8 @@ async def explicacao_c5(request: Request):
 async def explicacao_v2(request: Request, nome: str):
     """Resultados da v2 (leitura, calibração, referências). Só nomes conhecidos."""
     _porta(request, _freio_dados, json_=True)
-    if nome not in ("leitura", "calibracao", "v3-referencias", "limites", "multiverso"):
+    if nome not in ("leitura", "calibracao", "v3-referencias", "limites", "multiverso",
+                    "poder-pres-2010", "poder-pres-2014", "poder-pres-2018", "poder-pres-2022"):
         raise HTTPException(404)
     return _servir(request, ARQUIVO / "v2" / f"{nome}.json")
 
