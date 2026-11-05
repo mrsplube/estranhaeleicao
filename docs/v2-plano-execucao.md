@@ -163,6 +163,8 @@ do registro no OSF, que só ele pode fazer.
 
 ## 5. Estado das etapas
 
+**Atualização de 05/11, 9h:** o Cursor corrigiu o C3 do P1 de madrugada (v2.md §8). A revisão seguinte achou que o zero de detecção vem sobretudo da heterogeneidade + correção múltipla, e que o centro "do limpo" é um teto (errata no §8). Adendo `docs/preregistro/v3.md` (tag `preregistro-v3`): A e B feitas (`v2/v3-referencias.json`), a `/analise` já mostra a v2; E rodando (`v3-pareada.log`); D e o multiverso entram sozinhos por `tools/v3-cadeia.sh` (`v3-cadeia.log`) quando o P1 acabar (a `v2-cadeia-2.sh` NÃO está rodando). Depois: commitar `poder-*.json`, `multiverso.json`, `v3-pareada.json`, rodar `2026-11-05-v3-site.py`, escrever o PDF v2.
+
 **Em 04/11 ~9h15 foi lançada também `tools/v2-cadeia-2.sh` (log `v2-cadeia-2.log`), que roda o multiverso depois da primeira cadeia.** **Em 04/11 ~9h10 foi lançada a cadeia `tools/v2-cadeia.sh` (log `v2-cadeia.log`)**: espera os 48 governadores, depois roda calibração → leitura → validação do poder → poder nas 4 bases. Ela não commita. Quem retomar: (1) conferir `v2-cadeia.log` e os logs de cada etapa; (2) commitar `v2/gov-*.json`, `calibracao.json`, `leitura.json`, `poder-*.json`; (3) conferir a validação (diferença de detecção leve × completa < 10 pontos nos 4 cenários — se não, o poder leve não vale e é preciso registrar e refazer); (4) só então ler `leitura.json`, atualizar `analise.json` e publicar.
 
 

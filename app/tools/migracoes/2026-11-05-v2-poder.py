@@ -40,6 +40,7 @@ DESENHOS = (("troca", "aleatorio"), ("enchimento", "aleatorio"), ("troca", "redu
 FRACOES = (0.05, 0.20, 0.50)
 TAMANHOS = (0.0025, 0.005, 0.01, 0.018, 0.0357)
 LOTE, MAXIMO = 20, 200
+MEDIANA_PROPRIA = "--mediana-propria" in sys.argv
 VALIDACAO = ((("troca", "aleatorio"), 0.05, 0.01), (("troca", "aleatorio"), 0.20, 0.01),
              (("enchimento", "aleatorio"), 0.05, 0.01), (("enchimento", "aleatorio"), 0.20, 0.01))
 
@@ -154,7 +155,8 @@ def estatisticas(b: Base, A: np.ndarray) -> dict:
     # C3
     ap = d.t["aptos"]
     ok = np.isfinite(ap) & (ap > 0) & (A[:, C2] <= ap)
-    fit = c3.ajustar(A[ok, C2] / ap[ok], A[ok, W2] / V2[ok], centro=b.c3_centro)
+    # `--mediana-propria` (v3.md, análise D): o procedimento real, sem o centro do limpo.
+    fit = c3.ajustar(A[ok, C2] / ap[ok], A[ok, W2] / V2[ok], centro=None if MEDIANA_PROPRIA else b.c3_centro)
     out[("C3", "f_e")] = (fit["f_e"], r0["C3"]["se_f_e"])
     out[("C3", "f_i")] = (fit["f_i"], r0["C3"]["se_f_i"])
     # C4
@@ -280,9 +282,11 @@ def main() -> int:
                "preregistro": "docs/preregistro/v2.md §6; desvios de 04/11 (§8)",
                "sem_fraude": det0, "cenarios": []}
         print(f"{base}: sem fraude {det0}", flush=True)
-        destino = V2DIR / f"poder-{base}{'-validacao' if validar else ''}.json"
+        sufixo = "-validacao" if validar else "-mediana" if MEDIANA_PROPRIA else ""
+        destino = V2DIR / f"poder-{base}{sufixo}.json"
         lista = ([(m, d, f, t) for (m, d), f, t in VALIDACAO] if validar else
-                 [(m, d, f, t) for m, d in DESENHOS for f in FRACOES for t in TAMANHOS])
+                 [(m, d, f, t) for m, d in DESENHOS for f in FRACOES for t in TAMANHOS
+                  if not MEDIANA_PROPRIA or m == "enchimento"])
         for i, (m, d, f, t) in enumerate(lista):
             t0 = datetime.now()
             c = cenario(b, ref, m, d, f, t, semente=int(base[-4:]) * 1000 + i, fixo=validar)
