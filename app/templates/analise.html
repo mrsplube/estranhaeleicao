@@ -37,23 +37,23 @@
       <p class="m-num">conclusão</p>
       <h2 id="a-concl">{{ a.conclusao.titulo }}</h2>
       {% for p in a.conclusao.paragrafos %}<p>{{ p }}</p>{% endfor %}
-      {% if a.relatorio %}<p><b>Relatório técnico em PDF</b>, com o método, as tabelas e as referências: <a href="{{ a.relatorio }}">baixar</a>.</p>{% endif %}
+      {% if a.relatorio %}<p class="a-nota">O <a href="{{ a.relatorio }}">relatório técnico v1</a> traz a primeira versão da análise, comparada só com 2022. As conclusões dele foram substituídas pelas desta página; a versão 2 está sendo escrita.</p>{% endif %}
       <p class="a-nota">Cada teste, com as contas, está abaixo. As mudanças no plano depois do registro, com data e motivo, estão na seção 9 do <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">pré-registro</a>.</p>
     </section>
     {% endif %}
     <section class="m-b" aria-labelledby="a-plano">
       <p class="m-num">01</p>
       <h2 id="a-plano">O plano</h2>
-      <p>Com uma eleição só, nenhum teste responde "houve fraude?". O que dá para responder é outra coisa: <b>o padrão de 2026 é raro, comparado com o 2º turno de 2022?</b> E, se houvesse fraude de um certo tamanho, <b>estes testes a encontrariam?</b></p>
+      <p>Com uma eleição só, nenhum teste responde "houve fraude?". O que dá para responder é outra coisa: <b>o padrão de 2026 é raro, comparado com as eleições de 2010 a 2022?</b> E, se houvesse fraude de um certo tamanho, <b>estes testes a encontrariam?</b></p>
       <p>As duas respostas valem só porque a regra foi fixada antes. Com 499 mil seções, sempre aparece alguma coisa estranha por acaso. Quem escolhe o teste depois de ver o dado consegue mostrar o que quiser.</p>
       <ul>
-        <li><b>Referência:</b> o 2º turno de 2022, mesmo sistema e mesmo desenho. O governador de 2026 (mesmas urnas, mesmo dia) aparece ao lado.</li>
-        <li><b>"Fora do normal" exige duas coisas:</b> significância depois da correção para seis testes (Benjamini–Hochberg) e afastamento de 2022 na direção alegada.</li>
+        <li><b>Referência:</b> 46 segundos turnos de 2010 a 2022, 4 de presidente e 42 de governador, no mesmo sistema.</li>
+        <li><b>Três leituras:</b> atípico (fora do intervalo de predição, na direção alegada, depois da correção para seis testes), equivalente (dentro de uma margem fixada antes) ou inconclusivo.</li>
         <li><b>Todas as variações são publicadas</b>, não só a melhor.</li>
         <li><b>Mudanças no plano</b> ficam registradas, com data e motivo.</li>
       </ul>
       <p>O pré-registro completo, com as fórmulas, está no <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">repositório</a>, com o SHA-256 de cada <a href="{{ a.preregistro.insumos }}" target="_blank" rel="noopener">arquivo de entrada</a>. Versão {{ a.preregistro.versao }}, de {{ a.preregistro.data[8:10] }}/{{ a.preregistro.data[5:7] }}/{{ a.preregistro.data[:4] }} (tag <code>{{ a.preregistro.tag }}</code>).</p>
-      {% if a.preregistro.v2 %}<p><b>Versão 2 em andamento.</b> Uma revisão crítica do relatório (<a href="{{ a.preregistro.parecer }}" target="_blank" rel="noopener">parecer</a>) mostrou que comparar com uma eleição só é pouco. O <a href="{{ a.preregistro.v2 }}" target="_blank" rel="noopener">adendo v2</a>, registrado antes de abrir os dados novos, amplia a referência para os segundos turnos de 2010 a 2022 (presidente e governador), troca "compatível" por testes de equivalência e refaz o poder com fraude estratégica. Os resultados abaixo ainda são os da versão 1.</p>{% endif %}
+      {% if a.preregistro.v2 %}<p><b>Como o plano mudou.</b> Uma <a href="{{ a.preregistro.parecer }}" target="_blank" rel="noopener">revisão crítica</a> mostrou que comparar com uma eleição só era pouco. O <a href="{{ a.preregistro.v2 }}" target="_blank" rel="noopener">adendo v2</a> ampliou a referência antes de abrir os dados novos. O <a href="{{ a.preregistro.v3 }}" target="_blank" rel="noopener">adendo v3</a> traz as análises feitas depois de ver o resultado, com esse rótulo.</p>{% endif %}
     </section>
 
     <section class="m-b" aria-labelledby="a-feito">

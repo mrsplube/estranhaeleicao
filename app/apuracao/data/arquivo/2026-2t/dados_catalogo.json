@@ -20,7 +20,7 @@
   "gerado_em": "",
   "fontes": [],
   "registros": null,
-  "tamanho": 15242
+  "tamanho": 9631
  },
  {
   "nome": "c1.json",
@@ -86,6 +86,24 @@
   "tamanho": 27410
  },
  {
+  "nome": "leitura.json",
+  "url": "/apuracao/explicacao/v2/leitura.json",
+  "o_que": "A leitura principal da versão 2: cada teste em 2026 contra 46 segundos turnos de 2010 a 2022, com intervalo de predição, percentil e teste de equivalência.",
+  "gerado_em": "",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 37922
+ },
+ {
+  "nome": "v3-referencias.json",
+  "url": "/apuracao/explicacao/v2/v3-referencias.json",
+  "o_que": "Análises feitas depois de ver o resultado: poder do teste de equivalência e a leitura separada por cargo (presidente e governador).",
+  "gerado_em": "",
+  "fontes": [],
+  "registros": null,
+  "tamanho": 11129
+ },
+ {
   "nome": "reconciliacao.json",
   "url": "/apuracao/explicacao/reconciliacao.json",
   "o_que": "As 499.205 seções do 2º turno cruzadas em três arquivos do TSE (Boletim de Urna, votação por seção e detalhe) e somadas contra o total oficial: divergências, hash SHA-512 de cada boletim, origem do voto e horário de encerramento.",
@@ -105,7 +123,7 @@
    }
   ],
   "registros": null,
-  "tamanho": 15097
+  "tamanho": 15121
  },
  {
   "nome": "conta.json",

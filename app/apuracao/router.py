@@ -362,6 +362,15 @@ async def explicacao_c5(request: Request):
     return _servir(request, ARQUIVO / "c5.json")
 
 
+@router.get("/explicacao/v2/{nome}.json")
+async def explicacao_v2(request: Request, nome: str):
+    """Resultados da v2 (leitura, calibração, referências). Só nomes conhecidos."""
+    _porta(request, _freio_dados, json_=True)
+    if nome not in ("leitura", "calibracao", "v3-referencias", "limites", "multiverso"):
+        raise HTTPException(404)
+    return _servir(request, ARQUIVO / "v2" / f"{nome}.json")
+
+
 @router.get("/explicacao/c6.json")
 async def explicacao_c6(request: Request):
     """Teste C6 do pré-registro (dispersão entre seções do município), com o multiverso.

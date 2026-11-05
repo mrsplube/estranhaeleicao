@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-02",
+ "atualizado_em": "2026-11-05",
  "preregistro": {
   "versao": 1,
   "data": "2026-11-01",
@@ -7,7 +7,8 @@
   "url": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/README.md",
   "insumos": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/insumos.sha256",
   "v2": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/v2.md",
-  "parecer": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/relatorio/parecer-relatorio-v1.pdf"
+  "parecer": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/relatorio/parecer-relatorio-v1.pdf",
+  "v3": "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/v3.md"
  },
  "feito": [
   {
@@ -36,11 +37,11 @@
    "titulo": "Seções quase zeradas para o Flávio",
    "pergunta": "Há mais seções com o Flávio até 10 votos do que o 1º turno de cada seção prevê?",
    "estatistica": "Número de seções com o 22 até 10 votos, contra 10.000 simulações de um modelo beta-binomial que parte do 1º turno da mesma seção.",
-   "referencia": "O mesmo número para o Lula em 2026 e para os dois lados em 2022.",
+   "referencia": "46 segundos turnos de 2010 a 2022 (presidente e governador), com intervalo de predição.",
    "status": "feito",
-   "resultado": "Compatível com 2022. Há 3.029 seções com o Flávio até 10 votos, 2,7 vezes o que o 1º turno de cada seção prevê (p < 0,001). Mas o mesmo modelo dá 3,1 vezes para o Bolsonaro em 2022: ele subestima seções quase zeradas nos dois anos, e 2026 fica abaixo da referência. Mesma decisão em 50 de 54 especificações.",
-   "decisao": "compatível",
-   "dados": "/apuracao/explicacao/c1.json"
+   "resultado": "Inconclusivo. São 3.029 seções contra 1.138 esperadas: 2,7 vezes. É alto, no percentil 93 entre 46 eleições, mas dentro do que a variação entre eleições produz (p = 0,10). O mesmo cálculo dá 3,0 vezes para o Bolsonaro em 2022. Três disputas de referência ficam acima de 2026.",
+   "decisao": "inconclusivo",
+   "dados": "/apuracao/explicacao/v2/leitura.json"
   },
   {
    "id": "C2",
@@ -48,11 +49,11 @@
    "titulo": "Municípios fora do padrão",
    "pergunta": "Há mais municípios que viraram além do esperado do que em 2022? E eles pendem para um lado?",
    "estatistica": "Resíduo de cada município contra o modelo do 1º turno, com correção de Benjamini–Hochberg sobre os 5.570 municípios.",
-   "referencia": "O mesmo modelo no 2º turno de 2022.",
+   "referencia": "46 segundos turnos de 2010 a 2022 (presidente e governador), com intervalo de predição.",
    "status": "feito",
-   "resultado": "Compatível com 2022. 45 de 5.571 municípios ficam fora do que o 1º turno prevê (Benjamini–Hochberg, q = 0,05), contra 59 de 5.570 em 2022. Dos de 2026, 30 pendem para o Lula e 15 para o Flávio; em 2022 eram 39 e 20. Silva Jardim, o município da alegação, fica em 2.228º de 5.571 (z = 0,63). Mesma decisão em 24 de 24 especificações.",
-   "decisao": "compatível",
-   "dados": "/apuracao/explicacao/c2.json"
+   "resultado": "Inconclusivo. 45 de 5.571 municípios ficam fora do previsto pelo 1º turno, percentil 37 entre 38 eleições. Dos 45, 30 pendem para o vencedor, percentil 50. Nada fora do comum, mas o intervalo é largo demais para dizer que é igual.",
+   "decisao": "inconclusivo",
+   "dados": "/apuracao/explicacao/v2/leitura.json"
   },
   {
    "id": "C3",
@@ -60,11 +61,11 @@
    "titulo": "Comparecimento × voto (enchimento de urna)",
    "pergunta": "Há sinal de votos acrescentados onde ninguém votou?",
    "estatistica": "Modelo de mistura de Klimek et al. (2012) sobre comparecimento e voto por seção, com a inclinação de Myagkov et al. (2009) como segunda leitura.",
-   "referencia": "2º turno de 2022; governador 2026 lado a lado.",
+   "referencia": "46 segundos turnos de 2010 a 2022 (presidente e governador), com intervalo de predição.",
    "status": "feito",
-   "resultado": "Compatível com 2022. O modelo de Klimek atribui à fraude incremental 14,73% das seções em 2026 (IC 0,00% a 25,15%) e 59,62% em 2022 (IC 26,90% a 60,71%); à fraude extrema, 0,00% e 0,00%. No governador de 2026, nas mesmas urnas: 71,27% e 0,01%. A fraude extrema, que é a marca do enchimento de urna, fica perto de zero nos três. O IC de 2026 inclui zero e fica abaixo de 2022. Os valores altos de 2022 e do governador vêm do menor σx da grade, que não se distingue de ruído: o modelo usa esse componente para cobrir o que o modelo limpo, simples demais para o Brasil, não explica. Por isso a decisão é pela comparação, não pelo valor bruto. A inclinação de Myagkov fica em 0,39 (2022: 0,37), longe do 1 que o enchimento produziria. Mesma decisão em 12 de 12 especificações.",
-   "decisao": "compatível",
-   "dados": "/apuracao/explicacao/c3.json"
+   "resultado": "Inconclusivo. A fraude extrema, marca do enchimento de urna, é 0,001% das seções: equivalente à referência. A fraude incremental é 14,7%, abaixo da média das eleições (31,4%), percentil 22. O teste só fica sem veredito porque esse valor sai da margem para o lado contrário ao alegado.",
+   "decisao": "inconclusivo",
+   "dados": "/apuracao/explicacao/v2/leitura.json"
   },
   {
    "id": "C4",
@@ -72,11 +73,11 @@
    "titulo": "Ordem de chegada dos boletins",
    "pergunta": "Dentro da mesma cidade, os boletins que chegaram tarde mudaram mais para o Lula do que os que chegaram cedo?",
    "estatistica": "Correlação entre a hora de recebimento do boletim e a mudança da seção do 1º para o 2º turno, contra 2.000 permutações da hora dentro do município.",
-   "referencia": "2º turno de 2022; governador 2026 lado a lado.",
+   "referencia": "46 segundos turnos de 2010 a 2022 (presidente e governador), com intervalo de predição.",
    "status": "feito",
-   "resultado": "Depende da especificação. Dentro do mesmo município, a correlação entre a hora em que o boletim chegou e a mudança da seção do 1º para o 2º turno é 0,001 em 2026 (p = 0,27), contra −0,043 em 2022. Na especificação principal não há nada. Mas em 4 de 12 especificações (zona no lugar do município, com piso de comparecimento) a correlação sobe para 0,002 a 0,003, fica abaixo de p = 0,05 e acima de 2022. Pela regra pré-registrada, resultado que muda em mais de 20% das especificações não autoriza conclusão, nem para um lado nem para o outro. O tamanho é mínimo nos dois casos: uma correlação de 0,003 quer dizer que a hora de chegada não explica quase nada da mudança. No governador de 2026, nas mesmas urnas e sem acusação, a mesma correlação é 0,029 (p = 0,0005), maior que a do presidente. Mesma decisão da principal em 8 de 12 especificações.",
-   "decisao": "frágil",
-   "dados": "/apuracao/explicacao/c4.json"
+   "resultado": "Inconclusivo. Dentro do município, a correlação entre a hora do boletim e a mudança da seção é −0,003, percentil 48 entre 25 eleições. Nenhum sinal de boletins tardios diferentes.",
+   "decisao": "inconclusivo",
+   "dados": "/apuracao/explicacao/v2/leitura.json"
   },
   {
    "id": "C5",
@@ -84,11 +85,11 @@
    "titulo": "Voto sem biometria",
    "pergunta": "Onde mais gente votou sem a digital reconhecida, o Lula ganhou mais do que no 1º turno?",
    "estatistica": "Regressão da mudança da seção sobre a taxa de eleitores sem biometria, com efeito fixo de município e erro agrupado por zona.",
-   "referencia": "2º turno de 2022.",
+   "referencia": "46 segundos turnos de 2010 a 2022 (presidente e governador), com intervalo de predição.",
    "status": "feito",
-   "resultado": "Compatível com 2022. Dentro do mesmo município, a cada 10 pontos a mais de eleitores sem biometria, a seção mudou 0,57 ponto percentual a menos para o Lula do 1º para o 2º turno em 2026, o contrário do que a alegação prevê. Em 2022 eram 0,31 ponto a mais. Diferença 2026 − 2022: IC de −0,93 a −0,82 ponto. Mesma decisão em 12 de 12 especificações.",
-   "decisao": "compatível",
-   "dados": "/apuracao/explicacao/c5.json"
+   "resultado": "Inconclusivo, com sinal contrário à alegação. A cada 10 pontos a mais de eleitores sem biometria, a seção mudou 0,57 ponto a menos para o Lula. Em 2022 eram 0,31 a mais. Só 2022 tem esse dado, então não há distribuição de referência.",
+   "decisao": "inconclusivo",
+   "dados": "/apuracao/explicacao/v2/leitura.json"
   },
   {
    "id": "C6",
@@ -96,234 +97,23 @@
    "titulo": "Seções do mesmo município",
    "pergunta": "As seções da mesma cidade são mais parecidas, ou mais diferentes, entre si do que em 2022?",
    "estatistica": "Dispersão do voto entre seções de cada município contra a binomial, com faixa de equivalência de 0,8 a 1,25 vez a de 2022.",
-   "referencia": "2º turno de 2022; governador 2026 lado a lado.",
+   "referencia": "46 segundos turnos de 2010 a 2022 (presidente e governador), com intervalo de predição.",
    "status": "feito",
-   "resultado": "Compatível com 2022. As seções de um mesmo município variam 3,81 vezes o que uma binomial daria em 2026 (mediana de 5.241 municípios), contra 3,96 em 2022. A razão é 0,96 (IC de 0,93 a 0,99); a faixa de equivalência é de 0,8 a 1,25. O intervalo fica inteiro dentro da faixa: a dispersão de 2026 é equivalente à de 2022. No governador de 2026, nas mesmas urnas: 2,34. Mesma decisão em 12 de 12 especificações.",
-   "decisao": "compatível",
-   "dados": "/apuracao/explicacao/c6.json"
+   "resultado": "Inconclusivo contra todas as eleições; equivalente contra as presidenciais. A dispersão entre seções é 3,81, percentil 55. Contra as 4 presidenciais de referência, que variam pouco entre si, o intervalo cabe na margem de equivalência.",
+   "decisao": "inconclusivo",
+   "dados": "/apuracao/explicacao/v2/leitura.json"
   },
   {
    "id": "P1",
    "caso": null,
    "titulo": "Poder: que fraude estes testes pegariam",
    "pergunta": "Se houvesse fraude de um dado tamanho e formato, os seis testes acima a encontrariam?",
-   "estatistica": "Fraude plantada nos dados (enchimento e troca, concentrada e difusa, de 0,1% a 3,57% dos votos), 200 réplicas por cenário.",
-   "referencia": "Os dados de 2022 e de 2026.",
-   "status": "feito",
-   "resultado": "Sem fraude plantada, nenhum teste dispara. Com fraude plantada nos dados de 2026, a tabela mostra a taxa de detecção e a leitura de cada cenário. \"Descartado\": detectado em pelo menos 95% das réplicas, então, como nada disparou no dado real, esse cenário fica descartado ao nível de 5%. \"Não cabe\": as seções sorteadas não têm eleitores ausentes (enchimento) ou votos do Flávio (troca) suficientes para receber a fraude inteira; a taxa é a da fraude parcial que coube.",
+   "estatistica": "Fraude plantada em cada eleição de referência, em 5 desenhos, inclusive formatos estratégicos (redutos, comparecimento alto, locais pequenos).",
+   "referencia": "As eleições de 2010 a 2022, cada uma lida contra as demais.",
+   "status": "rodando",
+   "resultado": "Em cálculo. Os resultados parciais mostram que a regra detecta pouco: as eleições variam tanto que a maioria das fraudes plantadas fica dentro do intervalo. A versão anterior deste teste comparava só com 2022, e o resultado dela foi retirado.",
    "decisao": "poder",
-   "tabela": {
-    "colunas": [
-     "0,1% dos votos",
-     "0,5% dos votos",
-     "1% dos votos",
-     "3,57% dos votos"
-    ],
-    "linhas": [
-     {
-      "rotulo": "Enchimento em 0,1% das seções",
-      "celulas": [
-       {
-        "leitura": "não cabe",
-        "taxa": "0%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "0%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "0%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "0%",
-        "classe": "x"
-       }
-      ]
-     },
-     {
-      "rotulo": "Enchimento em 1% das seções",
-      "celulas": [
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "57%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "65%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "52%",
-        "classe": "x"
-       }
-      ]
-     },
-     {
-      "rotulo": "Enchimento em 5% das seções",
-      "celulas": [
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       }
-      ]
-     },
-     {
-      "rotulo": "Enchimento em 20% das seções",
-      "celulas": [
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       }
-      ]
-     },
-     {
-      "rotulo": "Troca em 0,1% das seções",
-      "celulas": [
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       }
-      ]
-     },
-     {
-      "rotulo": "Troca em 1% das seções",
-      "celulas": [
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       }
-      ]
-     },
-     {
-      "rotulo": "Troca em 5% das seções",
-      "celulas": [
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       },
-       {
-        "leitura": "não cabe",
-        "taxa": "100%",
-        "classe": "x"
-       }
-      ]
-     },
-     {
-      "rotulo": "Troca em 20% das seções",
-      "celulas": [
-       {
-        "leitura": "não descartado",
-        "taxa": "0%",
-        "classe": "n"
-       },
-       {
-        "leitura": "não descartado",
-        "taxa": "5%",
-        "classe": "n"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       },
-       {
-        "leitura": "descartado",
-        "taxa": "100%",
-        "classe": "d"
-       }
-      ]
-     }
-    ]
-   },
-   "nota": "Na base de 2022 (fraude plantada em 2022, comparada com 2022 real) os testes pegam bem mais, até 0,1% dos votos. Não é poder de verdade: ali a referência é o próprio dado, o limiar fica colado nele e qualquer empurrão na direção alegada passa. Os números estão nos dados.",
-   "dados": "/apuracao/explicacao/p1.json"
+   "dados": null
   }
  ],
  "exploratorio": [
@@ -336,11 +126,11 @@
  "conclusao": {
   "titulo": "O que os testes dizem",
   "paragrafos": [
-   "Cinco dos seis padrões alegados são compatíveis com o 2º turno de 2022, e um deles (a dispersão entre seções) é estatisticamente equivalente. O sexto, a ordem de chegada dos boletins, depende da especificação: na principal não há nada, em 4 de 12 aparece uma correlação mínima, e a regra registrada não permite concluir nem para um lado nem para o outro.",
-   "Nos formatos testados, fraude grande o bastante para virar a eleição deixaria marca nestes dados. Para virar, seria preciso trocar 1,8% dos votos do Flávio para o Lula, ou acrescentar 3,57% de votos falsos. Trocar 1% já foi detectado em todos os formatos testados. Acrescentar 3,57% foi detectado espalhado em 20% das seções e concentrado em 5%. Concentrado em 1% das seções ou menos, não cabe: exigiria mais votos que eleitores aptos.",
-   "O que passa sem ser visto: fraude pequena (0,1% dos votos, 124 mil) em qualquer formato; votos falsos espalhados por 20% das seções até 1% do total (1,2 milhão); e troca espalhada de 0,5% (620 mil). Nenhuma delas mudaria o resultado: a margem foi de 4,43 milhões.",
-   "E o que nenhum teste estatístico vê: uma troca pequena e igual em todas as urnas, que é idêntica a uma mudança real de opinião. Essa só se exclui conferindo o voto com o eleitor, e o Brasil não tem voto impresso.",
-   "Isto não prova que não houve fraude. Mostra que, nos formatos testados e supondo que o dado de referência seja limpo, uma fraude capaz de mudar o resultado teria sido detectada com probabilidade de pelo menos 95%. A comparação é com uma eleição só (2022); a versão 2 da análise amplia a referência. O formato que não deixa rastro continua fora do alcance de qualquer análise de dados."
+   "Nenhum dos seis padrões alegados ficou fora do que a variação entre 46 eleições produz. Nenhum saiu atípico.",
+   "Isso não prova que 2026 foi normal. Contra todas as eleições, nenhum dos seis saiu equivalente, e o motivo é o próprio desenho: as eleições variam tanto que, mesmo com uma eleição normal, a chance de sair equivalente seria de 0% a 16%, conforme o teste (9% no das seções zeradas). A margem foi fixada antes de medir essa variação. Foi um erro de desenho, e ele está registrado.",
+   "Quem alarga a referência são os governadores. Contra as 4 presidenciais, a dispersão entre seções e a fraude extrema saem equivalentes, e continua não havendo nada atípico. É uma conta com poucas eleições, feita depois de ver o resultado, e vale como indicação.",
+   "Quanto de fraude estes testes pegariam ainda está em cálculo. Os resultados parciais mostram que eles pegam pouco. Uma versão anterior desta página dizia que fraude capaz de mudar o resultado teria sido detectada com 95% de probabilidade. Essa frase dependia de comparar com uma eleição só e foi retirada.",
+   "Os arquivos do TSE coincidem nas 499.205 seções. Uma troca pequena e igual em todas as urnas continua invisível para qualquer análise de dados. Estes testes não provam que houve fraude nem que não houve."
   ]
  },
  "relatorio": "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf"
