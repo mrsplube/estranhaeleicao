@@ -74,13 +74,24 @@ def figura_floresta(comp: dict, refs: dict, teste: str, nome: str, tirar) -> Dra
     return d
 
 
+def _linha_mediana(medianas: dict) -> str:
+    """Resumo da análise D (v3): enchimento com a mediana própria, o procedimento real."""
+    cs = [c for b in medianas.values() for c in b["cenarios"]]
+    pegos = sum(1 for c in cs if c["deteccao"].get("qualquer", 0) >= 0.95)
+    return (f"Com a mediana própria, {pegos} de {len(cs)} cenários de enchimento são detectados em pelo menos 95% das "
+            f"réplicas (bases 2010 e 2014).")
+
+
 def montar() -> list:
     rec = json.loads((ARQ / "reconciliacao.json").read_text(encoding="utf-8"))
     ds = disputas()
     refs = {k: r for k, r in ds.items() if r["ano"] != 2026}
     cal, leit, mult, lim = ler("calibracao.json"), ler("leitura.json"), ler("multiverso.json"), ler("limites.json")
     poderes = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in V2.glob("poder-pres-*.json")
-               if not p.stem.endswith("validacao")}
+               if not p.stem.endswith(("validacao", "mediana"))}
+    medianas = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in V2.glob("poder-pres-*-mediana.json")}
+    v3 = ler("v3-referencias.json")
+    par = ler("v3-pareada.json")
     valid = ler("poder-pres-2022-validacao.json")
     lei26 = (leit or {}).get("disputas_2026", {}).get("pres-2026")
     hoje = date.today().strftime("%d/%m/%Y")
@@ -96,23 +107,17 @@ def montar() -> list:
             f"contra uma classe de referência de {n_pres + n_gov} disputas", "titulo"),
           P("Versão 2 (preprint)", "sub"),
           P(f"Cauê Neves · estranhaeleicao.org · {hoje}<br/>Código e dados: {REPO} (commit {commit}). Pré-registro: "
-            "tags <font face='Mono'>preregistro-v1</font> e <font face='Mono'>preregistro-v2</font>. Redação e código "
-            "assistidos por IA (Claude), revisados pelo autor.", "autor"), Spacer(1, 12)]
-    resumo = ("Testamos seis padrões numéricos apontados como prova de fraude no 2º turno presidencial brasileiro de "
-              f"2026 contra uma classe de referência de {n_pres} segundos turnos presidenciais (2010–2022) e {n_gov} de "
-              "governador, com estatísticas, nulos e regras de decisão registrados antes de abrir os dados. Cada padrão "
-              "é lido como atípico (fora do intervalo de predição de uma meta-análise de efeitos aleatórios, na direção "
-              "alegada, com correção para seis testes), equivalente (teste de equivalência com margem fixada antes) ou "
-              "inconclusivo. ")
-    if lei26:
-        resumo += (f"Resultado: {cont['atípico']} atípico(s), {cont['equivalente']} equivalente(s) e "
-                   f"{cont['inconclusivo']} inconclusivo(s). ")
-    else:
-        resumo += "Resultado: pendente. "
-    resumo += ("Os arquivos públicos do Boletim de Urna, da votação e do detalhe por seção coincidem nas 499.205 seções. "
-               "Medimos também o poder dos testes contra fraude plantada nas eleições de referência, inclusive em "
-               "formatos estratégicos. Uma troca pequena e uniforme em todas as urnas não é detectável por nenhum teste "
-               "sobre o resultado agregado.")
+            "tags <font face='Mono'>preregistro-v1</font>, <font face='Mono'>-v2</font> e <font face='Mono'>-v3</font>. Código "
+            "e redação feitos com IA (Claude e Cursor), sob direção e revisão do autor.", "autor"), Spacer(1, 12)]
+    resumo = ("Comparamos seis padrões numéricos apontados como prova de fraude no 2º turno presidencial brasileiro de "
+              f"2026 com {n_pres + n_gov} segundos turnos de 2010 a 2022, com regras registradas antes de abrir os dados. "
+              "Os arquivos públicos do TSE coincidem nas 499.205 seções. Nenhum padrão sai atípico. Nenhum sai equivalente "
+              "à referência completa, e mostramos por quê: a heterogeneidade entre disputas é maior que as margens "
+              "fixadas, o que dá ao teste de equivalência poder de 0% a 16% e à regra de atipicidade pouco poder contra "
+              "fraude plantada. A heterogeneidade vem sobretudo das disputas de governador: entre presidenciais, a "
+              "dispersão entre seções e o componente de fraude extrema saem equivalentes. A contribuição é "
+              "metodológica: margens de equivalência em forense eleitoral precisam ser comparadas com a variação "
+              "entre eleições, e não só com o erro-padrão. Uma troca uniforme em todas as urnas é indetectável.")
     s += [P("<b>Resumo.</b> " + resumo, "resumo"),
           P("<b>Palavras-chave:</b> forense eleitoral; pré-registro; meta-análise; teste de equivalência; análise de "
             "poder; Brasil.", "resumo"),
@@ -133,7 +138,11 @@ def montar() -> list:
             "\"compatível\". Uma revisão crítica (publicada no repositório) mostrou que isso não sustenta conclusões "
             "de normalidade. A versão 2 amplia a referência, troca a leitura por testes de equivalência, verifica a "
             "calibração dos modelos nulos antes de usá-los e refaz a análise de poder sobre bases independentes de "
-            "2026.")]
+            "2026."),
+          P("<b>O que este trabalho entrega.</b> Uma conferência de 100% das seções; a posição de 2026 em cada padrão "
+            "alegado, numa referência construída e registrada; e uma medida do que esse tipo de teste consegue e não "
+            "consegue dizer sobre uma eleição. O resultado principal é sobre o método: a variação entre eleições "
+            "limita o que qualquer teste de atipicidade ou de equivalência pode concluir.")]
 
     # ── 2. literatura ────────────────────────────────────────────────────
     s += [P("2. Literatura", "h1"),
@@ -251,23 +260,81 @@ def montar() -> list:
     else:
         s += [P("Pendente.")]
 
+    # ── 7b. por que não decide ───────────────────────────────────────────
+    if v3:
+        s += [P("8. Por que os testes não decidem", "h1"),
+              P("Esta seção é posterior aos resultados (adendo v3) e não muda a leitura registrada. Um teste de "
+                "equivalência só pode dizer \"equivalente\" se a meia-largura do intervalo couber na margem. A tabela "
+                "mostra a chance de isso acontecer mesmo que 2026 fosse uma eleição sorteada da própria classe. A "
+                "margem foi fixada olhando o erro-padrão, sem comparar com a variação entre eleições (τ). Foi um erro "
+                "de desenho: o resultado \"inconclusivo\" era esperado com qualquer eleição.")]
+        linhas = [["Componente", "τ todas", "τ governador", "τ presidente", "Poder TOST (todas)", "Poder TOST (pres.)", "Leitura (pres.)"]]
+        for c in v3["componentes"]:
+            a, g, pr = c["todas"], c["governadores"], c["presidenciais"]
+            if a.get("tau") is None:
+                continue
+            casas = 5 if c["componente"] == "f_e" else 3
+            tp = "—" if pr.get("tau") is None else br(pr["tau"], casas)
+            leit_p = ("—" if pr.get("mu") is None else "atípico" if pr.get("fora_do_intervalo") else
+                      "equivalente" if pr.get("equivalente") else "inconclusivo")
+            linhas.append([f"{c['teste']} {c['componente']}", br(a["tau"], casas), br(g.get("tau", 0), casas), tp,
+                           pct(a["poder_tost"], 0), pct(pr["poder_tost"], 0) if pr.get("poder_tost") is not None else "—",
+                           leit_p])
+        s += [tabela(linhas, [4.6 * cm, 1.6 * cm, 2.2 * cm, 2 * cm, 2 * cm, 2 * cm, 2.1 * cm]),
+              P("Tabela 4. Heterogeneidade por cargo e poder do teste de equivalência.", "legenda"),
+              P("A heterogeneidade vem sobretudo dos governadores: no C6, τ cai de 0,49 para 0,05 só com as "
+                "presidenciais, e no C2 de 0,57 para 0,14. Com essa referência, dispersão entre seções e fraude extrema "
+                "saem equivalentes, com poder alto, e nada sai atípico. São só 4 eleições, e a leitura vem depois do "
+                "resultado: é indicação, não confirmação. Isso sugere que disputas de governador não são comparáveis às "
+                "presidenciais por estes estatísticos, embora a normalização permitisse supor o contrário.")]
+        if par:
+            r = par["resumo"]
+            texto = "; ".join(f"{c}: dp de D {br(r[c]['dp_D'], 4 if c == 'C3' else 3)} contra τ {br(r[c]['tau_sem_parear'], 4 if c == 'C3' else 3)}"
+                              for c in r)
+            ajuda = [c for c in r if r[c]["ajuda"]]
+            fora = sorted({k.split("-")[-1].upper() for c in r for k in r[c]["uf_fora"]})
+            s += [P(f"<b>Comparação pareada (exploratória).</b> Nas mesmas seções, a diferença entre presidente e "
+                    f"governador cancela o contexto de UF e ano. O critério, fixado antes, é que ela só ajuda se variar "
+                    f"menos que o estatístico sem parear ({texto}). "
+                    + (f"Ajuda em {', '.join(ajuda)}. " if ajuda else "Não ajudou em nenhum. ")
+                    + (f"Fora do intervalo em 2026: {', '.join(fora)}." if fora else "Nenhuma UF de 2026 fica fora do intervalo."))]
+        s += [P("<b>Dois resultados que \"inconclusivo\" esconde.</b> O C5 tem sinal oposto ao alegado: onde mais gente "
+                "votou sem biometria, a seção mudou menos para o vencedor, ao contrário de 2022. O C1 é o sinal mais "
+                "persistente do conjunto: 2026 está no percentil 93, e o governador do Acre de 2026 fica próximo do corte "
+                "no BH (0,0505), embora o BY, que a regra exige, dê 0,105. A explicação por erro do modelo vem da "
+                "referência, que tem valores até maiores, e não do dado de 2026.")]
+
     # ── 8. multiverso ────────────────────────────────────────────────────
-    s += [P("8. Robustez", "h1")]
-    if mult and lei26:
-        linhas = [["Teste", "Variações", "Mesma leitura da principal", "Robusto (≥ 80%)"]]
+    s += [P("9. Robustez", "h1")]
+    if mult and v3:
+        # Mesma referência (K = 4) dos dois lados: a do multiverso e a da leitura por cargo.
+        por_teste: dict = {}
+        for c in v3["componentes"]:
+            por_teste.setdefault(c["teste"], []).append(c["presidenciais"])
+        base = {}
+        for t, cs in por_teste.items():
+            if any(c.get("fora_do_intervalo") for c in cs):
+                base[t] = "atípico"
+            elif all(c.get("equivalente") for c in cs):
+                base[t] = "equivalente"
+            else:
+                base[t] = "inconclusivo"
+        linhas = [["Teste", "Leitura com K = 4", "Variações", "Mesma leitura", "Robusto (≥ 80%)"]]
         for t in sorted({v["teste"] for v in mult["variacoes"]}):
             vs = [v for v in mult["variacoes"] if v["teste"] == t]
-            principal = lei26["leitura"].get(t, "")
-            iguais = sum(1 for v in vs if principal.startswith(v["leitura"]))
-            linhas.append([t, str(len(vs)), f"{iguais} de {len(vs)}", "sim" if iguais / len(vs) >= 0.8 else "não"])
+            iguais = sum(1 for v in vs if v["leitura"] == base.get(t))
+            linhas.append([t, base.get(t, "—"), str(len(vs)), f"{iguais} de {len(vs)}",
+                           "sim" if iguais / len(vs) >= 0.8 else "não"])
         s += [P("Cada teste foi recalculado nas variações da v1 (piso de comparecimento, exclusão das seções do "
-                "recuperador de dados, efeito fixo, limiares), em 2026 e nas quatro presidenciais de referência."),
-              tabela(linhas, [2 * cm, 3 * cm, 5 * cm, 4 * cm]), P("Tabela 4. Multiverso.", "legenda")]
+                "recuperador de dados, efeito fixo, limiares), em 2026 e nas quatro presidenciais de referência. Com "
+                "K = 4, o intervalo de predição usa t com 2 graus de liberdade: é mais permissivo que a análise "
+                "principal. Por isso a comparação é com a leitura por presidenciais, de mesmo K, e não com a de K = 46."),
+              tabela(linhas, [1.6 * cm, 3.6 * cm, 2.4 * cm, 3 * cm, 3 * cm]), P("Tabela 5. Multiverso.", "legenda")]
     else:
         s += [P("Pendente.")]
 
     # ── 9. poder ─────────────────────────────────────────────────────────
-    s += [P("9. Poder", "h1")]
+    s += [P("10. Poder", "h1")]
     if poderes:
         linhas = [["Desenho", "Fração", "0,25%", "0,5%", "1%", "1,8%", "3,57%"]]
         chave = {}
@@ -287,27 +354,36 @@ def montar() -> list:
                 "lida contra a referência sem a própria base. A tabela mostra a menor taxa de detecção entre as bases "
                 "(o caso mais desfavorável). 1,8% dos válidos é a troca que viraria 2026."),
               tabela(linhas, [5.2 * cm, 1.4 * cm, 1.8 * cm, 1.8 * cm, 1.8 * cm, 1.8 * cm, 1.8 * cm], zebra=True),
-              P("Tabela 5. Taxa de detecção por \"qualquer teste\".", "legenda")]
+              P("Tabela 6. Taxa de detecção por \"qualquer teste\".", "legenda"),
+              P("Esta tabela usa, no C3, o centro do cenário sem fraude, que não existe numa eleição real: para o C3 ela "
+                "é um teto. O procedimento real usa a mediana da própria amostra, que a fraude difusa desloca junto "
+                "consigo."
+                + (" " + _linha_mediana(medianas) if medianas else ""), "nota")]
         if valid:
             difs = [c.get("diferenca_qualquer") for c in valid["cenarios"]]
             s += [P(f"Validação da versão leve dos testes contra a completa em 4 cenários: diferença máxima de "
-                    f"{pct(max(difs), 0)} na taxa de detecção (limite registrado: 10 pontos).", "nota")]
+                    f"{pct(max(difs), 0)} na taxa de detecção (limite registrado: 10 pontos). A validação diz pouco: nos 4 "
+                    "cenários registrados, nenhuma das duas versões detecta nada, então a concordância é entre zeros.", "nota")]
     else:
         s += [P("Pendente.")]
 
     # ── 10. discussão ────────────────────────────────────────────────────
-    s += [P("10. Discussão", "h1"),
-          P("O que os testes permitem dizer depende das três leituras. Equivalente significa que, na escala do menor "
-            "efeito de interesse fixado antes, 2026 é como a média das eleições de referência. Inconclusivo significa "
-            "que o dado não distingue: nem semelhança nem diferença. Atípico significaria que 2026 está fora do que a "
-            "variação entre eleições produz, o que pede explicação e não identifica a causa."),
-          P("A análise de poder supõe que as eleições de referência são limpas o bastante para servir de base. Ela "
-            "mostra quais formatos e tamanhos de fraude deixariam marca; não alcança uma troca uniforme e pequena em "
-            "todas as urnas, que é indistinguível de mudança real de opinião e só seria excluída por uma trilha "
-            "conferida pelo eleitor.")]
+    s += [P("11. Discussão", "h1"),
+          P("O resultado é fraco para qualquer lado, e dizer isso é o resultado. Nenhum padrão alegado está fora do que "
+            "a variação entre eleições produz, o que contraria a afirmação de que eles só teriam explicação por fraude. "
+            "Mas a mesma variação impede afirmar normalidade e reduz o poder contra fraude de verdade. Não é possível, "
+            "com este desenho, declarar descartada uma fraude de um dado tamanho."),
+          P("O ganho mais transferível é de método. Trabalhos de forense eleitoral costumam comparar uma eleição com "
+            "um limiar teórico ou com uma única referência. Quando se mede a variação entre eleições, ela pode ser maior "
+            "que os efeitos de interesse. Antes de fixar margens de equivalência ou de declarar uma eleição anômala, "
+            "é preciso estimar essa variação. A comparação só entre eleições do mesmo cargo reduz muito o problema, ao "
+            "custo de ter poucas observações."),
+          P("A análise de poder supõe que as eleições de referência são limpas o bastante para servir de base. Ela não "
+            "alcança uma troca uniforme e pequena em todas as urnas, indistinguível de mudança real de opinião, que só "
+            "seria excluída por uma trilha conferida pelo eleitor.")]
 
     # ── 11. ameaças ──────────────────────────────────────────────────────
-    s += [P("11. Ameaças à validade", "h1")]
+    s += [P("12. Ameaças à validade", "h1")]
     for t_ in ("<b>Referência não sabidamente limpa.</b> As eleições de 2010 a 2022 também foram objeto de alegações; "
                "a referência é \"o mesmo sistema\", não \"sem fraude\".",
                "<b>Uma eleição de interesse.</b> 2026 é uma observação; a classe de referência dá variância à "
@@ -315,6 +391,9 @@ def montar() -> list:
                "<b>Dados já vistos.</b> 2026 e 2022 eram conhecidos quando o plano foi escrito; as demais eleições não.",
                "<b>Aproximações.</b> Erros-padrão com o modelo fixo, C1 de um nível no poder e no multiverso; todas "
                "registradas antes e, onde possível, validadas.",
+               "<b>Margens.</b> As margens de equivalência foram propostas pela IA e aceitas pelo autor sem comparação "
+               "com a heterogeneidade. É a decisão científica de maior efeito no resultado, e ela não é alterada aqui.",
+               "<b>Análises posteriores.</b> A seção 8 foi feita depois de ver os resultados e está rotulada assim.",
                "<b>Causalidade.</b> Mudanças de candidato, campanha e contexto entre eleições entram na heterogeneidade "
                "τ², não são controladas."):
         s.append(P("• " + t_))
