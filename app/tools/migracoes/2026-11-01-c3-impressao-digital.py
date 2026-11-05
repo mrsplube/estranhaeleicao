@@ -107,11 +107,21 @@ def _fraude(t, v, x):
     return t2, np.clip(w / t2, 0, 1)
 
 
-def ajustar(t, v, bins=100):
-    """`f_i`, `f_e`, σx e o erro do melhor ajuste de Klimek a estas seções."""
+def centro_limpo(t, v):
+    """Centro (mediana) e escala (MAD) do componente limpo, a partir das seções observadas."""
     mt, mv = np.median(t), np.median(v)
-    st = 1.4826 * np.median(np.abs(t - mt))
-    sv = 1.4826 * np.median(np.abs(v - mv))
+    return mt, 1.4826 * np.median(np.abs(t - mt)), mv, 1.4826 * np.median(np.abs(v - mv))
+
+
+def ajustar(t, v, bins=100, centro=None):
+    """`f_i`, `f_e`, σx e o erro do melhor ajuste de Klimek a estas seções.
+
+    `centro` fixa a mediana e a escala do componente limpo. Sem ele, sai da
+    própria amostra — o que, na simulação de fraude plantada em fração grande
+    das seções, faz o "limpo" acompanhar o deslocamento da fraude e anula o
+    resíduo (v2.md §8, 05/11). No P1 v2 passa-se o centro do cenário sem fraude.
+    """
+    mt, st, mv, sv = centro if centro is not None else centro_limpo(t, v)
     H = _hist(t, v, bins)
     tl, vl = _limpos(mt, st, mv, sv)
     Hc = _hist(tl, vl, bins)

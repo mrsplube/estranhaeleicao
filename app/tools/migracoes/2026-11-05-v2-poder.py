@@ -72,6 +72,10 @@ class Base:
         # C1: ajuste sem fraude, ponto de partida (um nível, como na v1 leve).
         V2 = d.V2
         self.c1_beta, self.c1_alfa = self._logit(A[:, P2] / V2, V2, None, None, 80)
+        # C3: centro do componente limpo no cenário sem fraude (v2.md §8, 05/11).
+        ap0 = d.t["aptos"]
+        ok0 = np.isfinite(ap0) & (ap0 > 0) & (A[:, C2] <= ap0)
+        self.c3_centro = c3.centro_limpo(A[ok0, C2] / ap0[ok0], A[ok0, W2] / V2[ok0])
         # Conjuntos dos desenhos estratégicos.
         nm = d.mun.max() + 1
         w1m = np.bincount(d.mun, A[:, W1], nm) / np.maximum(np.bincount(d.mun, d.V1, nm), 1)
@@ -150,7 +154,7 @@ def estatisticas(b: Base, A: np.ndarray) -> dict:
     # C3
     ap = d.t["aptos"]
     ok = np.isfinite(ap) & (ap > 0) & (A[:, C2] <= ap)
-    fit = c3.ajustar(A[ok, C2] / ap[ok], A[ok, W2] / V2[ok])
+    fit = c3.ajustar(A[ok, C2] / ap[ok], A[ok, W2] / V2[ok], centro=b.c3_centro)
     out[("C3", "f_e")] = (fit["f_e"], r0["C3"]["se_f_e"])
     out[("C3", "f_i")] = (fit["f_i"], r0["C3"]["se_f_i"])
     # C4
