@@ -22,20 +22,21 @@ BASES = (2010, 2014, 2018, 2022)
 
 def resumo_poder() -> dict:
     """Conta os cenários do P1 nas 4 bases e procura as detecções na curva com a mediana própria."""
-    cen, med = [], {}
+    cen, med, n_mediana = [], {}, 0
     for ano in BASES:
         cen += [dict(c, base=ano) for c in json.loads((V2 / f"poder-pres-{ano}.json").read_text(encoding="utf-8"))["cenarios"]]
         arq = V2 / f"poder-pres-{ano}-mediana.json"
         if arq.exists():
             for c in json.loads(arq.read_text(encoding="utf-8"))["cenarios"]:
                 med[(ano, c["desenho"], c["fracao"], c["tamanho"])] = c["deteccao"]["C3"]
+                n_mediana += c["cabe"]
     cabem = [c for c in cen if c["cabe"]]
     pegos = [c for c in cabem if c["deteccao"]["qualquer"] >= 0.95]
     assert len(cen) == 300 and len({(c["modo"], c["desenho"], c["fracao"], c["tamanho"]) for c in pegos}) == 1
     assert all(c["deteccao"]["C3"] >= 0.95 for c in pegos)
     assert not [c for c in cabem if 0 < c["deteccao"]["qualquer"] < 0.95]
     vira = [c for c in cabem if c["modo"] == "troca" and c["tamanho"] >= 0.018]
-    return {"total": len(cen), "cabem": len(cabem), "pegos": pegos, "vira": vira, "c3_proprio": [
+    return {"n_mediana": n_mediana, "total": len(cen), "cabem": len(cabem), "pegos": pegos, "vira": vira, "c3_proprio": [
         (c["base"], med[k]) for c in pegos if (k := (c["base"], c["desenho"], c["fracao"], c["tamanho"])) in med]}
 
 
@@ -112,13 +113,17 @@ def main() -> int:
         "extrema saem equivalentes, e continua não havendo nada atípico. É uma conta com poucas eleições, feita depois "
         "de ver o resultado, e vale como indicação.",
         f"Estes testes pegam pouca fraude. A troca de 1,8% ou mais dos votos, o bastante para virar 2026, não foi detectada em "
-        f"nenhum dos {len(pod['vira'])} cenários. Uma versão anterior desta página dizia que fraude capaz de mudar o "
+        f"nenhum dos {len(pod['vira'])} cenários. Com a conta que dá para fazer numa eleição real, nenhum dos "
+        f"{pod['n_mediana']} cenários de enchimento foi detectado. Nas 126 variações testadas contra as 4 presidenciais, a leitura não mudou e nada saiu atípico. "
+        "Uma versão anterior desta página dizia que fraude capaz de mudar o "
         "resultado teria sido detectada com 95% de probabilidade. Essa frase dependia de comparar com uma eleição só e foi "
         "retirada.",
         "Os arquivos do TSE coincidem nas 499.205 seções. Uma troca pequena e igual em todas as urnas continua invisível "
         "para qualquer análise de dados. Estes testes não provam que houve fraude nem que não houve.",
     ]}
-    a["atualizado_em"] = "2026-11-05"
+    a["atualizado_em"] = "2026-11-06"
+    a["relatorio"] = "/static/relatorio/estranhaeleicao-paper-v2.pdf"
+    a["relatorio_v1"] = "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf"
     a["preregistro"]["v3"] = "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/v3.md"
     (ARQ / "analise.json").write_text(json.dumps(a, ensure_ascii=False, indent=1), encoding="utf-8")
     for t in a["testes"]:

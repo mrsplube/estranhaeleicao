@@ -1,0 +1,3419 @@
+{
+ "gerado_em": "2026-11-06T01:25:07",
+ "variacoes": [
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.9595143300456477
+    },
+    "pres-2010": {
+     "log O/E": 2.2136270455805036
+    },
+    "pres-2014": {
+     "log O/E": 2.084981384659797
+    },
+    "pres-2018": {
+     "log O/E": 0.5144157224120048
+    },
+    "pres-2022": {
+     "log O/E": 3.1432660285613654
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.444706925263973
+    },
+    "pres-2010": {
+     "log O/E": 0.9389272061802876
+    },
+    "pres-2014": {
+     "log O/E": 0.9962171084362177
+    },
+    "pres-2018": {
+     "log O/E": 0.19949626234641935
+    },
+    "pres-2022": {
+     "log O/E": 1.645944228583969
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 0.9811104531001049
+    },
+    "pres-2010": {
+     "log O/E": 0.4686087598405357
+    },
+    "pres-2014": {
+     "log O/E": 0.5010525549534843
+    },
+    "pres-2018": {
+     "log O/E": 0.1592663589367352
+    },
+    "pres-2022": {
+     "log O/E": 1.1160813717804503
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.923819649583766
+    },
+    "pres-2010": {
+     "log O/E": 2.1608076522623034
+    },
+    "pres-2014": {
+     "log O/E": 2.092620361795209
+    },
+    "pres-2018": {
+     "log O/E": 0.5164351649126278
+    },
+    "pres-2022": {
+     "log O/E": 3.123382802743448
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.3637634884363097
+    },
+    "pres-2010": {
+     "log O/E": 0.8554904555629104
+    },
+    "pres-2014": {
+     "log O/E": 0.9952745837401856
+    },
+    "pres-2018": {
+     "log O/E": 0.16223829621838254
+    },
+    "pres-2022": {
+     "log O/E": 1.4724160330281484
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 0.8713338323776791
+    },
+    "pres-2010": {
+     "log O/E": 0.3922078076139918
+    },
+    "pres-2014": {
+     "log O/E": 0.49809207121509114
+    },
+    "pres-2018": {
+     "log O/E": 0.1088452298428088
+    },
+    "pres-2022": {
+     "log O/E": 0.910714368592175
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.90592570955416
+    },
+    "pres-2010": {
+     "log O/E": 2.268204478699506
+    },
+    "pres-2014": {
+     "log O/E": 2.1631252119334556
+    },
+    "pres-2018": {
+     "log O/E": 0.5634877559978028
+    },
+    "pres-2022": {
+     "log O/E": 3.145317994062985
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.3738532276404192
+    },
+    "pres-2010": {
+     "log O/E": 0.9456779273532234
+    },
+    "pres-2014": {
+     "log O/E": 1.063945598326075
+    },
+    "pres-2018": {
+     "log O/E": 0.1977505767898046
+    },
+    "pres-2022": {
+     "log O/E": 1.5316244541797421
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 0.8906683598944528
+    },
+    "pres-2010": {
+     "log O/E": 0.4678134861524942
+    },
+    "pres-2014": {
+     "log O/E": 0.5553270586942758
+    },
+    "pres-2018": {
+     "log O/E": 0.12658672233046311
+    },
+    "pres-2022": {
+     "log O/E": 0.9651297684430349
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6666666666666666
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.8567783131531375,
+     "fração a favor do vencedor": 0.4883720930232558
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.474200189600725,
+     "fração a favor do vencedor": 0.38095238095238093
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.852479157404733,
+     "fração a favor do vencedor": 0.5116279069767442
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.6610169491525424
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.591178958334713,
+     "fração a favor do vencedor": 0.6964285714285714
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.613156230495387,
+     "fração a favor do vencedor": 0.45454545454545453
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.3611111111111111
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.5423728813559322
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.262141470711009,
+     "fração a favor do vencedor": 0.717948717948718
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "nenhum",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6222222222222222
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.52689588621098,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.4576271186440678
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.664426925901793,
+     "fração a favor do vencedor": 0.40384615384615385
+    },
+    "pres-2022": {
+     "log proporção significativa": -5.055707399018001,
+     "fração a favor do vencedor": 0.7714285714285715
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "nenhum",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.506382421674637,
+     "fração a favor do vencedor": 0.6229508196721312
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.4323373035859674,
+     "fração a favor do vencedor": 0.5151515151515151
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.4722222222222222
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.4098360655737705
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.7540983606557377
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    100
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 1.456828996922009e-05,
+     "f_i": 0.14725962869438516
+    },
+    "pres-2010": {
+     "f_e": 5.9736558752709085e-05,
+     "f_i": 0.5194717122980688
+    },
+    "pres-2014": {
+     "f_e": 3.1859046416109774e-05,
+     "f_i": 0.4511407550921675
+    },
+    "pres-2018": {
+     "f_e": 0.00022396595553067367,
+     "f_i": 0.3274800567914521
+    },
+    "pres-2022": {
+     "f_e": 1.129481887632077e-05,
+     "f_i": 0.5962076081894754
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    50
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 0.00013751356877344858,
+     "f_i": 0.0
+    },
+    "pres-2010": {
+     "f_e": 7.926299902842405e-05,
+     "f_i": 0.7803407141895731
+    },
+    "pres-2014": {
+     "f_e": 2.8116135541429795e-05,
+     "f_i": 0.8454494442568599
+    },
+    "pres-2018": {
+     "f_e": 2.354164411920219e-06,
+     "f_i": 0.20489219695739666
+    },
+    "pres-2022": {
+     "f_e": 2.514766200020981e-05,
+     "f_i": 0.30133996992929457
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0031334729759793043
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04645242602095796
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04368589572034056
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0005742756592426486
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04252779053636938
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.042894880298972676
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05659141751261552
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.030962519520052287
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05683906463835472
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.018894635029257048
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C6",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.3369666604743051
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.3638871053674202
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.4550225500879523
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.4705126372470965
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.3753353597851248
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C6",
+   "piso": 0,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.6393205347805249
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.736498233234463
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.8587544385182033
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.831946103396781
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.6949761946063195
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.9595305622099732
+    },
+    "pres-2010": {
+     "log O/E": 2.2136270455805036
+    },
+    "pres-2014": {
+     "log O/E": 2.084981384659797
+    },
+    "pres-2018": {
+     "log O/E": 0.5144157224120048
+    },
+    "pres-2022": {
+     "log O/E": 3.1432660285613654
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.4447225705419497
+    },
+    "pres-2010": {
+     "log O/E": 0.9389272061802876
+    },
+    "pres-2014": {
+     "log O/E": 0.9962171084362177
+    },
+    "pres-2018": {
+     "log O/E": 0.19949626234641935
+    },
+    "pres-2022": {
+     "log O/E": 1.645944228583969
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 0.9811244835087364
+    },
+    "pres-2010": {
+     "log O/E": 0.4686087598405357
+    },
+    "pres-2014": {
+     "log O/E": 0.5010525549534843
+    },
+    "pres-2018": {
+     "log O/E": 0.1592663589367352
+    },
+    "pres-2022": {
+     "log O/E": 1.1160813717804503
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.923827633614887
+    },
+    "pres-2010": {
+     "log O/E": 2.1608076522623034
+    },
+    "pres-2014": {
+     "log O/E": 2.092620361795209
+    },
+    "pres-2018": {
+     "log O/E": 0.5164351649126278
+    },
+    "pres-2022": {
+     "log O/E": 3.123382802743448
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.363760915183856
+    },
+    "pres-2010": {
+     "log O/E": 0.8554904555629104
+    },
+    "pres-2014": {
+     "log O/E": 0.9952745837401856
+    },
+    "pres-2018": {
+     "log O/E": 0.16223829621838254
+    },
+    "pres-2022": {
+     "log O/E": 1.4724160330281484
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 0.8713451992644184
+    },
+    "pres-2010": {
+     "log O/E": 0.3922078076139918
+    },
+    "pres-2014": {
+     "log O/E": 0.49809207121509114
+    },
+    "pres-2018": {
+     "log O/E": 0.1088452298428088
+    },
+    "pres-2022": {
+     "log O/E": 0.910714368592175
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.9059418532667367
+    },
+    "pres-2010": {
+     "log O/E": 2.268204478699506
+    },
+    "pres-2014": {
+     "log O/E": 2.1631252119334556
+    },
+    "pres-2018": {
+     "log O/E": 0.5634877559978028
+    },
+    "pres-2022": {
+     "log O/E": 3.145317994062985
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.3738551717978646
+    },
+    "pres-2010": {
+     "log O/E": 0.9456779273532234
+    },
+    "pres-2014": {
+     "log O/E": 1.063945598326075
+    },
+    "pres-2018": {
+     "log O/E": 0.1977505767898046
+    },
+    "pres-2022": {
+     "log O/E": 1.5316244541797421
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 0.8906794968108425
+    },
+    "pres-2010": {
+     "log O/E": 0.4678134861524942
+    },
+    "pres-2014": {
+     "log O/E": 0.5553270586942758
+    },
+    "pres-2018": {
+     "log O/E": 0.12658672233046311
+    },
+    "pres-2022": {
+     "log O/E": 0.9651297684430349
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6666666666666666
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.8567783131531375,
+     "fração a favor do vencedor": 0.4883720930232558
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.474200189600725,
+     "fração a favor do vencedor": 0.38095238095238093
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.852479157404733,
+     "fração a favor do vencedor": 0.5116279069767442
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.6610169491525424
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.591178958334713,
+     "fração a favor do vencedor": 0.6964285714285714
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.613156230495387,
+     "fração a favor do vencedor": 0.45454545454545453
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.3611111111111111
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.5423728813559322
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.262141470711009,
+     "fração a favor do vencedor": 0.717948717948718
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "nenhum",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6222222222222222
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.52689588621098,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.4576271186440678
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.664426925901793,
+     "fração a favor do vencedor": 0.40384615384615385
+    },
+    "pres-2022": {
+     "log proporção significativa": -5.055707399018001,
+     "fração a favor do vencedor": 0.7714285714285715
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "nenhum",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.506382421674637,
+     "fração a favor do vencedor": 0.6229508196721312
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.4323373035859674,
+     "fração a favor do vencedor": 0.5151515151515151
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.4722222222222222
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.4098360655737705
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.7540983606557377
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    100
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 1.4577248543399611e-05,
+     "f_i": 0.14745524180108985
+    },
+    "pres-2010": {
+     "f_e": 5.9736558752709085e-05,
+     "f_i": 0.5194717122980688
+    },
+    "pres-2014": {
+     "f_e": 3.1859046416109774e-05,
+     "f_i": 0.4511407550921675
+    },
+    "pres-2018": {
+     "f_e": 0.00022396595553067367,
+     "f_i": 0.3274800567914521
+    },
+    "pres-2022": {
+     "f_e": 1.129481887632077e-05,
+     "f_i": 0.5962076081894754
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    50
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 0.00013762637163646302,
+     "f_i": 0.0
+    },
+    "pres-2010": {
+     "f_e": 7.926299902842405e-05,
+     "f_i": 0.7803407141895731
+    },
+    "pres-2014": {
+     "f_e": 2.8116135541429795e-05,
+     "f_i": 0.8454494442568599
+    },
+    "pres-2018": {
+     "f_e": 2.354164411920219e-06,
+     "f_i": 0.20489219695739666
+    },
+    "pres-2022": {
+     "f_e": 2.514766200020981e-05,
+     "f_i": 0.30133996992929457
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0031268088607051465
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04645242602095796
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04368589572034056
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0005590699992170166
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04252779053636938
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.042894880298972676
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05658956361927676
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.030962519520052287
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.056833615276232
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.018894635029257048
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C6",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.3369666604743051
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.3638871053674202
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.4550225500879523
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.4705126372470965
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.3753353597851248
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C6",
+   "piso": 0,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.6393205347805249
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.736498233234463
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.8587544385182033
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.831946103396781
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.6949761946063195
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.700642144798508
+    },
+    "pres-2010": {
+     "log O/E": 3.6797269069515357
+    },
+    "pres-2014": {
+     "log O/E": 3.3348141886177776
+    },
+    "pres-2018": {
+     "log O/E": 1.7897471165208867
+    },
+    "pres-2022": {
+     "log O/E": 4.9240336779388505
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.1426567344875695
+    },
+    "pres-2010": {
+     "log O/E": 1.2699478277791492
+    },
+    "pres-2014": {
+     "log O/E": 1.2439119641609628
+    },
+    "pres-2018": {
+     "log O/E": 0.7159841428467267
+    },
+    "pres-2022": {
+     "log O/E": 2.232353207318933
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.1933245350398303
+    },
+    "pres-2010": {
+     "log O/E": 0.5664890982713698
+    },
+    "pres-2014": {
+     "log O/E": 0.5716225064637063
+    },
+    "pres-2018": {
+     "log O/E": 0.28035237498490057
+    },
+    "pres-2022": {
+     "log O/E": 1.2983804276641349
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.5497632999368784
+    },
+    "pres-2010": {
+     "log O/E": 3.38410477312313
+    },
+    "pres-2014": {
+     "log O/E": 3.34518784177631
+    },
+    "pres-2018": {
+     "log O/E": 1.8089629576650808
+    },
+    "pres-2022": {
+     "log O/E": 4.5648012052482265
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.9659871786247334
+    },
+    "pres-2010": {
+     "log O/E": 1.1278310270899894
+    },
+    "pres-2014": {
+     "log O/E": 1.233024679709419
+    },
+    "pres-2018": {
+     "log O/E": 0.6087042028521
+    },
+    "pres-2022": {
+     "log O/E": 1.9141866287492508
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.0446933673207215
+    },
+    "pres-2010": {
+     "log O/E": 0.467903959044045
+    },
+    "pres-2014": {
+     "log O/E": 0.5648625594695503
+    },
+    "pres-2018": {
+     "log O/E": 0.20155562208425729
+    },
+    "pres-2022": {
+     "log O/E": 1.0379072811336922
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.588664781613353
+    },
+    "pres-2010": {
+     "log O/E": 3.577671306774538
+    },
+    "pres-2014": {
+     "log O/E": 3.4903898660488974
+    },
+    "pres-2018": {
+     "log O/E": 1.8367905822467812
+    },
+    "pres-2022": {
+     "log O/E": 4.774231632023866
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.997057532354401
+    },
+    "pres-2010": {
+     "log O/E": 1.2567816714827604
+    },
+    "pres-2014": {
+     "log O/E": 1.324311114104526
+    },
+    "pres-2018": {
+     "log O/E": 0.710119513960449
+    },
+    "pres-2022": {
+     "log O/E": 2.016679516651584
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.0712699900221074
+    },
+    "pres-2010": {
+     "log O/E": 0.5610549368604393
+    },
+    "pres-2014": {
+     "log O/E": 0.6319653897130398
+    },
+    "pres-2018": {
+     "log O/E": 0.23518854797503427
+    },
+    "pres-2022": {
+     "log O/E": 1.1056245297504685
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6666666666666666
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.8567783131531375,
+     "fração a favor do vencedor": 0.4883720930232558
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.474200189600725,
+     "fração a favor do vencedor": 0.38095238095238093
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.852479157404733,
+     "fração a favor do vencedor": 0.5116279069767442
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.55621334126156,
+     "fração a favor do vencedor": 0.6551724137931034
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.591178958334713,
+     "fração a favor do vencedor": 0.6964285714285714
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.613156230495387,
+     "fração a favor do vencedor": 0.45454545454545453
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.3611111111111111
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.5423728813559322
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.249483073839085,
+     "fração a favor do vencedor": 0.7215189873417721
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "nenhum",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6222222222222222
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.52689588621098,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.4576271186440678
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.664426925901793,
+     "fração a favor do vencedor": 0.40384615384615385
+    },
+    "pres-2022": {
+     "log proporção significativa": -5.055707399018001,
+     "fração a favor do vencedor": 0.7714285714285715
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "nenhum",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.506382421674637,
+     "fração a favor do vencedor": 0.6229508196721312
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.4323373035859674,
+     "fração a favor do vencedor": 0.5151515151515151
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.4722222222222222
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.4098360655737705
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.7540983606557377
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    100
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 1.4189533763277071e-05,
+     "f_i": 0.139858387775461
+    },
+    "pres-2010": {
+     "f_e": 5.4484247566277844e-05,
+     "f_i": 0.5123980243104795
+    },
+    "pres-2014": {
+     "f_e": 2.788036623681773e-05,
+     "f_i": 0.45374836254296425
+    },
+    "pres-2018": {
+     "f_e": 0.00023152143009286556,
+     "f_i": 0.3240600305940516
+    },
+    "pres-2022": {
+     "f_e": 2.73081954714505e-05,
+     "f_i": 0.33981339703623226
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    50
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 0.00012788159098733068,
+     "f_i": 0.0
+    },
+    "pres-2010": {
+     "f_e": 6.430205174221205e-05,
+     "f_i": 0.5079946216897672
+    },
+    "pres-2014": {
+     "f_e": 2.42550659681227e-05,
+     "f_i": 0.8347688814882269
+    },
+    "pres-2018": {
+     "f_e": 1.488035769303377e-05,
+     "f_i": 0.20195823827225654
+    },
+    "pres-2022": {
+     "f_e": 1.7977817188706363e-05,
+     "f_i": 0.5756995964016969
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0030325173934973937
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04696473908283009
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04387222515412118
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0004271978494505253
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04312231154003224
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04314361215476598
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.056602146252740286
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.03098811156507552
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05684301664663992
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.018917232118414208
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C6",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.336713617510986
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.3601392763119442
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.4535615976696272
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.470607714381801
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.3763465768503225
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C6",
+   "piso": 50,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.6393205347805249
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.7380367372685084
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.8597628152895944
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.8308880638127534
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.6949761946063195
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.700662664255766
+    },
+    "pres-2010": {
+     "log O/E": 3.6797269069515357
+    },
+    "pres-2014": {
+     "log O/E": 3.3348141886177776
+    },
+    "pres-2018": {
+     "log O/E": 1.7897471165208867
+    },
+    "pres-2022": {
+     "log O/E": 4.9240336779388505
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.1426856774795415
+    },
+    "pres-2010": {
+     "log O/E": 1.2699478277791492
+    },
+    "pres-2014": {
+     "log O/E": 1.2439119641609628
+    },
+    "pres-2018": {
+     "log O/E": 0.7159841428467267
+    },
+    "pres-2022": {
+     "log O/E": 2.232353207318933
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.1933433832162996
+    },
+    "pres-2010": {
+     "log O/E": 0.5664890982713698
+    },
+    "pres-2014": {
+     "log O/E": 0.5716225064637063
+    },
+    "pres-2018": {
+     "log O/E": 0.28035237498490057
+    },
+    "pres-2022": {
+     "log O/E": 1.2983804276641349
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.549767131018525
+    },
+    "pres-2010": {
+     "log O/E": 3.38410477312313
+    },
+    "pres-2014": {
+     "log O/E": 3.34518784177631
+    },
+    "pres-2018": {
+     "log O/E": 1.8089629576650808
+    },
+    "pres-2022": {
+     "log O/E": 4.5648012052482265
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.9659896736473041
+    },
+    "pres-2010": {
+     "log O/E": 1.1278310270899894
+    },
+    "pres-2014": {
+     "log O/E": 1.233024679709419
+    },
+    "pres-2018": {
+     "log O/E": 0.6087042028521
+    },
+    "pres-2022": {
+     "log O/E": 1.9141866287492508
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.04470867367581
+    },
+    "pres-2010": {
+     "log O/E": 0.467903959044045
+    },
+    "pres-2014": {
+     "log O/E": 0.5648625594695503
+    },
+    "pres-2018": {
+     "log O/E": 0.20155562208425729
+    },
+    "pres-2022": {
+     "log O/E": 1.0379072811336922
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.588678083773257
+    },
+    "pres-2010": {
+     "log O/E": 3.577671306774538
+    },
+    "pres-2014": {
+     "log O/E": 3.4903898660488974
+    },
+    "pres-2018": {
+     "log O/E": 1.8367905822467812
+    },
+    "pres-2022": {
+     "log O/E": 4.774231632023866
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.9970655409924751
+    },
+    "pres-2010": {
+     "log O/E": 1.2567816714827604
+    },
+    "pres-2014": {
+     "log O/E": 1.324311114104526
+    },
+    "pres-2018": {
+     "log O/E": 0.710119513960449
+    },
+    "pres-2022": {
+     "log O/E": 2.016679516651584
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.0712848324171549
+    },
+    "pres-2010": {
+     "log O/E": 0.5610549368604393
+    },
+    "pres-2014": {
+     "log O/E": 0.6319653897130398
+    },
+    "pres-2018": {
+     "log O/E": 0.23518854797503427
+    },
+    "pres-2022": {
+     "log O/E": 1.1056245297504685
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6666666666666666
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.8567783131531375,
+     "fração a favor do vencedor": 0.4883720930232558
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.474200189600725,
+     "fração a favor do vencedor": 0.38095238095238093
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.852479157404733,
+     "fração a favor do vencedor": 0.5116279069767442
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.55621334126156,
+     "fração a favor do vencedor": 0.6551724137931034
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.591178958334713,
+     "fração a favor do vencedor": 0.6964285714285714
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.613156230495387,
+     "fração a favor do vencedor": 0.45454545454545453
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.3611111111111111
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.5423728813559322
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.249483073839085,
+     "fração a favor do vencedor": 0.7215189873417721
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "nenhum",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6222222222222222
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.52689588621098,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.5392637829477875,
+     "fração a favor do vencedor": 0.4576271186440678
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.664426925901793,
+     "fração a favor do vencedor": 0.40384615384615385
+    },
+    "pres-2022": {
+     "log proporção significativa": -5.055707399018001,
+     "fração a favor do vencedor": 0.7714285714285715
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "nenhum",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.506382421674637,
+     "fração a favor do vencedor": 0.6229508196721312
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.4323373035859674,
+     "fração a favor do vencedor": 0.5151515151515151
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.4722222222222222
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.4098360655737705
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.7540983606557377
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    100
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 1.4194860119699316e-05,
+     "f_i": 0.13992212812623683
+    },
+    "pres-2010": {
+     "f_e": 5.4484247566277844e-05,
+     "f_i": 0.5123980243104795
+    },
+    "pres-2014": {
+     "f_e": 2.788036623681773e-05,
+     "f_i": 0.45374836254296425
+    },
+    "pres-2018": {
+     "f_e": 0.00023152143009286556,
+     "f_i": 0.3240600305940516
+    },
+    "pres-2022": {
+     "f_e": 2.73081954714505e-05,
+     "f_i": 0.33981339703623226
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    50
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 0.00012799259008249042,
+     "f_i": 0.0
+    },
+    "pres-2010": {
+     "f_e": 6.430205174221205e-05,
+     "f_i": 0.5079946216897672
+    },
+    "pres-2014": {
+     "f_e": 2.42550659681227e-05,
+     "f_i": 0.8347688814882269
+    },
+    "pres-2018": {
+     "f_e": 1.488035769303377e-05,
+     "f_i": 0.20195823827225654
+    },
+    "pres-2022": {
+     "f_e": 1.7977817188706363e-05,
+     "f_i": 0.5756995964016969
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0030256408723463263
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04696473908283009
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04387222515412118
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0004118118083172584
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04312231154003224
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04314361215476598
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.0566002874037028
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.03098811156507552
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05683755738556521
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.018917232118414208
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C6",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.336713617510986
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.3601392763119442
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.4535615976696272
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.470607714381801
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.3763465768503225
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C6",
+   "piso": 50,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.6393205347805249
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.7380367372685084
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.8597628152895944
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.8308880638127534
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.6949761946063195
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.853072411177946
+    },
+    "pres-2010": {
+     "log O/E": 4.699581706244325
+    },
+    "pres-2014": {
+     "log O/E": 4.116875044972931
+    },
+    "pres-2018": {
+     "log O/E": 1.0974427081793374
+    },
+    "pres-2022": {
+     "log O/E": 4.882167166889543
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.155750023461281
+    },
+    "pres-2010": {
+     "log O/E": 2.2434468398534326
+    },
+    "pres-2014": {
+     "log O/E": 2.1086828644423723
+    },
+    "pres-2018": {
+     "log O/E": 2.2766874175887697
+    },
+    "pres-2022": {
+     "log O/E": 4.352097376289567
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.1148510265252307
+    },
+    "pres-2010": {
+     "log O/E": 1.020913463069781
+    },
+    "pres-2014": {
+     "log O/E": 0.9718093405987348
+    },
+    "pres-2018": {
+     "log O/E": 0.9674393128133976
+    },
+    "pres-2022": {
+     "log O/E": 2.353822175219667
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.839878555872113
+    },
+    "pres-2010": {
+     "log O/E": 4.354169133758403
+    },
+    "pres-2014": {
+     "log O/E": 4.169309194260269
+    },
+    "pres-2018": {
+     "log O/E": 1.0951192036555681
+    },
+    "pres-2022": {
+     "log O/E": 4.830793086768401
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 3.5935165325910994
+    },
+    "pres-2010": {
+     "log O/E": 1.8156554225820571
+    },
+    "pres-2014": {
+     "log O/E": 2.067902789902997
+    },
+    "pres-2018": {
+     "log O/E": 1.9044952928697247
+    },
+    "pres-2022": {
+     "log O/E": 3.257488674943153
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "municipio",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.7382462503694023
+    },
+    "pres-2010": {
+     "log O/E": 0.7901882084326974
+    },
+    "pres-2014": {
+     "log O/E": 0.9431280376387497
+    },
+    "pres-2018": {
+     "log O/E": 0.7961249220959766
+    },
+    "pres-2022": {
+     "log O/E": 1.6878922245694685
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.844181415140585
+    },
+    "pres-2010": {
+     "log O/E": 4.546831658332436
+    },
+    "pres-2014": {
+     "log O/E": 4.281572816627331
+    },
+    "pres-2018": {
+     "log O/E": 1.0971775672648796
+    },
+    "pres-2022": {
+     "log O/E": 4.8628492593708526
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 3.7030839834615064
+    },
+    "pres-2010": {
+     "log O/E": 2.0679480291178844
+    },
+    "pres-2014": {
+     "log O/E": 2.2505578381768543
+    },
+    "pres-2018": {
+     "log O/E": 2.172512887702848
+    },
+    "pres-2022": {
+     "log O/E": 3.622989917735036
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "zona",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.8119233309601337
+    },
+    "pres-2010": {
+     "log O/E": 0.9563105473591621
+    },
+    "pres-2014": {
+     "log O/E": 1.0699332155011938
+    },
+    "pres-2018": {
+     "log O/E": 0.9055587733986805
+    },
+    "pres-2022": {
+     "log O/E": 1.855968575027105
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6666666666666666
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.8800351753174045,
+     "fração a favor do vencedor": 0.47619047619047616
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.474200189600725,
+     "fração a favor do vencedor": 0.38095238095238093
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.8757360195690005,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.5909994573469755,
+     "fração a favor do vencedor": 0.6785714285714286
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "uf",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.6272188948179105,
+     "fração a favor do vencedor": 0.6851851851851852
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.631338549578578,
+     "fração a favor do vencedor": 0.46296296296296297
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.32795468928058,
+     "fração a favor do vencedor": 0.3698630136986301
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.522596730462576,
+     "fração a favor do vencedor": 0.55
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.301107439244392,
+     "fração a favor do vencedor": 0.7066666666666667
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "nenhum",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6222222222222222
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.52689588621098,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.55621334126156,
+     "fração a favor do vencedor": 0.46551724137931033
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.664426925901793,
+     "fração a favor do vencedor": 0.40384615384615385
+    },
+    "pres-2022": {
+     "log proporção significativa": -5.027927834910925,
+     "fração a favor do vencedor": 0.7777777777777778
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "nenhum",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.506382421674637,
+     "fração a favor do vencedor": 0.6229508196721312
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.4323373035859674,
+     "fração a favor do vencedor": 0.5151515151515151
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.4722222222222222
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.4098360655737705
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.7540983606557377
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    100
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 8.522388158365417e-06,
+     "f_i": 0.12788442977324324
+    },
+    "pres-2010": {
+     "f_e": 2.3579622586450268e-05,
+     "f_i": 0.5176676076665777
+    },
+    "pres-2014": {
+     "f_e": 2.0653958340949268e-05,
+     "f_i": 0.4549231715171221
+    },
+    "pres-2018": {
+     "f_e": 0.00023476100173946794,
+     "f_i": 0.3230616895551546
+    },
+    "pres-2022": {
+     "f_e": 2.746919119431082e-05,
+     "f_i": 0.3539110737277146
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    50
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 8.61460304586013e-06,
+     "f_i": 0.0
+    },
+    "pres-2010": {
+     "f_e": 2.3272032914592076e-05,
+     "f_i": 0.5228280960383236
+    },
+    "pres-2014": {
+     "f_e": 6.0224398018976194e-06,
+     "f_i": 0.43571701039227767
+    },
+    "pres-2018": {
+     "f_e": 6.3939737019835114e-06,
+     "f_i": 0.19976900320695823
+    },
+    "pres-2022": {
+     "f_e": 2.210513366314658e-05,
+     "f_i": 0.31139081436123683
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.00255136113480157
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04767267078107716
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.044199153698245716
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": 6.323634016449247e-05
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.043346907374066566
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04332513381475062
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05686325152917284
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.0312594545385972
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05705250734332035
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.01906114130562528
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C6",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.3287378353413077
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.3465985264113898
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.4502447410702342
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.4620557057648693
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.3646115299345603
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C6",
+   "piso": 100,
+   "sem_red": false,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.6370284613568
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.734739219108212
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.864275281858843
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.839776122384846
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.68983191182315
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.853072985438736
+    },
+    "pres-2010": {
+     "log O/E": 4.699581706244325
+    },
+    "pres-2014": {
+     "log O/E": 4.116875044972931
+    },
+    "pres-2018": {
+     "log O/E": 1.0974427081793374
+    },
+    "pres-2022": {
+     "log O/E": 4.882167166889543
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.155803979065526
+    },
+    "pres-2010": {
+     "log O/E": 2.2434468398534326
+    },
+    "pres-2014": {
+     "log O/E": 2.1086828644423723
+    },
+    "pres-2018": {
+     "log O/E": 2.2766874175887697
+    },
+    "pres-2022": {
+     "log O/E": 4.352097376289567
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 2.1148885740746572
+    },
+    "pres-2010": {
+     "log O/E": 1.020913463069781
+    },
+    "pres-2014": {
+     "log O/E": 0.9718093405987348
+    },
+    "pres-2018": {
+     "log O/E": 0.9674393128133976
+    },
+    "pres-2022": {
+     "log O/E": 2.353822175219667
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.8398793943163
+    },
+    "pres-2010": {
+     "log O/E": 4.354169133758403
+    },
+    "pres-2014": {
+     "log O/E": 4.169309194260269
+    },
+    "pres-2018": {
+     "log O/E": 1.0951192036555681
+    },
+    "pres-2022": {
+     "log O/E": 4.830793086768401
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 3.593598374342142
+    },
+    "pres-2010": {
+     "log O/E": 1.8156554225820571
+    },
+    "pres-2014": {
+     "log O/E": 2.067902789902997
+    },
+    "pres-2018": {
+     "log O/E": 1.9044952928697247
+    },
+    "pres-2022": {
+     "log O/E": 3.257488674943153
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "municipio",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.7383139997789503
+    },
+    "pres-2010": {
+     "log O/E": 0.7901882084326974
+    },
+    "pres-2014": {
+     "log O/E": 0.9431280376387497
+    },
+    "pres-2018": {
+     "log O/E": 0.7961249220959766
+    },
+    "pres-2022": {
+     "log O/E": 1.6878922245694685
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    0
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 4.8441822203674
+    },
+    "pres-2010": {
+     "log O/E": 4.546831658332436
+    },
+    "pres-2014": {
+     "log O/E": 4.281572816627331
+    },
+    "pres-2018": {
+     "log O/E": 1.0971775672648796
+    },
+    "pres-2022": {
+     "log O/E": 4.8628492593708526
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    5
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 3.7031525596160613
+    },
+    "pres-2010": {
+     "log O/E": 2.0679480291178844
+    },
+    "pres-2014": {
+     "log O/E": 2.2505578381768543
+    },
+    "pres-2018": {
+     "log O/E": 2.172512887702848
+    },
+    "pres-2022": {
+     "log O/E": 3.622989917735036
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C1",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "zona",
+    10
+   ],
+   "valores": {
+    "pres-2026": {
+     "log O/E": 1.8119808214584963
+    },
+    "pres-2010": {
+     "log O/E": 0.9563105473591621
+    },
+    "pres-2014": {
+     "log O/E": 1.0699332155011938
+    },
+    "pres-2018": {
+     "log O/E": 0.9055587733986805
+    },
+    "pres-2022": {
+     "log O/E": 1.855968575027105
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6666666666666666
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.8800351753174045,
+     "fração a favor do vencedor": 0.47619047619047616
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.474200189600725,
+     "fração a favor do vencedor": 0.38095238095238093
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.8757360195690005,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.5909994573469755,
+     "fração a favor do vencedor": 0.6785714285714286
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "uf",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.6272188948179105,
+     "fração a favor do vencedor": 0.6851851851851852
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.631338549578578,
+     "fração a favor do vencedor": 0.46296296296296297
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.32795468928058,
+     "fração a favor do vencedor": 0.3698630136986301
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.522596730462576,
+     "fração a favor do vencedor": 0.55
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.301107439244392,
+     "fração a favor do vencedor": 0.7066666666666667
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "nenhum",
+    0.05
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.807707270530204,
+     "fração a favor do vencedor": 0.6222222222222222
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.52689588621098,
+     "fração a favor do vencedor": 0.5
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.55621334126156,
+     "fração a favor do vencedor": 0.46551724137931033
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.664426925901793,
+     "fração a favor do vencedor": 0.40384615384615385
+    },
+    "pres-2022": {
+     "log proporção significativa": -5.027927834910925,
+     "fração a favor do vencedor": 0.7777777777777778
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C2",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "nenhum",
+    0.1
+   ],
+   "valores": {
+    "pres-2026": {
+     "log proporção significativa": -4.506382421674637,
+     "fração a favor do vencedor": 0.6229508196721312
+    },
+    "pres-2010": {
+     "log proporção significativa": -4.4323373035859674,
+     "fração a favor do vencedor": 0.5151515151515151
+    },
+    "pres-2014": {
+     "log proporção significativa": -4.341653533638742,
+     "fração a favor do vencedor": 0.4722222222222222
+    },
+    "pres-2018": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.4098360655737705
+    },
+    "pres-2022": {
+     "log proporção significativa": -4.506202920686899,
+     "fração a favor do vencedor": 0.7540983606557377
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    100
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 8.530950433250802e-06,
+     "f_i": 0.12797966285531964
+    },
+    "pres-2010": {
+     "f_e": 2.3579622586450268e-05,
+     "f_i": 0.5176676076665777
+    },
+    "pres-2014": {
+     "f_e": 2.0653958340949268e-05,
+     "f_i": 0.4549231715171221
+    },
+    "pres-2018": {
+     "f_e": 0.00023476100173946794,
+     "f_i": 0.3230616895551546
+    },
+    "pres-2022": {
+     "f_e": 2.746919119431082e-05,
+     "f_i": 0.3539110737277146
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C3",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    50
+   ],
+   "valores": {
+    "pres-2026": {
+     "f_e": 8.790353874304624e-06,
+     "f_i": 0.0
+    },
+    "pres-2010": {
+     "f_e": 2.3272032914592076e-05,
+     "f_i": 0.5228280960383236
+    },
+    "pres-2014": {
+     "f_e": 6.0224398018976194e-06,
+     "f_i": 0.43571701039227767
+    },
+    "pres-2018": {
+     "f_e": 6.3939737019835114e-06,
+     "f_i": 0.19976900320695823
+    },
+    "pres-2022": {
+     "f_e": 2.210513366314658e-05,
+     "f_i": 0.31139081436123683
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": -0.0025498828430852495
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.04767267078107716
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.044199153698245716
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C4",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "correlação hora × mudança": 7.28520913604753e-05
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {
+     "correlação hora × mudança": -0.043346907374066566
+    },
+    "pres-2022": {
+     "correlação hora × mudança": -0.04332513381475062
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05685986678477677
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.0312594545385972
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C5",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "β biometria": -0.05704553670820418
+    },
+    "pres-2010": {},
+    "pres-2014": {},
+    "pres-2018": {},
+    "pres-2022": {
+     "β biometria": 0.01906114130562528
+    }
+   },
+   "leitura": "inconclusivo"
+  },
+  {
+   "teste": "C6",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "municipio"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.3287378353413077
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.3465985264113898
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.4502447410702342
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.4620557057648693
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.3646115299345603
+    }
+   },
+   "leitura": "equivalente"
+  },
+  {
+   "teste": "C6",
+   "piso": 100,
+   "sem_red": true,
+   "parametros": [
+    "zona"
+   ],
+   "valores": {
+    "pres-2026": {
+     "log mediana de φ": 1.6370284613568
+    },
+    "pres-2010": {
+     "log mediana de φ": 1.734739219108212
+    },
+    "pres-2014": {
+     "log mediana de φ": 1.864275281858843
+    },
+    "pres-2018": {
+     "log mediana de φ": 1.839776122384846
+    },
+    "pres-2022": {
+     "log mediana de φ": 1.68983191182315
+    }
+   },
+   "leitura": "equivalente"
+  }
+ ]
+}

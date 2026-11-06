@@ -74,12 +74,17 @@ def figura_floresta(comp: dict, refs: dict, teste: str, nome: str, tirar) -> Dra
     return d
 
 
+NOMES = {"aleatorio": "ao acaso", "reduto": "reduto", "comparecimento_alto": "comparecimento alto",
+         "pouca_fiscalizacao": "pouca fiscalização"}
+
+
 def _linha_mediana(medianas: dict) -> str:
     """Resumo da análise D (v3): enchimento com a mediana própria, o procedimento real."""
     cs = [c for b in medianas.values() for c in b["cenarios"]]
-    pegos = sum(1 for c in cs if c["deteccao"].get("qualquer", 0) >= 0.95)
-    return (f"Com a mediana própria, {pegos} de {len(cs)} cenários de enchimento são detectados em pelo menos 95% das "
-            f"réplicas (bases 2010 e 2014).")
+    cabem = [c for c in cs if c["cabe"]]
+    pegos = sum(1 for c in cabem if c["deteccao"].get("qualquer", 0) > 0)
+    return (f"Com a mediana própria, {'nenhum' if not pegos else pegos} dos {len(cabem)} cenários de enchimento que "
+            f"cabem nos dados é detectado (de {len(cs)} na grade, bases 2010 e 2014).")
 
 
 def montar() -> list:
@@ -110,11 +115,12 @@ def montar() -> list:
             "tags <font face='Mono'>preregistro-v1</font>, <font face='Mono'>-v2</font> e <font face='Mono'>-v3</font>. Código "
             "e redação feitos com IA (Claude e Cursor), sob direção e revisão do autor.", "autor"), Spacer(1, 12)]
     resumo = ("Comparamos seis padrões numéricos apontados como prova de fraude no 2º turno presidencial brasileiro de "
-              f"2026 com {n_pres + n_gov} segundos turnos de 2010 a 2022, com regras registradas antes de abrir os dados. "
+              f"2026 com {n_pres + n_gov} segundos turnos de 2010 a 2022, com regras registradas antes de abrir as eleições de referência ainda não vistas. "
               "Os arquivos públicos do TSE coincidem nas 499.205 seções. Nenhum padrão sai atípico. Nenhum sai equivalente "
               "à referência completa, e mostramos por quê: a heterogeneidade entre disputas é maior que as margens "
-              "fixadas, o que dá ao teste de equivalência poder de 0% a 16% e à regra de atipicidade pouco poder contra "
-              "fraude plantada. A heterogeneidade vem sobretudo das disputas de governador: entre presidenciais, a "
+              "fixadas, o que dá ao teste de equivalência poder de 0% a 16%. A regra de atipicidade também quase não detecta: "
+              "dos 132 cenários de fraude plantada que cabem nos dados, nenhum dos 16 de troca de 1,8% ou mais foi detectado, "
+              "e a única detecção, um enchimento de 3,57% dos votos, some nas duas bases em que o procedimento real foi recalculado. A heterogeneidade vem sobretudo das disputas de governador: entre presidenciais, a "
               "dispersão entre seções e o componente de fraude extrema saem equivalentes. A contribuição é "
               "metodológica: margens de equivalência em forense eleitoral precisam ser comparadas com a variação "
               "entre eleições, e não só com o erro-padrão. Uma troca uniforme em todas as urnas é indetectável.")
@@ -199,9 +205,9 @@ def montar() -> list:
             "diferença entre 2026 e μ̂ dentro da margem fixada antes (TOST). <i>Inconclusivo</i>: os demais casos. "
             "Um teste cujo modelo nulo se calibra em 2026 de forma diferente das referências é inconclusivo por "
             "construção."),
-          P("<b>Registro.</b> O plano foi registrado em duas etapas (v1 e v2), e cada decisão que ele deixava em "
+          P("<b>Registro.</b> O plano foi registrado em três etapas (v1, v2 e o adendo v3, das análises posteriores aos resultados), e cada decisão que ele deixava em "
             "aberto foi registrada antes do cálculo correspondente, com data e motivo (seção 8 do pré-registro v2). "
-            "Os resultados da v1 eram conhecidos quando a v2 foi escrita; as eleições de referência não.")]
+            "Os resultados da v1 eram conhecidos quando a v2 foi escrita; as demais eleições de referência não.")]
 
     # ── 5. reconciliação ─────────────────────────────────────────────────
     s += [P("5. Os arquivos coincidem", "h1"),
@@ -233,24 +239,26 @@ def montar() -> list:
     s += [P("7. Resultados", "h1")]
     if lei26:
         linhas = [["Teste", "Componente", "2026", "Referência μ̂", "Intervalo de predição", "Percentil", "Leitura"]]
+        cs = lambda c: 5 if c["componente"] == "f_e" else 3
         figs = []
         tirar = {(t, n): f for t, n, f, _, _ in importlib.import_module("tools.migracoes.2026-11-05-v2-leitura").COMPONENTES}
         for c in lei26["componentes"]:
             if c.get("T_2026") is None:
                 continue
-            linhas.append([c["teste"], c["componente"], br(c["T_2026"], 3),
-                           br(c["mu"], 3) if c.get("mu") is not None else "—",
-                           f"{br(c['pi'][0], 3)} a {br(c['pi'][1], 3)}" if c.get("pi") else "—",
+            linhas.append([c["teste"], c["componente"], br(c["T_2026"], cs(c)),
+                           br(c["mu"], cs(c)) if c.get("mu") is not None else "—",
+                           f"{br(c['pi'][0], cs(c))} a {br(c['pi'][1], cs(c))}" if c.get("pi") else "—",
                            pct(c["percentil"], 0) if c.get("percentil") is not None else "—",
                            lei26["leitura"].get(c["teste"], "—")])
             f = figura_floresta(c, refs, c["teste"], c["componente"], tirar[(c["teste"], c["componente"])])
             if f:
                 figs.append(f)
-        s += [tabela(linhas, [1.1 * cm, 4.2 * cm, 1.7 * cm, 2 * cm, 3 * cm, 1.6 * cm, 2.6 * cm]),
+        s += [tabela(linhas, [1.2 * cm, 3.9 * cm, 1.7 * cm, 1.9 * cm, 3.1 * cm, 1.8 * cm, 2.5 * cm]),
               P("Tabela 3. Leitura de cada componente em 2026. Escalas: log para razões (C1, C2, C6).", "legenda")]
         s += [KeepTogether([f]) for f in figs]
         s += [P("Figura 1. Cada linha: as disputas de referência (cinza), o intervalo de predição de 95% (faixa) e "
-                "2026 (vermelho).", "legenda")]
+                "2026 (vermelho). O limite inferior negativo de f_e e f_i vem da aproximação normal: as frações não são "
+                "negativas.", "legenda")]
         gov = {k: v["leitura"] for k, v in leit["disputas_2026"].items() if k.startswith("gov-")}
         if gov:
             s += [P("Os segundos turnos de governador de 2026, nas mesmas urnas, lidos pela mesma regra e sem entrar na "
@@ -267,7 +275,7 @@ def montar() -> list:
                 "equivalência só pode dizer \"equivalente\" se a meia-largura do intervalo couber na margem. A tabela "
                 "mostra a chance de isso acontecer mesmo que 2026 fosse uma eleição sorteada da própria classe. A "
                 "margem foi fixada olhando o erro-padrão, sem comparar com a variação entre eleições (τ). Foi um erro "
-                "de desenho: o resultado \"inconclusivo\" era esperado com qualquer eleição.")]
+                "de desenho: o resultado \"inconclusivo\" era o desfecho provável com qualquer eleição.")]
         linhas = [["Componente", "τ todas", "τ governador", "τ presidente", "Poder TOST (todas)", "Poder TOST (pres.)", "Leitura (pres.)"]]
         for c in v3["componentes"]:
             a, g, pr = c["todas"], c["governadores"], c["presidenciais"]
@@ -296,8 +304,9 @@ def montar() -> list:
             s += [P(f"<b>Comparação pareada (exploratória).</b> Nas mesmas seções, a diferença entre presidente e "
                     f"governador cancela o contexto de UF e ano. O critério, fixado antes, é que ela só ajuda se variar "
                     f"menos que o estatístico sem parear ({texto}). "
-                    + (f"Ajuda em {', '.join(ajuda)}. " if ajuda else "Não ajudou em nenhum. ")
-                    + (f"Fora do intervalo em 2026: {', '.join(fora)}." if fora else "Nenhuma UF de 2026 fica fora do intervalo."))]
+                    + (f"Ajuda em {' e '.join(ajuda)}, e no C6 quase nada. " if ajuda else "Não ajudou em nenhum. ")
+                    + (f"Fora do intervalo em 2026: {', '.join(fora)}, no f_e; a média das seis UFs fica dentro." if fora
+                       else "Nenhuma UF de 2026 fica fora do intervalo."))]
         s += [P("<b>Dois resultados que \"inconclusivo\" esconde.</b> O C5 tem sinal oposto ao alegado: onde mais gente "
                 "votou sem biometria, a seção mudou menos para o vencedor, ao contrário de 2022. O C1 é o sinal mais "
                 "persistente do conjunto: 2026 está no percentil 93, e o governador do Acre de 2026 fica próximo do corte "
@@ -319,17 +328,25 @@ def montar() -> list:
                 base[t] = "equivalente"
             else:
                 base[t] = "inconclusivo"
-        linhas = [["Teste", "Leitura com K = 4", "Variações", "Mesma leitura", "Robusto (≥ 80%)"]]
+        principal = leit["disputas_2026"]["pres-2026"]["leitura"]
+        linhas = [["Teste", "Principal (K = 46)", "Presidenciais (K = 4)", "Variações", "Iguais a K = 4", "Iguais à principal"]]
         for t in sorted({v["teste"] for v in mult["variacoes"]}):
             vs = [v for v in mult["variacoes"] if v["teste"] == t]
             iguais = sum(1 for v in vs if v["leitura"] == base.get(t))
-            linhas.append([t, base.get(t, "—"), str(len(vs)), f"{iguais} de {len(vs)}",
-                           "sim" if iguais / len(vs) >= 0.8 else "não"])
+            prin = sum(1 for v in vs if v["leitura"] == principal.get(t))
+            linhas.append([t, principal.get(t, "—"), base.get(t, "—"), str(len(vs)), f"{iguais} de {len(vs)}",
+                           f"{prin} de {len(vs)}"])
         s += [P("Cada teste foi recalculado nas variações da v1 (piso de comparecimento, exclusão das seções do "
                 "recuperador de dados, efeito fixo, limiares), em 2026 e nas quatro presidenciais de referência. Com "
-                "K = 4, o intervalo de predição usa t com 2 graus de liberdade: é mais permissivo que a análise "
-                "principal. Por isso a comparação é com a leitura por presidenciais, de mesmo K, e não com a de K = 46."),
-              tabela(linhas, [1.6 * cm, 3.6 * cm, 2.4 * cm, 3 * cm, 3 * cm]), P("Tabela 5. Multiverso.", "legenda")]
+                "K = 4, o intervalo de predição usa t com 2 graus de liberdade. O critério registrado era a mesma leitura "
+                "da principal em pelo menos 80% das variações, mas o multiverso usa K = 4 e a principal, K = 46, então as "
+                "duas comparações estão na tabela."),
+              tabela(linhas, [1.2 * cm, 3 * cm, 3.4 * cm, 1.9 * cm, 2.4 * cm, 2.6 * cm]), P("Tabela 5. Multiverso.", "legenda"),
+              P("Nenhuma das 126 variações muda a leitura dentro da referência de 4 presidenciais, e nenhuma sai atípica. "
+                "A concordância diz pouco sobre atipicidade: com 2 graus de liberdade o intervalo é tão largo que dificilmente "
+                "algo sairia dele. O C6 passa no critério contra K = 4 e falha contra a principal (0 de 12), porque a sua "
+                "leitura muda com a referência, e não com a especificação. O C5 tem uma só eleição de referência, e a sua "
+                "leitura é inconclusiva por construção. Erros-padrão fixos na especificação principal, como registrado.", "nota")]
     else:
         s += [P("Pendente.")]
 
@@ -340,25 +357,35 @@ def montar() -> list:
         chave = {}
         for b in poderes.values():
             for c in b["cenarios"]:
-                chave.setdefault((c["modo"], c["desenho"], c["fracao"], c["tamanho"]), []).append(
-                    c["deteccao"].get("qualquer", 0))
+                if c["cabe"]:
+                    chave.setdefault((c["modo"], c["desenho"], c["fracao"], c["tamanho"]), []).append(
+                        c["deteccao"].get("qualquer", 0))
         for (m, d) in (("troca", "aleatorio"), ("enchimento", "aleatorio"), ("troca", "reduto"),
                        ("troca", "comparecimento_alto"), ("enchimento", "pouca_fiscalizacao")):
             for f in (0.05, 0.20, 0.50):
-                cel = [f"{m}, {d.replace('_', ' ')}", pct(f, 0)]
+                cel = [f"{m}, {NOMES[d]}", pct(f, 0)]
                 for tm in (0.0025, 0.005, 0.01, 0.018, 0.0357):
                     v = chave.get((m, d, f, tm))
-                    cel.append(pct(min(v), 0) if v else "—")
+                    cel.append("—" if not v else pct(min(v), 0) if min(v) == max(v)
+                               else f"{pct(min(v), 0)}–{pct(max(v), 0)}")
                 linhas.append(cel)
-        s += [P(f"Fraude a favor do vencedor foi plantada em {len(poderes)} das disputas presidenciais de referência, "
-                "lida contra a referência sem a própria base. A tabela mostra a menor taxa de detecção entre as bases "
-                "(o caso mais desfavorável). 1,8% dos válidos é a troca que viraria 2026."),
-              tabela(linhas, [5.2 * cm, 1.4 * cm, 1.8 * cm, 1.8 * cm, 1.8 * cm, 1.8 * cm, 1.8 * cm], zebra=True),
+        s += [P(f"Fraude a favor do vencedor foi plantada nas {len(poderes)} disputas presidenciais de referência, "
+                "lida contra a referência sem a própria base. A tabela mostra a taxa de detecção; onde as bases discordam, "
+                "a menor e a maior. Um traço indica que o cenário não coube nos dados em nenhuma base. 1,8% dos válidos "
+                "é a troca que viraria 2026."),
+              tabela(linhas, [5 * cm, 1.4 * cm, 1.7 * cm, 1.7 * cm, 1.7 * cm, 1.7 * cm, 2.2 * cm], zebra=True),
               P("Tabela 6. Taxa de detecção por \"qualquer teste\".", "legenda"),
               P("Esta tabela usa, no C3, o centro do cenário sem fraude, que não existe numa eleição real: para o C3 ela "
                 "é um teto. O procedimento real usa a mediana da própria amostra, que a fraude difusa desloca junto "
                 "consigo."
-                + (" " + _linha_mediana(medianas) if medianas else ""), "nota")]
+                + (" " + _linha_mediana(medianas) if medianas else ""), "nota"),
+              P("<b>Leitura da curva.</b> Nenhum cenário de troca foi detectado, inclusive os de 1,8% e 3,57% que couberam. "
+                "A única detecção é o enchimento de 3,57% em 20% das seções, pelo C3, em 2010, 2014 e 2022, e ela não "
+                "aparece em 2018 nem com 50% das seções, em que cada seção recebe 2,5 vezes menos votos. A causa dessas "
+                "duas ausências não foi investigada. Com a mediana própria, essa detecção vai de 100% a 0% nas duas bases "
+                "em que foi recalculada. Cada cenário sem detecção tem 20 réplicas, o que deixa a taxa verdadeira entre 0% "
+                "e 17% (Clopper-Pearson). Isso mede a regra de leitura, e não 2026: os estatísticos reagem à fraude, mas "
+                "a variação entre eleições e a correção múltipla impedem que a reação vire detecção.")]
         if valid:
             difs = [c.get("diferenca_qualquer") for c in valid["cenarios"]]
             s += [P(f"Validação da versão leve dos testes contra a completa em 4 cenários: diferença máxima de "
@@ -371,8 +398,10 @@ def montar() -> list:
     s += [P("11. Discussão", "h1"),
           P("O resultado é fraco para qualquer lado, e dizer isso é o resultado. Nenhum padrão alegado está fora do que "
             "a variação entre eleições produz, o que contraria a afirmação de que eles só teriam explicação por fraude. "
-            "Mas a mesma variação impede afirmar normalidade e reduz o poder contra fraude de verdade. Não é possível, "
-            "com este desenho, declarar descartada uma fraude de um dado tamanho."),
+            "Mas a mesma variação impede afirmar normalidade e tira da regra quase todo o poder contra fraude de verdade: "
+            "nas duas bases em que o procedimento real foi recalculado, nenhum cenário foi detectado. Logo, a ausência de "
+            "detecção em 2026 não informa quase nada sobre a existência de fraude, e não é possível declarar descartada "
+            "uma fraude de qualquer tamanho da grade."),
           P("O ganho mais transferível é de método. Trabalhos de forense eleitoral costumam comparar uma eleição com "
             "um limiar teórico ou com uma única referência. Quando se mede a variação entre eleições, ela pode ser maior "
             "que os efeitos de interesse. Antes de fixar margens de equivalência ou de declarar uma eleição anômala, "
