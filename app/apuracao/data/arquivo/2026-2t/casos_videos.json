@@ -111,6 +111,20 @@
    "curtidas": 16483,
    "comentarios": 3047,
    "capa": "/static/casos/onibus.jpg"
+  },
+  "impossivel": {
+   "url": "https://www.instagram.com/reel/DfYSliYJ28X/",
+   "perfil": "flaviobolsonaro",
+   "curtidas": 1255488,
+   "comentarios": 82101,
+   "capa": "/static/casos/impossivel.jpg"
+  },
+  "camera-coberta": {
+   "url": "https://www.instagram.com/reel/DfYL8VJOLR1/",
+   "perfil": "jofre.btc",
+   "curtidas": 12600,
+   "comentarios": 444,
+   "capa": "/static/casos/camera-coberta.jpg"
   }
  },
  "capas": {
@@ -231,6 +245,18 @@
   "atlas": {
    "rot": "AtlasIntel, 18 a 23/10",
    "url": "https://bpmoney.com.br/politica/flavio-499-lula-484-ultima-atlasintel-antes-urnas/"
+  },
+  "nd_flavio": {
+   "rot": "ND Mais",
+   "url": "https://ndmais.com.br/politica/flavio-bolsonaro-questiona-resultado-urnas-crescimento-lula-sc/"
+  },
+  "tse_camera": {
+   "rot": "Justiça Eleitoral, Fato ou Boato",
+   "url": "https://www.justicaeleitoral.jus.br/fato-ou-boato/checagens"
+  },
+  "manual_2026": {
+   "rot": "Manual do Mesário 2026, p. 12",
+   "url": "https://mesario.tre-rn.jus.br/wp-content/uploads/sites/6/2026/07/Manual-do-Mesario-2026-web.pdf"
   }
  },
  "dados": {
@@ -321,6 +347,109 @@
    "nulos1": 3674249,
    "brancos2": 1430496,
    "nulos2": 2723305
+  },
+  "ufs": {
+   "go": {
+    "l1": 1188880,
+    "f1": 2051888,
+    "t1": 587055,
+    "bn1": 143764,
+    "c1": 3971587,
+    "l2": 1585555,
+    "f2": 2345334,
+    "bn2": 116391,
+    "c2": 4047280
+   },
+   "sp": {
+    "l1": 9505413,
+    "f1": 12922023,
+    "t1": 2455512,
+    "bn1": 1549044,
+    "c1": 26431992,
+    "l2": 12119274,
+    "f2": 14139178,
+    "bn2": 1105937,
+    "c2": 27364389
+   },
+   "rj": {
+    "l1": 3693021,
+    "f1": 4966844,
+    "t1": 709835,
+    "bn1": 490102,
+    "c1": 9859802,
+    "l2": 4565393,
+    "f2": 5169033,
+    "bn2": 343023,
+    "c2": 10077449
+   },
+   "sc": {
+    "l1": 1127168,
+    "f1": 3000020,
+    "t1": 373709,
+    "bn1": 147262,
+    "c1": 4648159,
+    "l2": 1418314,
+    "f2": 3220071,
+    "bn2": 123918,
+    "c2": 4762303
+   },
+   "rr": {
+    "l1": 74420,
+    "f1": 231322,
+    "t1": 19803,
+    "bn1": 7227,
+    "c1": 332772,
+    "l2": 83505,
+    "f2": 219675,
+    "bn2": 5417,
+    "c2": 308597
+   },
+   "ac": {
+    "l1": 134770,
+    "f1": 302807,
+    "t1": 31489,
+    "bn1": 19264,
+    "c1": 488330,
+    "l2": 144513,
+    "f2": 287715,
+    "bn2": 21426,
+    "c2": 453654
+   },
+   "pe": {
+    "l1": 3553971,
+    "f1": 1738043,
+    "t1": 309003,
+    "bn1": 310045,
+    "c1": 5911062,
+    "l2": 4117513,
+    "f2": 1832554,
+    "bn2": 176400,
+    "c2": 6126467
+   }
+  },
+  "ufs_2022": {
+   "pi": {
+    "l1": 1518008,
+    "f1": 406897,
+    "t1": 119481,
+    "bn1": 71259,
+    "c1": 2115645,
+    "l2": 1551383,
+    "f2": 467065,
+    "bn2": 70082,
+    "c2": 2088530
+   },
+   "ce": {
+    "l1": 3578355,
+    "f1": 1377827,
+    "t1": 473082,
+    "bn1": 199346,
+    "c1": 5628610,
+    "l2": 3807891,
+    "f2": 1634477,
+    "bn2": 207030,
+    "c2": 5649398
+   }
   }
  }
 }

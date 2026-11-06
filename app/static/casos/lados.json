@@ -248,6 +248,24 @@
     "decisao": "Os dois lados foram punidos.",
     "sintese": "Remoções e multas atingiram as duas campanhas. A maior parte é liminar, e não há balanço oficial por lado."
    }
+  },
+  "impossivel": {
+   "fraude": "Goiás, São Paulo, Rio e Santa Catarina elegeram governador e senadores da direita, e o Lula cresceu neles acima dos 19,3% do país. Em Goiás, sem ninguém trocar de lado, metade da terceira via teria de ir para o Lula, embora 80% dela fosse do Caiado, que apoiou o Flávio.",
+   "defesa": "Os percentuais do vídeo estão de 4 a 10 pontos acima dos do TSE. A terceira via e os novos válidos somam exatamente o que os dois ganharam. Percentual alto vem de base baixa: como fatia dos válidos, o ganho em Goiás foi parecido com o de Pernambuco. Em 2022 o Bolsonaro cresceu quase 7 vezes mais que o Lula no Piauí.",
+   "juiz": {
+    "tag": "falsa",
+    "decisao": "Premissa falsa: os percentuais não conferem e a conta fecha.",
+    "sintese": "Os 10,3 milhões são reais; os 43%, 35% e 30%, não. A transferência da terceira via em Goiás é maior que a indicada pelas pesquisas, mas é possível, e o vídeo não aponta urna, seção ou boletim."
+   }
+  },
+  "camera-coberta": {
+   "fraude": "Cobrir uma câmera tira a imagem da seção. Se algo acontecesse ali, nada ficaria gravado, e o TSE responde sem dizer se o vídeo é real.",
+   "defesa": "O Manual do Mesário 2026 manda bloquear as lentes das câmeras da sala antes da votação, para proteger o sigilo. A votação não é filmada: quem confere é a mesa, os fiscais e o boletim impresso.",
+   "juiz": {
+    "tag": "normal",
+    "decisao": "Verdade, mas normal.",
+    "sintese": "Bloquear a lente é regra do manual, com o motivo declarado. O vídeo segue sem origem: seção, data e autenticidade não foram confirmadas."
+   }
   }
  }
 }

@@ -48,6 +48,14 @@
   "busca": "A virada do Lula no 2º turno é inédita? Foi fraude?"
  },
  {
+  "id": "impossivel",
+  "titulo": "Matematicamente impossível",
+  "tag": "falsa",
+  "alegacao": "O Lula ganhou mais de 10,3 milhões de votos em 20 dias e cresceu mais de 43% em Goiás, 35% em São Paulo e 30% no Rio e em Santa Catarina. Isso não fecha.",
+  "veredito": "Os 10,3 milhões conferem. Os percentuais, não. E a conta fecha.",
+  "busca": "Flávio diz que a eleição foi matematicamente impossível: a conta fecha?"
+ },
+ {
   "id": "pesquisas",
   "titulo": "As pesquisas e as apostas",
   "tag": "estranho",
@@ -70,6 +78,14 @@
   "alegacao": "Com o número do título, o mesário vota pelo eleitor que faltou ou morreu. Em 500 mil seções, isso dá milhões de votos.",
   "veredito": "Fraude isolada é crime e aparece. Milhões, não.",
   "busca": "Mesário pode votar no lugar do eleitor?"
+ },
+ {
+  "id": "camera-coberta",
+  "titulo": "A câmera coberta",
+  "tag": "normal",
+  "alegacao": "Um vídeo mostra a câmera de uma seção eleitoral sendo coberta, e o TSE diz que isso é procedimento normal.",
+  "veredito": "A regra existe e está no manual. O vídeo não prova fraude.",
+  "busca": "Câmera coberta na seção eleitoral: é fraude?"
  },
  {
   "id": "caminhonete",

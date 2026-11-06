@@ -56,6 +56,8 @@ BUSCA = {
     "desinformacao": "A Justiça Eleitoral mandou apagar conteúdo de quem?",
     "compra": "Houve compra de votos em massa em 2026?",
     "padroeira": "Lula insistiu na fake news da padroeira?",
+    "impossivel": "Flávio diz que a eleição foi matematicamente impossível: a conta fecha?",
+    "camera-coberta": "Câmera coberta na seção eleitoral: é fraude?",
 }
 
 # Cada tema vira uma URL própria. A ordem importa: é a ordem dos links no
@@ -68,7 +70,7 @@ TEMAS = [
         "tag": "fraude na contagem",
         "descricao": "As teorias de fraude na urna e na apuração de 2026, cada uma conferida no dado do TSE: o gráfico da apuração, a soma que não fecha, a urna na caminhonete e as 106 urnas zeradas.",
         "intro": "As acusações que apontam para a urna, para a transmissão ou para a soma dos votos. Cada uma tem o número que a sustenta e o que o dado do TSE mostra.",
-        "casos": ["secoes-10", "curva", "soma", "mesma-secao", "zonas", "sala-cofre", "caminhonete", "cedula", "eleitores"],
+        "casos": ["secoes-10", "curva", "soma", "mesma-secao", "zonas", "sala-cofre", "caminhonete", "cedula", "eleitores", "camera-coberta"],
     },
     {
         "slug": "biometria",
@@ -86,7 +88,7 @@ TEMAS = [
         "tag": "a virada",
         "descricao": "A virada inédita de 2026, a geografia dela e o erro das pesquisas: os números conferem e a conta fecha sem nenhum voto inventado.",
         "intro": "Pela primeira vez desde 1989, quem perdeu o 1º turno ganhou o 2º. É raro, é estranho, e a conta fecha — aqui está como.",
-        "casos": ["virada", "pesquisas", "silva-jardim"],
+        "casos": ["virada", "impossivel", "pesquisas", "silva-jardim"],
     },
     {
         "slug": "prorrogacao",

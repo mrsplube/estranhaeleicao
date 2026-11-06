@@ -86,12 +86,14 @@
     "desinformacao": ["⚖️", "🔁", "⏳"],
     "maquina-celular": ["📲", "⚖️", "🎓"],
     "onibus": ["🏷️", "🚌", "⏰", "🗳️"],
+    "impossivel": ["✅", "📏", null, "🧮", "⚖️", "🔁", "✖️", "🌾", "📉", "🧾"],
+    "camera-coberta": ["📘", "🤫", "🧾", "❔"],
   };
   var V = null;   // casos_videos.json
   var LADOS = null;   // static/casos/lados.json: quem acusa, quem defende e a decisão de cada caso
   // caso → [slug do tema, pergunta do tema] (gerado de temas.json pelo gerador
   // 2026-10-31-temas). Alimenta o "saber mais" no fim da resposta.
-  var TEMAS = {"secoes-10":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"curva":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"soma":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"mesma-secao":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"zonas":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"sala-cofre":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"caminhonete":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"cedula":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"eleitores":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"biometria":["biometria","8,6 milhões de votos sem biometria: é fraude?"],"virada":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"pesquisas":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"silva-jardim":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"prorrogacao":["prorrogacao","Por que a votação foi prorrogada até as 19h?"],"onibus":["prorrogacao","Por que a votação foi prorrogada até as 19h?"],"mesario":["mesario","Mesário pode votar no lugar do eleitor?"],"mesaria":["mesario","Mesário pode votar no lugar do eleitor?"],"consulta":["mesario","Mesário pode votar no lugar do eleitor?"],"pacote":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"maquina-celular":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"exercito":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"universidades":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"desfile":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"faccoes":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"desinformacao":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"compra":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"padroeira":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"]};
+  var TEMAS = {"secoes-10":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"camera-coberta":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"curva":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"soma":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"mesma-secao":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"zonas":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"sala-cofre":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"caminhonete":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"cedula":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"eleitores":["fraude-nas-urnas","As urnas foram fraudadas em 2026?"],"biometria":["biometria","8,6 milhões de votos sem biometria: é fraude?"],"virada":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"impossivel":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"pesquisas":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"silva-jardim":["virada-do-2-turno","A virada do Lula no 2º turno foi possível sem fraude?"],"prorrogacao":["prorrogacao","Por que a votação foi prorrogada até as 19h?"],"onibus":["prorrogacao","Por que a votação foi prorrogada até as 19h?"],"mesario":["mesario","Mesário pode votar no lugar do eleitor?"],"mesaria":["mesario","Mesário pode votar no lugar do eleitor?"],"consulta":["mesario","Mesário pode votar no lugar do eleitor?"],"pacote":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"maquina-celular":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"exercito":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"universidades":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"desfile":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"faccoes":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"desinformacao":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"compra":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"],"padroeira":["campanha-e-governo","Abuso de poder e máquina pública na eleição de 2026"]};
   function mil(x) {
     return x >= 1e6 ? (x / 1e6).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + " mi"
       : x >= 1000 ? Math.round(x / 1000) + " mil" : String(x);
@@ -704,6 +706,49 @@
       ],
     });
   }
+  // "Matematicamente impossível" (06/11/2026): o vídeo do próprio Flávio. Os
+  // percentuais foram lidos na legenda do reel, e não só na transcrição.
+  function impossivel() {
+    var n = V.dados.nacional, U = V.dados.ufs, A = V.dados.ufs_2022;
+    var pct = function (x, a, b) { return 100 * (x[b] / x[a] - 1); };
+    var lula = function (x) { return pc(pct(x, "l1", "l2"), 1); };
+    var flavio = function (x) { return pc(pct(x, "f1", "f2"), 1); };
+    var validos1 = function (x) { return x.l1 + x.f1 + x.t1; };
+    var ganho = function (x) { return pc(100 * (x.l2 - x.l1) / validos1(x), 1); };
+    var base = function (x) { return pc(100 * x.l1 / validos1(x), 0); };
+    var go = U.go, novosGo = (go.c2 - go.bn2) - (go.c1 - go.bn1);
+    var dl = n.lula2 - n.lula1, df = n.flavio2 - n.flavio1;
+    var terc = n.comp1 - n.brancos1 - n.nulos1 - n.lula1 - n.flavio1;
+    var novos = (n.comp2 - n.brancos2 - n.nulos2) - (n.comp1 - n.brancos1 - n.nulos1);
+    return caso({
+      id: "impossivel", titulo: "Matematicamente impossível", tag: "falsa",
+      alegacao: "O Lula ganhou mais de 10,3 milhões de votos em 20 dias e cresceu mais de 43% em Goiás, 35% em São Paulo e 30% no Rio e em Santa Catarina. Isso não fecha.",
+      fontes: [fonte("nd_flavio")],
+      checagem: [L("TSE, votação por seção dos dois turnos", "/dados"),
+        L("Quaest, 10 a 13/10", "https://exame.com/brasil/lula-ou-flavio-quaest-mostra-para-onde-vao-os-votos-de-cury-caiado-e-renan-santos/"),
+        L("AtlasIntel, 13 a 18/10", "https://www.infomoney.com.br/politica/atlasintel-para-onde-foram-os-votos-de-caiado-renan-zema-e-cury-no-2o-turno/"),
+        L("Datafolha, setembro", "https://www.metropoles.com/brasil/datafolha-flavio-atrai-eleitores-de-zema-renan-caiado-e-cury-em-2o-turno")],
+      veredito: "Os 10,3 milhões conferem. Os percentuais, não. E a conta fecha.",
+      pontos: [
+        "<b>Os 10,3 milhões conferem:</b> " + num(dl) + " votos a mais para o Lula e " + num(df) + " para o Flávio.",
+        "<b>Os percentuais estão acima dos do TSE:</b> " + lula(U.go) + " em Goiás, " + lula(U.sp) + " em São Paulo, " + lula(U.rj) + " no Rio e " + lula(U.sc) + " em Santa Catarina.",
+        { visual: visual("Quanto o Lula cresceu entre os turnos", [
+          tabela(["Estado", "O vídeo diz", "TSE, Lula", "TSE, Flávio", "Votos a mais, Lula", "Votos a mais, Flávio"],
+            [["Goiás", "go", "43%"], ["São Paulo", "sp", "35%"], ["Rio de Janeiro", "rj", "30%"], ["Santa Catarina", "sc", "30%"]].map(function (l) {
+              var x = U[l[1]];
+              return [l[0], "mais de " + l[2], lula(x), flavio(x), num(x.l2 - x.l1), num(x.f2 - x.f1)];
+            }))],
+          "Soma das seções no arquivo do TSE, a mesma conferida com o total oficial de cada estado. O vídeo não diz de onde tirou os percentuais.") },
+        "<b>A conta fecha.</b> A terceira via teve " + mi(terc) + " e surgiram " + mi(novos) + " de válidos com mais comparecimento e menos branco e nulo. São " + mi(terc + novos) + ", exatamente o que Lula e Flávio ganharam juntos.",
+        "<b>Base pequena dá percentual grande.</b> O Lula ganhou o equivalente a " + ganho(U.go) + " dos válidos do 1º turno em Goiás e " + ganho(U.pe) + " em Pernambuco. Partiu de " + base(U.go) + " em Goiás e de " + base(U.pe) + " em Pernambuco: virou +" + lula(U.go) + " e +" + lula(U.pe) + ".",
+        "<b>Em 2022 foi o Bolsonaro.</b> No Piauí, ele cresceu " + flavio(A.pi) + " entre os turnos e o Lula, " + lula(A.pi) + ": quase 7 vezes mais. No Ceará, " + flavio(A.ce) + " contra " + lula(A.ce) + ".",
+        "<b>“Três vezes mais” só vale em percentual.</b> Em Santa Catarina foram " + lula(U.sc) + " contra " + flavio(U.sc) + ". Em votos, +" + mil(U.sc.l2 - U.sc.l1) + " para o Lula e +" + mil(U.sc.f2 - U.sc.f1) + " para o Flávio.",
+        "<b>Goiás é o trecho mais estranho.</b> A terceira via teve lá " + pc(100 * go.t1 / validos1(go), 1) + " dos válidos, a maior fatia do país. O Flávio também cresceu lá mais que em qualquer estado. Só que o Lula ganhou " + mil(go.l2 - go.l1) + " e surgiram só " + mil(novosGo) + " válidos: sem ninguém trocar de lado, metade da terceira via foi para ele. Dela, 80% era do Caiado, que apoiou o Flávio, e as pesquisas nacionais davam ao Lula de 24% a 30% desse eleitor. Apoio não obriga o eleitor, e isso é possível, mas é mais do que as pesquisas indicavam.",
+        "<b>Roraima e Acre foram o contrário.</b> O Lula cresceu " + lula(U.rr) + " e " + lula(U.ac) + ", abaixo dos " + pc(100 * dl / n.lula1, 1) + " do país. O Flávio perdeu " + mil(U.rr.f1 - U.rr.f2) + " e " + mil(U.ac.f1 - U.ac.f2) + " votos, com o comparecimento em queda nos dois.",
+        "<b>O vídeo não aponta urna, seção nem boletim.</b> Mostra surpresa com o resultado. Fraude se mostra com um boletim de urna que não bate, e os boletins são públicos.",
+      ],
+    });
+  }
   // Gráfico de linha da chance do Lula na Polymarket em 25/10 (static/casos/polymarket.json).
   var POLY = null;
   function grafPoly() {
@@ -851,6 +896,23 @@
           numero(num(d.mesma_secao.secoes_nos_dois_turnos), "seções para fazer isso"),
           numero("1", "caso investigado, em Salvador"))],
         "Um voto a mais por seção daria 500 mil; a diferença foi de " + mi(d.nacional.margem) + "."),
+    });
+  }
+  // A câmera coberta (06/11/2026). Não achei o vídeo original nem a seção: o
+  // reel é só um deboche sobre o post do TSE, e o site do Fato ou Boato recusa
+  // leitura automática; o texto do TSE citado aqui é o do post.
+  function cameraCoberta() {
+    return caso({
+      id: "camera-coberta", titulo: "A câmera coberta", tag: "normal",
+      alegacao: "Um vídeo mostra a câmera de uma seção eleitoral sendo coberta, e o TSE diz que isso é procedimento normal.",
+      checagem: [fonte("manual_2026"), fonte("tse_camera")],
+      veredito: "A regra existe e está no manual. O vídeo não prova fraude.",
+      pontos: [
+        "<b>Está escrito.</b> Manual do Mesário 2026, p. 12, entre os itens a checar antes da votação: “caso haja câmeras na sala de aula, estas devem ter suas lentes bloqueadas”.",
+        "<b>O motivo é o sigilo do voto.</b> Câmera aberta pode filmar quem vota. A mesma lista manda deixar a tela da urna longe de portas, janelas, espelhos e corredores.",
+        "<b>O voto não depende dessa câmera.</b> A votação não é filmada. O que a confere é a mesa, os fiscais dos partidos e o boletim que a urna imprime na própria seção.",
+        "<b>O vídeo em si segue sem origem.</b> O TSE diz que há dúvida sobre manipulação por IA e não afirma que seja real. Não localizamos a seção nem a data.",
+      ],
     });
   }
   function caminhonete(d) {
@@ -1406,7 +1468,7 @@
       var d = r[0];
       V = r[1]; LADOS = r[2];
       lista.textContent = "";
-      [virada, pesquisas, caminhonete, secoesAte10, silvaJardim, consulta, cedula, eleitores, curva, biometria, mesario, salaCofre, soma, mesmaSecao, zonas].forEach(function (f) {
+      [virada, impossivel, pesquisas, caminhonete, secoesAte10, silvaJardim, consulta, cedula, eleitores, curva, biometria, mesario, cameraCoberta, salaCofre, soma, mesmaSecao, zonas].forEach(function (f) {
         try { lista.appendChild(f(d)); } catch (e) { console.error(e); }
       });
       lista.appendChild(h("div", { class: "divisa-casos" },

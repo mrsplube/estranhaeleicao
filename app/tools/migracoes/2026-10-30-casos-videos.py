@@ -29,6 +29,7 @@ ARQ = RAIZ / "apuracao" / "data" / "arquivo" / "2026-2t"
 CAPAS = RAIZ / "static" / "casos"
 L1, F1, T1, BN1, C1, L2, F2, BN2, C2 = range(9)
 
+# Os casos de 06/11/2026 vêm de 2026-11-06-casos-novos.py: rode-o depois deste.
 # caso → reel escolhido (o de mais curtidas entre os que acusam a mesma coisa)
 VIDEOS = {
     "virada": "DfBFwC2ACEp",        # @pyonglee; também De-UdS6OWmt, De9YCNKNngf

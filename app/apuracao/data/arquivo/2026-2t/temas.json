@@ -105,6 +105,17 @@
     "acusa": "Cidades com mais eleitores que habitantes são o terreno ideal para voto fantasma.",
     "defende": "É gente que mudou e não transferiu o título, somado à população estimada do IBGE. Em Catolândia votaram menos pessoas do que moram lá.",
     "decisao": "O cadastro desatualizado é um problema antigo, mas não vira voto: quem não mora lá não aparece para votar."
+   },
+   {
+    "id": "camera-coberta",
+    "titulo": "A câmera coberta",
+    "busca": "Câmera coberta na seção eleitoral: é fraude?",
+    "tag": "normal",
+    "alegacao": "Um vídeo mostra a câmera de uma seção eleitoral sendo coberta, e o TSE diz que isso é procedimento normal.",
+    "veredito": "A regra existe e está no manual. O vídeo não prova fraude.",
+    "acusa": "Cobrir uma câmera tira a imagem da seção. Se algo acontecesse ali, nada ficaria gravado, e o TSE responde sem dizer se o vídeo é real.",
+    "defende": "O Manual do Mesário 2026 manda bloquear as lentes das câmeras da sala antes da votação, para proteger o sigilo. A votação não é filmada: quem confere é a mesa, os fiscais e o boletim impresso.",
+    "decisao": "Bloquear a lente é regra do manual, com o motivo declarado. O vídeo segue sem origem: seção, data e autenticidade não foram confirmadas."
    }
   ]
  },
@@ -147,6 +158,17 @@
     "acusa": "Nunca aconteceu em 7 segundos turnos, as pesquisas e as apostas erraram para o mesmo lado e o Lula precisou de 3 de cada 4 votos novos. Eventos raros que se somam são exatamente o que uma fraude produziria.",
     "defende": "Raro não é impossível, e cada peça tem explicação conhecida: terceira via com eleitor mais anti-Flávio do que o apoio dos candidatos sugeria, branco/nulo e quem voltou a votar pendendo para o Lula. Pesquisas brasileiras erram por 2 a 3 pontos com frequência.",
     "decisao": "A virada é inédita e as pesquisas erraram, e isso merece explicação. A conta fecha sem nenhum voto inventado: os 5 cenários mostram como."
+   },
+   {
+    "id": "impossivel",
+    "titulo": "Matematicamente impossível",
+    "busca": "Flávio diz que a eleição foi matematicamente impossível: a conta fecha?",
+    "tag": "falsa",
+    "alegacao": "O Lula ganhou mais de 10,3 milhões de votos em 20 dias e cresceu mais de 43% em Goiás, 35% em São Paulo e 30% no Rio e em Santa Catarina. Isso não fecha.",
+    "veredito": "Os 10,3 milhões conferem. Os percentuais, não. E a conta fecha.",
+    "acusa": "Goiás, São Paulo, Rio e Santa Catarina elegeram governador e senadores da direita, e o Lula cresceu neles acima dos 19,3% do país. Em Goiás, sem ninguém trocar de lado, metade da terceira via teria de ir para o Lula, embora 80% dela fosse do Caiado, que apoiou o Flávio.",
+    "defende": "Os percentuais do vídeo estão de 4 a 10 pontos acima dos do TSE. A terceira via e os novos válidos somam exatamente o que os dois ganharam. Percentual alto vem de base baixa: como fatia dos válidos, o ganho em Goiás foi parecido com o de Pernambuco. Em 2022 o Bolsonaro cresceu quase 7 vezes mais que o Lula no Piauí.",
+    "decisao": "Os 10,3 milhões são reais; os 43%, 35% e 30%, não. A transferência da terceira via em Goiás é maior que a indicada pelas pesquisas, mas é possível, e o vídeo não aponta urna, seção ou boletim."
    },
    {
     "id": "pesquisas",
