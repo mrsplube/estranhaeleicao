@@ -97,6 +97,7 @@ def montar() -> list:
     medianas = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in V2.glob("poder-pres-*-mediana.json")}
     v3 = ler("v3-referencias.json")
     par = ler("v3-pareada.json")
+    dep = ler("v4-dependencia.json")
     valid = ler("poder-pres-2022-validacao.json")
     lei26 = (leit or {}).get("disputas_2026", {}).get("pres-2026")
     hoje = date.today().strftime("%d/%m/%Y")
@@ -110,7 +111,7 @@ def montar() -> list:
     cont = {k: sum(1 for v in leituras.values() if v.startswith(k)) for k in ("atípico", "equivalente", "inconclusivo")}
     s += [P("Padrões numéricos alegados como fraude no 2º turno presidencial de 2026: testes pré-registrados "
             f"contra uma classe de referência de {n_pres + n_gov} disputas", "titulo"),
-          P("Versão 2 (preprint)", "sub"),
+          P("Versão 2.1 (preprint)", "sub"),
           P(f"Cauê Neves · estranhaeleicao.org · {hoje}<br/>Código e dados: {REPO} (commit {commit}). Pré-registro: "
             "tags <font face='Mono'>preregistro-v1</font>, <font face='Mono'>-v2</font> e <font face='Mono'>-v3</font>. Código "
             "e redação feitos com IA (Claude e Cursor), sob direção e revisão do autor.", "autor"), Spacer(1, 12)]
@@ -241,6 +242,7 @@ def montar() -> list:
         linhas = [["Teste", "Componente", "2026", "Referência μ̂", "Intervalo de predição", "Percentil", "Leitura"]]
         cs = lambda c: 5 if c["componente"] == "f_e" else 3
         figs = []
+        lei26_comps = lei26["componentes"]
         tirar = {(t, n): f for t, n, f, _, _ in importlib.import_module("tools.migracoes.2026-11-05-v2-leitura").COMPONENTES}
         for c in lei26["componentes"]:
             if c.get("T_2026") is None:
@@ -290,9 +292,11 @@ def montar() -> list:
                            leit_p])
         s += [tabela(linhas, [4.6 * cm, 1.6 * cm, 2.2 * cm, 2 * cm, 2 * cm, 2 * cm, 2.1 * cm]),
               P("Tabela 4. Heterogeneidade por cargo e poder do teste de equivalência.", "legenda"),
-              P("A heterogeneidade vem sobretudo dos governadores: no C6, τ cai de 0,49 para 0,05 só com as "
-                "presidenciais, e no C2 de 0,57 para 0,14. Com essa referência, dispersão entre seções e fraude extrema "
-                "saem equivalentes, com poder alto, e nada sai atípico. São só 4 eleições, e a leitura vem depois do "
+              P("No C6 e no C2 a heterogeneidade vem sobretudo dos governadores: no C6, τ cai de 0,49 para 0,05 só com "
+                "as presidenciais, e no C2 de 0,57 para 0,14. Com essa referência, a dispersão entre seções sai "
+                "equivalente, com poder alto, e nada sai atípico. O f_e é o caso oposto: τ̂ é zero nos três grupos e ele "
+                "já sai equivalente na referência completa, com a ressalva de que 25 das 46 disputas têm f_e igual a "
+                "zero e a aproximação normal é ruim nessa fronteira. São só 4 eleições, e a leitura vem depois do "
                 "resultado: é indicação, não confirmação. Isso sugere que disputas de governador não são comparáveis às "
                 "presidenciais por estes estatísticos, embora a normalização permitisse supor o contrário.")]
         if par:
@@ -304,7 +308,7 @@ def montar() -> list:
             s += [P(f"<b>Comparação pareada (exploratória).</b> Nas mesmas seções, a diferença entre presidente e "
                     f"governador cancela o contexto de UF e ano. O critério, fixado antes, é que ela só ajuda se variar "
                     f"menos que o estatístico sem parear ({texto}). "
-                    + (f"Ajuda em {' e '.join(ajuda)}, e no C6 quase nada. " if ajuda else "Não ajudou em nenhum. ")
+                    + ("Ajuda só no C6, e pouco. " if ajuda == ["C6"] else f"Ajuda em {', '.join(ajuda)}. " if ajuda else "Não ajudou em nenhum. ")
                     + (f"Fora do intervalo em 2026: {', '.join(fora)}, no f_e; a média das seis UFs fica dentro." if fora
                        else "Nenhuma UF de 2026 fica fora do intervalo."))]
         s += [P("<b>Dois resultados que \"inconclusivo\" esconde.</b> O C5 tem sinal oposto ao alegado: onde mais gente "
@@ -312,6 +316,35 @@ def montar() -> list:
                 "persistente do conjunto: 2026 está no percentil 93, e o governador do Acre de 2026 fica próximo do corte "
                 "no BH (0,0505), embora o BY, que a regra exige, dê 0,105. A explicação por erro do modelo vem da "
                 "referência, que tem valores até maiores, e não do dado de 2026.")]
+        linhas = [["Componente", "Margem", "τ̂", "Meia-largura mínima", "Diferença de 2026", "Cabe sem τ?"]]
+        for c in lei26_comps:
+            if c.get("ic90") is None:
+                continue
+            casas = 5 if c["componente"] == "f_e" else 3
+            meia = (c["ic90"][1] - c["ic90"][0]) / 2
+            tau = "—" if c.get("tau2") is None else br(c["tau2"] ** 0.5, casas)
+            linhas.append([f"{c['teste']} {c['componente']}", f"{br(c['margem'][0], casas)} a {br(c['margem'][1], casas)}", tau,
+                           br(meia, casas), br(c["diferenca"], casas), "sim" if meia < c["margem"][1] else "não"])
+        s += [P("<b>As margens.</b> A tabela mostra cada margem, fixada antes de medir τ, contra a meia-largura mínima do "
+                "intervalo de 90%, que só depende dos erros-padrão. Log(0,8) e log(1,25) repetem a banda usual de "
+                "bioequivalência. A justificativa de cada margem está na seção 3 do pré-registro v2, e nenhuma delas "
+                "partiu da variação entre eleições."),
+              tabela(linhas, [4.6 * cm, 3 * cm, 1.5 * cm, 2.2 * cm, 2.2 * cm, 1.7 * cm]),
+              P("Tabela 5. Margens de equivalência, heterogeneidade e precisão.", "legenda")]
+        if dep:
+            f1 = {c["componente"]: c for c in dep["F1"]["componentes"] if c["aplicavel"]}
+            f2 = {c["componente"]: c for c in dep["F2"]["componentes"] if c["aplicavel"]}
+            s += [P(f"<b>Dependência entre disputas (adendo v4).</b> A meta-análise trata as disputas como independentes, "
+                    "mas as do mesmo ano dividem calendário e contexto, e a mesma UF se repete. Repetimos a leitura com um "
+                    "efeito de ano, depois com ano e UF cruzados, e tirando um ano por vez. "
+                    + ("Nenhuma leitura muda, " if not dep["mudancas_contra_a_principal"] else "Há leituras que mudam, ")
+                    + f"o que passa no critério fixado antes. O ano explica {pct(f1['log O/E']['fracao_ano'], 0)} da "
+                    f"heterogeneidade do C1 e {pct(f1['f_i']['fracao_ano'], 0)} da do f_i, e quase nada no C2 e no C6. A UF "
+                    f"pesa mais: no C6, τ de UF é {br(f2['log mediana de φ']['tau2_uf'] ** 0.5, 2)} contra "
+                    f"{br(f2['log mediana de φ']['tau2_disputa'] ** 0.5, 2)} da disputa. Nesse modelo as presidenciais formam "
+                    "um nível próprio, então parte disso é a diferença entre cargos. A variação é, portanto, mais estrutural "
+                    "que conjuntural, mas o dado não diz qual é o mecanismo. Com 4 anos, a variância do efeito de ano é "
+                    "mal estimada: é uma sensibilidade, não uma correção.")]
 
     # ── 8. multiverso ────────────────────────────────────────────────────
     s += [P("9. Robustez", "h1")]
@@ -341,7 +374,7 @@ def montar() -> list:
                 "K = 4, o intervalo de predição usa t com 2 graus de liberdade. O critério registrado era a mesma leitura "
                 "da principal em pelo menos 80% das variações, mas o multiverso usa K = 4 e a principal, K = 46, então as "
                 "duas comparações estão na tabela."),
-              tabela(linhas, [1.2 * cm, 3 * cm, 3.4 * cm, 1.9 * cm, 2.4 * cm, 2.6 * cm]), P("Tabela 5. Multiverso.", "legenda"),
+              tabela(linhas, [1.2 * cm, 3 * cm, 3.4 * cm, 1.9 * cm, 2.4 * cm, 2.6 * cm]), P("Tabela 6. Multiverso.", "legenda"),
               P("Nenhuma das 126 variações muda a leitura dentro da referência de 4 presidenciais, e nenhuma sai atípica. "
                 "A concordância diz pouco sobre atipicidade: com 2 graus de liberdade o intervalo é tão largo que dificilmente "
                 "algo sairia dele. O C6 passa no critério contra K = 4 e falha contra a principal (0 de 12), porque a sua "
@@ -374,7 +407,7 @@ def montar() -> list:
                 "a menor e a maior. Um traço indica que o cenário não coube nos dados em nenhuma base. 1,8% dos válidos "
                 "é a troca que viraria 2026."),
               tabela(linhas, [5 * cm, 1.4 * cm, 1.7 * cm, 1.7 * cm, 1.7 * cm, 1.7 * cm, 2.2 * cm], zebra=True),
-              P("Tabela 6. Taxa de detecção por \"qualquer teste\".", "legenda"),
+              P("Tabela 7. Taxa de detecção por \"qualquer teste\".", "legenda"),
               P("Esta tabela usa, no C3, o centro do cenário sem fraude, que não existe numa eleição real: para o C3 ela "
                 "é um teto. O procedimento real usa a mediana da própria amostra, que a fraude difusa desloca junto "
                 "consigo."
@@ -423,6 +456,12 @@ def montar() -> list:
                "<b>Margens.</b> As margens de equivalência foram propostas pela IA e aceitas pelo autor sem comparação "
                "com a heterogeneidade. É a decisão científica de maior efeito no resultado, e ela não é alterada aqui.",
                "<b>Análises posteriores.</b> A seção 8 foi feita depois de ver os resultados e está rotulada assim.",
+               "<b>Dependência.</b> A análise principal supõe disputas independentes. A sensibilidade da seção 8 não muda "
+               "as leituras, mas o p e o intervalo principais devem ser lidos como otimistas quanto à quantidade de "
+               "informação independente.",
+               "<b>Erro de código corrigido.</b> A primeira versão deste texto, de 06/11/2026, tinha o τ̂ do f_e errado por "
+               "falha do otimizador do REML, o que invalidava a análise de poder. O erro, os números de antes e os de "
+               "depois estão na seção 8 do pré-registro v2.",
                "<b>Causalidade.</b> Mudanças de candidato, campanha e contexto entre eleições entram na heterogeneidade "
                "τ², não são controladas."):
         s.append(P("• " + t_))
