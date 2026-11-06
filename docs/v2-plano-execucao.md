@@ -163,6 +163,8 @@ do registro no OSF, que só ele pode fazer.
 
 ## 5. Estado das etapas
 
+**Atualização de 06/11, tarde: PAPER v2 COM ERRO, EM RECÁLCULO.** A análise F (v4) revelou um erro no `reml` (v2.md §8, 06/11). A leitura de 2026 não muda, mas o P1 e a análise D foram invalidados. `tools/v4-cadeia.sh` (`v4-cadeia.log`) refaz P1, D, validação e G. Quando acabar: commitar os JSON, pôr `PODER_PRONTO = True` no `2026-11-05-v3-site.py` e trocar `"PODER_FINAL"` pelo texto novo, reescrever as frases do paper conforme a curva nova, gerar, revisar e publicar. Só tirar o aviso da `/analise` e de `/dados` depois disso.
+
 **Atualização de 06/11, fim:** tudo terminado às 01h25. Multiverso: 126 variações, 126 iguais à leitura K = 4, nenhuma atípica; C6 equivalente contra K = 4 e inconclusivo na principal. Mediana própria: nenhum dos 28 cenários de enchimento que cabem é detectado (2010 e 2014). Paper v2 publicado em `static/relatorio/estranhaeleicao-paper-v2.pdf`, com links na `/analise` e em `/dados`. Só falta o que depende do autor: DOI no Zenodo e registro no OSF.
 
 **Atualização de 05/11, 21h:** P1 v2 terminou às 19h04 (300 cenários, 132 cabem; troca ≥ 1,8%: 0 detecção nos 16 que cabem; só enchimento 3,57% em 20% das seções, pelo C3, em 2010, 2014 e 2022). Commitado e na `/analise`. Rodando por `tools/v3-cadeia.sh`: multiverso (126 variações) e C3 com mediana própria (só 2010 e 2014, como no `v3.md` D). Quando acabarem: commitar `multiverso.json` e `poder-*-mediana.json`, rodar `2026-11-05-v3-site.py`, gerar o paper, revisar página a página, publicar.
