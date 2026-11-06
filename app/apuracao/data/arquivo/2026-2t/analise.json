@@ -110,10 +110,10 @@
    "pergunta": "Se houvesse fraude de um dado tamanho e formato, os seis testes acima a encontrariam?",
    "estatistica": "Fraude plantada em cada eleição de referência, em 5 desenhos, inclusive formatos estratégicos (redutos, comparecimento alto, locais pequenos).",
    "referencia": "As 4 eleições presidenciais de 2010 a 2022, cada uma lida contra as demais.",
-   "status": "feito",
-   "resultado": "Quase nada detectado. Dos 300 cenários de fraude plantada, 132 cabem nos dados. A troca de 1,8% ou mais dos votos, o bastante para virar 2026, não foi detectada em nenhum dos 16 cenários em que coube. Só um formato foi pego: enchimento de 3,57% dos votos em 20% das seções, em 3 das 4 eleições, pelo C3. Essa conta usa o centro da eleição sem fraude, que não existe numa eleição real, e por isso é um teto. Com a mediana da própria amostra, a detecção cai para 0% em 2010 e 2014. Cada cenário sem detecção tem 20 réplicas: a chance real vai de 0% a 17%. A versão anterior deste teste comparava só com 2022, e o resultado dela foi retirado.",
+   "status": "rodando",
+   "resultado": "Em recálculo. Em 06/11 achamos um erro de otimização na referência da fraude extrema. Ele não muda a leitura de 2026, mas invalida esta curva. O texto anterior, que dizia que a regra quase não detecta fraude, foi retirado até o fim da conta.",
    "decisao": "poder",
-   "dados": "/apuracao/explicacao/v2/poder-pres-2022.json"
+   "dados": null
   }
  ],
  "exploratorio": [
@@ -127,12 +127,13 @@
   "titulo": "O que os testes dizem",
   "paragrafos": [
    "Nenhum dos seis padrões alegados ficou fora do que a variação entre 46 eleições produz. Nenhum saiu atípico.",
-   "Isso não prova que 2026 foi normal. Contra todas as eleições, nenhum dos seis saiu equivalente, e o motivo é o próprio desenho: as eleições variam tanto que, mesmo com uma eleição normal, a chance de sair equivalente seria de 0% a 16%, conforme o teste (9% no das seções zeradas). A margem foi fixada antes de medir essa variação. Foi um erro de desenho, e ele está registrado.",
-   "Quem alarga a referência são os governadores. Contra as 4 presidenciais, a dispersão entre seções e a fraude extrema saem equivalentes, e continua não havendo nada atípico. É uma conta com poucas eleições, feita depois de ver o resultado, e vale como indicação.",
-   "Estes testes pegam pouca fraude. A troca de 1,8% ou mais dos votos, o bastante para virar 2026, não foi detectada em nenhum dos 16 cenários. Com a conta que dá para fazer numa eleição real, nenhum dos 28 cenários de enchimento foi detectado. Nas 126 variações testadas contra as 4 presidenciais, a leitura não mudou e nada saiu atípico. Uma versão anterior desta página dizia que fraude capaz de mudar o resultado teria sido detectada com 95% de probabilidade. Essa frase dependia de comparar com uma eleição só e foi retirada.",
+   "Isso não prova que 2026 foi normal. Nenhum dos seis testes saiu equivalente, e o motivo é o próprio desenho: as eleições variam tanto que, mesmo com uma eleição normal, a chance de sair equivalente seria de 0% a 16% em quase todas as medidas (9% no das seções zeradas). A exceção é a fraude extrema, que quase não varia entre eleições. A margem foi fixada antes de medir essa variação. Foi um erro de desenho, e ele está registrado.",
+   "Quem alarga a referência da dispersão entre seções são os governadores. Contra as 4 presidenciais, ela sai equivalente, e continua não havendo nada atípico. É uma conta com poucas eleições, feita depois de ver o resultado, e vale como indicação.",
+   "Quanto de fraude estes testes pegam está em recálculo. Em 06/11 achamos um erro de otimização na referência da fraude extrema. A leitura de 2026 não muda, mas a curva de poder foi invalidada, e a frase de que a regra quase não detecta fraude foi retirada até o fim da conta. Também foi retirada a frase de uma versão anterior que falava em 95% de detecção.",
    "Os arquivos do TSE coincidem nas 499.205 seções. Uma troca pequena e igual em todas as urnas continua invisível para qualquer análise de dados. Estes testes não provam que houve fraude nem que não houve."
   ]
  },
  "relatorio": "/static/relatorio/estranhaeleicao-paper-v2.pdf",
- "relatorio_v1": "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf"
+ "relatorio_v1": "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf",
+ "aviso_relatorio": "A análise de poder e o f_e deste PDF têm um erro achado em 06/11 e estão sendo refeitos."
 }

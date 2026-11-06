@@ -18,6 +18,7 @@ V2 = ARQ / "v2"
 
 
 BASES = (2010, 2014, 2018, 2022)
+PODER_PRONTO = False  # True quando o P1 corrigido terminar (v2.md §8, 06/11)
 
 
 def resumo_poder() -> dict:
@@ -40,6 +41,27 @@ def resumo_poder() -> dict:
         (c["base"], med[k]) for c in pegos if (k := (c["base"], c["desenho"], c["fracao"], c["tamanho"])) in med]}
 
 
+TEXTO_P1_RODANDO = ("Em recálculo. Em 06/11 achamos um erro de otimização na referência da fraude extrema. Ele não muda a "
+                    "leitura de 2026, mas invalida esta curva. O texto anterior, que dizia que a regra quase não detecta "
+                    "fraude, foi retirado até o fim da conta.")
+
+
+def texto_poder(pod: dict) -> str:
+    prop = pod["c3_proprio"]
+    anos = " e ".join(str(ano) for ano, _ in prop)
+    texto_prop = (f"Com a mediana da própria amostra, a detecção cai para {br(100 * max(d for _, d in prop), 0)}% em {anos}. "
+                  if prop else "")
+    faltam = [ano for ano in (2010, 2014) if ano not in {x for x, _ in prop}]
+    return (f"Quase nada detectado. Dos {pod['total']} cenários de fraude plantada, {pod['cabem']} cabem nos dados. A troca "
+                f"de 1,8% ou mais dos votos, o bastante para virar 2026, não foi detectada em nenhum dos {len(pod['vira'])} "
+                f"cenários em que coube. Só um formato foi pego: enchimento de 3,57% dos votos em 20% das seções, em "
+                f"{len(pod['pegos'])} das 4 eleições, pelo C3. Essa conta usa o centro da eleição sem fraude, que não existe "
+                f"numa eleição real, e por isso é um teto. {texto_prop}"
+                + (f"A conta de {' e '.join(map(str, faltam))} ainda está rodando. " if faltam else "")
+                + "Cada cenário sem detecção tem 20 réplicas: a chance real vai de 0% a 17%. A versão anterior deste teste "
+                "comparava só com 2022, e o resultado dela foi retirado.")
+
+
 def main() -> int:
     a = json.loads((ARQ / "analise.json").read_text(encoding="utf-8"))
     lei = json.loads((V2 / "leitura.json").read_text(encoding="utf-8"))["disputas_2026"]["pres-2026"]
@@ -50,21 +72,8 @@ def main() -> int:
     comp = {(c["teste"], c["componente"]): c for c in lei["componentes"]}
     pc = lambda t, n: br(100 * comp[(t, n)]["percentil"], 0)
     k = lambda t, n: comp[(t, n)]["k"]
-    pod = resumo_poder()
-    assert not any(c["deteccao"]["qualquer"] for c in pod["vira"])
-    prop = pod["c3_proprio"]
-    anos = " e ".join(str(ano) for ano, _ in prop)
-    texto_prop = (f"Com a mediana da própria amostra, a detecção cai para {br(100 * max(d for _, d in prop), 0)}% em {anos}. "
-                  if prop else "")
-    faltam = [ano for ano in (2010, 2014) if ano not in {x for x, _ in prop}]
-    texto_p1 = (f"Quase nada detectado. Dos {pod['total']} cenários de fraude plantada, {pod['cabem']} cabem nos dados. A troca "
-                f"de 1,8% ou mais dos votos, o bastante para virar 2026, não foi detectada em nenhum dos {len(pod['vira'])} "
-                f"cenários em que coube. Só um formato foi pego: enchimento de 3,57% dos votos em 20% das seções, em "
-                f"{len(pod['pegos'])} das 4 eleições, pelo C3. Essa conta usa o centro da eleição sem fraude, que não existe "
-                f"numa eleição real, e por isso é um teto. {texto_prop}"
-                + (f"A conta de {' e '.join(map(str, faltam))} ainda está rodando. " if faltam else "")
-                + "Cada cenário sem detecção tem 20 réplicas: a chance real vai de 0% a 17%. A versão anterior deste teste "
-                "comparava só com 2022, e o resultado dela foi retirado.")
+    pod = resumo_poder() if PODER_PRONTO else None
+    texto_p1 = texto_poder(pod) if pod else TEXTO_P1_RODANDO
     c1, c2, c3, c4, c5, c6 = (pr[x] for x in ("C1", "C2", "C3", "C4", "C5", "C6"))
     textos = {
         "C1": (f"Inconclusivo. São {br(c1['O'], 0)} seções contra {br(c1['E'], 0)} esperadas: {br(c1['T'], 1)} vezes. É alto, "
@@ -97,7 +106,8 @@ def main() -> int:
         if t["id"] == "P1":
             t.pop("tabela", None)
             t.pop("nota", None)
-            t.update({"status": "feito", "decisao": "poder", "dados": "/apuracao/explicacao/v2/poder-pres-2022.json",
+            t.update({"status": "feito" if pod else "rodando", "decisao": "poder",
+                      "dados": "/apuracao/explicacao/v2/poder-pres-2022.json" if pod else None,
                       "referencia": "As 4 eleições presidenciais de 2010 a 2022, cada uma lida contra as demais.",
                       "estatistica": "Fraude plantada em cada eleição de referência, em 5 desenhos, inclusive formatos "
                                      "estratégicos (redutos, comparecimento alto, locais pequenos).",
@@ -105,25 +115,24 @@ def main() -> int:
     tost = v3[("C1", "log O/E")]["todas"]["poder_tost"]
     a["conclusao"] = {"titulo": "O que os testes dizem", "paragrafos": [
         "Nenhum dos seis padrões alegados ficou fora do que a variação entre 46 eleições produz. Nenhum saiu atípico.",
-        "Isso não prova que 2026 foi normal. Contra todas as eleições, nenhum dos seis saiu equivalente, e o motivo é "
-        f"o próprio desenho: as eleições variam tanto que, mesmo com uma eleição normal, a chance de sair equivalente "
-        f"seria de 0% a 16%, conforme o teste ({br(100 * tost, 0)}% no das seções zeradas). A margem foi fixada antes de "
-        "medir essa variação. Foi um erro de desenho, e ele está registrado.",
-        "Quem alarga a referência são os governadores. Contra as 4 presidenciais, a dispersão entre seções e a fraude "
-        "extrema saem equivalentes, e continua não havendo nada atípico. É uma conta com poucas eleições, feita depois "
-        "de ver o resultado, e vale como indicação.",
-        f"Estes testes pegam pouca fraude. A troca de 1,8% ou mais dos votos, o bastante para virar 2026, não foi detectada em "
-        f"nenhum dos {len(pod['vira'])} cenários. Com a conta que dá para fazer numa eleição real, nenhum dos "
-        f"{pod['n_mediana']} cenários de enchimento foi detectado. Nas 126 variações testadas contra as 4 presidenciais, a leitura não mudou e nada saiu atípico. "
-        "Uma versão anterior desta página dizia que fraude capaz de mudar o "
-        "resultado teria sido detectada com 95% de probabilidade. Essa frase dependia de comparar com uma eleição só e foi "
-        "retirada.",
+        "Isso não prova que 2026 foi normal. Nenhum dos seis testes saiu equivalente, e o motivo é o próprio desenho: as "
+        f"eleições variam tanto que, mesmo com uma eleição normal, a chance de sair equivalente seria de 0% a 16% em quase "
+        f"todas as medidas ({br(100 * tost, 0)}% no das seções zeradas). A exceção é a fraude extrema, que quase não varia "
+        "entre eleições. A margem foi fixada antes de medir essa variação. Foi um erro de desenho, e ele está registrado.",
+        "Quem alarga a referência da dispersão entre seções são os governadores. Contra as 4 presidenciais, ela sai "
+        "equivalente, e continua não havendo nada atípico. É uma conta com poucas eleições, feita depois de ver o resultado, "
+        "e vale como indicação.",
+        ("Quanto de fraude estes testes pegam está em recálculo. Em 06/11 achamos um erro de otimização na referência da "
+         "fraude extrema. A leitura de 2026 não muda, mas a curva de poder foi invalidada, e a frase de que a regra quase não "
+         "detecta fraude foi retirada até o fim da conta. Também foi retirada a frase de uma versão anterior que falava em "
+         "95% de detecção." if not pod else "PODER_FINAL"),
         "Os arquivos do TSE coincidem nas 499.205 seções. Uma troca pequena e igual em todas as urnas continua invisível "
         "para qualquer análise de dados. Estes testes não provam que houve fraude nem que não houve.",
     ]}
     a["atualizado_em"] = "2026-11-06"
     a["relatorio"] = "/static/relatorio/estranhaeleicao-paper-v2.pdf"
     a["relatorio_v1"] = "/static/relatorio/estranhaeleicao-relatorio-tecnico.pdf"
+    a["aviso_relatorio"] = None if pod else "A análise de poder e o f_e deste PDF têm um erro achado em 06/11 e estão sendo refeitos."
     a["preregistro"]["v3"] = "https://github.com/mrsplube/estranhaeleicao/blob/main/docs/preregistro/v3.md"
     (ARQ / "analise.json").write_text(json.dumps(a, ensure_ascii=False, indent=1), encoding="utf-8")
     for t in a["testes"]:

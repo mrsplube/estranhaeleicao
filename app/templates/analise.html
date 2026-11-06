@@ -37,7 +37,7 @@
       <p class="m-num">conclusão</p>
       <h2 id="a-concl">{{ a.conclusao.titulo }}</h2>
       {% for p in a.conclusao.paragrafos %}<p>{{ p }}</p>{% endfor %}
-      {% if a.relatorio %}<p class="a-nota">O <a href="{{ a.relatorio }}">paper v2 em PDF</a> reúne a análise completa. O <a href="{{ a.relatorio_v1 }}">relatório v1</a> comparava só com 2022, e as conclusões dele foram substituídas.</p>{% endif %}
+      {% if a.relatorio %}<p class="a-nota">O <a href="{{ a.relatorio }}">paper v2 em PDF</a> reúne a análise completa.{% if a.aviso_relatorio %} <b>{{ a.aviso_relatorio }}</b>{% endif %} O <a href="{{ a.relatorio_v1 }}">relatório v1</a> comparava só com 2022, e as conclusões dele foram substituídas.</p>{% endif %}
       <p class="a-nota">Cada teste, com as contas, está abaixo. As mudanças no plano depois do registro, com data e motivo, estão na seção 9 do <a href="{{ a.preregistro.url }}" target="_blank" rel="noopener">pré-registro</a>.</p>
     </section>
     {% endif %}

@@ -48,12 +48,24 @@ COMPONENTES = [
 
 
 def reml(y, v):
-    """μ̂, τ̂², se(μ̂) por REML (efeitos aleatórios)."""
+    """μ̂, τ̂², se(μ̂) por REML (efeitos aleatórios).
+
+    Até 06/11 a busca era `minimize_scalar` limitada em [0, 10·var(y)], que não enxerga
+    um mínimo muito perto de zero: no f_e do C3 ela parou em τ = 0,00213, quando o ótimo
+    é τ = 0 (ver v2.md §8). Agora há uma grade em escala log, que inclui o zero, e o
+    refinamento só acontece em volta do melhor ponto dela.
+    """
     def menos_l(tau2):
         w = 1 / (v + tau2)
         mu = (w * y).sum() / w.sum()
         return 0.5 * (np.log(v + tau2).sum() + np.log(w.sum()) + (w * (y - mu) ** 2).sum())
-    tau2 = float(minimize_scalar(menos_l, bounds=(0, max(10 * np.var(y), 1e-8)), method="bounded").x)
+    topo = max(10 * np.var(y), 1e-8)
+    grade = np.concatenate([[0.0], np.logspace(np.log10(topo) - 14, np.log10(topo), 600)])
+    valores = [menos_l(x) for x in grade]
+    i = int(np.argmin(valores))
+    lo, hi = grade[max(i - 1, 0)], grade[min(i + 1, len(grade) - 1)]
+    fino = minimize_scalar(menos_l, bounds=(lo, hi), method="bounded", options={"xatol": (hi - lo) * 1e-4})
+    tau2 = float(fino.x) if fino.fun < valores[i] else float(grade[i])
     w = 1 / (v + tau2)
     mu = float((w * y).sum() / w.sum())
     return mu, tau2, float(np.sqrt(1 / w.sum()))

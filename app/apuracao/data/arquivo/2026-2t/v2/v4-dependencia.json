@@ -1,0 +1,826 @@
+{
+ "preregistro": "docs/preregistro/v4.md, análise F (posterior aos resultados)",
+ "principal": {
+  "C1": "inconclusivo",
+  "C2": "inconclusivo",
+  "C3": "inconclusivo",
+  "C4": "inconclusivo",
+  "C5": "inconclusivo",
+  "C6": "inconclusivo"
+ },
+ "F1": {
+  "componentes": [
+   {
+    "teste": "C1",
+    "componente": "log O/E",
+    "aplicavel": true,
+    "k": 46,
+    "anos": 4,
+    "mu": 0.24853522648397436,
+    "tau2_ano": 0.021749030810780206,
+    "tau2_uf": 0.0,
+    "tau2_disputa": 0.28610958235068157,
+    "se_mu": 0.11573731882262156,
+    "fracao_ano": 0.07064616639253665,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 44,
+     "pi": [
+      -0.8958770652472514,
+      1.3929475182152002
+     ],
+     "p": 0.1026057974355456,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -2.194695841345035,
+      2.691766294312983
+     ],
+     "p": 0.1636306778777713,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C2",
+    "componente": "log proporção significativa",
+    "aplicavel": true,
+    "k": 38,
+    "anos": 4,
+    "mu": -4.68739807469953,
+    "tau2_ano": 7.023544085392187e-08,
+    "tau2_uf": 0.0,
+    "tau2_disputa": 0.32214553649744,
+    "se_mu": 0.1137946817134968,
+    "fracao_ano": 2.180238978461694e-07,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 36,
+     "pi": [
+      -5.899924110295615,
+      -3.4748720391034453
+     ],
+     "p": 0.5791748461238814,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -7.259802733668826,
+      -2.114993415730235
+     ],
+     "p": 0.5704365644753007,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C2",
+    "componente": "fração a favor do vencedor",
+    "aplicavel": true,
+    "k": 28,
+    "anos": 4,
+    "mu": 0.5820431186035909,
+    "tau2_ano": 3.2743632371511054e-09,
+    "tau2_uf": 0.0,
+    "tau2_disputa": 0.014744072919012087,
+    "se_mu": 0.04720694396493635,
+    "fracao_ano": 2.2207991834865264e-07,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 26,
+     "pi": [
+      0.2757715358137031,
+      0.8883147013934787
+     ],
+     "p": 0.28747150996591264,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.0590473162800077,
+      1.2231335534871897
+     ],
+     "p": 0.313665038200843,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C3",
+    "componente": "f_e",
+    "aplicavel": true,
+    "k": 46,
+    "anos": 4,
+    "mu": 2.1265538140240008e-05,
+    "tau2_ano": 1.6318151203314067e-10,
+    "tau2_uf": 0.0,
+    "tau2_disputa": 1.4620561810653638e-15,
+    "se_mu": 1.3446492590341282e-05,
+    "fracao_ano": 0.9999910403877045,
+    "equivalente": true,
+    "gl_K": {
+     "gl": 44,
+     "pi": [
+      -0.00025852706402161064,
+      0.0003010581403020907
+     ],
+     "p": 0.5191286747537964,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.0005760698654462009,
+      0.0006186009417266809
+     ],
+     "p": 0.5170457814330487,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C3",
+    "componente": "f_i",
+    "aplicavel": true,
+    "k": 46,
+    "anos": 4,
+    "mu": 0.3150231851139364,
+    "tau2_ano": 0.006591034347177428,
+    "tau2_uf": 0.0,
+    "tau2_disputa": 0.02295416819008518,
+    "se_mu": 0.05290125206397595,
+    "fracao_ano": 0.22308306530864938,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 44,
+     "pi": [
+      -0.07037979872282568,
+      0.7004261689506985
+     ],
+     "p": 0.807449424582769,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.507782153964969,
+      1.1378285241928419
+     ],
+     "p": 0.7635706852190882,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C4",
+    "componente": "correlação hora × mudança",
+    "aplicavel": false,
+    "k": 25,
+    "anos": 2
+   },
+   {
+    "teste": "C5",
+    "componente": "β biometria",
+    "aplicavel": false,
+    "k": 1,
+    "anos": 1
+   },
+   {
+    "teste": "C6",
+    "componente": "log mediana de φ",
+    "aplicavel": true,
+    "k": 44,
+    "anos": 4,
+    "mu": 1.18528501282978,
+    "tau2_ano": 3.270050560004559e-09,
+    "tau2_uf": 0.0,
+    "tau2_disputa": 0.2402010396471965,
+    "se_mu": 0.07469021838632951,
+    "fracao_ano": 1.3613806669153978e-08,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 42,
+     "pi": [
+      0.18453037479748913,
+      2.186039650862071
+     ],
+     "p": 0.7612107534419248,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.9483747241003304,
+      3.3189447497598907
+     ],
+     "p": 0.7886016921377312,
+     "fora": false
+    }
+   }
+  ],
+  "leitura_gl_K": {
+   "C1": "inconclusivo",
+   "C2": "inconclusivo",
+   "C3": "inconclusivo",
+   "C6": "inconclusivo"
+  },
+  "leitura_gl_A": {
+   "C1": "inconclusivo",
+   "C2": "inconclusivo",
+   "C3": "inconclusivo",
+   "C6": "inconclusivo"
+  }
+ },
+ "F2": {
+  "componentes": [
+   {
+    "teste": "C1",
+    "componente": "log O/E",
+    "aplicavel": true,
+    "k": 46,
+    "anos": 4,
+    "mu": 0.21433113689362812,
+    "tau2_ano": 0.028260408960983422,
+    "tau2_uf": 0.09782936529541879,
+    "tau2_disputa": 0.19179481858888303,
+    "se_mu": 0.13458472116145967,
+    "fracao_ano": 0.12842416549536123,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 44,
+     "pi": [
+      -0.9559529683041416,
+      1.3846152420913977
+     ],
+     "p": 0.0974356416394058,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -2.2841342367002326,
+      2.7127965104874887
+     ],
+     "p": 0.15933604355793124,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C2",
+    "componente": "log proporção significativa",
+    "aplicavel": true,
+    "k": 38,
+    "anos": 4,
+    "mu": -4.81893518163348,
+    "tau2_ano": 5.357193265224893e-12,
+    "tau2_uf": 0.23851335766269105,
+    "tau2_disputa": 5.35709564155064e-12,
+    "se_mu": 0.13295978181943302,
+    "fracao_ano": 0.5000045557701077,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 36,
+     "pi": [
+      -5.889298478413443,
+      -3.748571884853516
+     ],
+     "p": 0.4915721521250294,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -7.089737993775094,
+      -2.548132369491866
+     ],
+     "p": 0.4924792403553204,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C2",
+    "componente": "fração a favor do vencedor",
+    "aplicavel": true,
+    "k": 28,
+    "anos": 4,
+    "mu": 0.6027208250222627,
+    "tau2_ano": 3.6674026917389537e-10,
+    "tau2_uf": 0.006445648020948953,
+    "tau2_disputa": 0.0108496657436081,
+    "se_mu": 0.05599563933039695,
+    "fracao_ano": 3.380198666428085e-08,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 26,
+     "pi": [
+      0.2734578577108331,
+      0.9319837923336922
+     ],
+     "p": 0.34650213370647487,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.08649538296514703,
+      1.2919370330096722
+     ],
+     "p": 0.36416854776788543,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C3",
+    "componente": "f_e",
+    "aplicavel": true,
+    "k": 46,
+    "anos": 4,
+    "mu": 2.1280436317688305e-05,
+    "tau2_ano": 1.641222433645181e-10,
+    "tau2_uf": 5.627465642206977e-17,
+    "tau2_disputa": 1.6454729955202278e-17,
+    "se_mu": 1.3458881484882934e-05,
+    "fracao_ano": 0.9999998997410224,
+    "equivalente": true,
+    "gl_K": {
+     "gl": 44,
+     "pi": [
+      -0.0002585214032685396,
+      0.0003010822759039162
+     ],
+     "p": 0.5191705606394533,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.0005760746884499984,
+      0.000618635561085375
+     ],
+     "p": 0.5170830925910979,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C3",
+    "componente": "f_i",
+    "aplicavel": true,
+    "k": 46,
+    "anos": 4,
+    "mu": 0.310751251316039,
+    "tau2_ano": 0.004740586289326291,
+    "tau2_uf": 0.02025295891278539,
+    "tau2_disputa": 0.003156606587577942,
+    "se_mu": 0.05488388582989166,
+    "fracao_ano": 0.6002875152246048,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 44,
+     "pi": [
+      -0.06837557931877275,
+      0.6898780819508508
+     ],
+     "p": 0.8052432191431773,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -0.49865498972778444,
+      1.1201574923598625
+     ],
+     "p": 0.7617877369947752,
+     "fora": false
+    }
+   },
+   {
+    "teste": "C4",
+    "componente": "correlação hora × mudança",
+    "aplicavel": false,
+    "k": 25,
+    "anos": 2
+   },
+   {
+    "teste": "C5",
+    "componente": "β biometria",
+    "aplicavel": false,
+    "k": 1,
+    "anos": 1
+   },
+   {
+    "teste": "C6",
+    "componente": "log mediana de φ",
+    "aplicavel": true,
+    "k": 44,
+    "anos": 4,
+    "mu": 1.2331781533283754,
+    "tau2_ano": 0.0025666830366510534,
+    "tau2_uf": 0.28101344086080915,
+    "tau2_disputa": 0.01272142478778229,
+    "se_mu": 0.1204057774418727,
+    "fracao_ano": 0.1678875545702915,
+    "equivalente": false,
+    "gl_K": {
+     "gl": 42,
+     "pi": [
+      0.10787309931874423,
+      2.358483207338007
+     ],
+     "p": 0.8532384501645885,
+     "fora": false
+    },
+    "gl_A": {
+     "gl": 2,
+     "pi": [
+      -1.1660293989096595,
+      3.6323857055664104
+     ],
+     "p": 0.8695111327100178,
+     "fora": false
+    }
+   }
+  ],
+  "leitura_gl_K": {
+   "C1": "inconclusivo",
+   "C2": "inconclusivo",
+   "C3": "inconclusivo",
+   "C6": "inconclusivo"
+  },
+  "leitura_gl_A": {
+   "C1": "inconclusivo",
+   "C2": "inconclusivo",
+   "C3": "inconclusivo",
+   "C6": "inconclusivo"
+  }
+ },
+ "F3": {
+  "2010": {
+   "leitura": {
+    "C1": "inconclusivo",
+    "C2": "inconclusivo",
+    "C3": "inconclusivo",
+    "C4": "inconclusivo",
+    "C6": "inconclusivo"
+   },
+   "componentes": [
+    {
+     "teste": "C1",
+     "componente": "log O/E",
+     "aplicavel": true,
+     "k": 38,
+     "pp": {
+      "p": 0.11426869199236532,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "log proporção significativa",
+     "aplicavel": true,
+     "k": 31,
+     "pp": {
+      "p": 0.5861437271612484,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "fração a favor do vencedor",
+     "aplicavel": true,
+     "k": 22,
+     "pp": {
+      "p": 0.2933851128657453,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C3",
+     "componente": "f_e",
+     "aplicavel": true,
+     "k": 38,
+     "pp": {
+      "p": 0.49576564886916996,
+      "fora": false
+     },
+     "equivalente": true
+    },
+    {
+     "teste": "C3",
+     "componente": "f_i",
+     "aplicavel": true,
+     "k": 38,
+     "pp": {
+      "p": 0.8215881364093589,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C4",
+     "componente": "correlação hora × mudança",
+     "aplicavel": true,
+     "k": 25,
+     "pp": {
+      "p": 0.5467671293571983,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C5",
+     "aplicavel": false
+    },
+    {
+     "teste": "C6",
+     "componente": "log mediana de φ",
+     "aplicavel": true,
+     "k": 36,
+     "pp": {
+      "p": 0.6749495701837375,
+      "fora": false
+     },
+     "equivalente": false
+    }
+   ]
+  },
+  "2014": {
+   "leitura": {
+    "C1": "inconclusivo",
+    "C2": "inconclusivo",
+    "C3": "inconclusivo",
+    "C4": "inconclusivo",
+    "C6": "inconclusivo"
+   },
+   "componentes": [
+    {
+     "teste": "C1",
+     "componente": "log O/E",
+     "aplicavel": true,
+     "k": 34,
+     "pp": {
+      "p": 0.13398722230823437,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "log proporção significativa",
+     "aplicavel": true,
+     "k": 29,
+     "pp": {
+      "p": 0.5227698944464728,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "fração a favor do vencedor",
+     "aplicavel": true,
+     "k": 21,
+     "pp": {
+      "p": 0.24180523121603276,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C3",
+     "componente": "f_e",
+     "aplicavel": true,
+     "k": 34,
+     "pp": {
+      "p": 0.49469857463407624,
+      "fora": false
+     },
+     "equivalente": true
+    },
+    {
+     "teste": "C3",
+     "componente": "f_i",
+     "aplicavel": true,
+     "k": 34,
+     "pp": {
+      "p": 0.8418820668889441,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C4",
+     "componente": "correlação hora × mudança",
+     "aplicavel": true,
+     "k": 25,
+     "pp": {
+      "p": 0.5467671293571983,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C5",
+     "aplicavel": false
+    },
+    {
+     "teste": "C6",
+     "componente": "log mediana de φ",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.7544057380090469,
+      "fora": false
+     },
+     "equivalente": false
+    }
+   ]
+  },
+  "2018": {
+   "leitura": {
+    "C1": "inconclusivo",
+    "C2": "inconclusivo",
+    "C3": "inconclusivo",
+    "C4": "inconclusivo",
+    "C6": "inconclusivo"
+   },
+   "componentes": [
+    {
+     "teste": "C1",
+     "componente": "log O/E",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.13929350369238216,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "log proporção significativa",
+     "aplicavel": true,
+     "k": 28,
+     "pp": {
+      "p": 0.6271386729176616,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "fração a favor do vencedor",
+     "aplicavel": true,
+     "k": 21,
+     "pp": {
+      "p": 0.34651524428121094,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C3",
+     "componente": "f_e",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.506811545787495,
+      "fora": false
+     },
+     "equivalente": true
+    },
+    {
+     "teste": "C3",
+     "componente": "f_i",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.8611846575109391,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C4",
+     "componente": "correlação hora × mudança",
+     "aplicavel": true,
+     "k": 13,
+     "pp": {
+      "p": 0.38905160158320784,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C5",
+     "aplicavel": false
+    },
+    {
+     "teste": "C6",
+     "componente": "log mediana de φ",
+     "aplicavel": true,
+     "k": 32,
+     "pp": {
+      "p": 0.8174018629944222,
+      "fora": false
+     },
+     "equivalente": false
+    }
+   ]
+  },
+  "2022": {
+   "leitura": {
+    "C1": "inconclusivo",
+    "C2": "inconclusivo",
+    "C3": "inconclusivo",
+    "C4": "inconclusivo",
+    "C6": "inconclusivo"
+   },
+   "componentes": [
+    {
+     "teste": "C1",
+     "componente": "log O/E",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.023673144337504826,
+      "fora": true
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "log proporção significativa",
+     "aplicavel": true,
+     "k": 26,
+     "pp": {
+      "p": 0.5772091074401315,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C2",
+     "componente": "fração a favor do vencedor",
+     "aplicavel": true,
+     "k": 20,
+     "pp": {
+      "p": 0.289395475916529,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C3",
+     "componente": "f_e",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.5684811733023525,
+      "fora": false
+     },
+     "equivalente": true
+    },
+    {
+     "teste": "C3",
+     "componente": "f_i",
+     "aplicavel": true,
+     "k": 33,
+     "pp": {
+      "p": 0.7505664575224922,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C4",
+     "componente": "correlação hora × mudança",
+     "aplicavel": true,
+     "k": 12,
+     "pp": {
+      "p": 0.6758089252185351,
+      "fora": false
+     },
+     "equivalente": false
+    },
+    {
+     "teste": "C5",
+     "aplicavel": false
+    },
+    {
+     "teste": "C6",
+     "componente": "log mediana de φ",
+     "aplicavel": true,
+     "k": 31,
+     "pp": {
+      "p": 0.7882800835004435,
+      "fora": false
+     },
+     "equivalente": false
+    }
+   ]
+  }
+ },
+ "mudancas_contra_a_principal": {}
+}
